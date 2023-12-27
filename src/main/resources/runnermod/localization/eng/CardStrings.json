@@ -29,8 +29,8 @@
 
   "${modID}:Investments": {
     "NAME": "Investments",
-    "DESCRIPTION": "At the start of your turn, add a Investment into your hand",
-    "UPGRADE_DESCRIPTION": "Innate NL At the start of your turn, add a Investment into your hand"
+    "DESCRIPTION": "At the start of your turn, add an Investment into your hand",
+    "UPGRADE_DESCRIPTION": "Innate NL At the start of your turn, add an Investment into your hand"
   },
 
   "${modID}:Interest": {
