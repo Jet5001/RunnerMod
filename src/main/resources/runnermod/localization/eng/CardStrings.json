@@ -1,0 +1,52 @@
+{
+  "${modID}:ExampleCard": {
+    "NAME": "Name",
+    "DESCRIPTION": "Description.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
+  "${modID}:QuickRun": {
+    "NAME": "Quick Run",
+    "DESCRIPTION": "Deal !D! damage. NL If this causes the enemy to lose HP you gain [E]"
+  },
+
+  "${modID}:Pilfer": {
+    "NAME": "Pilfer",
+    "DESCRIPTION": "Deal !D! damage. Gain !M! Gold"
+  },
+
+  "${modID}:Bankroll": {
+    "NAME": "Bankroll",
+    "DESCRIPTION": "Deal damage equal to 1/10th of your total gold",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage.)"
+    ]
+  },
+
+  "${modID}:Investments": {
+    "NAME": "Investments",
+    "DESCRIPTION": "At the start of your turn, add a Investment into your hand",
+    "UPGRADE_DESCRIPTION": "Innate NL At the start of your turn, add a Investment into your hand"
+  },
+
+  "${modID}:Interest": {
+    "NAME": "Interest",
+    "DESCRIPTION": "Gain !M! gold NL Ethereal NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Gain !M! gold NL Exhaust"
+  },
+
+  "${modID}:Stockpile": {
+    "NAME": "Stockpile",
+    "DESCRIPTION": "Gain !M! gold NL Ethereal NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Gain !M! gold NL Exhaust"
+  },
+  "${modID}:EMP": {
+    "NAME": "EMP",
+    "DESCRIPTION": "Remove ALL block from ALL enemies NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Remove ALL block from ALL enemies NL Exhaust Retain"
+  }
+}
