@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
+import runnermod.RunnerMod;
 
 import java.lang.reflect.Field;
 
@@ -57,7 +58,7 @@ public abstract class BasePotion extends AbstractPotion {
             throw new RuntimeException("Potion " + ID + " has spotsColor but no spotsImg; if this is intentional, override checkColors. Otherwise, set spotsColor to null or provide a Texture with setSpotsImg.");
         }
     }
-
+    protected static String makeID(String name) { return RunnerMod.makeID(name); }
     @Override
     public void initializeData() {
         this.potency = this.getPotency();

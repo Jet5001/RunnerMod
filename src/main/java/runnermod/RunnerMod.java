@@ -6,6 +6,7 @@ import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;
 import runnermod.cards.BaseCard;
 import runnermod.character.RunnerCharacter;
+import runnermod.potions.BasePotion;
 import runnermod.util.GeneralUtils;
 import runnermod.util.KeywordInfo;
 import runnermod.util.TextureLoader;
@@ -83,6 +84,7 @@ public class RunnerMod implements
         //Set up the mod information displayed in the in-game mods menu.
         //The information used is taken from your pom.xml file.
         BaseMod.registerModBadge(badgeTexture, info.Name, GeneralUtils.arrToString(info.Authors), info.Description, null);
+        registerPotions();
     }
 
     /*----------Localization----------*/
@@ -220,4 +222,17 @@ public class RunnerMod implements
     public void receiveEditCards() {
         new AutoAdd(modID).packageFilter(BaseCard.class).setDefaultSeen(true).cards();
     }
+
+    public static void registerPotions() {
+        new AutoAdd(modID) //Loads files from this mod
+                .packageFilter(BasePotion.class) //In the same package as this class
+                .any(BasePotion.class, (info, potion) -> { //Run this code for any classes that extend this class
+                    //These three null parameters are colors.
+                    //If they're not null, they'll overwrite whatever color is set in the potions themselves.
+                    //This is an old feature added before having potions determine their own color was possible.
+                    BaseMod.addPotion(potion.getClass(), null, null, null, potion.ID, potion.playerClass);
+                    //playerClass will make a potion character-specific. By default, it's null and will do nothing.
+                });
+    }
+
 }
