@@ -23,12 +23,6 @@ public class EMP extends BaseCard {
             1
     );
 
-    //    //Card Stats
-//    private static final int DAMAGE = 10;
-//    private static final int UPG_DAMAGE =5;
-//
-    private static final int MAGIC = 10;
-    private static final int UPG_MAGIC =0;
 
     public EMP()
     {
@@ -36,7 +30,7 @@ public class EMP extends BaseCard {
         this.exhaust = true;
     }
 
-
+    //called when the card is upgraded to enact implemented change
     @Override
     public void upgrade()
     {
@@ -47,9 +41,11 @@ public class EMP extends BaseCard {
         }
     }
 
+    //called when the card is played and performs the actions for the card
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (AbstractMonster mo: AbstractDungeon.getCurrRoom().monsters.monsters) {
+            //puts remove all block action on the stack
             addToBot(new RemoveAllBlockAction(mo,p));
         }
     }

@@ -18,6 +18,7 @@ public class QuickRunAction extends AbstractGameAction {
     }
 
 
+    //the effect that executes on the stack when able to
     @Override
     public void update() {
         if (target != null)
@@ -26,9 +27,11 @@ public class QuickRunAction extends AbstractGameAction {
             target.damage(info);
             if (target.currentHealth < previousHealth)
             {
+                //add to top to execute next
                 addToTop(new GainEnergyAction(1));
             }
         }
+        //mark as completed so it doesn't repeat every frame and can be removed from the buffer
         this.isDone = true;
     }
 }

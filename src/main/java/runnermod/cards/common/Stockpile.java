@@ -33,22 +33,26 @@ public class Stockpile extends BaseCard {
         super(ID,info);
         this.exhaust = true;
         this.isEthereal = true;
+        //using magic number for the gold because why not. Might come in handy later
         this.setMagic(MAGIC);
     }
 
-
+    //called when the card is upgraded
     @Override
     public void upgrade()
     {
         if (!this.upgraded)
         {
             upgradeName();
+            //remove ehtereal on upgrade
             this.isEthereal = false;
         }
     }
 
+    //called when the card is played
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        //add gain gold action to the stack
         addToBot(new GainGoldAction(magicNumber));
     }
 }

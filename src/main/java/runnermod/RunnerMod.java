@@ -209,11 +209,13 @@ public class RunnerMod implements
         }
     }
 
+    //adds new character to the game
     @Override
     public void receiveEditCharacters() {
         BaseMod.addCharacter(new RunnerCharacter(), CHAR_SELECT_BUTTON,CHAR_SELECT_PORTRAIT, RunnerCharacter.Enums.RUNNER);
     }
 
+    //adds all new cards to the package so they appear in the game
     @Override
     public void receiveEditCards() {
         new AutoAdd(modID).packageFilter(BaseCard.class).setDefaultSeen(true).cards();

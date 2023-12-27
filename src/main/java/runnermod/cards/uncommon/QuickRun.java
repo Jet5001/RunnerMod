@@ -30,8 +30,11 @@ public class QuickRun extends BaseCard {
     }
 
 
+    //when the card is played
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        //put a quickRunAction into the buffer
+        //added new action as specifics of damage delt not done at this scope.
         addToBot(new QuickRunAction(m, new DamageInfo(p,damage, DamageInfo.DamageType.NORMAL)));
     }
 }
