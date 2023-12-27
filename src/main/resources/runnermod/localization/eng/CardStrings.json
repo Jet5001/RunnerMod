@@ -48,5 +48,13 @@
     "NAME": "EMP",
     "DESCRIPTION": "Remove ALL block from ALL enemies NL Exhaust",
     "UPGRADE_DESCRIPTION": "Remove ALL block from ALL enemies NL Exhaust Retain"
+  },
+  "${modID}:AdaptiveShields": {
+    "NAME": "Adaptive Shields",
+    "DESCRIPTION": "If the target intends to attack, apply !M! weak NL gain !B! block"
+  },
+  "${modID}:AdaptiveStrike": {
+    "NAME": "Adaptive Strike",
+    "DESCRIPTION": "If the target does not intend to attack, apply !M! vulnerable NL deal !D! damage"
   }
 }
