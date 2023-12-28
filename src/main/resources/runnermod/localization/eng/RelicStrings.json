@@ -5,5 +5,13 @@
     "DESCRIPTIONS": [
       "Gain [E] at the start of your turn. [E] is an energy icon."
     ]
+  },
+  "${modID}:ICEPick": {
+    "NAME": "ICE Pick",
+    "FLAVOR": "A reliable ICE breaker, works especially well against firewalls",
+    "DESCRIPTIONS": [
+      "Remove an additional ",
+      " block when attacking an enemy with block"
+    ]
   }
 }
