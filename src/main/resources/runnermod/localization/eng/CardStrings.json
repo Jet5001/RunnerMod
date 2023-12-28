@@ -56,5 +56,17 @@
   "${modID}:AdaptiveStrike": {
     "NAME": "Adaptive Strike",
     "DESCRIPTION": "If the target does not intend to attack, apply !M! vulnerable NL deal !D! damage"
+  },
+  "${modID}:SelfRepairScriptsFrail": {
+    "NAME": "Self Repair Scripts",
+    "DESCRIPTION": "Remove !M! frail at the start of each turn"
+  },
+  "${modID}:SelfRepairScriptsWeaken": {
+    "NAME": "Self Repair Scripts",
+    "DESCRIPTION": "Remove !M! weak at the start of each turn"
+  },
+  "${modID}:SelfRepairScriptsVulnerable": {
+    "NAME": "Self Repair Scripts",
+    "DESCRIPTION": "Remove !M! vulnerable at the start of each turn"
   }
 }

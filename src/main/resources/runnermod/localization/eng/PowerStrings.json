@@ -12,5 +12,26 @@
       " #yInterests into your hand.",
       " #yInterest into your hand."
     ]
+  },
+  "${modID}:SelfRepairScriptsFrailPower": {
+    "NAME": "Self Repair Scripts",
+    "DESCRIPTIONS": [
+      "At the start of your turn, remove #b",
+      " frail"
+    ]
+  },
+  "${modID}:SelfRepairScriptsWeakenedPower": {
+    "NAME": "Self Repair Scripts",
+    "DESCRIPTIONS": [
+      "At the start of your turn, remove #b",
+      " weak"
+    ]
+  },
+  "${modID}:SelfRepairScriptsVulnerablePower": {
+    "NAME": "Self Repair Scripts",
+    "DESCRIPTIONS": [
+      "At the start of your turn, remove #b",
+      " vulnerable"
+    ]
   }
 }
