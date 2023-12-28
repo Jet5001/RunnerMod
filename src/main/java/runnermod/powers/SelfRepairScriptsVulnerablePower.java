@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
@@ -22,17 +23,10 @@ public class SelfRepairScriptsVulnerablePower extends BasePower implements Clone
     }
 
     @Override
-    public void atStartOfTurn() {
-        super.atStartOfTurn();
+    public void atStartOfTurnPostDraw() {
+        super.atStartOfTurnPostDraw();
         AbstractCreature player = AbstractDungeon.player;
-        for (AbstractPower p :player.powers) {
-            if (p.ID == VulnerablePower.POWER_ID)
-            {
-                p.amount = p.amount-amount;
-            }
-        }
-        //This didn't work as it removed all stacks not just one
-        //addToBot(new RemoveSpecificPowerAction(player,player, VulnerablePower.POWER_ID));
+        addToBot(new ReducePowerByXAction(VulnerablePower.POWER_ID, player,amount));
     }
 
     @Override

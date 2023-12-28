@@ -33,5 +33,11 @@
       "At the start of your turn, remove #b",
       " vulnerable"
     ]
+  },
+  "${modID}:TaxingUpgradesPower": {
+    "NAME": "Taxing Upgrades",
+    "DESCRIPTIONS": [
+      "At the start of your turn, gain 1 weak and 1 frail, and draw 2 cards"
+    ]
   }
 }

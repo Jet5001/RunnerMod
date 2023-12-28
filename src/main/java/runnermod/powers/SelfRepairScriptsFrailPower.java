@@ -23,18 +23,11 @@ public class SelfRepairScriptsFrailPower extends BasePower implements CloneableP
     }
 
     @Override
-    public void atStartOfTurn() {
-        super.atStartOfTurn();
+    public void atStartOfTurnPostDraw() {
+        super.atStartOfTurnPostDraw();
         AbstractCreature player = AbstractDungeon.player;
 
-        for (AbstractPower p :player.powers) {
-            if (p.ID == FrailPower.POWER_ID)
-            {
-                p.amount = p.amount-amount;
-            }
-        }
-
-        //addToBot(new RemoveSpecificPowerAction(player,player, FrailPower.POWER_ID));
+        addToBot(new ReducePowerByXAction(FrailPower.POWER_ID, player,amount));
     }
 
     @Override

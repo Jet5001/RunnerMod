@@ -73,5 +73,9 @@
     "NAME": "Rig Reboot",
     "DESCRIPTION": "Remove debuffs NL Exhaust",
     "UPGRADE_DESCRIPTION": "Remove debuffs NL Exhaust NL Retain"
+  },
+  "${modID}:TaxingUpgrades": {
+    "NAME": "Taxing Upgrades",
+    "DESCRIPTION": "At the start of your turn, gain 1 weak and 1 frail, and draw 2 cards"
   }
 }

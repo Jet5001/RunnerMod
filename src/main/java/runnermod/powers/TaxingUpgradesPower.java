@@ -1,6 +1,8 @@
 package runnermod.powers;
 
 import basemod.interfaces.CloneablePowerInterface;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -14,31 +16,38 @@ import runnermod.cards.tempcards.Interest;
 
 import static runnermod.RunnerMod.makeID;
 
-public class SelfRepairScriptsWeakenedPower extends BasePower implements CloneablePowerInterface {
+public class TaxingUpgradesPower extends BasePower implements CloneablePowerInterface {
 
 
-    public static final String POWER_ID = makeID("SelfRepairScriptsWeakenedPower");
+    public static final String POWER_ID = makeID("TaxingUpgradesPower");
     public static final AbstractPower.PowerType TYPE = PowerType.BUFF;
     private static final boolean TURNBASED = false;
-    public SelfRepairScriptsWeakenedPower(AbstractCreature owner, int RepairAmount)
+    public TaxingUpgradesPower(AbstractCreature owner, int TaxAmount)
     {
-        super(POWER_ID,TYPE,TURNBASED, owner, RepairAmount);
+        super(POWER_ID,TYPE,TURNBASED, owner, TaxAmount);
+    }
+
+    @Override
+    public void atStartOfTurn() {
+        super.atStartOfTurn();
+        AbstractCreature player = AbstractDungeon.player;
+        addToTop(new ApplyPowerAction(player,player,new WeakPower(player,1,false)));
+        addToTop(new ApplyPowerAction(player,player,new FrailPower(player,1,false)));
     }
 
     @Override
     public void atStartOfTurnPostDraw() {
         super.atStartOfTurnPostDraw();
         AbstractCreature player = AbstractDungeon.player;
-
-        addToBot(new ReducePowerByXAction(WeakPower.POWER_ID, player,amount));
+        addToBot(new DrawCardAction(2));
     }
 
     @Override
     public AbstractPower makeCopy() {
-        return new SelfRepairScriptsWeakenedPower(owner, amount);
+        return new TaxingUpgradesPower(owner, amount);
     }
 
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+        this.description = DESCRIPTIONS[0];
     }
 }
