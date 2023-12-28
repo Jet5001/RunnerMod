@@ -68,5 +68,10 @@
   "${modID}:SelfRepairScriptsVulnerable": {
     "NAME": "Self Repair Scripts",
     "DESCRIPTION": "Remove !M! vulnerable at the start of each turn"
+  },
+  "${modID}:RigReboot": {
+    "NAME": "Rig Reboot",
+    "DESCRIPTION": "Remove debuffs NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Remove debuffs NL Exhaust NL Retain"
   }
 }
