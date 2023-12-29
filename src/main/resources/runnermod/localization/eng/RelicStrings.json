@@ -13,5 +13,12 @@
       "Remove an additional ",
       " block when attacking an enemy with block"
     ]
+  },
+  "${modID}:ViralAi": {
+    "NAME": "Viral AI",
+    "FLAVOR": "It tries to pick the best action",
+    "DESCRIPTIONS": [
+      "Gain a strike or a defend at the start of your turn"
+    ]
   }
 }

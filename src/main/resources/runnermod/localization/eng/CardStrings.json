@@ -77,5 +77,13 @@
   "${modID}:TaxingUpgrades": {
     "NAME": "Taxing Upgrades",
     "DESCRIPTION": "At the start of your turn, gain 1 weak and 1 frail, and draw 2 cards"
+  },
+  "${modID}:DefensiveArmourments": {
+    "NAME": "Defensive ARMourments",
+    "DESCRIPTION": "Gain !M! Dexterity"
+  },
+  "${modID}:CombatUpgrades": {
+    "NAME": "Combat Upgrades",
+    "DESCRIPTION": "Gain !M! Strength"
   }
 }
