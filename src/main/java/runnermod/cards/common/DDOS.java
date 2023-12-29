@@ -21,7 +21,7 @@ public class DDOS extends BaseCard {
     );
 
     private static final int DMG = 7;
-    private static final int DMG_UPG = 5;
+    private static final int DMG_UPG = 2;
     public DDOS()
     {
         super(ID,info);
