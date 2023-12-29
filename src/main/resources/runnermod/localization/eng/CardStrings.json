@@ -85,5 +85,9 @@
   "${modID}:CombatUpgrades": {
     "NAME": "Combat Upgrades",
     "DESCRIPTION": "Gain !M! Strength"
+  },
+  "${modID}:DDOS": {
+    "NAME": "DDOS",
+    "DESCRIPTION": "Deal !D! damage to all enemies, any enemy that loses health this way gains 1 vulnerable"
   }
 }
