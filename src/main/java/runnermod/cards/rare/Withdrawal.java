@@ -9,7 +9,7 @@ import runnermod.character.RunnerCharacter;
 import runnermod.util.CardStats;
 
 public class Withdrawal extends BaseCard {
-    public static final String ID = makeID(Investments.class.getSimpleName());
+    public static final String ID = makeID(Withdrawal.class.getSimpleName());
     private static final CardStats info = new CardStats(
             RunnerCharacter.Enums.CARD_COLOR,
             CardType.SKILL,

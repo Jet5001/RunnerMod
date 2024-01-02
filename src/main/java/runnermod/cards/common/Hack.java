@@ -19,7 +19,7 @@ public class Hack extends BaseCard {
             1
     );
 
-    private static final int MAG = 5;
+    private static final int MAG = 3;
     private static final int MAG_UPG = 2;
     public Hack()
     {

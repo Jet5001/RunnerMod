@@ -7,6 +7,7 @@ import basemod.interfaces.PostPowerApplySubscriber;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.localization.PowerStrings;
@@ -30,12 +31,10 @@ public class Hacked extends BasePower implements CloneablePowerInterface, PostPo
     }
 
     @Override
-    public void onSpecificTrigger() {
-        super.onSpecificTrigger();
+    public void atStartOfTurn() {
+        super.atStartOfTurn();
+        addToBot(new ReducePowerAction(owner,owner,Hacked.POWER_ID,1));
     }
-
-
-
 
     @Override
     public AbstractPower makeCopy() {
