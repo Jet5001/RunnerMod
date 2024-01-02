@@ -1,7 +1,9 @@
 package runnermod.powers;
 
 import basemod.interfaces.CloneablePowerInterface;
+import com.megacrit.cardcrawl.actions.common.GainGoldAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -23,7 +25,9 @@ public class InvestmentsPower extends BasePower implements CloneablePowerInterfa
     @Override
     public void atStartOfTurn() {
         super.atStartOfTurn();
-        addToBot(new MakeTempCardInHandAction(new Interest(), 1, false));
+        //addToBot(new MakeTempCardInHandAction(new Interest(), 1, false));
+        addToBot(new GainGoldAction(15));
+        addToBot(new ReducePowerAction(owner,owner,InvestmentsPower.POWER_ID,1));
     }
 
     @Override
