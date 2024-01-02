@@ -26,7 +26,7 @@ public class Interest extends BaseCard {
 //    private static final int DAMAGE = 10;
 //    private static final int UPG_DAMAGE =5;
 //
-    private static final int MAGIC = 10;
+    private static final int MAGIC = 25;
     private static final int UPG_MAGIC =5;
 
     public Interest()

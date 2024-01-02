@@ -29,8 +29,8 @@
 
   "${modID}:Investments": {
     "NAME": "Investments",
-    "DESCRIPTION": "At the start of your turn, add an Investment into your hand",
-    "UPGRADE_DESCRIPTION": "Innate NL At the start of your turn, add an Investment into your hand"
+    "DESCRIPTION": "At the start of your next X turns, add an Investment into your hand",
+    "UPGRADE_DESCRIPTION": "At the start of your next X turns, add an Investment into your hand NL Retain"
   },
 
   "${modID}:Interest": {
@@ -76,18 +76,38 @@
   },
   "${modID}:TaxingUpgrades": {
     "NAME": "Taxing Upgrades",
-    "DESCRIPTION": "At the start of your turn, gain 1 weak and 1 frail, and draw 2 cards"
+    "DESCRIPTION": "At the start of your turn, 50% chance to gain 1 weak and 50% chance to 1 frail, and draw 2 cards"
   },
   "${modID}:DefensiveArmourments": {
     "NAME": "Defensive ARMourments",
-    "DESCRIPTION": "Gain !M! Dexterity"
+    "DESCRIPTION": "Gain !M! Dexterity NL Gain !B! Block"
   },
   "${modID}:CombatUpgrades": {
     "NAME": "Combat Upgrades",
-    "DESCRIPTION": "Gain !M! Strength"
+    "DESCRIPTION": "Gain !M! Strength NL Deal !D! damage"
   },
   "${modID}:DDOS": {
     "NAME": "DDOS",
     "DESCRIPTION": "Deal !D! damage to all enemies, any enemy that loses health this way gains 1 vulnerable"
+  },
+  "${modID}:Strike_Runner": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage"
+  },
+  "${modID}:Defend_Runner": {
+    "NAME": "Defend",
+    "DESCRIPTION": "Gain !B! Block"
+  },
+  "${modID}:Withdrawal": {
+    "NAME": "Withdrawal",
+    "DESCRIPTION": "Add a Bankroll to your discard pile NL Exhaust"
+  },
+  "${modID}:Trojan": {
+    "NAME": "Trojan",
+    "DESCRIPTION": "Apply !M! Vulnerable"
+  },
+  "${modID}:Hack": {
+    "NAME": "Hack",
+    "DESCRIPTION": "Apply !M! Hacked"
   }
 }

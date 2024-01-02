@@ -20,7 +20,7 @@ public class EMP extends BaseCard {
             CardType.SKILL,
             CardRarity.COMMON,
             CardTarget.NONE,
-            1
+            0
     );
 
 

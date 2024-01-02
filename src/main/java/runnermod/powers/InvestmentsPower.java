@@ -14,7 +14,7 @@ public class InvestmentsPower extends BasePower implements CloneablePowerInterfa
 
     public static final String POWER_ID = makeID("InvestmentsPower");
     public static final AbstractPower.PowerType TYPE = PowerType.BUFF;
-    private static final boolean TURNBASED = false;
+    private static final boolean TURNBASED = true;
     public InvestmentsPower(AbstractCreature owner, int investmentAmount)
     {
         super(POWER_ID,TYPE,TURNBASED, owner, investmentAmount);
@@ -23,7 +23,7 @@ public class InvestmentsPower extends BasePower implements CloneablePowerInterfa
     @Override
     public void atStartOfTurn() {
         super.atStartOfTurn();
-        addToBot(new MakeTempCardInHandAction(new Interest(), this.amount, false));
+        addToBot(new MakeTempCardInHandAction(new Interest(), 1, false));
     }
 
     @Override
@@ -32,10 +32,6 @@ public class InvestmentsPower extends BasePower implements CloneablePowerInterfa
     }
 
     public void updateDescription() {
-        if (this.amount > 1) {
-            this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
-        } else {
-            this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2];
-        }
+        this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
     }
 }

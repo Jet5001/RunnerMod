@@ -22,6 +22,10 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.relics.BurningBlood;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
+import runnermod.cards.common.Stockpile;
+import runnermod.cards.starter.Defend_Runner;
+import runnermod.cards.starter.Strike_Runner;
+import runnermod.cards.uncommon.Pilfer;
 import runnermod.relics.ICEPick;
 
 import java.util.ArrayList;
@@ -82,10 +86,15 @@ public class RunnerCharacter extends CustomPlayer {
         ArrayList<String> retVal = new ArrayList<>();
         //List of IDs of cards for your starting deck.
         //If you want multiple of the same card, you have to add it multiple times.
-        retVal.add(Strike_Red.ID);
-        retVal.add(Strike_Red.ID);
-        retVal.add(Defend_Blue.ID);
-        retVal.add(Defend_Blue.ID);
+        retVal.add(Strike_Runner.ID);
+        retVal.add(Strike_Runner.ID);
+        retVal.add(Strike_Runner.ID);
+        retVal.add(Strike_Runner.ID);
+        retVal.add(Defend_Runner.ID);
+        retVal.add(Defend_Runner.ID);
+        retVal.add(Defend_Runner.ID);
+        retVal.add(Defend_Runner.ID);
+        retVal.add(Pilfer.ID);
         retVal.add(Neutralize.ID);
 
         return retVal;

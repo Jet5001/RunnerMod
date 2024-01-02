@@ -39,5 +39,11 @@
     "DESCRIPTIONS": [
       "At the start of your turn, gain 1 weak and 1 frail, and draw 2 cards"
     ]
+  },
+  "${modID}:Hacked": {
+    "NAME": "Hacked",
+    "DESCRIPTIONS": [
+      "Whenever a debuff is applied, take damage equal to the amount of Hacked"
+    ]
   }
 }

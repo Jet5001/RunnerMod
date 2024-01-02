@@ -1,6 +1,7 @@
 package runnermod.cards.uncommon;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
@@ -22,12 +23,15 @@ public class DefensiveArmourments extends BaseCard {
 
     );
 
+    private static final int BLOCK = 2;
+    private static final int BLOCK_UPG = 0;
     private static final int MAGIC = 1;
     private static final int MAGIC_UPG = 1;
     public DefensiveArmourments()
     {
         super(ID,info);
         setMagic(MAGIC,MAGIC_UPG);
+        this.setBlock(BLOCK,BLOCK_UPG);
     }
 
 
@@ -35,5 +39,6 @@ public class DefensiveArmourments extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(p,p,new DexterityPower(p, magicNumber)));
+        addToBot(new GainBlockAction(p,p,this.block));
     }
 }

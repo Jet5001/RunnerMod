@@ -34,6 +34,11 @@ public class Pilfer extends BaseCard {
         setMagic(MAGIC, UPG_MAGIC);
     }
 
+    @Override
+    public void upgrade() {
+        super.upgrade();
+        this.upgradeBaseCost(1);
+    }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {

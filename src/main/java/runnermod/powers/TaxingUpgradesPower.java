@@ -14,6 +14,8 @@ import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import runnermod.cards.tempcards.Interest;
 
+import java.util.Random;
+
 import static runnermod.RunnerMod.makeID;
 
 public class TaxingUpgradesPower extends BasePower implements CloneablePowerInterface {
@@ -31,8 +33,16 @@ public class TaxingUpgradesPower extends BasePower implements CloneablePowerInte
     public void atStartOfTurn() {
         super.atStartOfTurn();
         AbstractCreature player = AbstractDungeon.player;
-        addToTop(new ApplyPowerAction(player,player,new WeakPower(player,1,false)));
-        addToTop(new ApplyPowerAction(player,player,new FrailPower(player,1,false)));
+        int rand = new Random().nextInt(100);
+        if (rand < 50)
+        {
+            addToTop(new ApplyPowerAction(player,player,new WeakPower(player,1,false)));
+        }
+        rand = new Random().nextInt(100);
+        if (rand < 50)
+        {
+            addToTop(new ApplyPowerAction(player,player,new FrailPower(player,1,false)));
+        }
     }
 
     @Override

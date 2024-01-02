@@ -20,7 +20,7 @@ public class Investments extends BaseCard {
             CardType.POWER,
             CardRarity.RARE,
             CardTarget.NONE,
-            1
+            -1
 
     );
 
@@ -37,12 +37,12 @@ public class Investments extends BaseCard {
         if (!this.upgraded)
         {
             upgradeName();
-            isInnate = true;
+            retain = true;
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p,p,new InvestmentsPower(p, 1)));
+        addToBot(new ApplyPowerAction(p,p,new InvestmentsPower(p, this.energyOnUse)));
     }
 }

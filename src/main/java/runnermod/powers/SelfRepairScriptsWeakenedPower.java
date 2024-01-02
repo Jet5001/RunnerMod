@@ -2,6 +2,7 @@ package runnermod.powers;
 
 import basemod.interfaces.CloneablePowerInterface;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -9,6 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.FrailPower;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import runnermod.cards.tempcards.Interest;
 
@@ -30,7 +32,7 @@ public class SelfRepairScriptsWeakenedPower extends BasePower implements Cloneab
         super.atStartOfTurnPostDraw();
         AbstractCreature player = AbstractDungeon.player;
 
-        addToBot(new ReducePowerByXAction(WeakPower.POWER_ID, player,amount));
+        addToBot(new ReducePowerAction(player,player, WeakPower.POWER_ID,this.amount));
     }
 
     @Override

@@ -4,10 +4,13 @@ import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;
+import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import runnermod.cards.BaseCard;
 import runnermod.character.RunnerCharacter;
 import runnermod.potions.BasePotion;
+import runnermod.powers.Hacked;
 import runnermod.relics.BaseRelic;
 import runnermod.util.GeneralUtils;
 import runnermod.util.KeywordInfo;
@@ -36,7 +39,8 @@ public class RunnerMod implements
         EditRelicsSubscriber,
         EditStringsSubscriber,
         EditKeywordsSubscriber,
-        PostInitializeSubscriber{
+        PostInitializeSubscriber,
+        PostPowerApplySubscriber{
     public static ModInfo info;
     public static String modID; //Edit your pom.xml to change this
     static { loadModInfo(); }
@@ -253,5 +257,15 @@ public class RunnerMod implements
                     if (info.seen)
                         UnlockTracker.markRelicAsSeen(relic.relicId);
                 });
+    }
+
+    @Override
+    public void receivePostPowerApplySubscriber(AbstractPower power, AbstractCreature target, AbstractCreature source) {
+        for (AbstractPower pow:target.powers) {
+            if (pow instanceof PostPowerApplySubscriber)
+            {
+                ((PostPowerApplySubscriber) pow).receivePostPowerApplySubscriber(power,target,source);
+            }
+        }
     }
 }
