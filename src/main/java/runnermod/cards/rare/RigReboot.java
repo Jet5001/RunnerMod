@@ -1,6 +1,7 @@
 package runnermod.cards.rare;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -21,11 +22,14 @@ public class RigReboot extends BaseCard {
             0
     );
 
+    private static final int MAG = 2;
+    private static final int MAG_UPG = 0;
 
     public RigReboot()
     {
         super(ID,info);
         this.exhaust = true;
+        setMagic(MAG,MAG_UPG);
     }
 
     @Override
@@ -43,5 +47,6 @@ public class RigReboot extends BaseCard {
                 addToTop(new RemoveSpecificPowerAction(p,p,power));
             }
         }
+        addToTop(new DrawCardAction(magicNumber));
     }
 }

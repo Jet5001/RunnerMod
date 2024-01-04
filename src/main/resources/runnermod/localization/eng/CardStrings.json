@@ -71,8 +71,8 @@
   },
   "${modID}:RigReboot": {
     "NAME": "Rig Reboot",
-    "DESCRIPTION": "Remove debuffs NL Exhaust",
-    "UPGRADE_DESCRIPTION": "Remove debuffs NL Exhaust NL Retain"
+    "DESCRIPTION": "Remove ALL debuffs , NL Draw !M! NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Remove ALL debuffs NL Draw !M! NL Exhaust NL Retain"
   },
   "${modID}:TaxingUpgrades": {
     "NAME": "Taxing Upgrades",
