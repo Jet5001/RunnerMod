@@ -109,5 +109,25 @@
   "${modID}:Hack": {
     "NAME": "Hack",
     "DESCRIPTION": "Apply !M! Hacked"
+  },
+  "${modID}:Virus": {
+    "NAME": "Virus",
+    "DESCRIPTION": "When drawn discard a card at random NL Exhaust"
+  },
+  "${modID}:FaultyUpgrade": {
+    "NAME": "Faulty Upgrade",
+    "DESCRIPTION": "Gain !M! Strength NL Gain !M! Dexterity NL Add 2 Viruses to your discard pile"
+  },
+  "${modID}:GlitchedBlade": {
+    "NAME": "Glitched Blade",
+    "DESCRIPTION": "Deal !D! damage NL Add a virus to your discard pile NL Each time a virus is played increase this card's damage by 6 this combat"
+  },
+  "${modID}:MalwareScan": {
+    "NAME": "Malware Scan",
+    "DESCRIPTION": "Upgrade ALL Virus cards to 0 NL Draw a card"
+  },
+  "${modID}:Upgrades": {
+    "NAME": "Upgrades",
+    "DESCRIPTION": "Upgrade a !M! random cards in your hand NL Draw !M! cards"
   }
 }
