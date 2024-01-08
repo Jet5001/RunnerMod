@@ -141,5 +141,9 @@
   "${modID}:Flourish": {
     "NAME": "Flourish",
     "DESCRIPTION": "Deal !D! block NL increases with Dexterity instead of Strength"
+  },
+  "${modID}:WallOfStatic": {
+    "NAME": "Wall of Static",
+    "DESCRIPTION": "Whenever you apply a debuff to an enemy gain !M! block"
   }
 }
