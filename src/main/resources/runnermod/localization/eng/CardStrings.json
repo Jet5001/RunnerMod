@@ -145,5 +145,9 @@
   "${modID}:WallOfStatic": {
     "NAME": "Wall of Static",
     "DESCRIPTION": "Whenever you apply a debuff to an enemy gain !M! block"
+  },
+  "${modID}:TimeIsMoney": {
+    "NAME": "Time is Money",
+    "DESCRIPTION": "Spend 50 gold NL Take another turn"
   }
 }

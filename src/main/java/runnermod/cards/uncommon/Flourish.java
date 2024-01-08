@@ -58,6 +58,7 @@ public class Flourish extends BaseCard {
         {
             originalStr = strength.amount;
         }
+
         AbstractPower dex = AbstractDungeon.player.getPower("Dexterity");
         if (dex!=null)
         {

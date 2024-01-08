@@ -14,8 +14,8 @@ import com.megacrit.cardcrawl.helpers.CardHelper;
 public class LiquidGold extends BasePotion implements OnStartBattleSubscriber {
     public static final String ID = makeID(LiquidGold.class.getSimpleName());
 
-    private static final Color LIQUID_COLOR = CardHelper.getColor(255, 0, 255);
-    private static final Color HYBRID_COLOR = CardHelper.getColor(255, 0, 255);
+    private static final Color LIQUID_COLOR = CardHelper.getColor(255, 190, 20);
+    private static final Color HYBRID_COLOR = CardHelper.getColor(255, 190, 20);
     private static final Color SPOTS_COLOR = null;
 
     public LiquidGold()
