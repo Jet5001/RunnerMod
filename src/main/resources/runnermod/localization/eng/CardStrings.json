@@ -129,5 +129,17 @@
   "${modID}:Upgrades": {
     "NAME": "Upgrades",
     "DESCRIPTION": "Upgrade a !M! random cards in your hand NL Draw !M! cards"
+  },
+  "${modID}:SlowLoris": {
+    "NAME": "Slow Loris",
+    "DESCRIPTION": "Deal !D! damage !M! times"
+  },
+  "${modID}:HeadOn": {
+    "NAME": "Head On",
+    "DESCRIPTION": "Gain !B! block NL increases with Strength instead of Dexterity"
+  },
+  "${modID}:Flourish": {
+    "NAME": "Flourish",
+    "DESCRIPTION": "Deal !D! block NL increases with Dexterity instead of Strength"
   }
 }

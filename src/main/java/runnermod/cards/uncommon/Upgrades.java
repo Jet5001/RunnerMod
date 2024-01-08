@@ -1,12 +1,9 @@
 package runnermod.cards.uncommon;
 
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import runnermod.cards.BaseCard;
-import runnermod.cards.tempcards.Virus;
 import runnermod.character.RunnerCharacter;
 import runnermod.util.CardStats;
 
@@ -32,22 +29,14 @@ public class Upgrades extends BaseCard {
         this.exhaust = true;
         rng = new Random();
         setMagic(MAGIC,MAGIC_UPG);
+        setMagic(MAGIC,MAGIC_UPG);
     }
 
 
     //when the card is played
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int handSize = AbstractDungeon.player.hand.group.size();
-        int cardIndex = rng.nextInt(handSize)-1;
-        AbstractCard c = AbstractDungeon.player.hand.group.get(cardIndex);
-        c.upgrade();
-        if (this.upgraded)
-        {
-            cardIndex = rng.nextInt(handSize)-1;
-            c = AbstractDungeon.player.hand.group.get(cardIndex);
-            c.upgrade();
-        }
+        addToBot(new UpgradeRandomCardsInHandAction(2));
         addToBot(new DrawCardAction(magicNumber));
     }
 }
