@@ -4,7 +4,9 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.EnableEndTurnButtonAction;
+import com.megacrit.cardcrawl.actions.common.EndTurnAction;
 import com.megacrit.cardcrawl.actions.common.GainGoldAction;
+import com.megacrit.cardcrawl.actions.watcher.SkipEnemiesTurnAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -19,7 +21,7 @@ public class TimeIsMoney extends BaseCard {
             CardType.SKILL,
             CardRarity.RARE,
             CardTarget.NONE,
-            0
+            1
 
     );
 
@@ -41,31 +43,7 @@ public class TimeIsMoney extends BaseCard {
         }
         abstractPlayer.gold -= magicNumber;
         //Starts a new Turn
-        AbstractDungeon.player.cardsPlayedThisTurn = 0;
-        GameActionManager GAM = AbstractDungeon.actionManager;
-        GAM.orbsChanneledThisTurn.clear();
-        AbstractDungeon.player.applyStartOfTurnRelics();
-        AbstractDungeon.player.applyStartOfTurnPreDrawCards();
-        AbstractDungeon.player.applyStartOfTurnCards();
-        AbstractDungeon.player.applyStartOfTurnPowers();
-        AbstractDungeon.player.applyStartOfTurnOrbs();
-        GAM.turn++;
-        (AbstractDungeon.getCurrRoom()).skipMonsterTurn = false;
-        GAM.turnHasEnded = false;
-        GAM.totalDiscardedThisTurn = 0;
-        GAM.cardsPlayedThisTurn.clear();
-        GAM.damageReceivedThisTurn = 0;
-        if (!AbstractDungeon.player.hasPower("Barricade") && !AbstractDungeon.player.hasPower("Blur"))
-            if (!AbstractDungeon.player.hasRelic("Calipers")) {
-                AbstractDungeon.player.loseBlock();
-            } else {
-                AbstractDungeon.player.loseBlock(15);
-            }
-        if (!(AbstractDungeon.getCurrRoom()).isBattleOver) {
-            GAM.addToBottom((AbstractGameAction)new DrawCardAction(null, AbstractDungeon.player.gameHandSize, true));
-            AbstractDungeon.player.applyStartOfTurnPostDrawRelics();
-            AbstractDungeon.player.applyStartOfTurnPostDrawPowers();
-        }
+        addToBot(new SkipEnemiesTurnAction());
     }
 }
 

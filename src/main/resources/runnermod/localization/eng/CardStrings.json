@@ -148,6 +148,6 @@
   },
   "${modID}:TimeIsMoney": {
     "NAME": "Time is Money",
-    "DESCRIPTION": "Spend 50 gold NL Take another turn"
+    "DESCRIPTION": "Spend 50 gold NL Take an extra turn after this one"
   }
 }
