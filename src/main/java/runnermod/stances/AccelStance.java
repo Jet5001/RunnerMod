@@ -63,7 +63,7 @@ public class AccelStance extends RunnerStance {
             {
                 AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction("Neutral"));
             }
-            AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new AgilityStance(new String[]{"Agility"}, new int[]{durabilityDictionary.get("Agility")} )));
+            AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new AgilityStance(new String[]{"Agility"}, new int[]{durabilityDictionary.get("Agility")+1} )));
 
         }
         if (durabilityDictionary.get("Agility") == 0)
@@ -72,7 +72,7 @@ public class AccelStance extends RunnerStance {
             {
                 AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction("Neutral"));
             }
-            AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new AgilityStance(new String[]{"Brute"}, new int[]{durabilityDictionary.get("Brute")} )));
+            AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new AgilityStance(new String[]{"Brute"}, new int[]{durabilityDictionary.get("Brute")+1} )));
 
         }
         super.onPlayCard(card);
@@ -96,7 +96,7 @@ public class AccelStance extends RunnerStance {
     public void updateDescription() {
         this.description = "";
         for (String id: Collections.list(durabilityDictionary.keys())) {
-                this.description += id + " : " + durabilityDictionary.get(id) + " turns left";
+                this.description += id + " : " + durabilityDictionary.get(id) + " turns left NL ";
         }
     }
 

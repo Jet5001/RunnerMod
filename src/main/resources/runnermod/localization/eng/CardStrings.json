@@ -149,5 +149,13 @@
   "${modID}:TimeIsMoney": {
     "NAME": "Time is Money",
     "DESCRIPTION": "Spend 50 gold NL Take an extra turn after this one"
+  },
+  "${modID}:AgilityStanceSwitch": {
+    "NAME": "Equip Boosters",
+    "DESCRIPTION": "Equip Boosters"
+  },
+  "${modID}:BruteStanceSwitch": {
+    "NAME": "Equip Blades",
+    "DESCRIPTION": "Equip Blades"
   }
 }

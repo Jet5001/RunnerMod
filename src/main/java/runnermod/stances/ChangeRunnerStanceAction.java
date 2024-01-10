@@ -28,21 +28,30 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
     {
         newStanceID = stanceID;
         this.durabilities[0] = durability;
-        comboLookup.put("Brute","Brute");
-        comboLookup.put("Agility","Agility");
+        //Combo table to reference previous stance and new stance to see what you get
         comboLookup.put("AgilityBrute","Accel");
         comboLookup.put("BruteAgility","Accel");
-        comboLookup.put("BruteBrute","same");
-        comboLookup.put("AgilityAgility","same");
         previousStance = AbstractDungeon.player.stance;
 
         if (!(previousStance instanceof RunnerStance))
         {
-            finalStance = makeStance(comboLookup.get(stanceID));
+            finalStance = makeStance(stanceID);
         }
         else
         {
-            String newID = comboLookup.get(previousStance.ID + stanceID);
+            String newID = "";
+            if (((RunnerStance) previousStance).durabilityDictionary.keys().toString().contains(stanceID))
+            {
+                newID = "same";
+            }
+            else
+            {
+                newID = comboLookup.get(previousStance.ID + stanceID);
+                if (newID == null)
+                {
+                    newID = stanceID;
+                }
+            }
             System.out.println("NEW STANCE ID: " +newID );
             if (newID == "same")
             {

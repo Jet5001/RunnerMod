@@ -14,7 +14,8 @@
   {
     "EQUIP": "Equip",
     "NAMES": [
-      "equip"
+      "equip",
+      "Equip"
     ],
     "DESCRIPTION": "Equipment loses 1 durability for each card you play and automatically combines together. Equipments start at 5 durability"
   },
