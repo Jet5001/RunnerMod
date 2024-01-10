@@ -28,6 +28,7 @@ public class SlowLoris extends BaseCard {
     {
         super(ID,info);
         setDamage(DAMAGE, UPG_DAMAGE);
+        setMagic(MAGIC,MAGIC_UPG);
     }
 
 

@@ -10,21 +10,34 @@ public class UpgradeRandomCardsInHandAction extends AbstractGameAction {
 
     Random rng;
     int amount;
-    UpgradeRandomCardsInHandAction(int amount)
+    AbstractCard source;
+    UpgradeRandomCardsInHandAction(int amount, AbstractCard source)
     {
         super();
         rng = new Random();
         this.amount = amount;
+        this.source = source;
     }
 
 
     @Override
     public void update() {
-        for (int i = 0; i < amount; i++) {
-            int handSize = AbstractDungeon.player.hand.group.size();
-            int cardIndex = rng.nextInt(handSize)-1;
+        int cardsSelected = 0;
+        int handSize = AbstractDungeon.player.hand.group.size();
+        if (handSize<amount)
+        {
+            amount = handSize;
+        }
+        while (cardsSelected < amount)
+        {
+            int cardIndex = rng.nextInt(handSize);
             AbstractCard c = AbstractDungeon.player.hand.group.get(cardIndex);
-            c.upgrade();
+            if (c != source)
+            {
+                c.upgrade();
+                cardsSelected++;
+            }
+
         }
 
         this.isDone = true;

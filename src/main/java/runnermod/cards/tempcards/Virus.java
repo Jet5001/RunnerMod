@@ -18,7 +18,7 @@ import runnermod.util.CardStats;
 public class Virus extends BaseCard {
     public static final String ID = makeID(Virus.class.getSimpleName());
     private static final CardStats info = new CardStats(
-            CardColor.CURSE,
+            CardColor.COLORLESS,
             CardType.CURSE,
             CardRarity.CURSE,
             CardTarget.NONE,

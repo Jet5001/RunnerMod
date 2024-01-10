@@ -36,7 +36,7 @@ public class Upgrades extends BaseCard {
     //when the card is played
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new UpgradeRandomCardsInHandAction(2));
+        addToBot(new UpgradeRandomCardsInHandAction(2, this));
         addToBot(new DrawCardAction(magicNumber));
     }
 }

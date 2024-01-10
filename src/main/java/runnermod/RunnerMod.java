@@ -6,6 +6,7 @@ import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.stances.AbstractStance;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import runnermod.cards.BaseCard;
 import runnermod.character.RunnerCharacter;
@@ -228,6 +229,7 @@ public class RunnerMod implements
     @Override
     public void receiveEditCards() {
         new AutoAdd(modID).packageFilter(BaseCard.class).setDefaultSeen(true).cards();
+        new AutoAdd(modID).packageFilter(AbstractStance.class);
     }
 
     public static void registerPotions() {

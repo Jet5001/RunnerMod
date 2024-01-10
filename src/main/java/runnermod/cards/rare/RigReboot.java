@@ -36,6 +36,7 @@ public class RigReboot extends BaseCard {
     public void upgrade() {
         super.upgrade();
         this.retain = true;
+        this.upgraded = true;
     }
 
     //when the card is played

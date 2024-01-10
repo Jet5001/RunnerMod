@@ -32,13 +32,13 @@ public class HeadOn extends BaseCard {
     public void calculateCardDamage(AbstractMonster m) {
         super.calculateCardDamage(m);
         AbstractPower strength = AbstractDungeon.player.getPower("Strength");
+        AbstractPower dex = AbstractDungeon.player.getPower("Dexterity");
         int originalStr = 0;
         int originalDex = 0;
         if (strength != null)
         {
             originalStr = strength.amount;
         }
-        AbstractPower dex = AbstractDungeon.player.getPower("Dexterity");
         if (dex!=null)
         {
             originalDex = dex.amount;

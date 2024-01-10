@@ -128,7 +128,7 @@
   },
   "${modID}:Upgrades": {
     "NAME": "Upgrades",
-    "DESCRIPTION": "Upgrade a !M! random cards in your hand NL Draw !M! cards"
+    "DESCRIPTION": "Upgrade !M! random cards in your hand NL Draw !M! cards"
   },
   "${modID}:SlowLoris": {
     "NAME": "Slow Loris",
