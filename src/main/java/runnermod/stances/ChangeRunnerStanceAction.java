@@ -33,6 +33,7 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
         comboLookup.put("BruteAgility","Accel");
         previousStance = AbstractDungeon.player.stance;
 
+        //overide stance if not from this mod
         if (!(previousStance instanceof RunnerStance))
         {
             finalStance = makeStance(stanceID);
@@ -40,19 +41,22 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
         else
         {
             String newID = "";
+            //if new stance already part of existing stance then flag as the same
             if (((RunnerStance) previousStance).durabilityDictionary.keys().toString().contains(stanceID))
             {
                 newID = "same";
             }
             else
             {
+                //get combo name if not the same
                 newID = comboLookup.get(previousStance.ID + stanceID);
+                //extra check to be careful
                 if (newID == null)
                 {
                     newID = stanceID;
                 }
             }
-            System.out.println("NEW STANCE ID: " +newID );
+            //if the same update durabilities
             if (newID == "same")
             {
                 changeStance = false;
@@ -62,6 +66,7 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
             }
             else
             {
+                //if a combo make new stance
                 finalStance = makeStance(newID);
                 System.out.println("New Stance : " + finalStance.ID);
             }
@@ -70,6 +75,7 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
     }
 
     //only use when adding combo stance
+    //Not finished yet... to complete when cards that directly add combo stance are added
     ChangeRunnerStanceAction(String[] stanceIDs, int[] durabilitys)
     {
         this.durabilities = durabilitys;
@@ -99,12 +105,13 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
             case "Agility":
                 return new AgilityStance(new String[]{"Agility"},new int[]{durabilities[0]});
             case "Accel":
-
+                //shuffle durabilities into correct spots for this combo
                 if (newStanceID == "Brute")
                 {
                     durabilities[1] = durabilities[0];
                     durabilities[0]=0;
                 }
+                // get max durability for each part
                 for (String id: Collections.list(((RunnerStance) previousStance).durabilityDictionary.keys())) {
                     if (id == "Agility")
                     {
@@ -115,6 +122,7 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
                         durabilities[1] = Math.max(durabilities[1], ((RunnerStance)previousStance).durabilityDictionary.get(id));
                     }
                 }
+                //make new stance and return
                 return new AccelStance(new String[]{"Agility", "Brute"},new int[]{durabilities[0], durabilities[1]});
             default:
                 return new NeutralStance();

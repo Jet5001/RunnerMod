@@ -39,22 +39,10 @@ public class BruteStance extends RunnerStance {
         updateDescription();
     }
 
-//    public float atDamageGive(float damage, DamageInfo.DamageType type) {
-//        if (type == DamageInfo.DamageType.NORMAL)
-//            return damage * 2.0F;
-//        return damage;
-//    }
-//
-//    public float atDamageReceive(float damage, DamageInfo.DamageType type) {
-//        if (type == DamageInfo.DamageType.NORMAL)
-//            return damage * 2.0F;
-//        return damage;
-//    }
 
 
     @Override
     public void onPlayCard(AbstractCard card) {
-        System.out.println("USED CARD IN STANCE");
         if (card.type == AbstractCard.CardType.ATTACK)
         {
             AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, card.cost));
@@ -89,6 +77,7 @@ public class BruteStance extends RunnerStance {
         }
     }
 
+    //start visuals for this stance
     public void onEnterStance() {
         if (sfxId != -1L)
             stopIdleSfx();
@@ -98,6 +87,7 @@ public class BruteStance extends RunnerStance {
         AbstractDungeon.effectsQueue.add(new StanceChangeParticleGenerator(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, "Wrath"));
     }
 
+    //stop visuals for the stance
     public void onExitStance() {
         stopIdleSfx();
     }

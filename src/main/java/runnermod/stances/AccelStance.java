@@ -52,11 +52,12 @@ public class AccelStance extends RunnerStance {
 
     @Override
     public void onPlayCard(AbstractCard card) {
-        System.out.println("USED CARD IN ACCEL STANCE");
 
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player,AbstractDungeon.player,new StrengthPower(AbstractDungeon.player, 1)));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player,AbstractDungeon.player,new DexterityPower(AbstractDungeon.player, 1)));
         reduceDurability();
+
+        //sort out new stance as durabilties fade
         if (durabilityDictionary.get("Brute") == 0)
         {
             if (durabilityDictionary.get("Agility") == 0)
@@ -96,7 +97,7 @@ public class AccelStance extends RunnerStance {
     public void updateDescription() {
         this.description = "";
         for (String id: Collections.list(durabilityDictionary.keys())) {
-                this.description += id + " : " + durabilityDictionary.get(id) + " turns left NL ";
+                this.description += " " + id + " : " + durabilityDictionary.get(id) + " turns left NL ";
         }
     }
 
