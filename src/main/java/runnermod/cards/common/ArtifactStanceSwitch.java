@@ -24,8 +24,6 @@ public class ArtifactStanceSwitch extends BaseCard {
     public ArtifactStanceSwitch()
     {
         super(ID,info);
-        this.exhaust = true;
-        this.isEthereal = true;
         //using magic number for the gold because why not. Might come in handy later
         this.setMagic(MAGIC);
     }
@@ -38,7 +36,6 @@ public class ArtifactStanceSwitch extends BaseCard {
         {
             upgradeName();
             //remove ehtereal on upgrade
-            this.isEthereal = false;
         }
     }
 

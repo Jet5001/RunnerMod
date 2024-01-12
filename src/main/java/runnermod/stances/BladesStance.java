@@ -56,7 +56,7 @@ public class BladesStance extends RunnerStance {
             AbstractDungeon.actionManager.addToBottom(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, card.cost*3), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         }
         reduceDurability();
-        if (durabilityDictionary.get("Blades") == 0)
+        if (durabilityDictionary.get("Blades").equals(0) ||durabilityDictionary.get("Blades").equals(null))
         {
             AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction("Neutral"));
         }

@@ -64,20 +64,22 @@ public class HackStance extends RunnerStance {
         reduceDurability();
 
         //sort out new stance as durabilties fade
-        if (durabilityDictionary.get("Artifact") == 0)
+        if (durabilityDictionary.get("Artifact").equals(0) ||durabilityDictionary.get("Artifact").equals(null))
         {
-            if (durabilityDictionary.get("Blades") == 0)
+            if (durabilityDictionary.get("Blades").equals(0) ||durabilityDictionary.get("Blades").equals(null))
             {
                 AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction("Neutral"));
+                return;
             }
             AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new BladesStance(new String[]{"Blades"}, new int[]{durabilityDictionary.get("Blades")+1} )));
 
         }
-        if (durabilityDictionary.get("Blades") == 0)
+        if (durabilityDictionary.get("Blades").equals(0) ||durabilityDictionary.get("Blades").equals(null))
         {
-            if (durabilityDictionary.get("Artifact") == 0)
+            if (durabilityDictionary.get("Artifact").equals(0) ||durabilityDictionary.get("Artifact").equals(null))
             {
                 AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction("Neutral"));
+                return;
             }
             AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new ArtifactStance(new String[]{"Artifact"}, new int[]{durabilityDictionary.get("Artifact")+1} )));
 

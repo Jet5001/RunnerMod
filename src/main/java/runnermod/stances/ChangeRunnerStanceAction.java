@@ -56,8 +56,19 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
             else
             {
                 //get combo name if not the same
-                newID = comboLookup.get(previousStance.ID + stanceID);
-                //extra check to be careful
+
+                //get previous max durability id to combo with longest lasting part
+                String previousMaxDurabilityID = "";
+                int tempMaxDurability = -1;
+                for (String id: Collections.list(((RunnerStance) previousStance).durabilityDictionary.keys())) {
+                    if (((RunnerStance) previousStance).durabilityDictionary.get(id) > tempMaxDurability)
+                    {
+                        previousMaxDurabilityID=  id;
+                    }
+                }
+                //get combo
+                newID = comboLookup.get(previousMaxDurabilityID + stanceID);
+                //extra check to be careful (defaults to new stance)
                 if (newID == null)
                 {
                     newID = stanceID;

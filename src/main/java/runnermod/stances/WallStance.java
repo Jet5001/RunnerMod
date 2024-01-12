@@ -44,7 +44,7 @@ public class WallStance extends RunnerStance {
             AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, card.cost*3));
         }
         reduceDurability();
-        if (durabilityDictionary.get("Wall") == 0)
+        if (durabilityDictionary.get("Wall").equals(0) ||durabilityDictionary.get("Wall").equals(null))
         {
             AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction("Neutral"));
         }

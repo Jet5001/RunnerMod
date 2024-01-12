@@ -38,7 +38,6 @@ public class BladesStanceSwitch extends BaseCard {
         {
             upgradeName();
             //remove ehtereal on upgrade
-            this.isEthereal = false;
         }
     }
 

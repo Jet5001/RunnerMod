@@ -140,7 +140,7 @@
   },
   "${modID}:Flourish": {
     "NAME": "Flourish",
-    "DESCRIPTION": "Deal !D! block NL increases with Dexterity instead of Strength"
+    "DESCRIPTION": "Deal !D! damage NL increases with Dexterity instead of Strength"
   },
   "${modID}:WallOfStatic": {
     "NAME": "Wall of Static",

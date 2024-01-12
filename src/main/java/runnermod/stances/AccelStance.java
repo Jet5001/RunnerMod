@@ -54,25 +54,25 @@ public class AccelStance extends RunnerStance {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player,AbstractDungeon.player,new StrengthPower(AbstractDungeon.player, 1)));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player,AbstractDungeon.player,new DexterityPower(AbstractDungeon.player, 1)));
         reduceDurability();
-
         //sort out new stance as durabilties fade
-        if (durabilityDictionary.get("Wall") == 0)
+        if (durabilityDictionary.get("Wall").equals(0) ||durabilityDictionary.get("Wall").equals(null) )
         {
-            if (durabilityDictionary.get("Blades") == 0)
+            if (durabilityDictionary.get("Blades").equals(0) ||durabilityDictionary.get("Blades").equals(null))
             {
                 AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction("Neutral"));
+                return;
             }
             AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new BladesStance(new String[]{"Blades"}, new int[]{durabilityDictionary.get("Blades")+1} )));
 
         }
-        if (durabilityDictionary.get("Blades") == 0)
+        if (durabilityDictionary.get("Blades").equals(0) ||durabilityDictionary.get("Blades").equals(null))
         {
-            if (durabilityDictionary.get("Wall") == 0)
+            if (durabilityDictionary.get("Wall").equals(0) ||durabilityDictionary.get("Wall").equals(null))
             {
                 AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction("Neutral"));
+                return;
             }
             AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new BladesStance(new String[]{"Wall"}, new int[]{durabilityDictionary.get("Wall")+1} )));
-
         }
         super.onPlayCard(card);
     }

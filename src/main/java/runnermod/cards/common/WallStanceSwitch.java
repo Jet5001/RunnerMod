@@ -24,8 +24,6 @@ public class WallStanceSwitch extends BaseCard {
     public WallStanceSwitch()
     {
         super(ID,info);
-        this.exhaust = true;
-        this.isEthereal = true;
         //using magic number for the gold because why not. Might come in handy later
         this.setMagic(MAGIC);
     }
@@ -37,8 +35,7 @@ public class WallStanceSwitch extends BaseCard {
         if (!this.upgraded)
         {
             upgradeName();
-            //remove ehtereal on upgrade
-            this.isEthereal = false;
+
         }
     }
 
