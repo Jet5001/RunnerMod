@@ -1,17 +1,14 @@
 package runnermod.cards.common;
 
-import com.megacrit.cardcrawl.actions.common.GainGoldAction;
-import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import runnermod.cards.BaseCard;
 import runnermod.character.RunnerCharacter;
-import runnermod.stances.BruteStance;
 import runnermod.stances.ChangeRunnerStanceAction;
 import runnermod.util.CardStats;
 
-public class BruteStanceSwitch extends BaseCard {
-    public static final String ID = makeID(BruteStanceSwitch.class.getSimpleName());
+public class ArtifactStanceSwitch extends BaseCard {
+    public static final String ID = makeID(ArtifactStanceSwitch.class.getSimpleName());
     private static final CardStats info = new CardStats(
             RunnerCharacter.Enums.CARD_COLOR,
             CardType.SKILL,
@@ -24,7 +21,7 @@ public class BruteStanceSwitch extends BaseCard {
     private static final int MAGIC = 10;
     private static final int UPG_MAGIC =0;
 
-    public BruteStanceSwitch()
+    public ArtifactStanceSwitch()
     {
         super(ID,info);
         this.exhaust = true;
@@ -49,6 +46,6 @@ public class BruteStanceSwitch extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //add gain gold action to the stack
-        addToBot(new ChangeRunnerStanceAction("Brute",5));
+        addToBot(new ChangeRunnerStanceAction("Artifact",5));
     }
 }

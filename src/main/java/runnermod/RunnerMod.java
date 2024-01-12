@@ -156,7 +156,7 @@ public class RunnerMod implements
             keyword.prep();
             registerKeyword(keyword);
         }
-
+        BaseMod.addKeyword(new String[]{"equip"}, "Equipments lose 1 durability for each card you play and automatically combine together.");
         if (!defaultLanguage.equals(getLangString())) {
             try
             {

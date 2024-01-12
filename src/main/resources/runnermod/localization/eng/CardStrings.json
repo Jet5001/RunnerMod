@@ -150,12 +150,16 @@
     "NAME": "Time is Money",
     "DESCRIPTION": "Spend 50 gold NL Take an extra turn after this one"
   },
-  "${modID}:AgilityStanceSwitch": {
-    "NAME": "Equip Boosters",
-    "DESCRIPTION": "Equip Boosters"
-  },
-  "${modID}:BruteStanceSwitch": {
+  "${modID}:BladesStanceSwitch": {
     "NAME": "Equip Blades",
     "DESCRIPTION": "Equip Blades"
+  },
+  "${modID}:WallStanceSwitch": {
+    "NAME": "Equip Shields",
+    "DESCRIPTION": "Equip Shields"
+  },
+  "${modID}:ArtifactStanceSwitch": {
+    "NAME": "Equip Firewall",
+    "DESCRIPTION": "Equip Firewall"
   }
 }

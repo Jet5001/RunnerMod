@@ -7,8 +7,8 @@ import runnermod.character.RunnerCharacter;
 import runnermod.stances.ChangeRunnerStanceAction;
 import runnermod.util.CardStats;
 
-public class AgilityStanceSwitch extends BaseCard {
-    public static final String ID = makeID(AgilityStanceSwitch.class.getSimpleName());
+public class BladesStanceSwitch extends BaseCard {
+    public static final String ID = makeID(BladesStanceSwitch.class.getSimpleName());
     private static final CardStats info = new CardStats(
             RunnerCharacter.Enums.CARD_COLOR,
             CardType.SKILL,
@@ -21,7 +21,7 @@ public class AgilityStanceSwitch extends BaseCard {
     private static final int MAGIC = 10;
     private static final int UPG_MAGIC =0;
 
-    public AgilityStanceSwitch()
+    public BladesStanceSwitch()
     {
         super(ID,info);
         this.exhaust = true;
@@ -46,6 +46,6 @@ public class AgilityStanceSwitch extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //add gain gold action to the stack
-        addToBot(new ChangeRunnerStanceAction("Agility",5));
+        addToBot(new ChangeRunnerStanceAction("Blades",5));
     }
 }

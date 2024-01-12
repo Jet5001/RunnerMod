@@ -3,8 +3,8 @@
     "NAME": "Name",
     "DESCRIPTION": "Description."
   },
-  "${modID}:Brute": {
-    "NAME": "Brute",
+  "${modID}:Wall": {
+    "NAME": "Wall",
     "DESCRIPTION": "When you play an attack gain block equal to it's cost"
   }
 }

@@ -5,7 +5,6 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -20,19 +19,20 @@ import com.megacrit.cardcrawl.vfx.stance.WrathParticleEffect;
 
 import java.util.Collections;
 
-public class AgilityStance extends RunnerStance {
-    public static final String STANCE_ID = "Brute";
+public class BladesStance extends RunnerStance {
+    public static final String STANCE_ID = "Wall";
 
-    private static final StanceStrings stanceString = CardCrawlGame.languagePack.getStanceString("Agility");
+    private static final StanceStrings stanceString = CardCrawlGame.languagePack.getStanceString("Blades");
+    private static final String baseDescription = "Each time you play a skill deal damage equal to 3 times it's cost NL ";
 
     private static long sfxId = -1L;
     private int durability;
 
-    public AgilityStance(String[] ids, int[] durabilties) {
+    public BladesStance(String[] ids, int[] durabilties) {
         super(ids,durabilties);
-        this.ID = "Agility";
-        this.name = "Agility";
-        this.description = "Each time you play a skill deal damage equal to it's cost";
+        this.ID = "Blades";
+        this.name = "Blades";
+        this.description = baseDescription;
         updateDescription();
     }
 
@@ -51,13 +51,12 @@ public class AgilityStance extends RunnerStance {
 
     @Override
     public void onPlayCard(AbstractCard card) {
-        System.out.println("USED CARD IN STANCE");
         if (card.type == AbstractCard.CardType.SKILL)
         {
-            AbstractDungeon.actionManager.addToBottom(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, card.cost), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+            AbstractDungeon.actionManager.addToBottom(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, card.cost*3), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         }
         reduceDurability();
-        if (durabilityDictionary.get("Agility") == 0)
+        if (durabilityDictionary.get("Blades") == 0)
         {
             AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction("Neutral"));
         }
@@ -80,7 +79,7 @@ public class AgilityStance extends RunnerStance {
     }
 
     public void updateDescription() {
-        this.description = "";
+        this.description = baseDescription;
         for (String id: Collections.list(durabilityDictionary.keys())) {
                 this.description += id + " : " + durabilityDictionary.get(id) + " turns left";
         }

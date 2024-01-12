@@ -12,10 +12,9 @@
     "DESCRIPTION": "This is displayed in the tooltip. Spaces should not be used be avoided in NAMES, with the exception of multi-word keywords (see next entry)."
   },
   {
-    "EQUIP": "Equip",
+    "PROPER_NAME": "Equip",
     "NAMES": [
-      "equip",
-      "Equip"
+      "equip"
     ],
     "DESCRIPTION": "Equipment loses 1 durability for each card you play and automatically combines together. Equipments start at 5 durability"
   },
