@@ -78,13 +78,13 @@
     "NAME": "Taxing Upgrades",
     "DESCRIPTION": "At the start of your turn, 50% chance to gain 1 weak and 50% chance to 1 frail, and draw 2 cards"
   },
-  "${modID}:DefensiveArmourments": {
-    "NAME": "Defensive ARMourments",
-    "DESCRIPTION": "Gain !M! Dexterity NL Gain !B! Block"
+  "${modID}:Ward": {
+    "NAME": "Ward",
+    "DESCRIPTION": "Gain !B! Block NL Equip Wall"
   },
-  "${modID}:CombatUpgrades": {
-    "NAME": "Combat Upgrades",
-    "DESCRIPTION": "Gain !M! Strength NL Deal !D! damage"
+  "${modID}:BladeStrike": {
+    "NAME": "Blade Strke",
+    "DESCRIPTION": "Deal !D! damage NL Equip Blades"
   },
   "${modID}:DDOS": {
     "NAME": "DDOS",

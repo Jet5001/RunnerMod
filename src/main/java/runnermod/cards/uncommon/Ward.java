@@ -5,15 +5,13 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 import runnermod.cards.BaseCard;
 import runnermod.character.RunnerCharacter;
-import runnermod.powers.InvestmentsPower;
-import runnermod.powers.TaxingUpgradesPower;
+import runnermod.stances.ChangeRunnerStanceAction;
 import runnermod.util.CardStats;
 
-public class DefensiveArmourments extends BaseCard {
-    public static final String ID = makeID(DefensiveArmourments.class.getSimpleName());
+public class Ward extends BaseCard {
+    public static final String ID = makeID(Ward.class.getSimpleName());
     private static final CardStats info = new CardStats(
             RunnerCharacter.Enums.CARD_COLOR,
             CardType.SKILL,
@@ -23,11 +21,11 @@ public class DefensiveArmourments extends BaseCard {
 
     );
 
-    private static final int BLOCK = 2;
-    private static final int BLOCK_UPG = 0;
-    private static final int MAGIC = 1;
-    private static final int MAGIC_UPG = 1;
-    public DefensiveArmourments()
+    private static final int BLOCK = 5;
+    private static final int BLOCK_UPG = 3;
+    private static final int MAGIC = 5;
+    private static final int MAGIC_UPG = 0;
+    public Ward()
     {
         super(ID,info);
         setMagic(MAGIC,MAGIC_UPG);
@@ -38,7 +36,7 @@ public class DefensiveArmourments extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p,p,new DexterityPower(p, magicNumber)));
+        addToBot(new ChangeRunnerStanceAction("Wall",magicNumber));
         addToBot(new GainBlockAction(p,p,this.block));
     }
 }

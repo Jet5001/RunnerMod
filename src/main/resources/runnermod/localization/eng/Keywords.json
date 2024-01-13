@@ -19,6 +19,32 @@
     "DESCRIPTION": "Equipment loses 1 durability for each card you play and automatically combines together. Equipments start at 5 durability"
   },
   {
+    "PROPER_NAME": "Blades",
+    "NAMES": [
+      "blades",
+      "blade",
+      "Blades",
+      "Blade"
+    ],
+    "DESCRIPTION": "Each time you play a skill deal damage equal to 3 times it's cost"
+  },
+  {
+    "PROPER_NAME": "Shields",
+    "NAMES": [
+      "shields",
+      "shield"
+    ],
+    "DESCRIPTION": "Each time you play an attack gain block equal to 3 times it's cost"
+  },
+  {
+    "PROPER_NAME": "Firewall",
+    "NAMES": [
+      "firewall",
+      "firewallwalls"
+    ],
+    "DESCRIPTION": "You cannot obtain debuffs while in this stance"
+  },
+  {
     "PROPER_NAME": "Multiword Keyword",
     "NAMES": [
       "multiword keyword",

@@ -24,10 +24,8 @@ public class BladesStanceSwitch extends BaseCard {
     public BladesStanceSwitch()
     {
         super(ID,info);
-        this.exhaust = true;
-        this.isEthereal = true;
         //using magic number for the gold because why not. Might come in handy later
-        this.setMagic(MAGIC);
+        this.setMagic(MAGIC, UPG_MAGIC);
     }
 
     //called when the card is upgraded

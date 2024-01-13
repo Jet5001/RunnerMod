@@ -19,7 +19,7 @@ public class Virus extends BaseCard {
     public static final String ID = makeID(Virus.class.getSimpleName());
     private static final CardStats info = new CardStats(
             CardColor.COLORLESS,
-            CardType.CURSE,
+            CardType.STATUS,
             CardRarity.CURSE,
             CardTarget.NONE,
             1
