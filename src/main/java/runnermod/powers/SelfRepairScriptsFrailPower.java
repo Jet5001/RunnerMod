@@ -1,6 +1,7 @@
 package runnermod.powers;
 
 import basemod.interfaces.CloneablePowerInterface;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -27,7 +28,7 @@ public class SelfRepairScriptsFrailPower extends BasePower implements CloneableP
         super.atStartOfTurnPostDraw();
         AbstractCreature player = AbstractDungeon.player;
 
-        addToBot(new ReducePowerByXAction(FrailPower.POWER_ID, player,amount));
+        addToBot(new ReducePowerAction(player,player,FrailPower.POWER_ID,this.amount));
     }
 
     @Override

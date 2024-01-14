@@ -1,8 +1,7 @@
-package runnermod.cards.rare;
+package runnermod.cards.tempcards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.GainGoldAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -14,11 +13,11 @@ import runnermod.util.CardStats;
 public class Bankroll extends BaseCard {
     public static final String ID = makeID(Bankroll.class.getSimpleName());
     private static final CardStats info = new CardStats(
-            RunnerCharacter.Enums.CARD_COLOR,
+            CardColor.COLORLESS,
             CardType.ATTACK,
-            CardRarity.RARE,
+            CardRarity.SPECIAL,
             CardTarget.ENEMY,
-            3
+            1
     );
 
 //    //Card Stats
@@ -27,6 +26,7 @@ public class Bankroll extends BaseCard {
 //
 //    private static final int MAGIC = 15;
 //    private static final int UPG_MAGIC =5;
+    private static int extraDamage = 0;
 
     public Bankroll()
     {
@@ -49,13 +49,12 @@ public class Bankroll extends BaseCard {
         if (!this.upgraded)
         {
             upgradeName();
-            upgradeBaseCost(2);
-            super.upgrade();
+            extraDamage=6;
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m, new DamageInfo(p,damage,DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        addToBot(new DamageAction(m, new DamageInfo(p,damage + extraDamage,DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
     }
 }

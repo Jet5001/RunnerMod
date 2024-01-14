@@ -1,0 +1,10 @@
+{
+  "${modID}:ExampleStance": {
+    "NAME": "Name",
+    "DESCRIPTION": "Description."
+  },
+  "${modID}:Wall": {
+    "NAME": "Wall",
+    "DESCRIPTION": "When you play an attack gain block equal to it's cost"
+  }
+}

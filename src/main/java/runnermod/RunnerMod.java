@@ -4,10 +4,14 @@ import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;
+import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.stances.AbstractStance;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import runnermod.cards.BaseCard;
 import runnermod.character.RunnerCharacter;
 import runnermod.potions.BasePotion;
+import runnermod.powers.Hacked;
 import runnermod.relics.BaseRelic;
 import runnermod.util.GeneralUtils;
 import runnermod.util.KeywordInfo;
@@ -36,7 +40,8 @@ public class RunnerMod implements
         EditRelicsSubscriber,
         EditStringsSubscriber,
         EditKeywordsSubscriber,
-        PostInitializeSubscriber{
+        PostInitializeSubscriber,
+        PostPowerApplySubscriber{
     public static ModInfo info;
     public static String modID; //Edit your pom.xml to change this
     static { loadModInfo(); }
@@ -151,7 +156,7 @@ public class RunnerMod implements
             keyword.prep();
             registerKeyword(keyword);
         }
-
+        BaseMod.addKeyword(new String[]{"equip"}, "Equipments lose 1 durability for each card you play and automatically combine together.");
         if (!defaultLanguage.equals(getLangString())) {
             try
             {
@@ -224,6 +229,7 @@ public class RunnerMod implements
     @Override
     public void receiveEditCards() {
         new AutoAdd(modID).packageFilter(BaseCard.class).setDefaultSeen(true).cards();
+        new AutoAdd(modID).packageFilter(AbstractStance.class);
     }
 
     public static void registerPotions() {
@@ -253,5 +259,15 @@ public class RunnerMod implements
                     if (info.seen)
                         UnlockTracker.markRelicAsSeen(relic.relicId);
                 });
+    }
+
+    @Override
+    public void receivePostPowerApplySubscriber(AbstractPower power, AbstractCreature target, AbstractCreature source) {
+        for (AbstractPower pow:target.powers) {
+            if (pow instanceof PostPowerApplySubscriber)
+            {
+                ((PostPowerApplySubscriber) pow).receivePostPowerApplySubscriber(power,target,source);
+            }
+        }
     }
 }

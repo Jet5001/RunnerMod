@@ -1,39 +1,41 @@
 package runnermod.cards.uncommon;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.DexterityPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 import runnermod.cards.BaseCard;
 import runnermod.character.RunnerCharacter;
-import runnermod.powers.InvestmentsPower;
-import runnermod.powers.TaxingUpgradesPower;
 import runnermod.util.CardStats;
 
-public class DefensiveArmourments extends BaseCard {
-    public static final String ID = makeID(DefensiveArmourments.class.getSimpleName());
+import java.util.Random;
+
+public class Upgrades extends BaseCard {
+    public static final String ID = makeID(Upgrades.class.getSimpleName());
     private static final CardStats info = new CardStats(
             RunnerCharacter.Enums.CARD_COLOR,
             CardType.SKILL,
             CardRarity.UNCOMMON,
-            CardTarget.SELF,
-            1
-
+            CardTarget.NONE,
+            0
     );
 
     private static final int MAGIC = 1;
     private static final int MAGIC_UPG = 1;
-    public DefensiveArmourments()
+    Random rng;
+
+    public Upgrades()
     {
         super(ID,info);
+        this.exhaust = true;
+        rng = new Random();
         setMagic(MAGIC,MAGIC_UPG);
     }
 
 
-
+    //when the card is played
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p,p,new DexterityPower(p, magicNumber)));
+        addToBot(new UpgradeRandomCardsInHandAction(magicNumber, this));
+        addToBot(new DrawCardAction(1));
     }
 }

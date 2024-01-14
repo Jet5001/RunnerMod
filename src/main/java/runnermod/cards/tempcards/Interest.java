@@ -19,14 +19,14 @@ public class Interest extends BaseCard {
             CardType.SKILL,
             CardRarity.SPECIAL,
             CardTarget.NONE,
-            1
+            0
     );
 
     //    //Card Stats
 //    private static final int DAMAGE = 10;
 //    private static final int UPG_DAMAGE =5;
 //
-    private static final int MAGIC = 10;
+    private static final int MAGIC = 25;
     private static final int UPG_MAGIC =5;
 
     public Interest()

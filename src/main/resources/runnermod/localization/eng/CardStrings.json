@@ -29,8 +29,8 @@
 
   "${modID}:Investments": {
     "NAME": "Investments",
-    "DESCRIPTION": "At the start of your turn, add an Investment into your hand",
-    "UPGRADE_DESCRIPTION": "Innate NL At the start of your turn, add an Investment into your hand"
+    "DESCRIPTION": "At the start of your next X turns, add an Investment into your hand",
+    "UPGRADE_DESCRIPTION": "At the start of your next X turns, add an Investment into your hand NL Retain"
   },
 
   "${modID}:Interest": {
@@ -71,23 +71,111 @@
   },
   "${modID}:RigReboot": {
     "NAME": "Rig Reboot",
-    "DESCRIPTION": "Remove debuffs NL Exhaust",
-    "UPGRADE_DESCRIPTION": "Remove debuffs NL Exhaust NL Retain"
+    "DESCRIPTION": "Remove ALL debuffs , NL Draw !M! NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Remove ALL debuffs NL Draw !M! NL Exhaust NL Retain"
   },
   "${modID}:TaxingUpgrades": {
     "NAME": "Taxing Upgrades",
-    "DESCRIPTION": "At the start of your turn, gain 1 weak and 1 frail, and draw 2 cards"
+    "DESCRIPTION": "At the start of your turn, 50% chance to gain 1 weak and 50% chance to 1 frail, and draw 2 cards"
   },
-  "${modID}:DefensiveArmourments": {
-    "NAME": "Defensive ARMourments",
-    "DESCRIPTION": "Gain !M! Dexterity"
+  "${modID}:Ward": {
+    "NAME": "Ward",
+    "DESCRIPTION": "Gain !B! Block NL Equip Wall"
   },
-  "${modID}:CombatUpgrades": {
-    "NAME": "Combat Upgrades",
-    "DESCRIPTION": "Gain !M! Strength"
+  "${modID}:BladeStrike": {
+    "NAME": "Blade Strke",
+    "DESCRIPTION": "Deal !D! damage NL Equip Blades"
   },
   "${modID}:DDOS": {
     "NAME": "DDOS",
     "DESCRIPTION": "Deal !D! damage to all enemies, any enemy that loses health this way gains 1 vulnerable"
+  },
+  "${modID}:Strike_Runner": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage"
+  },
+  "${modID}:Defend_Runner": {
+    "NAME": "Defend",
+    "DESCRIPTION": "Gain !B! Block"
+  },
+  "${modID}:Withdrawal": {
+    "NAME": "Withdrawal",
+    "DESCRIPTION": "Add a Bankroll to your discard pile NL Exhaust"
+  },
+  "${modID}:Trojan": {
+    "NAME": "Trojan",
+    "DESCRIPTION": "Apply !M! Vulnerable"
+  },
+  "${modID}:Hack": {
+    "NAME": "Hack",
+    "DESCRIPTION": "Apply !M! Hacked"
+  },
+  "${modID}:Virus": {
+    "NAME": "Virus",
+    "DESCRIPTION": "When drawn discard a card at random NL Exhaust"
+  },
+  "${modID}:FaultyUpgrade": {
+    "NAME": "Faulty Upgrade",
+    "DESCRIPTION": "Gain !M! Strength NL Gain !M! Dexterity NL Add 2 Viruses to your discard pile"
+  },
+  "${modID}:GlitchedBlade": {
+    "NAME": "Glitched Blade",
+    "DESCRIPTION": "Deal !D! damage NL Add a virus to your discard pile NL Each time a virus is played increase this card's damage by 6 this combat"
+  },
+  "${modID}:MalwareScan": {
+    "NAME": "Malware Scan",
+    "DESCRIPTION": "Upgrade ALL Virus cards to 0 NL Draw a card"
+  },
+  "${modID}:Upgrades": {
+    "NAME": "Upgrades",
+    "DESCRIPTION": "Upgrade !M! random cards in your hand NL Draw 1 card NL Exhaust"
+  },
+  "${modID}:SlowLoris": {
+    "NAME": "Slow Loris",
+    "DESCRIPTION": "Deal !D! damage !M! times"
+  },
+  "${modID}:HeadOn": {
+    "NAME": "Head On",
+    "DESCRIPTION": "Gain !B! block NL increases with Strength instead of Dexterity"
+  },
+  "${modID}:Flourish": {
+    "NAME": "Flourish",
+    "DESCRIPTION": "Deal !D! damage NL increases with Dexterity instead of Strength"
+  },
+  "${modID}:WallOfStatic": {
+    "NAME": "Wall of Static",
+    "DESCRIPTION": "Whenever you apply a debuff to an enemy gain !M! block"
+  },
+  "${modID}:TimeIsMoney": {
+    "NAME": "Time is Money",
+    "DESCRIPTION": "Spend !M! gold NL Take an extra turn after this one"
+  },
+  "${modID}:BladesStanceSwitch": {
+    "NAME": "Equip Blades",
+    "DESCRIPTION": "Equip Blades"
+  },
+  "${modID}:WallStanceSwitch": {
+    "NAME": "Equip Shields",
+    "DESCRIPTION": "Equip Shields"
+  },
+  "${modID}:ArtifactStanceSwitch": {
+    "NAME": "Equip Firewall",
+    "DESCRIPTION": "Equip Firewall"
+  },
+  "${modID}:Durable": {
+    "NAME": "Durable",
+    "DESCRIPTION": "Equipment you equip has 2 more durability"
+  },
+  "${modID}:EndOfTheLine": {
+    "NAME": "End of The Line",
+    "DESCRIPTION": "Deal !D! damage. NL Die next turn NL Exhaust"
+  },
+  "${modID}:InsuranceScam": {
+    "NAME": "Insurance Scam",
+    "DESCRIPTION": "Take !D! damage. Gain !M! times that much gold"
+  },
+  "${modID}:FinancialSmokescreen": {
+    "NAME": "Finanical Smokescreen",
+    "DESCRIPTION": "Lose !M! gold NL Escape the combat"
   }
 }

@@ -1,7 +1,9 @@
 package runnermod.powers;
 
 import basemod.interfaces.CloneablePowerInterface;
+import com.megacrit.cardcrawl.actions.common.GainGoldAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
@@ -14,7 +16,7 @@ public class InvestmentsPower extends BasePower implements CloneablePowerInterfa
 
     public static final String POWER_ID = makeID("InvestmentsPower");
     public static final AbstractPower.PowerType TYPE = PowerType.BUFF;
-    private static final boolean TURNBASED = false;
+    private static final boolean TURNBASED = true;
     public InvestmentsPower(AbstractCreature owner, int investmentAmount)
     {
         super(POWER_ID,TYPE,TURNBASED, owner, investmentAmount);
@@ -23,7 +25,9 @@ public class InvestmentsPower extends BasePower implements CloneablePowerInterfa
     @Override
     public void atStartOfTurn() {
         super.atStartOfTurn();
-        addToBot(new MakeTempCardInHandAction(new Interest(), this.amount, false));
+        //addToBot(new MakeTempCardInHandAction(new Interest(), 1, false));
+        addToBot(new GainGoldAction(15));
+        addToBot(new ReducePowerAction(owner,owner,InvestmentsPower.POWER_ID,1));
     }
 
     @Override
@@ -32,10 +36,6 @@ public class InvestmentsPower extends BasePower implements CloneablePowerInterfa
     }
 
     public void updateDescription() {
-        if (this.amount > 1) {
-            this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
-        } else {
-            this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[2];
-        }
+        this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
     }
 }
