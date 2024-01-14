@@ -21,10 +21,7 @@
   {
     "PROPER_NAME": "Blades",
     "NAMES": [
-      "blades",
-      "blade",
-      "Blades",
-      "Blade"
+      "blades"
     ],
     "DESCRIPTION": "Each time you play a skill deal damage equal to 3 times it's cost"
   },

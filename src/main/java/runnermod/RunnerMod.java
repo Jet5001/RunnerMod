@@ -157,6 +157,10 @@ public class RunnerMod implements
             registerKeyword(keyword);
         }
         BaseMod.addKeyword(new String[]{"equip"}, "Equipments lose 1 durability for each card you play and automatically combine together.");
+        BaseMod.addKeyword(new String[]{"blades"}, "Each time you play a skill deal damage equal to 3 times it's cost");
+        BaseMod.addKeyword(new String[]{"shields"}, "Each time you play an attack gain block equal to 3 times it's cost");
+        BaseMod.addKeyword(new String[]{"firewall"}, "You cannot obtain debuffs while in this stance");
+        BaseMod.addKeyword(new String[]{"hacked"}, "Whenever a debuff is applied, take damage equal to the amount of Hacked");
         if (!defaultLanguage.equals(getLangString())) {
             try
             {
