@@ -38,6 +38,7 @@ public class Investments extends BaseCard {
         {
             upgradeName();
             isInnate = true;
+            super.upgrade();
         }
     }
 

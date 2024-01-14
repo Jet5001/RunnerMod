@@ -22,7 +22,7 @@ public class Stockpile extends BaseCard {
     );
 
 //    //Card Stats
-    private static final int MAGIC = 10;
+    private static final int MAGIC = 15;
     private static final int UPG_MAGIC =0;
 
     public Stockpile()
@@ -31,7 +31,7 @@ public class Stockpile extends BaseCard {
         this.exhaust = true;
         this.isEthereal = true;
         //using magic number for the gold because why not. Might come in handy later
-        this.setMagic(MAGIC);
+        this.setMagic(MAGIC, UPG_MAGIC);
     }
 
     //called when the card is upgraded
@@ -41,8 +41,9 @@ public class Stockpile extends BaseCard {
         if (!this.upgraded)
         {
             upgradeName();
-            //remove ehtereal on upgrade
+            //remove Ethereal on upgrade
             this.isEthereal = false;
+            super.upgrade();
         }
     }
 

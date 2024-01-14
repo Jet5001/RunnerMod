@@ -10,7 +10,7 @@ import runnermod.cards.BaseCard;
 import runnermod.character.RunnerCharacter;
 import runnermod.util.CardStats;
 
-public class Pilfer extends BaseCard {
+public class    Pilfer extends BaseCard {
     public static final String ID = makeID(Pilfer.class.getSimpleName());
     private static final CardStats info = new CardStats(
             RunnerCharacter.Enums.CARD_COLOR,

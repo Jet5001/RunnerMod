@@ -33,6 +33,7 @@ public class TaxingUpgrades extends BaseCard {
         {
             upgradeName();
             upgradeBaseCost(1);
+            super.upgrade();
         }
     }
 

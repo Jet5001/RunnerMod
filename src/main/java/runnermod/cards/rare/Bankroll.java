@@ -50,6 +50,7 @@ public class Bankroll extends BaseCard {
         {
             upgradeName();
             upgradeBaseCost(2);
+            super.upgrade();
         }
     }
 
