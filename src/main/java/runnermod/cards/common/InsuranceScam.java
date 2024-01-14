@@ -1,30 +1,35 @@
 package runnermod.cards.common;
 
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.GainGoldAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import runnermod.cards.BaseCard;
 import runnermod.character.RunnerCharacter;
-import runnermod.stances.ChangeRunnerStanceAction;
 import runnermod.util.CardStats;
 
-public class ArtifactStanceSwitch extends BaseCard {
-    public static final String ID = makeID(ArtifactStanceSwitch.class.getSimpleName());
+public class InsuranceScam extends BaseCard {
+    public static final String ID = makeID(InsuranceScam.class.getSimpleName());
     private static final CardStats info = new CardStats(
             RunnerCharacter.Enums.CARD_COLOR,
             CardType.SKILL,
             CardRarity.COMMON,
-            CardTarget.NONE,
+            CardTarget.SELF,
             1
     );
 
 //    //Card Stats
-    private static final int MAGIC = 5;
-    private static final int UPG_MAGIC =0;
+    private static final int DAMAGE = 5;
+    private static final int DAMAGE_UPG = 0;
+    private static final int MAGIC = 3;
+    private static final int UPG_MAGIC =4;
 
-    public ArtifactStanceSwitch()
+    public InsuranceScam()
     {
         super(ID,info);
-        //using magic number for the gold because why not. Might come in handy later
+        this.exhaust = true;
+        this.setDamage(DAMAGE,DAMAGE_UPG);
         this.setMagic(MAGIC, UPG_MAGIC);
     }
 
@@ -35,7 +40,6 @@ public class ArtifactStanceSwitch extends BaseCard {
         if (!this.upgraded)
         {
             upgradeName();
-            //remove ehtereal on upgrade
         }
     }
 
@@ -43,6 +47,7 @@ public class ArtifactStanceSwitch extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //add gain gold action to the stack
-        addToBot(new ChangeRunnerStanceAction("Artifact",magicNumber));
+        addToBot(new DamageAction(p, new DamageInfo(p,damage, DamageInfo.DamageType.THORNS)));
+        addToBot(new GainGoldAction(damage*magicNumber));
     }
 }

@@ -52,5 +52,12 @@
       "Whenever a debuff is applied to an enemy, gain #b",
       "block "
     ]
+  },
+  "${modID}:Durable": {
+    "NAME": "Durable",
+    "DESCRIPTIONS": [
+      "Whenever you equip an equipment it has #b",
+      "extra durability "
+    ]
   }
 }

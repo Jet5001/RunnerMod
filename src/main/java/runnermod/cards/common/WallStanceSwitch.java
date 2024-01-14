@@ -18,14 +18,14 @@ public class WallStanceSwitch extends BaseCard {
     );
 
 //    //Card Stats
-    private static final int MAGIC = 10;
+    private static final int MAGIC = 5;
     private static final int UPG_MAGIC =0;
 
     public WallStanceSwitch()
     {
         super(ID,info);
         //using magic number for the gold because why not. Might come in handy later
-        this.setMagic(MAGIC);
+        this.setMagic(MAGIC, UPG_MAGIC);
     }
 
     //called when the card is upgraded
@@ -43,6 +43,6 @@ public class WallStanceSwitch extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //add gain gold action to the stack
-        addToBot(new ChangeRunnerStanceAction("Wall",5));
+        addToBot(new ChangeRunnerStanceAction("Wall",magicNumber));
     }
 }

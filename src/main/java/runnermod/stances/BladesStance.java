@@ -20,7 +20,7 @@ import com.megacrit.cardcrawl.vfx.stance.WrathParticleEffect;
 import java.util.Collections;
 
 public class BladesStance extends RunnerStance {
-    public static final String STANCE_ID = "Wall";
+    public static final String STANCE_ID = "Blades";
 
     private static final StanceStrings stanceString = CardCrawlGame.languagePack.getStanceString("Blades");
     private static final String baseDescription = "Each time you play a skill deal damage equal to 3 times it's cost NL ";

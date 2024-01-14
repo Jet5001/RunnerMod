@@ -36,12 +36,12 @@ public class TimeIsMoney extends BaseCard {
         setMagic(MAG,MAG_UPG);
     }
     @Override
-    public void use(AbstractPlayer abstractPlayer, AbstractMonster abstractMonster) {
+    public void use(AbstractPlayer p, AbstractMonster mo) {
         if (AbstractDungeon.player.gold < magicNumber)
         {
             return;
         }
-        abstractPlayer.gold -= magicNumber;
+        p.gold -= magicNumber;
         //Starts a new Turn
         addToBot(new SkipEnemiesTurnAction());
     }

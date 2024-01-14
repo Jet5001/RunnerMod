@@ -16,7 +16,7 @@ public class WallOfStaticPower extends BasePower implements CloneablePowerInterf
 
     public static final String POWER_ID = makeID("WallOfStaticPower");
     public static final PowerType TYPE = PowerType.BUFF;
-    private static final boolean TURNBASED = true;
+    private static final boolean TURNBASED = false;
     public WallOfStaticPower(AbstractCreature owner, int investmentAmount)
     {
         super(POWER_ID,TYPE,TURNBASED, owner, investmentAmount);

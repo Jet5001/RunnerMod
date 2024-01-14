@@ -29,14 +29,13 @@ public class Upgrades extends BaseCard {
         this.exhaust = true;
         rng = new Random();
         setMagic(MAGIC,MAGIC_UPG);
-        setMagic(MAGIC,MAGIC_UPG);
     }
 
 
     //when the card is played
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new UpgradeRandomCardsInHandAction(2, this));
-        addToBot(new DrawCardAction(magicNumber));
+        addToBot(new UpgradeRandomCardsInHandAction(magicNumber, this));
+        addToBot(new DrawCardAction(1));
     }
 }

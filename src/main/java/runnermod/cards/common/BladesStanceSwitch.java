@@ -18,7 +18,7 @@ public class BladesStanceSwitch extends BaseCard {
     );
 
 //    //Card Stats
-    private static final int MAGIC = 10;
+    private static final int MAGIC = 5;
     private static final int UPG_MAGIC =0;
 
     public BladesStanceSwitch()
@@ -43,6 +43,6 @@ public class BladesStanceSwitch extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //add gain gold action to the stack
-        addToBot(new ChangeRunnerStanceAction("Blades",5));
+        addToBot(new ChangeRunnerStanceAction("Blades",magicNumber));
     }
 }

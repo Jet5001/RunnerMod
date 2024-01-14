@@ -19,7 +19,7 @@ public class Interest extends BaseCard {
             CardType.SKILL,
             CardRarity.SPECIAL,
             CardTarget.NONE,
-            1
+            0
     );
 
     //    //Card Stats

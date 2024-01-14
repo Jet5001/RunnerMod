@@ -1,34 +1,31 @@
 package runnermod.cards.rare;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.GainGoldAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import runnermod.cards.BaseCard;
 import runnermod.character.RunnerCharacter;
-import runnermod.powers.InvestmentsPower;
+import runnermod.powers.DurablePower;
+import runnermod.powers.TaxingUpgradesPower;
 import runnermod.util.CardStats;
 
-public class Investments extends BaseCard {
-    public static final String ID = makeID(Investments.class.getSimpleName());
+public class Durable extends BaseCard {
+    public static final String ID = makeID(Durable.class.getSimpleName());
     private static final CardStats info = new CardStats(
             RunnerCharacter.Enums.CARD_COLOR,
             CardType.POWER,
             CardRarity.RARE,
             CardTarget.NONE,
-            -1
+            2
 
     );
 
-
-    public Investments()
+    private static int MAG = 3;
+    private static int MAG_UP = 0;
+    public Durable()
     {
         super(ID,info);
+        setMagic(MAG,MAG_UP);
     }
 
 
@@ -38,15 +35,12 @@ public class Investments extends BaseCard {
         if (!this.upgraded)
         {
             upgradeName();
-            retain = true;
+            upgradeBaseCost(1);
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p,p,new InvestmentsPower(p, this.energyOnUse)));
-        if (!this.freeToPlayOnce) {
-            p.energy.use(EnergyPanel.totalCount);
-        }
+        addToBot(new ApplyPowerAction(p,p,new DurablePower(p, magicNumber)));
     }
 }

@@ -128,7 +128,7 @@
   },
   "${modID}:Upgrades": {
     "NAME": "Upgrades",
-    "DESCRIPTION": "Upgrade !M! random cards in your hand NL Draw !M! cards"
+    "DESCRIPTION": "Upgrade !M! random cards in your hand NL Draw 1 card NL Exhaust"
   },
   "${modID}:SlowLoris": {
     "NAME": "Slow Loris",
@@ -148,7 +148,7 @@
   },
   "${modID}:TimeIsMoney": {
     "NAME": "Time is Money",
-    "DESCRIPTION": "Spend 50 gold NL Take an extra turn after this one"
+    "DESCRIPTION": "Spend !M! gold NL Take an extra turn after this one"
   },
   "${modID}:BladesStanceSwitch": {
     "NAME": "Equip Blades",
@@ -161,5 +161,21 @@
   "${modID}:ArtifactStanceSwitch": {
     "NAME": "Equip Firewall",
     "DESCRIPTION": "Equip Firewall"
+  },
+  "${modID}:Durable": {
+    "NAME": "Durable",
+    "DESCRIPTION": "Equipment you equip has 2 more durability"
+  },
+  "${modID}:EndOfTheLine": {
+    "NAME": "End of The Line",
+    "DESCRIPTION": "Deal !D! damage. NL Die next turn NL Exhaust"
+  },
+  "${modID}:InsuranceScam": {
+    "NAME": "Insurance Scam",
+    "DESCRIPTION": "Take !D! damage. Gain !M! times that much gold"
+  },
+  "${modID}:FinancialSmokescreen": {
+    "NAME": "Finanical Smokescreen",
+    "DESCRIPTION": "Lose !M! gold NL Escape the combat"
   }
 }
