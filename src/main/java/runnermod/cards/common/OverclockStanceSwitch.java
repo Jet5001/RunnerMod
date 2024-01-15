@@ -1,5 +1,6 @@
 package runnermod.cards.common;
 
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import runnermod.cards.BaseCard;
@@ -43,7 +44,13 @@ public class OverclockStanceSwitch extends BaseCard {
     //called when the card is played
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        //add gain gold action to the stack
         addToTop(new ChangeRunnerStanceAction("Overclock",magicNumber));
+        //can't be bothered adding another number so I'm just checking
+        if (this.upgraded){
+            addToBot(new DrawCardAction(2));
+        }
+        else{
+            addToBot(new DrawCardAction(1));
+        }
     }
 }

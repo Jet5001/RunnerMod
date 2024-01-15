@@ -1,5 +1,7 @@
 package runnermod.cards.common;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.utility.ScryAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import runnermod.cards.BaseCard;
@@ -20,6 +22,9 @@ public class ArtifactStanceSwitch extends BaseCard {
 //    //Card Stats
     private static final int MAGIC = 5;
     private static final int UPG_MAGIC =0;
+
+    private static final int THORNS = 3;
+    private static final int THORNS_UPG = 1;
 
     public ArtifactStanceSwitch()
     {
@@ -45,5 +50,6 @@ public class ArtifactStanceSwitch extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         //add gain gold action to the stack
         addToTop(new ChangeRunnerStanceAction("Artifact",magicNumber));
+        addToBot(new ScryAction(3));
     }
 }

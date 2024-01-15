@@ -144,23 +144,24 @@
   },
   "${modID}:BladesStanceSwitch": {
     "NAME": "Equip Blades",
-    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Blades !M!"
+    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Blades !M! NL Deal !D! damage"
   },
   "${modID}:WallStanceSwitch": {
     "NAME": "Equip Shields",
-    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Shields !M!"
+    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Shields !M! NL Gain !B! Block"
   },
   "${modID}:ArtifactStanceSwitch": {
     "NAME": "Equip Firewall",
-    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Firewall !M!"
+    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Firewall !M! NL Scry 3"
   },
   "${modID}:CardsStanceSwitch": {
     "NAME": "Equip Blaster",
-    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Blaster !M!"
+    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Blaster !M! NL Gain !E! at the start of your next turn"
   },
   "${modID}:OverclockStanceSwitch": {
     "NAME": "Equip Overclocker",
-    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Overclocker !M!"
+    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Overclocker !M! NL Draw 1 card",
+    "UPGRADE_DESCRIPTION": " RunnerMod:Equip  RunnerMod:Overclocker !M! NL Draw 2 cards"
   },
   "${modID}:Durable": {
     "NAME": "Durable",

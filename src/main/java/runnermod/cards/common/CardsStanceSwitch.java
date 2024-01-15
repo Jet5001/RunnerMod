@@ -1,7 +1,10 @@
 package runnermod.cards.common;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.EnergizedBluePower;
 import runnermod.cards.BaseCard;
 import runnermod.character.RunnerCharacter;
 import runnermod.stances.ChangeRunnerStanceAction;
@@ -14,7 +17,7 @@ public class CardsStanceSwitch extends BaseCard {
             CardType.SKILL,
             CardRarity.COMMON,
             CardTarget.NONE,
-            2
+            1
     );
 
 //    //Card Stats
@@ -45,5 +48,6 @@ public class CardsStanceSwitch extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         //add gain gold action to the stack
         addToTop(new ChangeRunnerStanceAction("Cards",magicNumber));
+        addToBot(new ApplyPowerAction(p,p,new EnergizedBluePower(p,1)));
     }
 }
