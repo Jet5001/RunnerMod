@@ -156,13 +156,14 @@ public class RunnerMod implements
             keyword.prep();
             registerKeyword(keyword);
         }
-        BaseMod.addKeyword(new String[]{"equip"}, "Equipments lose 1 durability for each card you play and automatically combine together.");
-        BaseMod.addKeyword(new String[]{"blades"}, "Each time you play a skill deal damage equal to 3 times it's cost");
-        BaseMod.addKeyword(new String[]{"shields"}, "Each time you play an attack gain block equal to 3 times it's cost");
-        BaseMod.addKeyword(new String[]{"firewall"}, "You cannot obtain debuffs while in this stance");
-        BaseMod.addKeyword(new String[]{"blaster"}, "Each time you play a card, add a Bolt to your hand");
-        BaseMod.addKeyword(new String[]{"overclocker"}, "Draw an extra card at the start of your turn NL While in this stance, if you have no cards in hand draw a card");
-        BaseMod.addKeyword(new String[]{"hacked"}, "Whenever a debuff is applied, take damage equal to the amount of Hacked");
+        //BaseMod.addKeyword(new String[]{"equip"}, "Equipments lose 1 durability for each card you play and automatically combine together.");
+//        BaseMod.addKeyword(new String[]{"blades"}, "Each time you play a skill deal damage equal to 3 times it's cost");
+//        BaseMod.addKeyword(new String[]{"shields"}, "Each time you play an attack gain block equal to 3 times it's cost");
+//        BaseMod.addKeyword(new String[]{"firewall"}, "You cannot obtain debuffs while in this stance");
+//        BaseMod.addKeyword(new String[]{"blaster"}, "Each time you play a card, add a Bolt to your hand");
+//        BaseMod.addKeyword(new String[]{"overclocker"}, "Draw an extra card at the start of your turn NL While in this stance, if you have no cards in hand draw a card");
+//        BaseMod.addKeyword(new String[]{"hacked"}, "Whenever a debuff is applied, take damage equal to the amount of Hacked");
+//        BaseMod.addKeyword(new String[]{"repair"}, "Increase the durability of all current equipment");
         if (!defaultLanguage.equals(getLangString())) {
             try
             {

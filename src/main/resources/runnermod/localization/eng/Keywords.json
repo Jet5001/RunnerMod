@@ -1,24 +1,30 @@
 [
   {
-    "PROPER_NAME": "This is displayed in the tooltip.",
+    "ID": "Hacked",
+    "PROPER_NAME": "Hacked",
     "NAMES": [
-      "these",
-      "are",
-      "detected",
-      "in",
-      "the",
-      "text"
+      "Hacked"
     ],
-    "DESCRIPTION": "This is displayed in the tooltip. Spaces should not be used be avoided in NAMES, with the exception of multi-word keywords (see next entry)."
+    "DESCRIPTION": "Whenever a debuff is applied, take damage equal to the amount of Hacked"
   },
   {
+    "ID": "Equip",
     "PROPER_NAME": "Equip",
     "NAMES": [
       "equip"
     ],
-    "DESCRIPTION": "Equipment loses 1 durability for each card you play and automatically combines together. Equipments start at 5 durability"
+    "DESCRIPTION": "Equipment loses 1 durability for each card you play and automatically combines together.  "
   },
   {
+    "ID": "Repair",
+    "PROPER_NAME": "Repair",
+    "NAMES": [
+      "repair"
+    ],
+    "DESCRIPTION": "Increase the durability of all current equipment"
+  },
+  {
+    "ID": "Blades",
     "PROPER_NAME": "Blades",
     "NAMES": [
       "blades"
@@ -26,6 +32,7 @@
     "DESCRIPTION": "Each time you play a skill deal damage equal to 3 times it's cost"
   },
   {
+    "ID": "Shields",
     "PROPER_NAME": "Shields",
     "NAMES": [
       "shields",
@@ -34,6 +41,7 @@
     "DESCRIPTION": "Each time you play an attack gain block equal to 3 times it's cost"
   },
   {
+    "ID": "Firewall",
     "PROPER_NAME": "Firewall",
     "NAMES": [
       "firewall",
@@ -41,6 +49,23 @@
     ],
     "DESCRIPTION": "You cannot obtain debuffs while in this stance"
   },
+  {
+    "ID": "Blaster",
+    "PROPER_NAME": "Blaster",
+    "NAMES": [
+      "blaster"
+    ],
+    "DESCRIPTION": "Whenever you play a card add a bolt to your hand"
+  },
+  {
+    "ID": "Overclocker",
+    "PROPER_NAME": "Overclocker",
+    "NAMES": [
+      "overclocker"
+    ],
+    "DESCRIPTION": "Draw an extra card at the start of your turn NL While in this stance, if you have no cards in hand draw a card"
+  },
+
   {
     "PROPER_NAME": "Multiword Keyword",
     "NAMES": [

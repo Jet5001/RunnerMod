@@ -22,6 +22,7 @@ import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceChangeParticleGenerator;
 import com.megacrit.cardcrawl.vfx.stance.WrathParticleEffect;
 import runnermod.cards.common.Hack;
+import runnermod.character.RunnerCharacter;
 import runnermod.powers.Hacked;
 
 import java.util.Collections;
@@ -62,7 +63,10 @@ public class HackStance extends RunnerStance {
         for (AbstractMonster mo : (AbstractDungeon.getCurrRoom()).monsters.monsters)
             AbstractDungeon.actionManager.addToBottom((AbstractGameAction)new ApplyPowerAction((AbstractCreature)mo, (AbstractCreature)p, (AbstractPower)new Hacked((AbstractCreature)mo, 1), 1, true, AbstractGameAction.AttackEffect.NONE));
         super.onPlayCard(card);
-        reduceDurability(card);
+        if (!card.hasTag(RunnerCharacter.Enums.NEON))
+        {
+            reduceDurability(1);
+        }
 
         //sort out new stance as durabilties fade
         if (durabilityDictionary.get("Artifact").equals(0) ||durabilityDictionary.get("Artifact").equals(null))

@@ -1,39 +1,41 @@
 package runnermod.cards.common;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.GainGoldAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import runnermod.cards.BaseCard;
+import runnermod.cards.tempcards.Bolt;
 import runnermod.character.RunnerCharacter;
-import runnermod.powers.SelfRepairScriptsFrailPower;
-import runnermod.powers.SelfRepairScriptsWeakenedPower;
 import runnermod.util.CardStats;
 
-public class SelfRepairScriptsFrail extends BaseCard {
-    public static final String ID = makeID(SelfRepairScriptsFrail.class.getSimpleName());
+public class Charge extends BaseCard {
+    public static final String ID = makeID(Charge.class.getSimpleName());
     private static final CardStats info = new CardStats(
             RunnerCharacter.Enums.CARD_COLOR,
-            CardType.POWER,
+            CardType.SKILL,
             CardRarity.COMMON,
             CardTarget.NONE,
             1
-
     );
 
-    //Card Stats
-    private static final int MAGIC = 1;
+//    //Card Stats
+    private static final int MAGIC = 2;
     private static final int UPG_MAGIC =1;
 
-    public SelfRepairScriptsFrail()
+    public Charge()
     {
         super(ID,info);
-        setMagic(MAGIC,UPG_MAGIC);
+        this.setMagic(MAGIC, UPG_MAGIC);
     }
 
 
 
+    //called when the card is played
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p,p,new SelfRepairScriptsFrailPower(p, magicNumber)));
+        for (int i = 0; i < magicNumber; i++) {
+            addToBot(new MakeTempCardInHandAction(new Bolt()));
+        }
     }
 }

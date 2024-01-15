@@ -20,6 +20,7 @@ import com.megacrit.cardcrawl.vfx.stance.CalmParticleEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceChangeParticleGenerator;
 import com.megacrit.cardcrawl.vfx.stance.WrathParticleEffect;
+import runnermod.character.RunnerCharacter;
 
 import java.util.Collections;
 
@@ -60,7 +61,10 @@ public class MetalStance extends RunnerStance {
 
         super.onPlayCard(card);
 
-        reduceDurability(card);
+        if (!card.hasTag(RunnerCharacter.Enums.NEON))
+        {
+            reduceDurability(1);
+        }
 
         //sort out new stance as durabilties fade
         if (durabilityDictionary.get("Artifact").equals(0) ||durabilityDictionary.get("Artifact").equals(null))

@@ -13,25 +13,10 @@
       " #yInterest into your hand."
     ]
   },
-  "${modID}:SelfRepairScriptsFrailPower": {
+  "${modID}:SelfRepairScripts": {
     "NAME": "Self Repair Scripts",
     "DESCRIPTIONS": [
-      "At the start of your turn, remove #b",
-      " frail"
-    ]
-  },
-  "${modID}:SelfRepairScriptsWeakenedPower": {
-    "NAME": "Self Repair Scripts",
-    "DESCRIPTIONS": [
-      "At the start of your turn, remove #b",
-      " weak"
-    ]
-  },
-  "${modID}:SelfRepairScriptsVulnerablePower": {
-    "NAME": "Self Repair Scripts",
-    "DESCRIPTIONS": [
-      "At the start of your turn, remove #b",
-      " vulnerable"
+      "At the start of your turn, RunnerMod:repair #b"
     ]
   },
   "${modID}:TaxingUpgradesPower": {
@@ -58,6 +43,13 @@
     "DESCRIPTIONS": [
       "Whenever you equip an equipment it has #b",
       "extra durability "
+    ]
+  },
+  "${modID}:PawnShopPower": {
+    "NAME": "Pawn Shop",
+    "DESCRIPTIONS": [
+      "At the start of your turn add #b",
+      "random broken weapons to your hand "
     ]
   }
 }

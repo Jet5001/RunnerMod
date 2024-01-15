@@ -20,6 +20,7 @@ import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceChangeParticleGenerator;
 import com.megacrit.cardcrawl.vfx.stance.WrathParticleEffect;
+import runnermod.character.RunnerCharacter;
 
 import java.util.Collections;
 
@@ -73,7 +74,10 @@ public class ArtifactStance extends RunnerStance {
     @Override
     public void onPlayCard(AbstractCard card) {
         super.onPlayCard(card);
-        reduceDurability(card);
+        if (!card.hasTag(RunnerCharacter.Enums.NEON))
+        {
+            reduceDurability(1);
+        }
         if (durabilityDictionary.get("Artifact").equals(0))
         {
             AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));

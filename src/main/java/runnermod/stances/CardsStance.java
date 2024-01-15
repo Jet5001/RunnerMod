@@ -58,7 +58,10 @@ public class CardsStance extends RunnerStance {
         if (!(card instanceof Bolt))
             AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Bolt()));
         super.onPlayCard(card);
-        reduceDurability(card);
+        if (!card.hasTag(RunnerCharacter.Enums.NEON))
+        {
+            reduceDurability(1);
+        }
         if (durabilityDictionary.get("Cards").equals(0) ||durabilityDictionary.get("Cards").equals(null))
         {
             AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));

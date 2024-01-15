@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import com.megacrit.cardcrawl.vfx.stance.CalmParticleEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceChangeParticleGenerator;
+import runnermod.character.RunnerCharacter;
 
 import java.util.Collections;
 
@@ -56,7 +57,10 @@ public class TinkerStance extends RunnerStance {
         card.upgrade();
 
         super.onPlayCard(card);
-        reduceDurability(card);
+        if (!card.hasTag(RunnerCharacter.Enums.NEON))
+        {
+            reduceDurability(1);
+        }
 
         //sort out new stance as durabilties fade
         if (durabilityDictionary.get("Cards").equals(0))

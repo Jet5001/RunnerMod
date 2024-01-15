@@ -16,6 +16,7 @@ import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import com.megacrit.cardcrawl.vfx.stance.CalmParticleEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceChangeParticleGenerator;
+import runnermod.character.RunnerCharacter;
 
 import java.util.Collections;
 
@@ -41,7 +42,10 @@ public class OverclockStance extends RunnerStance {
     @Override
     public void onPlayCard(AbstractCard card) {
         super.onPlayCard(card);
-        reduceDurability(card);
+        if (!card.hasTag(RunnerCharacter.Enums.NEON))
+        {
+            reduceDurability(1);
+        }
         if (durabilityDictionary.get("Overclock").equals(0))
         {
             AbstractDungeon.actionManager.addToBottom(new ChangeRunnerStanceAction("Neutral", 0));

@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.vfx.stance.CalmParticleEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceChangeParticleGenerator;
 import com.megacrit.cardcrawl.vfx.stance.WrathParticleEffect;
+import runnermod.character.RunnerCharacter;
 
 import java.util.Collections;
 
@@ -41,7 +42,10 @@ public class WallStance extends RunnerStance {
     public void onPlayCard(AbstractCard card) {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, card.cost*3));
         super.onPlayCard(card);
-        reduceDurability(card);
+        if (!card.hasTag(RunnerCharacter.Enums.NEON))
+        {
+            reduceDurability(1);
+        }
         if (durabilityDictionary.get("Wall").equals(0) ||durabilityDictionary.get("Wall").equals(null))
         {
             AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));

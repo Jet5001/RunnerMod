@@ -16,6 +16,7 @@ import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceChangeParticleGenerator;
 import com.megacrit.cardcrawl.vfx.stance.WrathParticleEffect;
+import runnermod.character.RunnerCharacter;
 
 import java.util.Collections;
 
@@ -53,7 +54,10 @@ public class BladesStance extends RunnerStance {
     public void onPlayCard(AbstractCard card) {
         AbstractDungeon.actionManager.addToBottom(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, card.cost*3), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         super.onPlayCard(card);
-        reduceDurability(card);
+        if (!card.hasTag(RunnerCharacter.Enums.NEON))
+        {
+            reduceDurability(1);
+        }
         if (durabilityDictionary.get("Blades").equals(0) ||durabilityDictionary.get("Blades").equals(null))
         {
             AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));

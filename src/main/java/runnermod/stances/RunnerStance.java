@@ -25,18 +25,16 @@ public abstract class RunnerStance extends AbstractStance {
             durabilityDictionary.put(id,durabilty);
     }
 
-    public void reduceDurability(AbstractCard card)
+    public void reduceDurability(int amount)
     {
-        if (card.hasTag(RunnerCharacter.Enums.NEON))
-            return;
 
         for (String id: Collections.list(durabilityDictionary.keys())) {
-            durabilityDictionary.put(id, durabilityDictionary.get(id)-1);
+            durabilityDictionary.put(id, durabilityDictionary.get(id)-amount);
         }
         //update description as it doesn't like to update for some reason
         this.description = "";
         for (String id: Collections.list(durabilityDictionary.keys())) {
-            this.description += id + " : " + durabilityDictionary.get(id) + " turns left";
+            this.description += id + " : " + durabilityDictionary.get(id) + " cards left";
         }
     }
 

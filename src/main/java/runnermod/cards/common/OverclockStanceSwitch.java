@@ -26,6 +26,7 @@ public class OverclockStanceSwitch extends BaseCard {
         super(ID,info);
         //using magic number for the gold because why not. Might come in handy later
         this.setMagic(MAGIC, UPG_MAGIC);
+        this.tags.add(RunnerCharacter.Enums.NEON);
     }
 
     //called when the card is upgraded

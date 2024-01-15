@@ -57,17 +57,9 @@
     "NAME": "Adaptive Strike",
     "DESCRIPTION": "If the target does not intend to attack, apply !M! vulnerable NL deal !D! damage"
   },
-  "${modID}:SelfRepairScriptsFrail": {
+  "${modID}:SelfRepairScripts": {
     "NAME": "Self Repair Scripts",
-    "DESCRIPTION": "Remove !M! frail at the start of each turn"
-  },
-  "${modID}:SelfRepairScriptsWeaken": {
-    "NAME": "Self Repair Scripts",
-    "DESCRIPTION": "Remove !M! weak at the start of each turn"
-  },
-  "${modID}:SelfRepairScriptsVulnerable": {
-    "NAME": "Self Repair Scripts",
-    "DESCRIPTION": "Remove !M! vulnerable at the start of each turn"
+    "DESCRIPTION": "RunnerMod:repair !M! at the start of each turn"
   },
   "${modID}:RigReboot": {
     "NAME": "Rig Reboot",
@@ -80,11 +72,11 @@
   },
   "${modID}:Ward": {
     "NAME": "Ward",
-    "DESCRIPTION": "Gain !B! Block NL Equip Wall"
+    "DESCRIPTION": "Gain !B! Block NL  RunnerMod:Equip  RunnerMod:shields"
   },
   "${modID}:BladeStrike": {
     "NAME": "Blade Strke",
-    "DESCRIPTION": "Deal !D! damage NL Equip Blades"
+    "DESCRIPTION": "Deal !D! damage NL  RunnerMod:Equip  RunnerMod:Blades"
   },
   "${modID}:DDOS": {
     "NAME": "DDOS",
@@ -108,7 +100,7 @@
   },
   "${modID}:Hack": {
     "NAME": "Hack",
-    "DESCRIPTION": "Apply !M! Hacked"
+    "DESCRIPTION": "Apply !M! RunnerMod:Hacked"
   },
   "${modID}:Virus": {
     "NAME": "Virus",
@@ -152,23 +144,23 @@
   },
   "${modID}:BladesStanceSwitch": {
     "NAME": "Equip Blades",
-    "DESCRIPTION": "Equip Blades"
+    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Blades !M!"
   },
   "${modID}:WallStanceSwitch": {
     "NAME": "Equip Shields",
-    "DESCRIPTION": "Equip Shields"
+    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Shields !M!"
   },
   "${modID}:ArtifactStanceSwitch": {
     "NAME": "Equip Firewall",
-    "DESCRIPTION": "Equip Firewall"
+    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Firewall !M!"
   },
   "${modID}:CardsStanceSwitch": {
     "NAME": "Equip Blaster",
-    "DESCRIPTION": "Equip Blaster"
+    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Blaster !M!"
   },
   "${modID}:OverclockStanceSwitch": {
     "NAME": "Equip Overclocker",
-    "DESCRIPTION": "Equip Overclocker"
+    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Overclocker !M!"
   },
   "${modID}:Durable": {
     "NAME": "Durable",
@@ -189,5 +181,54 @@
   "${modID}:Bolt": {
     "NAME": "Bolt",
     "DESCRIPTION": "Deal !D! damage NL Doesn't use equipment durability NL Exhaust"
+  },
+  "${modID}:Mending": {
+    "NAME": "Mending",
+    "DESCRIPTION": " RunnerMod:Repair !M! NL Exhaust"
+  },
+  "${modID}:NeonBlades": {
+    "NAME": "Neon Blades",
+    "DESCRIPTION": "Deal !D! damage 2 times NL  RunnerMod:Equip  RunnerMod:Blades !M! NL Doesn't use equipment durability"
+  },
+  "${modID}:Flouresce": {
+    "NAME": "Flouresce",
+    "DESCRIPTION": "ALL enemies lose !M! strength this turn NL Doesn't use equipment durability NL Exhaust"
+  },
+  "${modID}:InfectedBlade": {
+    "NAME": "Infected Blade",
+    "DESCRIPTION": "Deal !D! damage NL Apply !M! Hack NL RunnerMod:Equip RunnerMod:Blades 5"
+  },
+  "${modID}:Charge": {
+    "NAME": "Charge",
+    "DESCRIPTION": "Add !M! Bolts to your hand"
+  },
+  "${modID}:HardLightTech": {
+    "NAME": "Hard Light Technology",
+    "DESCRIPTION": "Increase the damage of all neon cards by !M!"
+  },
+  "${modID}:BrokenBlades": {
+    "NAME": "Broken Blades",
+    "DESCRIPTION": "RunnerMod:Equip RunnerMod:Blades !M!"
+  },
+  "${modID}:BrokenShields": {
+    "NAME": "Broken Shields",
+    "DESCRIPTION": "RunnerMod:Equip RunnerMod:Shields !M!"
+  },
+  "${modID}:BrokenFirewall": {
+    "NAME": "Broken Firewall",
+    "DESCRIPTION": "RunnerMod:Equip RunnerMod:Firewall !M!"
+  },
+  "${modID}:BrokenOverclocker": {
+    "NAME": "Broken Overclocker",
+    "DESCRIPTION": "RunnerMod:Equip RunnerMod:Overclocker !M!"
+  },
+  "${modID}:BrokenBlaster": {
+    "NAME": "Broken Blaster",
+    "DESCRIPTION": "RunnerMod:Equip RunnerMod:Blaster !M!"
+  },
+  "${modID}:PawnShop": {
+    "NAME": "Pawn Shop",
+    "DESCRIPTION": "At the start of your turn add a random broken equipment to your hand NL Ethereal",
+    "UPGRADE_DESCRIPTION": "At the start of your turn add a random broken equipment to your hand"
   }
 }
