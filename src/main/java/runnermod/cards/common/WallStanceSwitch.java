@@ -43,6 +43,6 @@ public class WallStanceSwitch extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //add gain gold action to the stack
-        addToBot(new ChangeRunnerStanceAction("Wall",magicNumber));
+        addToTop(new ChangeRunnerStanceAction("Wall",magicNumber));
     }
 }

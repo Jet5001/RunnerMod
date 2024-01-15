@@ -72,13 +72,13 @@ public class ArtifactStance extends RunnerStance {
 
     @Override
     public void onPlayCard(AbstractCard card) {
-
-        reduceDurability();
-        if (durabilityDictionary.get("Artifact").equals(0) ||durabilityDictionary.get("Artifact").equals(null))
-        {
-            AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction("Neutral"));
-        }
         super.onPlayCard(card);
+        reduceDurability(card);
+        if (durabilityDictionary.get("Artifact").equals(0))
+        {
+            AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));
+        }
+
     }
 
     public void updateDescription() {

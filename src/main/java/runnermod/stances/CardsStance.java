@@ -3,11 +3,9 @@ package runnermod.stances;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -16,6 +14,8 @@ import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceChangeParticleGenerator;
 import com.megacrit.cardcrawl.vfx.stance.WrathParticleEffect;
+import runnermod.cards.tempcards.Bolt;
+import runnermod.character.RunnerCharacter;
 
 import java.util.Collections;
 
@@ -36,18 +36,6 @@ public class CardsStance extends RunnerStance {
         updateDescription();
     }
 
-//    public float atDamageGive(float damage, DamageInfo.DamageType type) {
-//        if (type == DamageInfo.DamageType.NORMAL)
-//            return damage * 2.0F;
-//        return damage;
-//    }
-//
-//    public float atDamageReceive(float damage, DamageInfo.DamageType type) {
-//        if (type == DamageInfo.DamageType.NORMAL)
-//            return damage * 2.0F;
-//        return damage;
-//    }
-
 
 
     public void updateAnimation() {
@@ -67,13 +55,15 @@ public class CardsStance extends RunnerStance {
 
     @Override
     public void onPlayCard(AbstractCard card) {
-
-        reduceDurability();
+        if (!(card instanceof Bolt))
+            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Bolt()));
+        super.onPlayCard(card);
+        reduceDurability(card);
         if (durabilityDictionary.get("Cards").equals(0) ||durabilityDictionary.get("Cards").equals(null))
         {
-            AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction("Neutral"));
+            AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));
         }
-        super.onPlayCard(card);
+
     }
 
     public void updateDescription() {

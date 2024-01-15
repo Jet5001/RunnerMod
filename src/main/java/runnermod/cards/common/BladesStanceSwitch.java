@@ -43,6 +43,6 @@ public class BladesStanceSwitch extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //add gain gold action to the stack
-        addToBot(new ChangeRunnerStanceAction("Blades",magicNumber));
+        addToTop(new ChangeRunnerStanceAction("Blades",magicNumber));
     }
 }

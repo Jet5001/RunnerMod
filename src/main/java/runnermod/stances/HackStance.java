@@ -61,14 +61,15 @@ public class HackStance extends RunnerStance {
         AbstractCreature p = AbstractDungeon.player;
         for (AbstractMonster mo : (AbstractDungeon.getCurrRoom()).monsters.monsters)
             AbstractDungeon.actionManager.addToBottom((AbstractGameAction)new ApplyPowerAction((AbstractCreature)mo, (AbstractCreature)p, (AbstractPower)new Hacked((AbstractCreature)mo, 1), 1, true, AbstractGameAction.AttackEffect.NONE));
-        reduceDurability();
+        super.onPlayCard(card);
+        reduceDurability(card);
 
         //sort out new stance as durabilties fade
         if (durabilityDictionary.get("Artifact").equals(0) ||durabilityDictionary.get("Artifact").equals(null))
         {
             if (durabilityDictionary.get("Blades").equals(0) ||durabilityDictionary.get("Blades").equals(null))
             {
-                AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction("Neutral"));
+                AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));
                 return;
             }
             AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new BladesStance(new String[]{"Blades"}, new int[]{durabilityDictionary.get("Blades")+1} )));
@@ -78,13 +79,13 @@ public class HackStance extends RunnerStance {
         {
             if (durabilityDictionary.get("Artifact").equals(0) ||durabilityDictionary.get("Artifact").equals(null))
             {
-                AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction("Neutral"));
+                AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));
                 return;
             }
             AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new ArtifactStance(new String[]{"Artifact"}, new int[]{durabilityDictionary.get("Artifact")+1} )));
 
         }
-        super.onPlayCard(card);
+
     }
 
     public void updateAnimation() {

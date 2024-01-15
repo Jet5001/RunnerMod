@@ -61,6 +61,8 @@ public class RunnerCharacter extends CustomPlayer {
         public static AbstractCard.CardColor CARD_COLOR;
         @SpireEnum(name = "RUNNERPURPLE") @SuppressWarnings("unused")
         public static CardLibrary.LibraryType LIBRARY_COLOR;
+
+        @SpireEnum public static AbstractCard.CardTags NEON;
     }
 
     public RunnerCharacter() {
@@ -210,4 +212,5 @@ public class RunnerCharacter extends CustomPlayer {
         //Makes a new instance of your character class.
         return new RunnerCharacter();
     }
+
 }

@@ -20,10 +20,11 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
     boolean changeStance = true;
     int[] durabilities = new int[3];
     String newStanceID;
-
+    String stanceID;
     //Only use for single stance
     public ChangeRunnerStanceAction(String stanceID, int durability)
     {
+        this.stanceID = stanceID;
         newStanceID = stanceID;
         this.durabilities[0] = durability;
         //Combo table to reference previous stance and new stance to see what you get
@@ -33,83 +34,11 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
         comboLookup.put("ArtifactBlades","Hack");
         comboLookup.put("WallArtifact","Metal");
         comboLookup.put("ArtifactWall","Metal");
+        comboLookup.put("WallCards","Tinker");
+        comboLookup.put("CardsWall","Tinker");
         previousStance = AbstractDungeon.player.stance;
 
-        //overide stance if not from this mod
-        if (!(previousStance instanceof RunnerStance))
-        {
-            finalStance = makeStance(stanceID);
-        }
-        else
-        {
-            String newID = "";
-            //if new stance already part of existing stance then flag as the same
-            String components = "";
-            for (String id: Collections.list(((RunnerStance) previousStance).durabilityDictionary.keys())) {
-                components += id;
-            }
-            System.out.println("Previous stance durabilities: " + ((RunnerStance) previousStance).durabilityDictionary.keys());
-            if (components.contains(stanceID))
-            {
-                newID = "same";
-            }
-            else
-            {
-                //get combo name if not the same
 
-                //get previous max durability id to combo with longest lasting part
-                String previousMaxDurabilityID = "";
-                int tempMaxDurability = -1;
-                for (String id: Collections.list(((RunnerStance) previousStance).durabilityDictionary.keys())) {
-                    if (((RunnerStance) previousStance).durabilityDictionary.get(id) > tempMaxDurability)
-                    {
-                        previousMaxDurabilityID=  id;
-                    }
-                }
-                //get combo
-                newID = comboLookup.get(previousMaxDurabilityID + stanceID);
-                //extra check to be careful (defaults to new stance)
-                if (newID == null)
-                {
-                    newID = stanceID;
-                }
-            }
-            //if the same update durabilities
-            System.out.println(newID);
-            if (newID == "same")
-            {
-                changeStance = false;
-                durabilities[0] = Math.max(durabilities[0], ((RunnerStance) previousStance).durabilityDictionary.get(stanceID));
-                ((RunnerStance) previousStance).durabilityDictionary.put(stanceID,durabilities[0]);
-                previousStance.updateDescription();
-            }
-            else
-            {
-                //if a combo make new stance
-                finalStance = makeStance(newID);
-                System.out.println("New Stance : " + finalStance.ID);
-            }
-        }
-
-    }
-
-    //only use when adding combo stance
-    //Not finished yet... to complete when cards that directly add combo stance are added
-    ChangeRunnerStanceAction(String[] stanceIDs, int[] durabilitys)
-    {
-        this.durabilities = durabilitys;
-        AbstractStance previousStance = AbstractDungeon.player.stance;
-
-        if (!(previousStance instanceof RunnerStance))
-        {
-            changeStance = true;
-            finalStance = makeStance(comboLookup.get(stanceIDs[0]));
-        }
-        else
-        {
-
-            String stringNewID = "";
-        }
 
     }
 
@@ -123,6 +52,10 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
                 return new BladesStance(new String[]{"Blades"},new int[]{durabilities[0]});
             case "Artifact":
                 return new ArtifactStance(new String[]{"Artifact"},new int[]{durabilities[0]});
+            case "Cards":
+                return new CardsStance(new String[]{"Cards"},new int[]{durabilities[0]});
+            case "Overclock":
+                return new OverclockStance(new String[]{"Overclock"},new int[]{durabilities[0]});
             case "Accel":
                 //shuffle durabilities into correct spots for this combo
                 if (newStanceID == "Wall")
@@ -176,7 +109,23 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
                         durabilities[1] = Math.max(durabilities[1], ((RunnerStance)previousStance).durabilityDictionary.get(id));
                     }
                 }
-                return new MetalStance(new String[]{"Artifact", "Wall"},new int[]{durabilities[0], durabilities[1]});
+            case "Tinker":
+                if (newStanceID == "Wall")
+                {
+                    durabilities[1] = durabilities[0];
+                    durabilities[0]=0;
+                }
+                for (String id: Collections.list(((RunnerStance) previousStance).durabilityDictionary.keys())) {
+                    if (id == "Cards")
+                    {
+                        durabilities[0] = Math.max(durabilities[0], ((RunnerStance)previousStance).durabilityDictionary.get(id));
+                    }
+                    if (id == "Wall")
+                    {
+                        durabilities[1] = Math.max(durabilities[1], ((RunnerStance)previousStance).durabilityDictionary.get(id));
+                    }
+                }
+                return new TinkerStance(new String[]{"Cards", "Wall"},new int[]{durabilities[0], durabilities[1]});
             default:
                 return new NeutralStance();
         }
@@ -186,6 +135,72 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
 
     @Override
     public void update() {
+        //overide stance if not from this mod
+        if (!(previousStance instanceof RunnerStance))
+        {
+            finalStance = makeStance(stanceID);
+        }
+        else
+        {
+            String newID = "";
+            //if new stance already part of existing stance then flag as the same
+            String components = "";
+            for (String id: Collections.list(((RunnerStance) previousStance).durabilityDictionary.keys())) {
+                components += id;
+            }
+            if(stanceID == "Neutral")
+            {
+                for (String id: Collections.list(((RunnerStance) previousStance).durabilityDictionary.keys())) {
+                    if (((RunnerStance) previousStance).durabilityDictionary.get(id) >0)
+                    {
+                        this.isDone = true;
+                        changeStance = false;
+                        return;
+                    }
+                }
+            }
+            System.out.println("Previous stance durabilities: " + ((RunnerStance) previousStance).durabilityDictionary.keys());
+            if (components.contains(stanceID))
+            {
+                newID = "same";
+            }
+            else
+            {
+                //get combo name if not the same
+
+                //get previous max durability id to combo with longest lasting part
+                String previousMaxDurabilityID = "";
+                int tempMaxDurability = -1;
+                for (String id: Collections.list(((RunnerStance) previousStance).durabilityDictionary.keys())) {
+                    if (((RunnerStance) previousStance).durabilityDictionary.get(id) > tempMaxDurability)
+                    {
+                        previousMaxDurabilityID=  id;
+                    }
+                }
+                //get combo
+                newID = comboLookup.get(previousMaxDurabilityID + stanceID);
+                //extra check to be careful (defaults to new stance)
+                if (newID == null)
+                {
+                    newID = stanceID;
+                }
+            }
+            //if the same update durabilities
+            System.out.println(newID);
+            if (newID == "same")
+            {
+                changeStance = false;
+                durabilities[0] = Math.max(durabilities[0], ((RunnerStance) previousStance).durabilityDictionary.get(stanceID));
+                ((RunnerStance) previousStance).durabilityDictionary.put(stanceID,durabilities[0]);
+                previousStance.updateDescription();
+            }
+            else
+            {
+                //if a combo make new stance
+                finalStance = makeStance(newID);
+                System.out.println("New Stance : " + finalStance.ID);
+            }
+        }
         if (changeStance)
         {
             AbstractDungeon.actionManager.addToTop(new ChangeStanceAction(finalStance));

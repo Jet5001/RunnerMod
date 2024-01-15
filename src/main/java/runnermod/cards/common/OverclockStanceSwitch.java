@@ -7,8 +7,8 @@ import runnermod.character.RunnerCharacter;
 import runnermod.stances.ChangeRunnerStanceAction;
 import runnermod.util.CardStats;
 
-public class ArtifactStanceSwitch extends BaseCard {
-    public static final String ID = makeID(ArtifactStanceSwitch.class.getSimpleName());
+public class OverclockStanceSwitch extends BaseCard {
+    public static final String ID = makeID(OverclockStanceSwitch.class.getSimpleName());
     private static final CardStats info = new CardStats(
             RunnerCharacter.Enums.CARD_COLOR,
             CardType.SKILL,
@@ -21,7 +21,7 @@ public class ArtifactStanceSwitch extends BaseCard {
     private static final int MAGIC = 5;
     private static final int UPG_MAGIC =0;
 
-    public ArtifactStanceSwitch()
+    public OverclockStanceSwitch()
     {
         super(ID,info);
         //using magic number for the gold because why not. Might come in handy later
@@ -35,7 +35,7 @@ public class ArtifactStanceSwitch extends BaseCard {
         if (!this.upgraded)
         {
             upgradeName();
-            //remove ehtereal on upgrade
+
         }
     }
 
@@ -43,6 +43,6 @@ public class ArtifactStanceSwitch extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //add gain gold action to the stack
-        addToTop(new ChangeRunnerStanceAction("Artifact",magicNumber));
+        addToTop(new ChangeRunnerStanceAction("Overclock",magicNumber));
     }
 }

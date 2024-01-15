@@ -57,14 +57,17 @@ public class MetalStance extends RunnerStance {
     public void onPlayCard(AbstractCard card) {
         AbstractCreature p = AbstractDungeon.player;
         AbstractDungeon.actionManager.addToBottom((AbstractGameAction)new ApplyPowerAction((AbstractCreature)p, (AbstractCreature)p, (AbstractPower)new MetallicizePower(p, 1), 1, true, AbstractGameAction.AttackEffect.NONE));
-        reduceDurability();
+
+        super.onPlayCard(card);
+
+        reduceDurability(card);
 
         //sort out new stance as durabilties fade
         if (durabilityDictionary.get("Artifact").equals(0) ||durabilityDictionary.get("Artifact").equals(null))
         {
             if (durabilityDictionary.get("Wall").equals(0) ||durabilityDictionary.get("Wall").equals(null))
             {
-                AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction("Neutral"));
+                AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));
                 return;
             }
             AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new WallStance(new String[]{"Wall"}, new int[]{durabilityDictionary.get("Wall")+1} )));
@@ -80,7 +83,7 @@ public class MetalStance extends RunnerStance {
             AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new ArtifactStance(new String[]{"Artifact"}, new int[]{durabilityDictionary.get("Artifact")+1} )));
 
         }
-        super.onPlayCard(card);
+
     }
 
     public void updateAnimation() {

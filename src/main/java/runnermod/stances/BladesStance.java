@@ -23,7 +23,7 @@ public class BladesStance extends RunnerStance {
     public static final String STANCE_ID = "Blades";
 
     private static final StanceStrings stanceString = CardCrawlGame.languagePack.getStanceString("Blades");
-    private static final String baseDescription = "Each time you play a skill deal damage equal to 3 times it's cost NL ";
+    private static final String baseDescription = "Each time you play a card deal damage equal to 3 times it's cost NL ";
 
     private static long sfxId = -1L;
     private int durability;
@@ -51,16 +51,14 @@ public class BladesStance extends RunnerStance {
 
     @Override
     public void onPlayCard(AbstractCard card) {
-        if (card.type == AbstractCard.CardType.SKILL)
-        {
-            AbstractDungeon.actionManager.addToBottom(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, card.cost*3), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-        }
-        reduceDurability();
+        AbstractDungeon.actionManager.addToBottom(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, card.cost*3), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        super.onPlayCard(card);
+        reduceDurability(card);
         if (durabilityDictionary.get("Blades").equals(0) ||durabilityDictionary.get("Blades").equals(null))
         {
-            AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction("Neutral"));
+            AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));
         }
-        super.onPlayCard(card);
+
     }
 
     public void updateAnimation() {

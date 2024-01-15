@@ -1,6 +1,8 @@
 package runnermod.stances;
 
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.stances.AbstractStance;
+import runnermod.character.RunnerCharacter;
 
 import java.util.Collections;
 import java.util.Dictionary;
@@ -23,8 +25,11 @@ public abstract class RunnerStance extends AbstractStance {
             durabilityDictionary.put(id,durabilty);
     }
 
-    public void reduceDurability()
+    public void reduceDurability(AbstractCard card)
     {
+        if (card.hasTag(RunnerCharacter.Enums.NEON))
+            return;
+
         for (String id: Collections.list(durabilityDictionary.keys())) {
             durabilityDictionary.put(id, durabilityDictionary.get(id)-1);
         }

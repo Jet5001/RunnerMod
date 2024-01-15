@@ -162,6 +162,14 @@
     "NAME": "Equip Firewall",
     "DESCRIPTION": "Equip Firewall"
   },
+  "${modID}:CardsStanceSwitch": {
+    "NAME": "Equip Blaster",
+    "DESCRIPTION": "Equip Blaster"
+  },
+  "${modID}:OverclockStanceSwitch": {
+    "NAME": "Equip Overclocker",
+    "DESCRIPTION": "Equip Overclocker"
+  },
   "${modID}:Durable": {
     "NAME": "Durable",
     "DESCRIPTION": "Equipment you equip has 2 more durability"
@@ -177,5 +185,9 @@
   "${modID}:FinancialSmokescreen": {
     "NAME": "Finanical Smokescreen",
     "DESCRIPTION": "Lose !M! gold NL Escape the combat"
+  },
+  "${modID}:Bolt": {
+    "NAME": "Bolt",
+    "DESCRIPTION": "Deal !D! damage NL Doesn't use equipment durability NL Exhaust"
   }
 }
