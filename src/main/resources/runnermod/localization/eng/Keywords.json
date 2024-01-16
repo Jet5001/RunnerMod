@@ -24,6 +24,14 @@
     "DESCRIPTION": "Increase the durability of all current equipment"
   },
   {
+    "ID": "Neon",
+    "PROPER_NAME": "Neon",
+    "NAMES": [
+      "neon"
+    ],
+    "DESCRIPTION": "This card does not reduce the durability of your equipment"
+  },
+  {
     "ID": "Blades",
     "PROPER_NAME": "Blades",
     "NAMES": [

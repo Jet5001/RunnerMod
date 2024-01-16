@@ -10,9 +10,9 @@ import runnermod.util.CardStats;
 public class BrokenBlaster extends BaseCard {
     public static final String ID = makeID(BrokenBlaster.class.getSimpleName());
     private static final CardStats info = new CardStats(
-            RunnerCharacter.Enums.CARD_COLOR,
+            RunnerCharacter.Enums.CARD_COLOR.COLORLESS,
             CardType.SKILL,
-            CardRarity.COMMON,
+            CardRarity.SPECIAL,
             CardTarget.NONE,
             1
     );

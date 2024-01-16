@@ -156,7 +156,7 @@
   },
   "${modID}:CardsStanceSwitch": {
     "NAME": "Equip Blaster",
-    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Blaster !M! NL Gain !E! at the start of your next turn"
+    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Blaster !M! NL Gain [E] at the start of your next turn"
   },
   "${modID}:OverclockStanceSwitch": {
     "NAME": "Equip Overclocker",
@@ -181,7 +181,7 @@
   },
   "${modID}:Bolt": {
     "NAME": "Bolt",
-    "DESCRIPTION": "Deal !D! damage NL Doesn't use equipment durability NL Exhaust"
+    "DESCRIPTION": "Deal !D! damage NL RunnerMod:Neon NL Exhaust"
   },
   "${modID}:Mending": {
     "NAME": "Mending",
@@ -189,7 +189,7 @@
   },
   "${modID}:NeonBlades": {
     "NAME": "Neon Blades",
-    "DESCRIPTION": "Deal !D! damage 2 times NL  RunnerMod:Equip  RunnerMod:Blades !M! NL Doesn't use equipment durability"
+    "DESCRIPTION": "Deal !D! damage 2 times NL  RunnerMod:Equip  RunnerMod:Blades !M! NL RunnerMod:Neon"
   },
   "${modID}:Flouresce": {
     "NAME": "Flouresce",
@@ -197,7 +197,7 @@
   },
   "${modID}:InfectedBlade": {
     "NAME": "Infected Blade",
-    "DESCRIPTION": "Deal !D! damage NL Apply !M! Hack NL RunnerMod:Equip RunnerMod:Blades 5"
+    "DESCRIPTION": "Deal !D! damage and Apply !M! Hack X times NL RunnerMod:Equip RunnerMod:Blades 5"
   },
   "${modID}:Charge": {
     "NAME": "Charge",

@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import runnermod.cards.BaseCard;
 import runnermod.cards.tempcards.Bankroll;
 import runnermod.character.RunnerCharacter;
@@ -21,7 +22,7 @@ public class InfectedBlade extends BaseCard {
             CardType.ATTACK,
             CardRarity.RARE,
             CardTarget.ENEMY,
-            3
+            -1
 
     );
 
@@ -38,8 +39,13 @@ public class InfectedBlade extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m,new DamageInfo(p,damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-        addToBot(new ApplyPowerAction(m,p,new Hacked(m,3)));
+        for (int i = 0; i < energyOnUse; i++) {
+            addToBot(new DamageAction(m,new DamageInfo(p,damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+            addToBot(new ApplyPowerAction(m,p,new Hacked(m,3)));
+        }
         addToBot(new ChangeRunnerStanceAction("Blades",5));
+        if (!this.freeToPlayOnce) {
+            p.energy.use(EnergyPanel.totalCount);
+        }
     }
 }

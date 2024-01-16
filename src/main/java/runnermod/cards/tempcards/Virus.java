@@ -20,7 +20,7 @@ public class Virus extends BaseCard {
     private static final CardStats info = new CardStats(
             CardColor.COLORLESS,
             CardType.STATUS,
-            CardRarity.CURSE,
+            CardRarity.SPECIAL,
             CardTarget.NONE,
             1
     );
