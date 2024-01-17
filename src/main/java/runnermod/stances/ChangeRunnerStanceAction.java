@@ -36,6 +36,8 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
         comboLookup.put("ArtifactWall","Metal");
         comboLookup.put("WallCards","Tinker");
         comboLookup.put("CardsWall","Tinker");
+        comboLookup.put("BladesOverclock","Berserker");
+        comboLookup.put("OverclockBlades","Berserker");
         previousStance = AbstractDungeon.player.stance;
 
 
@@ -109,6 +111,7 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
                         durabilities[1] = Math.max(durabilities[1], ((RunnerStance)previousStance).durabilityDictionary.get(id));
                     }
                 }
+                return new MetalStance(new String[]{"Artifact", "Wall"},new int[]{durabilities[0], durabilities[1]});
             case "Tinker":
                 if (newStanceID == "Wall")
                 {
@@ -126,6 +129,23 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
                     }
                 }
                 return new TinkerStance(new String[]{"Cards", "Wall"},new int[]{durabilities[0], durabilities[1]});
+            case "Berserker":
+                if (newStanceID == "Overclock")
+                {
+                    durabilities[1] = durabilities[0];
+                    durabilities[0]=0;
+                }
+                for (String id: Collections.list(((RunnerStance) previousStance).durabilityDictionary.keys())) {
+                    if (id == "Blades")
+                    {
+                        durabilities[0] = Math.max(durabilities[0], ((RunnerStance)previousStance).durabilityDictionary.get(id));
+                    }
+                    if (id == "Overclock")
+                    {
+                        durabilities[1] = Math.max(durabilities[1], ((RunnerStance)previousStance).durabilityDictionary.get(id));
+                    }
+                }
+                return new OverclockStance(new String[]{"Blades", "Overclock"},new int[]{durabilities[0], durabilities[1]});
             default:
                 return new NeutralStance();
         }

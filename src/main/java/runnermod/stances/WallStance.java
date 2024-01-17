@@ -40,13 +40,23 @@ public class WallStance extends RunnerStance {
 
     @Override
     public void onPlayCard(AbstractCard card) {
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, card.cost*3));
+
+        //check for x cost when -1
+        if(card.cost == -1)
+        {
+            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, card.energyOnUse*3));
+        }
+        else
+        {
+            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, card.cost*3));
+        }
+
         super.onPlayCard(card);
         if (!card.hasTag(RunnerCharacter.Enums.NEON))
         {
             reduceDurability(1);
         }
-        if (durabilityDictionary.get("Wall").equals(0) ||durabilityDictionary.get("Wall").equals(null))
+        if (durabilityDictionary.get("Wall").equals(0) ||durabilityDictionary.get("Wall") < 0)
         {
             AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));
         }

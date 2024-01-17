@@ -35,14 +35,20 @@ public class PawnShopPower extends BasePower implements CloneablePowerInterface 
             {
                 case 0:
                     addToBot(new MakeTempCardInHandAction(new BrokenBlades()));
+                    break;
                 case 1:
                     addToBot(new MakeTempCardInHandAction(new BrokenShields()));
+                    break;
                 case 2:
                     addToBot(new MakeTempCardInHandAction(new BrokenFirewall()));
+                    break;
                 case 3:
                     addToBot(new MakeTempCardInHandAction(new BrokenBlaster()));
+                    break;
                 case 4:
                     addToBot(new MakeTempCardInHandAction(new BrokenOverclocker()));
+                    break;
+                default:
             }
 
         }

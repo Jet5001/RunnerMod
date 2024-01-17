@@ -60,9 +60,9 @@ public class AccelStance extends RunnerStance {
             reduceDurability(1);
         }
         //sort out new stance as durabilties fade
-        if (durabilityDictionary.get("Wall").equals(0) ||durabilityDictionary.get("Wall").equals(null) )
+        if (durabilityDictionary.get("Wall").equals(0) ||durabilityDictionary.get("Wall")<0 )
         {
-            if (durabilityDictionary.get("Blades").equals(0) ||durabilityDictionary.get("Blades").equals(null))
+            if (durabilityDictionary.get("Blades").equals(0) ||durabilityDictionary.get("Blades")<0)
             {
                 AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));
                 return;
@@ -70,9 +70,9 @@ public class AccelStance extends RunnerStance {
             AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new BladesStance(new String[]{"Blades"}, new int[]{durabilityDictionary.get("Blades")+1} )));
 
         }
-        if (durabilityDictionary.get("Blades").equals(0) ||durabilityDictionary.get("Blades").equals(null))
+        if (durabilityDictionary.get("Blades").equals(0) ||durabilityDictionary.get("Blades")<0)
         {
-            if (durabilityDictionary.get("Wall").equals(0) ||durabilityDictionary.get("Wall").equals(null))
+            if (durabilityDictionary.get("Wall").equals(0) ||durabilityDictionary.get("Wall")<0)
             {
                 AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));
                 return;

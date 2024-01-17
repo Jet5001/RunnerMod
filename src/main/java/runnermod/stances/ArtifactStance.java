@@ -78,7 +78,7 @@ public class ArtifactStance extends RunnerStance {
         {
             reduceDurability(1);
         }
-        if (durabilityDictionary.get("Artifact").equals(0))
+        if (durabilityDictionary.get("Artifact").equals(0) || durabilityDictionary.get("Artifact")<0)
         {
             AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));
         }

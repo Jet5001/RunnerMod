@@ -60,7 +60,7 @@ public class BerserkerStance extends RunnerStance {
         }
 
         //sort out new stance as durabilties fade
-        if (durabilityDictionary.get("Blades").equals(0))
+        if (durabilityDictionary.get("Blades").equals(0) || durabilityDictionary.get("Blades") < 0)
         {
             if (durabilityDictionary.get("Overclock").equals(0))
             {
@@ -70,7 +70,7 @@ public class BerserkerStance extends RunnerStance {
             AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new WallStance(new String[]{"Overclock"}, new int[]{durabilityDictionary.get("Overclock")+1} )));
 
         }
-        if (durabilityDictionary.get("Overclock").equals(0))
+        if (durabilityDictionary.get("Overclock").equals(0) || durabilityDictionary.get("Overclock") < 0)
         {
             if (durabilityDictionary.get("Blades").equals(0))
             {

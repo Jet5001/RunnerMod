@@ -52,13 +52,21 @@ public class BladesStance extends RunnerStance {
 
     @Override
     public void onPlayCard(AbstractCard card) {
-        AbstractDungeon.actionManager.addToBottom(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, card.cost*3), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        //check for x cost at -1
+        if (card.cost == -1)
+        {
+            AbstractDungeon.actionManager.addToBottom(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, card.energyOnUse*3), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        }
+        else
+        {
+            AbstractDungeon.actionManager.addToBottom(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, card.cost*3), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        }
         super.onPlayCard(card);
         if (!card.hasTag(RunnerCharacter.Enums.NEON))
         {
             reduceDurability(1);
         }
-        if (durabilityDictionary.get("Blades").equals(0) ||durabilityDictionary.get("Blades").equals(null))
+        if (durabilityDictionary.get("Blades").equals(0) || durabilityDictionary.get("Blades") < 0)
         {
             AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));
         }

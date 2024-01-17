@@ -63,9 +63,9 @@ public class TinkerStance extends RunnerStance {
         }
 
         //sort out new stance as durabilties fade
-        if (durabilityDictionary.get("Cards").equals(0))
+        if (durabilityDictionary.get("Cards").equals(0) || durabilityDictionary.get("Cards") < 0)
         {
-            if (durabilityDictionary.get("Wall").equals(0))
+            if (durabilityDictionary.get("Wall").equals(0) || durabilityDictionary.get("Wall") < 0)
             {
                 AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));
                 return;
@@ -73,9 +73,9 @@ public class TinkerStance extends RunnerStance {
             AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new WallStance(new String[]{"Wall"}, new int[]{durabilityDictionary.get("Wall")+1} )));
 
         }
-        if (durabilityDictionary.get("Wall").equals(0) ||durabilityDictionary.get("Wall").equals(null))
+        if (durabilityDictionary.get("Wall").equals(0) ||durabilityDictionary.get("Wall") < 0)
         {
-            if (durabilityDictionary.get("Cards").equals(0) ||durabilityDictionary.get("Cards").equals(null))
+            if (durabilityDictionary.get("Cards").equals(0) ||durabilityDictionary.get("Cards") < 0)
             {
                 AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));
                 return;

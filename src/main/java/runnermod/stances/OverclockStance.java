@@ -46,7 +46,7 @@ public class OverclockStance extends RunnerStance {
         {
             reduceDurability(1);
         }
-        if (durabilityDictionary.get("Overclock").equals(0))
+        if (durabilityDictionary.get("Overclock").equals(0) || durabilityDictionary.get("Overclock") < 0)
         {
             AbstractDungeon.actionManager.addToBottom(new ChangeRunnerStanceAction("Neutral", 0));
         }
