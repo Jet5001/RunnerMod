@@ -209,23 +209,23 @@
   },
   "${modID}:BrokenBlades": {
     "NAME": "Broken Blades",
-    "DESCRIPTION": "RunnerMod:Equip RunnerMod:Blades !M!"
+    "DESCRIPTION": "RunnerMod:Equip RunnerMod:Blades !M! NL Ethereal NL Exhaust"
   },
   "${modID}:BrokenShields": {
     "NAME": "Broken Shields",
-    "DESCRIPTION": "RunnerMod:Equip RunnerMod:Shields !M!"
+    "DESCRIPTION": "RunnerMod:Equip RunnerMod:Shields !M! NL Ethereal NL Exhaust"
   },
   "${modID}:BrokenFirewall": {
     "NAME": "Broken Firewall",
-    "DESCRIPTION": "RunnerMod:Equip RunnerMod:Firewall !M!"
+    "DESCRIPTION": "RunnerMod:Equip RunnerMod:Firewall !M! NL Ethereal NL Exhaust"
   },
   "${modID}:BrokenOverclocker": {
     "NAME": "Broken Overclocker",
-    "DESCRIPTION": "RunnerMod:Equip RunnerMod:Overclocker !M!"
+    "DESCRIPTION": "RunnerMod:Equip RunnerMod:Overclocker !M! NL Ethereal NL Exhaust"
   },
   "${modID}:BrokenBlaster": {
     "NAME": "Broken Blaster",
-    "DESCRIPTION": "RunnerMod:Equip RunnerMod:Blaster !M!"
+    "DESCRIPTION": "RunnerMod:Equip RunnerMod:Blaster !M! NL Ethereal NL Exhaust"
   },
   "${modID}:PawnShop": {
     "NAME": "Pawn Shop",
