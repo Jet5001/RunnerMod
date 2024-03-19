@@ -15,11 +15,11 @@ public class HardLightTech extends BaseCard {
             CardType.POWER,
             CardRarity.RARE,
             CardTarget.NONE,
-            2
+            1
 
     );
 
-    private static final int MAGIC = 2;
+    private static final int MAGIC = 4;
     private static final int MAGIC_UPG = 2;
 
 

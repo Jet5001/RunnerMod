@@ -3,9 +3,10 @@
     "ID": "Hacked",
     "PROPER_NAME": "Hacked",
     "NAMES": [
-      "Hacked"
+      "Hacked",
+      "Hack"
     ],
-    "DESCRIPTION": "Whenever a debuff is applied, take damage equal to the amount of Hacked"
+    "DESCRIPTION": "Whenever a debuff is applied, deal damage equal to the amount of Hacked"
   },
   {
     "ID": "Equip",
@@ -13,7 +14,7 @@
     "NAMES": [
       "equip"
     ],
-    "DESCRIPTION": "Equipment loses 1 durability for each card you play and automatically combines together.  "
+    "DESCRIPTION": "Equipment loses 1 durability for each card you play. NL Equipment automatically combines together."
   },
   {
     "ID": "Repair",

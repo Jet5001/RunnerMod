@@ -60,4 +60,5 @@ public class TaxingUpgradesPower extends BasePower implements CloneablePowerInte
     public void updateDescription() {
         this.description = DESCRIPTIONS[0];
     }
+
 }

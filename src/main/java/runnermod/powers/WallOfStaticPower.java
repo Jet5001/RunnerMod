@@ -40,4 +40,5 @@ public class WallOfStaticPower extends BasePower implements CloneablePowerInterf
     public void updateDescription() {
         this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
     }
+
 }

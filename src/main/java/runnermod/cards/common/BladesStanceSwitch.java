@@ -16,7 +16,7 @@ public class BladesStanceSwitch extends BaseCard {
             RunnerCharacter.Enums.CARD_COLOR,
             CardType.SKILL,
             CardRarity.COMMON,
-            CardTarget.NONE,
+            CardTarget.ENEMY,
             1
     );
 

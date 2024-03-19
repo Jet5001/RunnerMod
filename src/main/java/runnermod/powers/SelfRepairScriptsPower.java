@@ -33,4 +33,5 @@ public class SelfRepairScriptsPower extends BasePower implements CloneablePowerI
     public void updateDescription() {
         this.description = DESCRIPTIONS[0] + amount;
     }
+
 }

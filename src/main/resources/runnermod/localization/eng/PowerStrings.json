@@ -51,5 +51,12 @@
       "At the start of your turn add #b",
       "random broken weapons to your hand "
     ]
+  },
+  "${modID}:BotNetPower": {
+    "NAME": "Bot Net",
+    "DESCRIPTIONS": [
+      "At the start of your turn apply #b",
+      "random debuffs to random enemies"
+    ]
   }
 }

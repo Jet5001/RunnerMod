@@ -152,7 +152,7 @@
   },
   "${modID}:ArtifactStanceSwitch": {
     "NAME": "Equip Firewall",
-    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Firewall !M! NL Scry 3"
+    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Firewall !M! NL Scry 3 NL RunnerMod:Neon"
   },
   "${modID}:CardsStanceSwitch": {
     "NAME": "Equip Blaster",
@@ -181,7 +181,7 @@
   },
   "${modID}:Bolt": {
     "NAME": "Bolt",
-    "DESCRIPTION": "Deal !D! damage NL RunnerMod:Neon NL Exhaust"
+    "DESCRIPTION": "Deal !D! damage Apply a random debuff NL RunnerMod:Neon NL Exhaust"
   },
   "${modID}:Mending": {
     "NAME": "Mending",
@@ -205,7 +205,7 @@
   },
   "${modID}:HardLightTech": {
     "NAME": "Hard Light Technology",
-    "DESCRIPTION": "Increase the damage of all neon cards by !M!"
+    "DESCRIPTION": "Increase the damage of all RunnerMod:Neon cards by !M!"
   },
   "${modID}:BrokenBlades": {
     "NAME": "Broken Blades",
@@ -231,5 +231,62 @@
     "NAME": "Pawn Shop",
     "DESCRIPTION": "At the start of your turn add a random broken equipment to your hand NL Ethereal",
     "UPGRADE_DESCRIPTION": "At the start of your turn add a random broken equipment to your hand"
+  },
+  "${modID}:NanoFilamentBlade": {
+    "NAME": "Nano Filament Blade",
+    "DESCRIPTION": "Deal !D! damage NL can be upgraded any number of times"
+  },
+  "${modID}:MultiLayerShield": {
+    "NAME": "Multi Layer Shield",
+    "DESCRIPTION": "Gain !B! Block NL Can be upgraded any number of times"
+  },
+  "${modID}:Adapt": {
+    "NAME": "Adapt",
+    "DESCRIPTION": "Gain !DEX! Dexterity",
+    "UPGRADE_DESCRIPTION": "Gain !DEX! Dexterity NL Gain !STR! Strength"
+  },
+  "${modID}:Deplete": {
+    "NAME": "Deplete",
+    "DESCRIPTION": "Gain [E] [E] NL Gain 1 less [E] next turn"
+  },
+  "${modID}:BotNet": {
+    "NAME": "Bot Net",
+    "DESCRIPTION": "At the start of your turn apply !M! random debuffs to random enemies"
+  },
+  "${modID}:MalwareStorm": {
+    "NAME": "Malware Storm",
+    "DESCRIPTION": "Apply !M! random debuffs to random enemies"
+  },
+  "${modID}:ThoughtlessIncursion": {
+    "NAME": "Thoughtless Incursion",
+    "DESCRIPTION": "Apply !M! random debuffs to random enemies NL obtain 5 random debuffs"
+  },
+  "${modID}:Digitise": {
+    "NAME": "Digitise",
+    "DESCRIPTION": "Apply Neon to !M! cards in your hand"
+  },
+  "${modID}:Bide": {
+    "NAME": "Bide",
+    "DESCRIPTION": "Gain [E] [E] , the enemy gains 10 block"
+  },
+  "${modID}:Infect": {
+    "NAME": "Infect",
+    "DESCRIPTION": "Deal !D! damage and apply !M! Hack"
+  },
+  "${modID}:Barrage": {
+    "NAME": "Barrage",
+    "DESCRIPTION": "Deal !D! damage !M! times Runnermod:Neon"
+  },
+  "${modID}:Stalemate": {
+    "NAME": "Stalemate",
+    "DESCRIPTION": "Gain !B! Block the enemy gains 5 block"
+  },
+  "${modID}:Manifest": {
+    "NAME": "Manifest",
+    "DESCRIPTION": "Draw !M! cards NL Add a virus to your discard pile"
+  },
+  "${modID}:SwiftRun": {
+    "NAME": "Swift Run",
+    "DESCRIPTION": "Deal !D! damage. NL If this causes the enemy to lose HP draw a card"
   }
 }

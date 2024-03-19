@@ -12,5 +12,10 @@
       "This": "Contains pairs of Strings, used to get values based on keys.",
       "This is a key": "This is a value."
     }
+  },
+  "ArmamentsAction": {
+    "TEXT": [
+      "Make Neon"
+    ]
   }
 }

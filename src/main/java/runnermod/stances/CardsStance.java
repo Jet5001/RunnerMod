@@ -58,13 +58,32 @@ public class CardsStance extends RunnerStance {
         if (!(card instanceof Bolt))
             AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Bolt()));
         super.onPlayCard(card);
+
         if (!card.hasTag(RunnerCharacter.Enums.NEON))
         {
             reduceDurability(1);
         }
-        if (durabilityDictionary.get("Cards").equals(0) ||durabilityDictionary.get("Cards")<0)
+
+        //sort out new stance as durabilties fade
+        if (durabilityDictionary.get("Artifact").equals(0) ||durabilityDictionary.get("Artifact") < 0)
         {
-            AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));
+            if (durabilityDictionary.get("Overclock").equals(0) ||durabilityDictionary.get("Overclock") < 0)
+            {
+                AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));
+                return;
+            }
+            AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new OverclockStance(new String[]{"Overclock"}, new int[]{durabilityDictionary.get("Overclock")+1} )));
+
+        }
+        if (durabilityDictionary.get("Overclock").equals(0) ||durabilityDictionary.get("Overclock") < 0)
+        {
+            if (durabilityDictionary.get("Artifact").equals(0) ||durabilityDictionary.get("Artifact") < 0)
+            {
+                AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction("Neutral"));
+                return;
+            }
+            AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new ArtifactStance(new String[]{"Artifact"}, new int[]{durabilityDictionary.get("Artifact")+1} )));
+
         }
 
     }

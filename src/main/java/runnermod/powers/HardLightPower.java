@@ -37,4 +37,5 @@ public class HardLightPower extends BasePower implements CloneablePowerInterface
     public void updateDescription() {
         this.description = DESCRIPTIONS[0] + amount;
     }
+
 }

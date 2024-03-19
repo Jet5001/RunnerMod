@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import runnermod.cards.BaseCard;
+import runnermod.cards.RandomDebuffAction;
 import runnermod.character.RunnerCharacter;
 import runnermod.util.CardStats;
 
@@ -18,6 +19,7 @@ import runnermod.util.CardStats;
 
 public class Bolt extends BaseCard {
 
+    //TODO Change to applying 2 random debuff!!!
 
     public static final String ID = makeID(Bolt.class.getSimpleName());
     private static final CardStats info = new CardStats(
@@ -47,5 +49,6 @@ public class Bolt extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAction(m, new DamageInfo(p,damage ,DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.LIGHTNING));
+        addToBot(new RandomDebuffAction(p, m));
     }
 }

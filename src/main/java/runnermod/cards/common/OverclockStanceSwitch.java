@@ -34,10 +34,11 @@ public class OverclockStanceSwitch extends BaseCard {
     @Override
     public void upgrade()
     {
+        super.upgrade();
         if (!this.upgraded)
         {
             upgradeName();
-
+            this.upgraded = true;
         }
     }
 

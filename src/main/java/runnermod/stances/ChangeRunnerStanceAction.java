@@ -34,10 +34,10 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
         comboLookup.put("ArtifactBlades","Hack");
         comboLookup.put("WallArtifact","Metal");
         comboLookup.put("ArtifactWall","Metal");
-        comboLookup.put("WallCards","Tinker");
-        comboLookup.put("CardsWall","Tinker");
-        comboLookup.put("BladesOverclock","Berserker");
-        comboLookup.put("OverclockBlades","Berserker");
+        comboLookup.put("WallOverclock","Tinker");
+        comboLookup.put("OverclockWall","Tinker");
+        comboLookup.put("ArtifactOverclock","Cards");
+        comboLookup.put("OverclockArtifact","Cards");
         previousStance = AbstractDungeon.player.stance;
 
 
@@ -54,8 +54,6 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
                 return new BladesStance(new String[]{"Blades"},new int[]{durabilities[0]});
             case "Artifact":
                 return new ArtifactStance(new String[]{"Artifact"},new int[]{durabilities[0]});
-            case "Cards":
-                return new CardsStance(new String[]{"Cards"},new int[]{durabilities[0]});
             case "Overclock":
                 return new OverclockStance(new String[]{"Overclock"},new int[]{durabilities[0]});
             case "Accel":
@@ -119,7 +117,7 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
                     durabilities[0]=0;
                 }
                 for (String id: Collections.list(((RunnerStance) previousStance).durabilityDictionary.keys())) {
-                    if (id == "Cards")
+                    if (id == "Overclock")
                     {
                         durabilities[0] = Math.max(durabilities[0], ((RunnerStance)previousStance).durabilityDictionary.get(id));
                     }
@@ -128,15 +126,15 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
                         durabilities[1] = Math.max(durabilities[1], ((RunnerStance)previousStance).durabilityDictionary.get(id));
                     }
                 }
-                return new TinkerStance(new String[]{"Cards", "Wall"},new int[]{durabilities[0], durabilities[1]});
-            case "Berserker":
+                return new TinkerStance(new String[]{"Overclock", "Wall"},new int[]{durabilities[0], durabilities[1]});
+            case "Cards":
                 if (newStanceID == "Overclock")
                 {
                     durabilities[1] = durabilities[0];
                     durabilities[0]=0;
                 }
                 for (String id: Collections.list(((RunnerStance) previousStance).durabilityDictionary.keys())) {
-                    if (id == "Blades")
+                    if (id == "Artifact")
                     {
                         durabilities[0] = Math.max(durabilities[0], ((RunnerStance)previousStance).durabilityDictionary.get(id));
                     }
@@ -145,7 +143,7 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
                         durabilities[1] = Math.max(durabilities[1], ((RunnerStance)previousStance).durabilityDictionary.get(id));
                     }
                 }
-                return new OverclockStance(new String[]{"Blades", "Overclock"},new int[]{durabilities[0], durabilities[1]});
+                return new CardsStance(new String[]{"Artifact", "Overclock"},new int[]{durabilities[0], durabilities[1]});
             default:
                 return new NeutralStance();
         }
