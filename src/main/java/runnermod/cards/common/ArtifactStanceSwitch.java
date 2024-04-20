@@ -40,7 +40,9 @@ public class ArtifactStanceSwitch extends BaseCard {
             upgradeName();
             //remove ehtereal on upgrade
             this.upgradeBaseCost(0);
+            super.upgrade();
         }
+
     }
 
     //called when the card is played

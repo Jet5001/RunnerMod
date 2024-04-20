@@ -39,6 +39,7 @@ public class OverclockStanceSwitch extends BaseCard {
         {
             upgradeName();
             this.upgraded = true;
+            super.upgrade();
         }
     }
 

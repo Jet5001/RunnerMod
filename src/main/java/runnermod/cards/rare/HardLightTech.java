@@ -19,8 +19,8 @@ public class HardLightTech extends BaseCard {
 
     );
 
-    private static final int MAGIC = 4;
-    private static final int MAGIC_UPG = 2;
+    private static final int MAGIC = 3;
+    private static final int MAGIC_UPG = 1;
 
 
     public HardLightTech()
@@ -36,7 +36,7 @@ public class HardLightTech extends BaseCard {
         if (!this.upgraded)
         {
             upgradeName();
-            upgradeBaseCost(1);
+            super.upgrade();
         }
     }
 

@@ -1,8 +1,13 @@
 package runnermod.powers;
 
 import basemod.interfaces.CloneablePowerInterface;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import runnermod.character.RunnerCharacter;
@@ -24,7 +29,7 @@ public class HardLightPower extends BasePower implements CloneablePowerInterface
     public void onPlayCard(AbstractCard card, AbstractMonster m) {
         if (card.hasTag(RunnerCharacter.Enums.NEON))
         {
-            card.damage +=amount;
+            addToBot(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player,this.amount, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.LIGHTNING));
         }
         super.onPlayCard(card, m);
     }

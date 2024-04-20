@@ -42,6 +42,7 @@ public class Virus extends BaseCard {
     public void upgrade() {
         super.upgrade();
         upgradeBaseCost(0);
+        super.upgrade();
     }
 
     @Override

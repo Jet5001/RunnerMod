@@ -22,12 +22,16 @@ public class Flourish extends BaseCard {
     );
 
     //Card Stats
-    private static final int DAMAGE = 6;
-    private static final int UPG_DAMAGE = 3;
+    private static final int DAMAGE = 3;
+    private static final int UPG_DAMAGE = 0;
+    private static final int MAG = 2;
+    private static final int MAG_UPG = 1;
+
     public Flourish()
     {
         super(ID,info);
         setDamage(DAMAGE, UPG_DAMAGE);
+        setMagic(MAG,MAG_UPG);
     }
 
     @Override
@@ -86,6 +90,9 @@ public class Flourish extends BaseCard {
     //Not applying vulnerable before damage for some reason?
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        for (int i = 0; i < this.magicNumber; i++) {
             addToBot(new DamageAction(m,new DamageInfo(p,damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+        }
+
     }
 }

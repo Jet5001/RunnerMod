@@ -28,7 +28,7 @@ public class InfectedBlade extends BaseCard {
 
     private static final int DMG = 6;
     private static final int DMG_UPG  = 3;
-    private static final int MAG = 3;
+    private static final int MAG = 2;
     private static final int MAG_UPG = 1;
 
     public InfectedBlade() {
@@ -41,7 +41,7 @@ public class InfectedBlade extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (int i = 0; i < energyOnUse; i++) {
             addToBot(new DamageAction(m,new DamageInfo(p,damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-            addToBot(new ApplyPowerAction(m,p,new Hacked(m,3)));
+            addToBot(new ApplyPowerAction(m,p,new Hacked(m,this.magicNumber)));
         }
         addToBot(new ChangeRunnerStanceAction("Blades",5));
         if (!this.freeToPlayOnce) {

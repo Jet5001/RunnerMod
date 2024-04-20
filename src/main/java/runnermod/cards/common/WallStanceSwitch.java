@@ -42,7 +42,7 @@ public class WallStanceSwitch extends BaseCard {
         if (!this.upgraded)
         {
             upgradeName();
-
+            super.upgrade();
         }
     }
 

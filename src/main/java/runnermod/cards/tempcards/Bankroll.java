@@ -50,7 +50,9 @@ public class Bankroll extends BaseCard {
         {
             upgradeName();
             extraDamage=6;
+            super.upgrade();
         }
+
     }
 
     @Override

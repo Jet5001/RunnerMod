@@ -58,5 +58,19 @@
       "At the start of your turn apply #b",
       "random debuffs to random enemies"
     ]
+  },
+  "${modID}:OvertaxPower": {
+    "NAME": "Overtax",
+    "DESCRIPTIONS": [
+      "At the start of your turn gain #b",
+      "extra [E]"
+    ]
+  },
+  "${modID}:HardLightPower": {
+    "NAME": "Hard Light Technology",
+    "DESCRIPTIONS": [
+      "Whenever you play a  Runnermod:Neon card deal #b",
+      " damage to a random enemy"
+    ]
   }
 }

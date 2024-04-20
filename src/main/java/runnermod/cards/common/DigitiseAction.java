@@ -75,6 +75,7 @@ public class DigitiseAction extends AbstractGameAction{
             this.isDone = true;
         }
         tickDuration();
+        this.isDone = true;
     }
 
     private void returnCards() {

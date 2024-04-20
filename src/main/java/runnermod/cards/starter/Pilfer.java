@@ -38,6 +38,7 @@ public class    Pilfer extends BaseCard {
     public void upgrade() {
         super.upgrade();
         this.upgradeBaseCost(1);
+        super.upgrade();
     }
 
     @Override

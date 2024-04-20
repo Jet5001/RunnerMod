@@ -54,7 +54,11 @@ public class TinkerStance extends RunnerStance {
     @Override
     public void onPlayCard(AbstractCard card) {
         AbstractCreature p = AbstractDungeon.player;
-        card.upgrade();
+        if (card.canUpgrade())
+        {
+            card.upgrade();
+        }
+
 
         super.onPlayCard(card);
         if (!card.hasTag(RunnerCharacter.Enums.NEON))

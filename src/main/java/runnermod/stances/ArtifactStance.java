@@ -125,7 +125,7 @@ public class ArtifactStance extends RunnerStance {
                 previousArtifactAmount = player.powers.get(i).amount;
             }
         }
-        if (previousArtifactAmount >=1)
+        if (previousArtifactAmount >=2)
         {
             int newArtifactAmount = previousArtifactAmount -1;
             AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player,AbstractDungeon.player , stancePower));

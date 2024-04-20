@@ -20,12 +20,15 @@ public class HeadOn extends BaseCard {
     );
 
     //Card Stats
-    private static final int BLOCK = 5;
-    private static final int BLOCK_UPG = 3;
+    private static final int BLOCK = 3;
+    private static final int BLOCK_UPG = 0;
+    private static final int MAG = 2;
+    private static final int MAG_UPG = 1;
     public HeadOn()
     {
         super(ID,info);
         setBlock(BLOCK, BLOCK_UPG);
+        setMagic(MAG,MAG_UPG);
     }
 
     @Override
@@ -82,6 +85,8 @@ public class HeadOn extends BaseCard {
     //Not applying vulnerable before damage for some reason?
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new GainBlockAction(p,p,this.block));
+        for (int i = 0; i < this.magicNumber; i++) {
+            addToBot(new GainBlockAction(p,p,this.block));
+        }
     }
 }

@@ -36,6 +36,7 @@ public class Durable extends BaseCard {
         {
             upgradeName();
             upgradeBaseCost(1);
+            super.upgrade();
         }
     }
 

@@ -128,11 +128,11 @@
   },
   "${modID}:HeadOn": {
     "NAME": "Head On",
-    "DESCRIPTION": "Gain !B! block NL increases with Strength instead of Dexterity"
+    "DESCRIPTION": "Gain !B! block !M! times NL increases with Strength instead of Dexterity"
   },
   "${modID}:Flourish": {
     "NAME": "Flourish",
-    "DESCRIPTION": "Deal !D! damage NL increases with Dexterity instead of Strength"
+    "DESCRIPTION": "Deal !D! damage !M! times NL increases with Dexterity instead of Strength"
   },
   "${modID}:WallOfStatic": {
     "NAME": "Wall of Static",
@@ -288,5 +288,13 @@
   "${modID}:SwiftRun": {
     "NAME": "Swift Run",
     "DESCRIPTION": "Deal !D! damage. NL If this causes the enemy to lose HP draw a card"
+  },
+  "${modID}:Overtax": {
+    "NAME": "Overtax",
+    "DESCRIPTION": "At the start of each turn gain 1 extra energy. NL Lose !M! Strength and !M! Dexterity"
+  },
+  "${modID}:SystemCrash": {
+    "NAME": "System Crash",
+    "DESCRIPTION": "Deal 8 damage times the number of debuffs applied to the enemy"
   }
 }

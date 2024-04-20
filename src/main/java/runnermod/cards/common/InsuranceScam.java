@@ -40,6 +40,7 @@ public class InsuranceScam extends BaseCard {
         if (!this.upgraded)
         {
             upgradeName();
+            super.upgrade();
         }
     }
 

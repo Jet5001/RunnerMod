@@ -1,17 +1,15 @@
 package runnermod.cards.uncommon;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import runnermod.cards.BaseCard;
+import runnermod.cards.Unused.BladeStrike;
 import runnermod.character.RunnerCharacter;
 import runnermod.util.CardStats;
 
 public class MultiLayerShield extends BaseCard {
-    public static final String ID = makeID(BladeStrike.class.getSimpleName());
+    public static final String ID = makeID(MultiLayerShield.class.getSimpleName());
     private static final CardStats info = new CardStats(
             RunnerCharacter.Enums.CARD_COLOR,
             CardType.SKILL,
@@ -35,6 +33,7 @@ public class MultiLayerShield extends BaseCard {
         this.upgraded = true;
         this.name = cardStrings.NAME + "+" + this.timesUpgraded;
         initializeTitle();
+        super.upgrade();
     }
 
     public boolean canUpgrade() {

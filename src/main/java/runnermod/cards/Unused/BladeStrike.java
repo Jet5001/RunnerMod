@@ -1,4 +1,4 @@
-package runnermod.cards.uncommon;
+package runnermod.cards.Unused;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -15,7 +15,7 @@ public class BladeStrike extends BaseCard {
     private static final CardStats info = new CardStats(
             RunnerCharacter.Enums.CARD_COLOR,
             CardType.ATTACK,
-            CardRarity.UNCOMMON,
+            CardRarity.SPECIAL,
             CardTarget.ENEMY,
             1
 

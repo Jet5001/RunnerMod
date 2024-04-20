@@ -15,7 +15,7 @@ public class Digitise extends BaseCard {
     private static final CardStats info = new CardStats(
             RunnerCharacter.Enums.CARD_COLOR,
             CardType.SKILL,
-            CardRarity.COMMON,
+            CardRarity.BASIC,
             CardTarget.NONE,
             0
     );

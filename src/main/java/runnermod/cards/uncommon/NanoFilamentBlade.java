@@ -6,12 +6,12 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import runnermod.cards.BaseCard;
+import runnermod.cards.Unused.BladeStrike;
 import runnermod.character.RunnerCharacter;
-import runnermod.stances.ChangeRunnerStanceAction;
 import runnermod.util.CardStats;
 
 public class NanoFilamentBlade extends BaseCard {
-    public static final String ID = makeID(BladeStrike.class.getSimpleName());
+    public static final String ID = makeID(NanoFilamentBlade.class.getSimpleName());
     private static final CardStats info = new CardStats(
             RunnerCharacter.Enums.CARD_COLOR,
             CardType.ATTACK,
@@ -35,6 +35,7 @@ public class NanoFilamentBlade extends BaseCard {
         this.upgraded = true;
         this.name = cardStrings.NAME + "+" + this.timesUpgraded;
         initializeTitle();
+        super.upgrade();
     }
 
     public boolean canUpgrade() {
