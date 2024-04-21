@@ -23,8 +23,8 @@ public class Overtax extends BaseCard {
 
     );
 
-    private static final int MAGIC = -2;
-    private static final int MAGIC_UPG = 1;
+    private static final int MAGIC = 2;
+    private static final int MAGIC_UPG = -1;
 
 
     public Overtax()
@@ -48,7 +48,7 @@ public class Overtax extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(p,p,new OvertaxPower(p, 1)));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player,AbstractDungeon.player,new StrengthPower(AbstractDungeon.player, this.magicNumber)));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player,AbstractDungeon.player,new DexterityPower(AbstractDungeon.player, this.magicNumber)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player,AbstractDungeon.player,new StrengthPower(AbstractDungeon.player, -this.magicNumber)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player,AbstractDungeon.player,new DexterityPower(AbstractDungeon.player, -this.magicNumber)));
     }
 }

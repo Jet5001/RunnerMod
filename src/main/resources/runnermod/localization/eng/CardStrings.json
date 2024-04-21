@@ -148,7 +148,7 @@
   },
   "${modID}:WallStanceSwitch": {
     "NAME": "Equip Shields",
-    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Shields !M! NL Gain !B! Block"
+    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Shields !M! NL Gain !B! Block NL RunnerMod:Neon"
   },
   "${modID}:ArtifactStanceSwitch": {
     "NAME": "Equip Firewall",
@@ -185,7 +185,7 @@
   },
   "${modID}:Mending": {
     "NAME": "Mending",
-    "DESCRIPTION": " RunnerMod:Repair !M! NL Exhaust"
+    "DESCRIPTION": " RunnerMod:Repair !M!"
   },
   "${modID}:NeonBlades": {
     "NAME": "Neon Blades",
@@ -197,7 +197,7 @@
   },
   "${modID}:InfectedBlade": {
     "NAME": "Infected Blade",
-    "DESCRIPTION": "Deal !D! damage and Apply !M! Hack X times NL RunnerMod:Equip RunnerMod:Blades 5"
+    "DESCRIPTION": "Deal !D! damage and Apply !M! RunnerMod:Hacked X times NL RunnerMod:Equip RunnerMod:Blades 5"
   },
   "${modID}:Charge": {
     "NAME": "Charge",
@@ -205,7 +205,7 @@
   },
   "${modID}:HardLightTech": {
     "NAME": "Hard Light Technology",
-    "DESCRIPTION": "Increase the damage of all RunnerMod:Neon cards by !M!"
+    "DESCRIPTION": "Deal !M! damage when you play a RunnerMod:Neon card"
   },
   "${modID}:BrokenBlades": {
     "NAME": "Broken Blades",
@@ -259,7 +259,7 @@
   },
   "${modID}:ThoughtlessIncursion": {
     "NAME": "Thoughtless Incursion",
-    "DESCRIPTION": "Apply !M! random debuffs to random enemies NL obtain 5 random debuffs"
+    "DESCRIPTION": "Apply !M! random debuffs to random enemies NL obtain !M! random debuffs"
   },
   "${modID}:Digitise": {
     "NAME": "Digitise",
@@ -271,7 +271,7 @@
   },
   "${modID}:Infect": {
     "NAME": "Infect",
-    "DESCRIPTION": "Deal !D! damage and apply !M! Hack"
+    "DESCRIPTION": "Deal !D! damage and apply !M! RunnerMod:Hacked"
   },
   "${modID}:Barrage": {
     "NAME": "Barrage",
@@ -295,6 +295,36 @@
   },
   "${modID}:SystemCrash": {
     "NAME": "System Crash",
-    "DESCRIPTION": "Deal 8 damage times the number of debuffs applied to the enemy"
+    "DESCRIPTION": "Deal 8 damage times the number of debuffs applied to the enemy",
+    "UPGRADE_DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage.)",
+      ""
+    ]
+  },
+  "${modID}:ScrapArmour": {
+    "NAME": "Scrap Armour",
+    "DESCRIPTION": "Whenever you gain durability gain that much Block"
+  },
+  "${modID}:Quarantine": {
+    "NAME": "Quarantine",
+    "DESCRIPTION": "All enemies lose !M! Strength for 1 turn NL RunnerMod:Equip RunnerMod:Firewall NL Innate"
+  },
+  "${modID}:Cloaking": {
+    "NAME": "Cloaking",
+    "DESCRIPTION": "Whenever you attack this enemy, gain !M! Block NL RunnerMod:Equip RunnerMod:shields NL Exhaust"
+  },
+  "${modID}:FreeRun": {
+    "NAME": "Free Run",
+    "DESCRIPTION": "Gain !B! block NL Draw !M! cards NL Ethereal"
+  },
+  "${modID}:LaughingMan": {
+    "NAME": "Laughing Man",
+    "DESCRIPTION": "Whenever you apply a debuff apply 1 RunnerMod:Hacked NL Ethereal",
+    "UPGRADE_DESCRIPTION": "Whenever you apply a debuff apply 1 RunnerMod:Hacked"
+  },
+  "${modID}:EvasiveManoeuvres": {
+    "NAME": "Evasive Manoeuvres",
+    "DESCRIPTION": "Gain !B! Block whenever you take damage this turn gain 3 Block"
   }
 }

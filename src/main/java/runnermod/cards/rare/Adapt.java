@@ -31,8 +31,15 @@ public class Adapt extends BaseCard {
     public Adapt()
     {
         super(ID,info);
+        this.upgradesDescription = true;
     }
 
+    @Override
+    public void applyPowers() {
+        super.applyPowers();
+        initializeDescription();
+
+    }
 
     @Override
     public void upgrade()
@@ -48,6 +55,7 @@ public class Adapt extends BaseCard {
         {
             strAmount+=1;
         }
+        super.upgrade();
     }
 
     @Override

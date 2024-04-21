@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
@@ -26,30 +27,70 @@ public class SystemCrash extends BaseCard {
     //Card Stats
     private static final int DAMAGE = 8;
     private static final int UPG_DAMAGE = 0;
-    private static final int MAGIC = 0;
+    private static final int MAGIC = 8;
     private static final int UPG_MAGIC = 0;
-
+    int debuffCount = 0;
     public SystemCrash()
     {
         super(ID,info);
-        setDamage(DAMAGE, UPG_DAMAGE);
+        //setDamage(DAMAGE, UPG_DAMAGE);
+        setMagic(MAGIC, UPG_MAGIC);
     }
-
+    AbstractCreature latestTarget;
     @Override
     public void upgrade() {
         super.upgrade();
         upgradeBaseCost(1);
     }
 
+    public void calculateCardDamage(AbstractMonster mo) {
+
+        debuffCount = 0;
+        for (AbstractPower pow :mo.powers) {
+            if (pow.type == AbstractPower.PowerType.DEBUFF)
+            {
+                debuffCount ++;
+            }
+        }
+        this.baseDamage = debuffCount * this.magicNumber;
+        super.calculateCardDamage(mo);
+        this.rawDescription = cardStrings.DESCRIPTION;
+        this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[0];
+        initializeDescription();
+        latestTarget = mo;
+    }
+
+    public void applyPowers() {
+        debuffCount = 0;
+        if (latestTarget!= null)
+        {
+            for (AbstractPower pow :latestTarget.powers) {
+                if (pow.type == AbstractPower.PowerType.DEBUFF)
+                {
+                    debuffCount ++;
+                }
+            }
+        }
+        this.baseDamage = debuffCount * this.magicNumber;
+        if (debuffCount > 0) {
+            this.baseDamage = debuffCount * this.magicNumber;
+            this.rawDescription = cardStrings.DESCRIPTION + cardStrings.EXTENDED_DESCRIPTION[0];
+            initializeDescription();
+        }
+        super.applyPowers();
+    }
+
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int debuffCount = 0;
+        debuffCount = 0;
         for (AbstractPower pow :m.powers) {
             if (pow.type == AbstractPower.PowerType.DEBUFF)
             {
                 debuffCount ++;
             }
         }
-        addToBot(new DamageAction(m,new DamageInfo(p,damage *debuffCount, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        this.baseDamage = debuffCount * this.magicNumber;
+        System.out.println("Debuff Count: " + debuffCount + "  BaseDamage: " + this.baseDamage);
+        addToBot(new DamageAction(m,new DamageInfo(p,this.damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
     }
 }

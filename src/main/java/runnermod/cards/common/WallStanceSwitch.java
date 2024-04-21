@@ -29,7 +29,6 @@ public class WallStanceSwitch extends BaseCard {
     public WallStanceSwitch()
     {
         super(ID,info);
-        //using magic number for the gold because why not. Might come in handy later
         this.setMagic(MAGIC, UPG_MAGIC);
         this.tags.add(RunnerCharacter.Enums.NEON);
         this.setBlock(BLOCK,BLOCK_UPG);
@@ -51,6 +50,6 @@ public class WallStanceSwitch extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         //add gain gold action to the stack
         addToTop(new ChangeRunnerStanceAction("Wall",magicNumber));
-        addToBot(new GainBlockAction(p,block));
+        addToBot(new GainBlockAction(p,this.block));
     }
 }

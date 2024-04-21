@@ -72,5 +72,25 @@
       "Whenever you play a  Runnermod:Neon card deal #b",
       " damage to a random enemy"
     ]
+  },
+  "${modID}:ScrapArmourPower": {
+    "NAME": "Scrap Armour",
+    "DESCRIPTIONS": [
+      "Whenever you gain durability gain #b",
+      " times that much block"
+    ]
+  },
+  "${modID}:LaughingManPower": {
+    "NAME": "Laughing Man",
+    "DESCRIPTIONS": [
+      "Whenever you apply a debuff apply #b",
+      " hack"
+    ]
+  },
+  "${modID}:EvasiveManoeuvresPower": {
+    "NAME": "Evasive Manoeuvres",
+    "DESCRIPTIONS": [
+      "Whenever you take damage this turn gain 5 Block"
+    ]
   }
 }

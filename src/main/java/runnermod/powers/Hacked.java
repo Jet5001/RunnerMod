@@ -24,9 +24,17 @@ public class Hacked extends BasePower implements CloneablePowerInterface, PostPo
     public static final String POWER_ID = makeID("Hacked");
     public static final AbstractPower.PowerType TYPE = PowerType.DEBUFF;
     private static final boolean TURNBASED = true;
+    public boolean fromLaughingMan = false;
     public Hacked(AbstractCreature owner, int hackAmount)
     {
         super(POWER_ID,TYPE,TURNBASED, owner, hackAmount);
+        System.out.println("CratedHacked");
+    }
+
+    public Hacked(AbstractCreature owner, int hackAmount, boolean fromLaughingMan)
+    {
+        super(POWER_ID,TYPE,TURNBASED, owner, hackAmount);
+        this.fromLaughingMan = fromLaughingMan;
         System.out.println("CratedHacked");
     }
 

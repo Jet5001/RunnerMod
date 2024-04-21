@@ -14,7 +14,7 @@ public class BladesStanceSwitch extends BaseCard {
     public static final String ID = makeID(BladesStanceSwitch.class.getSimpleName());
     private static final CardStats info = new CardStats(
             RunnerCharacter.Enums.CARD_COLOR,
-            CardType.SKILL,
+            CardType.ATTACK,
             CardRarity.COMMON,
             CardTarget.ENEMY,
             1

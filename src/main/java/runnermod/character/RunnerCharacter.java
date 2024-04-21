@@ -2,6 +2,7 @@ package runnermod.character;
 
 import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
+import basemod.animations.AbstractAnimation;
 import basemod.animations.SpriterAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -65,15 +66,21 @@ public class RunnerCharacter extends CustomPlayer {
     public RunnerCharacter() {
         super(NAMES[0], Enums.RUNNER,
                 new CustomEnergyOrb(null, null, null), //Energy Orb
-                new SpriterAnimation(characterPath("animation/default.scml"))); //Animation
+                //new SpriterAnimation(characterPath("animation/default.scml"))); //Animation
+                new AbstractAnimation() {
+                    @Override
+                    public Type type() {
+                        return Type.NONE;
+                    }
+                });
 
-        initializeClass(null,
-                SHOULDER_2,
-                SHOULDER_1,
-                CORPSE,
-                getLoadout(),
-                20.0F, -20.0F, 200.0F, 250.0F, //Character hitbox. x y position, then width and height.
-                new EnergyManager(ENERGY_PER_TURN));
+                initializeClass(characterPath("CharDefault.png"),
+                        SHOULDER_2,
+                        SHOULDER_1,
+                        CORPSE,
+                        getLoadout(),
+                        20.0F, -20.0F, 200.0F, 250.0F, //Character hitbox. x y position, then width and height.
+                        new EnergyManager(ENERGY_PER_TURN));
 
         //Location for text bubbles. You can adjust it as necessary later. For most characters, these values are fine.
         dialogX = (drawX + 0.0F * Settings.scale);

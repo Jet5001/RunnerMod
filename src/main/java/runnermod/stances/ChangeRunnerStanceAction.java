@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.stances.AbstractStance;
 import com.megacrit.cardcrawl.stances.NeutralStance;
 import org.lwjgl.Sys;
+import runnermod.powers.ScrapArmourPower;
 
 import java.util.Collections;
 import java.util.Dictionary;
@@ -29,6 +30,12 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
         this.stanceID = stanceID;
         newStanceID = stanceID;
         this.durabilities[0] = durability;
+        for (AbstractPower p :AbstractDungeon.player.powers) {
+            if (p.getClass() == ScrapArmourPower.class)
+            {
+                ((ScrapArmourPower) p).onDurabilityGain(durability);
+            }
+        }
         //Combo table to reference previous stance and new stance to see what you get
         comboLookup.put("BladesWall","Accel");
         comboLookup.put("WallBlades","Accel");
