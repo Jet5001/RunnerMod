@@ -3,10 +3,13 @@ package runnermod.stances;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -28,7 +31,8 @@ public class OverclockStance extends RunnerStance {
 
     private static long sfxId = -1L;
     private int durability;
-
+    int cardsPlayedInStance;
+    private static int damagePerCard = 4;
     public OverclockStance(String[] ids, int[] durabilties) {
         super(ids,durabilties);
         this.ID = "Overclock";
@@ -42,6 +46,7 @@ public class OverclockStance extends RunnerStance {
     @Override
     public void onPlayCard(AbstractCard card) {
         super.onPlayCard(card);
+        cardsPlayedInStance ++;
         if (!card.hasTag(RunnerCharacter.Enums.NEON))
         {
             reduceDurability(1);
@@ -54,16 +59,6 @@ public class OverclockStance extends RunnerStance {
     }
 
 
-    //I hate that this works but it does
-    //I couldn't find a working hook to work like the actual unceasing top
-    @Override
-    public void update() {
-        super.update();
-        if (AbstractDungeon.actionManager.actions.isEmpty() && AbstractDungeon.player.hand.isEmpty() && !AbstractDungeon.actionManager.turnHasEnded && !AbstractDungeon.player.hasPower("No Draw") && !AbstractDungeon.isScreenUp)
-            if ((AbstractDungeon.getCurrRoom()).phase == AbstractRoom.RoomPhase.COMBAT && (AbstractDungeon.player.discardPile.size() > 0 || AbstractDungeon.player.drawPile.size() > 0)) {
-                AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, 1));
-            }
-    }
 
     public void updateAnimation() {
         if (!Settings.DISABLE_EFFECTS) {
@@ -85,10 +80,12 @@ public class OverclockStance extends RunnerStance {
         for (String id: Collections.list(durabilityDictionary.keys())) {
                 this.description += id + " : " + durabilityDictionary.get(id) + " turns left";
         }
+        this.description += cardsPlayedInStance + " Cards played in stance (" + cardsPlayedInStance*damagePerCard + "damage)";
     }
 
     //start visuals for this stance
     public void onEnterStance() {
+        cardsPlayedInStance = 0;
         if (sfxId != -1L)
             stopIdleSfx();
         CardCrawlGame.sound.play("STANCE_ENTER_WRATH");
@@ -100,6 +97,7 @@ public class OverclockStance extends RunnerStance {
     //stop visuals for the stance
     public void onExitStance() {
         stopIdleSfx();
+        AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(AbstractDungeon.player, 5*cardsPlayedInStance, DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE ));
     }
 
     public void stopIdleSfx() {

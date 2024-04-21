@@ -12,7 +12,7 @@ import static runnermod.RunnerMod.makeID;
 public class LaughingManPower extends BasePower implements CloneablePowerInterface {
 
 
-    public static final String POWER_ID = makeID("ScrapArmourPower");
+    public static final String POWER_ID = makeID("LaughingManPower");
     public static final PowerType TYPE = PowerType.BUFF;
     private static final boolean TURNBASED = false;
 

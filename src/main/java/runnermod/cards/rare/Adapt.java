@@ -60,7 +60,10 @@ public class Adapt extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p,p,new StrengthPower(p, strAmount)));
+        if (strAmount > 0)
+        {
+            addToBot(new ApplyPowerAction(p,p,new StrengthPower(p, strAmount)));
+        }
         addToBot(new ApplyPowerAction(p,p,new DexterityPower(p, dexAmount)));
     }
 }

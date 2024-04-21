@@ -43,8 +43,7 @@ public class AdaptiveStrike extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (!(m.intent == AbstractMonster.Intent.ATTACK || m.intent == AbstractMonster.Intent.ATTACK_DEFEND|| m.intent == AbstractMonster.Intent.ATTACK_DEBUFF))
         {
-            addToBot(new ApplyPowerAction(m,p,new VulnerablePower(m,magicNumber,false)));
-            addToBot(new WaitAction(0.8f));
+            addToBot(new ApplyPowerAction(m,p,new VulnerablePower(m,magicNumber,false),1,true));
         }
         addToBot(new DamageAction(m,new DamageInfo(p,damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
     }
