@@ -354,7 +354,7 @@
     "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Overclocker !M! NL Add 2 Decoys to your hand",
     "UPGRADE_DESCRIPTION": " RunnerMod:Equip  RunnerMod:Overclocker !M! NL Add 3 Decoys to your hand"
   },
-  "${modID}:ShortCircut": {
+  "${modID}:ShortCircuit": {
     "NAME": "Short Circuit",
     "DESCRIPTION": " At the start of your turn Exhaust a card in your hand and gain [E]"
   },

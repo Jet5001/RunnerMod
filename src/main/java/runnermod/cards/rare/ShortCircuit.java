@@ -16,12 +16,12 @@ public class ShortCircuit extends BaseCard {
             CardType.POWER,
             CardRarity.RARE,
             CardTarget.NONE,
-            1
+            2
 
     );
 
-    private static final int MAGIC = 3;
-    private static final int MAGIC_UPG = 2;
+    private static final int MAGIC = 1;
+    private static final int MAGIC_UPG = 0;
 
 
     public ShortCircuit()
