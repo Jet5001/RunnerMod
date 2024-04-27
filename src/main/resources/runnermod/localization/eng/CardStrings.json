@@ -339,5 +339,19 @@
     "NAME": "Decoy",
     "DESCRIPTION": "RunnerMod:Neon NL Does Nothing NL Exhaust",
     "UPGRADE_DESCRIPTION": "RunnerMod:Neon NL Does Nothing with Intent NL Exhaust"
+  },
+  "${modID}:LostInTheCrowd": {
+    "NAME": "Lost in the Crowd",
+    "DESCRIPTION": "Fill your hand with decoys NL Ethereal",
+    "UPGRADE_DESCRIPTION": "Fill your hand with upgraded decoys NL Ethereal"
+  },
+  "${modID}:GhostInTheShell": {
+    "NAME": "Ghost in the Shell",
+    "DESCRIPTION": "Gain !B! Block NL Add !M! Decoys to your hand"
+  },
+  "${modID}:DoubleTime": {
+    "NAME": "Double Time",
+    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Overclocker !M! NL Add 2 Decoys to your hand",
+    "UPGRADE_DESCRIPTION": " RunnerMod:Equip  RunnerMod:Overclocker !M! NL Add 3 Decoys to your hand"
   }
 }

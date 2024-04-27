@@ -47,8 +47,8 @@ public class OverclockStance extends RunnerStance {
     @Override
     public void onPlayCard(AbstractCard card) {
         super.onPlayCard(card);
-        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(1));
         AbstractDungeon.actionManager.addToBottom(new DiscardAction(AbstractDungeon.player,AbstractDungeon.player,1,true));
+        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(1));
         if (!card.hasTag(RunnerCharacter.Enums.NEON))
         {
             reduceDurability(1);

@@ -20,7 +20,7 @@ public class Spam extends BaseCard {
             RunnerCharacter.Enums.CARD_COLOR,
             CardType.SKILL,
             CardRarity.UNCOMMON,
-            CardTarget.ENEMY,
+            CardTarget.ALL_ENEMY,
             1
     );
 
@@ -33,7 +33,7 @@ public class Spam extends BaseCard {
     {
         super(ID,info);
         setMagic(MAG,MAG_UPG);
-        setMagic(DMG,DMG_UP);
+        setDamage(DMG,DMG_UP);
     }
 
     @Override
