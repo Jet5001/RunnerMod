@@ -24,7 +24,7 @@ public class    Pilfer extends BaseCard {
     private static final int DAMAGE = 10;
     private static final int UPG_DAMAGE =5;
 
-    private static final int MAGIC = 15;
+    private static final int MAGIC = 5;
     private static final int UPG_MAGIC =5;
 
     public Pilfer()
@@ -34,12 +34,6 @@ public class    Pilfer extends BaseCard {
         setMagic(MAGIC, UPG_MAGIC);
     }
 
-    @Override
-    public void upgrade() {
-        super.upgrade();
-        this.upgradeBaseCost(1);
-        super.upgrade();
-    }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {

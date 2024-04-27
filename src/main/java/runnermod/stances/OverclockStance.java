@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
@@ -46,7 +47,8 @@ public class OverclockStance extends RunnerStance {
     @Override
     public void onPlayCard(AbstractCard card) {
         super.onPlayCard(card);
-        cardsPlayedInStance ++;
+        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(1));
+        AbstractDungeon.actionManager.addToBottom(new DiscardAction(AbstractDungeon.player,AbstractDungeon.player,1,true));
         if (!card.hasTag(RunnerCharacter.Enums.NEON))
         {
             reduceDurability(1);
@@ -97,7 +99,6 @@ public class OverclockStance extends RunnerStance {
     //stop visuals for the stance
     public void onExitStance() {
         stopIdleSfx();
-        AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(AbstractDungeon.player, 5*cardsPlayedInStance, DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE ));
     }
 
     public void stopIdleSfx() {

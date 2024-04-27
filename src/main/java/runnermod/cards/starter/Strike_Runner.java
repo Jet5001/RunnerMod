@@ -31,6 +31,7 @@ public class Strike_Runner extends BaseCard {
     {
         super(ID,info);
         setDamage(DAMAGE, UPG_DAMAGE);
+        this.tags.add(CardTags.STRIKE);
         this.tags.add(CardTags.STARTER_STRIKE);
     }
 

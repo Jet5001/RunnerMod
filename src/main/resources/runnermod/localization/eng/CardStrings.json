@@ -326,5 +326,18 @@
   "${modID}:EvasiveManoeuvres": {
     "NAME": "Evasive Manoeuvres",
     "DESCRIPTION": "Gain !B! Block whenever you take damage this turn gain 3 Block"
+  },
+  "${modID}:Siphon": {
+    "NAME": "Siphon",
+    "DESCRIPTION": "The enemy loses !M! Strength"
+  },
+  "${modID}:Spam": {
+    "NAME": "Spam",
+    "DESCRIPTION": "Deal !D! damage to all enemies NL Draw a card and reduce its cost by !M! this turn"
+  },
+  "${modID}:Decoy": {
+    "NAME": "Decoy",
+    "DESCRIPTION": "RunnerMod:Neon NL Does Nothing NL Exhaust",
+    "UPGRADE_DESCRIPTION": "RunnerMod:Neon NL Does Nothing with Intent NL Exhaust"
   }
 }
