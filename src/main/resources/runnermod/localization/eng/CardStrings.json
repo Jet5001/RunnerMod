@@ -353,5 +353,13 @@
     "NAME": "Double Time",
     "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Overclocker !M! NL Add 2 Decoys to your hand",
     "UPGRADE_DESCRIPTION": " RunnerMod:Equip  RunnerMod:Overclocker !M! NL Add 3 Decoys to your hand"
+  },
+  "${modID}:ShortCircut": {
+    "NAME": "Short Circuit",
+    "DESCRIPTION": " At the start of your turn Exhaust a card in your hand and gain [E]"
+  },
+  "${modID}:Startle": {
+    "NAME": "Startle",
+    "DESCRIPTION": "Apply !M! Vulnerable NL RunnerMod:Neon"
   }
 }

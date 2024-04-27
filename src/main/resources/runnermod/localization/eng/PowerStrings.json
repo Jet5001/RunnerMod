@@ -92,5 +92,13 @@
     "DESCRIPTIONS": [
       "Whenever you take damage this turn gain 5 Block"
     ]
+  },
+  "${modID}:ShortCircuitPower": {
+    "NAME": "Short Circuit",
+    "DESCRIPTIONS": [
+      "At the start of your turn exhaust #b",
+      " cards in your hand and gain #b",
+      "energy"
+    ]
   }
 }

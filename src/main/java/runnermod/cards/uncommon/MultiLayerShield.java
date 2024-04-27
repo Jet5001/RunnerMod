@@ -4,7 +4,6 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import runnermod.cards.BaseCard;
-import runnermod.cards.Unused.BladeStrike;
 import runnermod.character.RunnerCharacter;
 import runnermod.util.CardStats;
 
