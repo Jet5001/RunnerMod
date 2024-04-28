@@ -59,7 +59,7 @@ public class BerserkerStance extends RunnerStance {
         super.onPlayCard(card);
             super.onPlayCard(card);
             cardsPlayedInStance ++;
-            AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(AbstractDungeon.player, cardsPlayedInStance*2, DamageInfo.DamageType.HP_LOSS, AbstractGameAction.AttackEffect.FIRE ));
+            AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(AbstractDungeon.player, cardsPlayedInStance*2, DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE ));
             if (!card.hasTag(RunnerCharacter.Enums.NEON))
             {
                 reduceDurability(1);

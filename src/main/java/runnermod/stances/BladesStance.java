@@ -55,11 +55,11 @@ public class BladesStance extends RunnerStance {
         //check for x cost at -1
         if (card.cost == -1)
         {
-            AbstractDungeon.actionManager.addToBottom(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, card.energyOnUse*3), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+            AbstractDungeon.actionManager.addToBottom(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, card.energyOnUse*3, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         }
         else
         {
-            AbstractDungeon.actionManager.addToBottom(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, card.cost*3), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+            AbstractDungeon.actionManager.addToBottom(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, card.cost*3, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         }
         super.onPlayCard(card);
         if (!card.hasTag(RunnerCharacter.Enums.NEON))
