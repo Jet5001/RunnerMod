@@ -296,7 +296,6 @@
   "${modID}:SystemCrash": {
     "NAME": "System Crash",
     "DESCRIPTION": "Deal 8 damage times the number of debuffs applied to the enemy",
-    "UPGRADE_DESCRIPTION": "",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)",
       ""

@@ -25,7 +25,7 @@ public class AccelStance extends RunnerStance {
     public static final String STANCE_ID = "Accel";
 
     private static final StanceStrings stanceString = CardCrawlGame.languagePack.getStanceString("Accel");
-    private static final String baseDescription = "Each time you play a card gain 1 strength and 1 dexterity NL ";
+    private static final String baseDescription = "Each time you play a card gain 1 strength and 2 Block next turn NL ";
     private static long sfxId = -1L;
     private int durability;
 

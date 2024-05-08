@@ -23,7 +23,7 @@ public class CardsStance extends RunnerStance {
     public static final String STANCE_ID = "Cards";
 
     private static final StanceStrings stanceString = CardCrawlGame.languagePack.getStanceString("Cards");
-    private static final String baseDescription = "While in this stance you have Cards NL ";
+    private static final String baseDescription = "While in this stance each time you play a non Bolt card add a Bolt to your hand NL ";
 
     private static long sfxId = -1L;
     private int durability;

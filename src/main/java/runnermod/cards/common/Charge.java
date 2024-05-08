@@ -27,6 +27,7 @@ public class Charge extends BaseCard {
     {
         super(ID,info);
         this.setMagic(MAGIC, UPG_MAGIC);
+        this.cardsToPreview = new Bolt();
     }
 
 
@@ -34,8 +35,6 @@ public class Charge extends BaseCard {
     //called when the card is played
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for (int i = 0; i < magicNumber; i++) {
-            addToBot(new MakeTempCardInHandAction(new Bolt()));
-        }
+            addToBot(new MakeTempCardInHandAction(new Bolt(), magicNumber));
     }
 }

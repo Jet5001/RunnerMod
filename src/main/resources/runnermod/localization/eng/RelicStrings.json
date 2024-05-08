@@ -20,5 +20,12 @@
     "DESCRIPTIONS": [
       "Gain a strike or a defend at the start of your turn"
     ]
+  },
+  "${modID}:Drone": {
+    "NAME": "Drone",
+    "FLAVOR": "It doesn't do much",
+    "DESCRIPTIONS": [
+      "At the start of your turn add 2 Decoys to your hand"
+    ]
   }
 }

@@ -26,6 +26,7 @@ public class Manifest extends BaseCard {
     {
         super(ID,info);
         setMagic(MAGIC,MAGIC_UPG);
+        this.cardsToPreview = new Virus();
     }
 
 

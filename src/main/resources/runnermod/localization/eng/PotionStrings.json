@@ -15,5 +15,12 @@
       "Gain #b",
       " #yGold NL Gains an extra 10 gold for every fight"
     ]
+  },
+  "${modID}:BottledAmmo": {
+    "NAME": "Bottled Ammo",
+    "DESCRIPTIONS": [
+      "Add #b",
+      " Bolts to your hand"
+    ]
   }
 }

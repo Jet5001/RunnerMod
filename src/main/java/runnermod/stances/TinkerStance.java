@@ -5,6 +5,9 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.UpgradeRandomCardAction;
+import com.megacrit.cardcrawl.actions.common.UpgradeSpecificCardAction;
+import com.megacrit.cardcrawl.actions.unique.ArmamentsAction;
 import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -13,6 +16,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.StanceStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import com.megacrit.cardcrawl.vfx.stance.CalmParticleEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
@@ -25,7 +29,7 @@ public class TinkerStance extends RunnerStance {
     public static final String STANCE_ID = "Tinker";
 
     private static final StanceStrings stanceString = CardCrawlGame.languagePack.getStanceString("Tinker");
-    private static final String baseDescription = "Each time you play a card upgrade that card NL ";
+    private static final String baseDescription = "Each time you play a card upgrade a card in your hand NL ";
 
     private static long sfxId = -1L;
     private int durability;
@@ -54,10 +58,8 @@ public class TinkerStance extends RunnerStance {
     @Override
     public void onPlayCard(AbstractCard card) {
         AbstractCreature p = AbstractDungeon.player;
-        if (card.canUpgrade())
-        {
-            card.upgrade();
-        }
+
+        AbstractDungeon.actionManager.addToBottom(new ArmamentsAction(false));
 
 
         super.onPlayCard(card);

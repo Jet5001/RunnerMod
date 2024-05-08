@@ -28,7 +28,7 @@ public class OverclockStance extends RunnerStance {
     public static final String STANCE_ID = "Overclock";
 
     private static final StanceStrings stanceString = CardCrawlGame.languagePack.getStanceString("Overclock");
-    private static final String baseDescription = "Draw an extra card at the start of your turn NL While in this stance, if you have no cards in hand draw a card NL ";
+    private static final String baseDescription = "Each time you play a card discard a card and draw a card NL ";
 
     private static long sfxId = -1L;
     private int durability;

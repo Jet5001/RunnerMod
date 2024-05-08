@@ -30,7 +30,7 @@ public class PawnShopPower extends BasePower implements CloneablePowerInterface 
         super.atStartOfTurnPostDraw();
         int equip = -1;
         for (int i = 0; i < amount; i++) {
-            equip = rng.nextInt(5);
+            equip = rng.nextInt(4);
             switch (equip)
             {
                 case 0:
@@ -43,9 +43,6 @@ public class PawnShopPower extends BasePower implements CloneablePowerInterface 
                     addToBot(new MakeTempCardInHandAction(new BrokenFirewall()));
                     break;
                 case 3:
-                    addToBot(new MakeTempCardInHandAction(new BrokenBlaster()));
-                    break;
-                case 4:
                     addToBot(new MakeTempCardInHandAction(new BrokenOverclocker()));
                     break;
                 default:

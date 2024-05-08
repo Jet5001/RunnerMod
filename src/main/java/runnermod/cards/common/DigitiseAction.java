@@ -32,7 +32,7 @@ public class DigitiseAction extends AbstractGameAction{
     public void update() {
         if (this.duration == Settings.ACTION_DUR_FAST) {
             for (AbstractCard c : this.p.hand.group) {
-                if (!c.hasTag(RunnerCharacter.Enums.NEON))
+                if (c.hasTag(RunnerCharacter.Enums.NEON))
                     this.cannotUpgrade.add(c);
             }
             if (this.cannotUpgrade.size() == this.p.hand.group.size()) {
@@ -43,6 +43,8 @@ public class DigitiseAction extends AbstractGameAction{
                 for (AbstractCard c : this.p.hand.group) {
                     if (!c.hasTag(RunnerCharacter.Enums.NEON)) {
                         c.tags.add(RunnerCharacter.Enums.NEON);
+                        c.rawDescription += "NL RunnerMod:Neon";
+                        c.initializeDescription();
                         c.superFlash();
                         c.applyPowers();
                         this.isDone = true;
@@ -57,6 +59,8 @@ public class DigitiseAction extends AbstractGameAction{
             }
             if (this.p.hand.group.size() == 1) {
                 this.p.hand.getTopCard().tags.add(RunnerCharacter.Enums.NEON);
+                this.p.hand.getTopCard().rawDescription += "NL RunnerMod:Neon";
+                this.p.hand.getTopCard().initializeDescription();
                 this.p.hand.getTopCard().superFlash();
                 returnCards();
                 this.isDone = true;
@@ -65,6 +69,8 @@ public class DigitiseAction extends AbstractGameAction{
         if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
             for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group) {
                 c.tags.add(RunnerCharacter.Enums.NEON);
+                c.rawDescription += "NL RunnerMod:Neon";
+                c.initializeDescription();
                 c.superFlash();
                 c.applyPowers();
                 this.p.hand.addToTop(c);

@@ -29,6 +29,7 @@ public class GhostInTheShell extends BaseCard {
         super(ID, info);
         setMagic(MAG,MAG);
         setBlock(BLOCK);
+        this.cardsToPreview = new Decoy();
     }
 
     @Override

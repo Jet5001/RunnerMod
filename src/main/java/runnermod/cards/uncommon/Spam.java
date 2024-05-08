@@ -18,7 +18,7 @@ public class Spam extends BaseCard {
     public static final String ID = makeID(Spam.class.getSimpleName());
     private static final CardStats info = new CardStats(
             RunnerCharacter.Enums.CARD_COLOR,
-            CardType.SKILL,
+            CardType.ATTACK,
             CardRarity.UNCOMMON,
             CardTarget.ALL_ENEMY,
             1

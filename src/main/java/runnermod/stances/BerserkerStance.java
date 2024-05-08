@@ -36,7 +36,7 @@ public class BerserkerStance extends RunnerStance {
     public static final String STANCE_ID = "Berserker";
 
     private static final StanceStrings stanceString = CardCrawlGame.languagePack.getStanceString("Berserker");
-    private static final String baseDescription = "While in this stance for each card you play perform a random action";
+    private static final String baseDescription = "While in this stance for each card you play deal damage equal to the number of cards played in this stance NL ";
 
     private static long sfxId = -1L;
     private int durability;

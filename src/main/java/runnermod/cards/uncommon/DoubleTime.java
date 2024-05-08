@@ -29,6 +29,7 @@ public class DoubleTime extends BaseCard {
         super(ID,info);
         this.setMagic(MAGIC, UPG_MAGIC);
         this.tags.add(RunnerCharacter.Enums.NEON);
+        this.cardsToPreview = new Decoy();
     }
 
     //called when the card is upgraded
