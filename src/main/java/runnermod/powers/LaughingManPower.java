@@ -41,12 +41,12 @@ public class LaughingManPower extends BasePower implements CloneablePowerInterfa
             {
                 if (!((Hacked) power).fromLaughingMan)
                 {
-                    addToBot(new ApplyPowerAction(target,source, new Hacked(target,1,true)));
+                    addToBot(new ApplyPowerAction(target,source, new Hacked(target,amount,true)));
                 }
             }
             else
             {
-                addToBot(new ApplyPowerAction(target,source, new Hacked(target,1,true)));
+                addToBot(new ApplyPowerAction(target,source, new Hacked(target,amount,true)));
             }
         }
 

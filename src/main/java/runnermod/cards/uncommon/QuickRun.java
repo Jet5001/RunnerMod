@@ -27,6 +27,7 @@ public class QuickRun extends BaseCard {
     {
         super(ID,info);
         setDamage(DAMAGE, UPG_DAMAGE);
+        tags.add(RunnerCharacter.Enums.RUN);
     }
 
 

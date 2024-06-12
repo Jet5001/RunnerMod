@@ -1,52 +1,46 @@
-package runnermod.cards.tempcards;
+package runnermod.cards.rare;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.utility.ScryAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.EnergizedBluePower;
 import runnermod.cards.BaseCard;
 import runnermod.character.RunnerCharacter;
 import runnermod.stances.ChangeRunnerStanceAction;
 import runnermod.util.CardStats;
 
-public class CardsStanceSwitch extends BaseCard {
-    public static final String ID = makeID(CardsStanceSwitch.class.getSimpleName());
+public class AKIRA extends BaseCard {
+    public static final String ID = makeID(AKIRA.class.getSimpleName());
     private static final CardStats info = new CardStats(
             RunnerCharacter.Enums.CARD_COLOR,
-            CardType.SKILL,
-            CardRarity.SPECIAL,
+            CardType.POWER,
+            CardRarity.RARE,
             CardTarget.NONE,
-            1
+            3
     );
 
 //    //Card Stats
-    private static final int MAGIC = 5;
+    private static final int MAGIC = 99;
     private static final int UPG_MAGIC =0;
 
-    public CardsStanceSwitch()
+    public AKIRA()
     {
         super(ID,info);
         //using magic number for the gold because why not. Might come in handy later
         this.setMagic(MAGIC, UPG_MAGIC);
-        this.tags.add(RunnerCharacter.Enums.NEON);
     }
 
     //called when the card is upgraded
     @Override
     public void upgrade()
     {
-        if (!this.upgraded)
-        {
-            upgradeName();
+        super.upgrade();
 
-        }
     }
 
     //called when the card is played
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //add gain gold action to the stack
-        addToTop(new ChangeRunnerStanceAction("Cards",magicNumber));
-        addToBot(new ApplyPowerAction(p,p,new EnergizedBluePower(p,1)));
+        addToTop(new ChangeRunnerStanceAction("AKIRA",0));
     }
 }

@@ -9,7 +9,7 @@ import java.util.Dictionary;
 import java.util.Hashtable;
 
 public abstract class RunnerStance extends AbstractStance {
-    Dictionary<String,Integer> durabilityDictionary;
+    public Dictionary<String,Integer> durabilityDictionary;
 
     RunnerStance(String[] ids, int[] durabilties)
     {

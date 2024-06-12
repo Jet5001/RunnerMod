@@ -17,5 +17,10 @@
     "TEXT": [
       "Make Neon"
     ]
+  },
+  "PasteAction": {
+    "TEXT": [
+      "CTRL-C"
+    ]
   }
 }

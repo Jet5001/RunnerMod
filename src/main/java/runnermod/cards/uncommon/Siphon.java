@@ -19,7 +19,7 @@ public class Siphon extends BaseCard {
             1
     );
 
-    private static int MAG = 3;
+    private static int MAG = 2;
     private static int MAG_UPG = 1;
 
     public Siphon()
@@ -27,6 +27,7 @@ public class Siphon extends BaseCard {
         super(ID,info);
         setMagic(MAG,MAG_UPG);
         setExhaust(true);
+        tags.add(RunnerCharacter.Enums.NEON);
     }
 
     @Override

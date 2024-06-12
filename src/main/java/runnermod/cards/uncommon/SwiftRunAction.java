@@ -9,11 +9,13 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 public class SwiftRunAction extends AbstractGameAction {
 
     private DamageInfo info;
-    SwiftRunAction(AbstractCreature target, DamageInfo info)
+    private int runCardsPlayed;
+    SwiftRunAction(AbstractCreature target, DamageInfo info, int runsPlayed)
     {
         this.info = info;
         setValues(target,info);
         this.actionType = ActionType.DAMAGE;
+        this.runCardsPlayed = runsPlayed;
     }
 
 
@@ -27,7 +29,7 @@ public class SwiftRunAction extends AbstractGameAction {
             if (target.currentHealth < previousHealth)
             {
                 //add to top to execute next
-                addToTop(new DrawCardAction(1));
+                addToTop(new DrawCardAction(runCardsPlayed));
             }
         }
         //mark as completed so it doesn't repeat every frame and can be removed from the buffer

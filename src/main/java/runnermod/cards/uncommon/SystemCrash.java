@@ -25,9 +25,9 @@ public class SystemCrash extends BaseCard {
     );
 
     //Card Stats
-    private static final int DAMAGE = 8;
+    private static final int DAMAGE = 6;
     private static final int UPG_DAMAGE = 0;
-    private static final int MAGIC = 8;
+    private static final int MAGIC = 6;
     private static final int UPG_MAGIC = 0;
     int debuffCount = 0;
     public SystemCrash()

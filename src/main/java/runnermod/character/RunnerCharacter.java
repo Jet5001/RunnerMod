@@ -21,6 +21,7 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
+import runnermod.cards.starter.CheapShot;
 import runnermod.cards.starter.Defend_Runner;
 import runnermod.cards.starter.Strike_Runner;
 import runnermod.cards.starter.Pilfer;
@@ -38,6 +39,7 @@ public class RunnerCharacter extends CustomPlayer {
     public static final int STARTING_GOLD = 99;
     public static final int CARD_DRAW = 5;
     public static final int ORB_SLOTS = 0;
+    public int runCardsPlayed = 0;
 
     //Strings
     private static final String ID = makeID("Runner"); //This should match whatever you have in the CharacterStrings.json file
@@ -61,6 +63,7 @@ public class RunnerCharacter extends CustomPlayer {
         public static CardLibrary.LibraryType LIBRARY_COLOR;
 
         @SpireEnum public static AbstractCard.CardTags NEON;
+        @SpireEnum public static AbstractCard.CardTags RUN;
     }
 
     public RunnerCharacter() {
@@ -101,7 +104,7 @@ public class RunnerCharacter extends CustomPlayer {
         retVal.add(Defend_Runner.ID);
         retVal.add(Defend_Runner.ID);
         retVal.add(Pilfer.ID);
-        retVal.add(Neutralize.ID);
+        retVal.add(CheapShot.ID);
 
         return retVal;
     }

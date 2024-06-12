@@ -36,7 +36,10 @@ public class ThoughtlessIncursion extends BaseCard {
         for (int i = 0; i < magicNumber; i++) {
             AbstractMonster mon = AbstractDungeon.getRandomMonster();
             addToBot(new RandomDebuffAction(p, mon));
-            addToBot(new RandomDebuffAction(mon, p));
+        }
+        for (int i = 0; i < 3; i++) {
+            AbstractMonster mon = AbstractDungeon.getRandomMonster();
+            addToBot(new RandomDebuffAction(p, p));
         }
 
     }

@@ -76,6 +76,49 @@
   },
 
   {
+    "PROPER_NAME": "Combo Accel",
+    "NAMES": [
+      "Enter_Accel"
+    ],
+    "DESCRIPTION": "Combines with current equipment to form Accel NL Each time you play a card, gain 1 Str and 2 Block next turn"
+  },
+  {
+    "PROPER_NAME": "Combo Metal",
+    "NAMES": [
+      "Enter_Metal"
+    ],
+    "DESCRIPTION": "Combines with current equipment to form Metal NL Each time you play a card, gain 1 dex and 1 thorns"
+  },
+  {
+    "PROPER_NAME": "Combo Tinker",
+    "NAMES": [
+      "Enter_Metal"
+    ],
+    "DESCRIPTION": "Combines with current equipment to form Metal NL Each time you play a card, upgrade a card in your hand"
+  },
+  {
+    "PROPER_NAME": "Combo Blaster",
+    "NAMES": [
+      "Enter_Blaster"
+    ],
+    "DESCRIPTION": "Combines with current equipment to form Metal NL Each time you play a card, add a bolt to your hand"
+  },
+  {
+    "PROPER_NAME": "Combo Berserker",
+    "NAMES": [
+      "Enter_Berserker"
+    ],
+    "DESCRIPTION": "Combines with current equipment to form Berserker NL Each time you play a card, deal 1 damage for each card played in this stance"
+  },
+  {
+    "PROPER_NAME": "Combo Hack",
+    "NAMES": [
+      "Enter_Hack"
+    ],
+    "DESCRIPTION": "Combines with current equipment to form Hack NL Each time you play a card, Apply 1 hack to a random enemy"
+  },
+
+  {
     "PROPER_NAME": "Multiword Keyword",
     "NAMES": [
       "multiword keyword",

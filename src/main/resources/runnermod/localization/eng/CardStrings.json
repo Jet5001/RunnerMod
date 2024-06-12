@@ -46,8 +46,7 @@
   },
   "${modID}:EMP": {
     "NAME": "EMP",
-    "DESCRIPTION": "Remove ALL block from ALL enemies NL Exhaust",
-    "UPGRADE_DESCRIPTION": "Remove ALL block from ALL enemies NL Exhaust Retain"
+    "DESCRIPTION": "Gain 10 Block NL Steal ALL Block from an enemy"
   },
   "${modID}:AdaptiveShields": {
     "NAME": "Adaptive Shields",
@@ -148,15 +147,11 @@
   },
   "${modID}:WallStanceSwitch": {
     "NAME": "Equip Shields",
-    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Shields !M! NL Gain !B! Block NL RunnerMod:Neon"
+    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Shields !M! NL Gain !B! Block"
   },
   "${modID}:ArtifactStanceSwitch": {
     "NAME": "Equip Firewall",
-    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Firewall !M! NL Scry 3 NL RunnerMod:Neon"
-  },
-  "${modID}:CardsStanceSwitch": {
-    "NAME": "Equip Blaster",
-    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Blaster !M! NL Gain [E] at the start of your next turn"
+    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Firewall !M! NL Scry 3"
   },
   "${modID}:OverclockStanceSwitch": {
     "NAME": "Equip Overclocker",
@@ -189,11 +184,11 @@
   },
   "${modID}:NeonBlades": {
     "NAME": "Neon Blades",
-    "DESCRIPTION": "Deal !D! damage 2 times NL  RunnerMod:Equip  RunnerMod:Blades !M! NL RunnerMod:Neon"
+    "DESCRIPTION": "Deal !D! damage 2 times NL  RunnerMod:Equip  RunnerMod:Blades !M!"
   },
   "${modID}:Flouresce": {
     "NAME": "Flouresce",
-    "DESCRIPTION": "ALL enemies lose !M! strength this turn NL Doesn't use equipment durability NL Exhaust"
+    "DESCRIPTION": "ALL enemies lose !M! strength this turn NL RunnerMod:Neon"
   },
   "${modID}:InfectedBlade": {
     "NAME": "Infected Blade",
@@ -259,7 +254,8 @@
   },
   "${modID}:ThoughtlessIncursion": {
     "NAME": "Thoughtless Incursion",
-    "DESCRIPTION": "Apply !M! random debuffs to random enemies NL obtain !M! random debuffs"
+    "DESCRIPTION": "Apply !M! random debuffs to random enemies NL obtain !M! random debuffs",
+    "UPGRADE_DESCRIPTION":  "Apply !M! random debuffs to random enemies NL obtain 3 random debuffs"
   },
   "${modID}:Digitise": {
     "NAME": "Digitise",
@@ -287,7 +283,7 @@
   },
   "${modID}:SwiftRun": {
     "NAME": "Swift Run",
-    "DESCRIPTION": "Deal !D! damage. NL If this causes the enemy to lose HP draw a card"
+    "DESCRIPTION": "Deal !D! damage. NL If this causes the enemy to lose HP draw a card for each Run card played this turn"
   },
   "${modID}:Overtax": {
     "NAME": "Overtax",
@@ -328,7 +324,7 @@
   },
   "${modID}:Siphon": {
     "NAME": "Siphon",
-    "DESCRIPTION": "The enemy loses !M! Strength"
+    "DESCRIPTION": "The enemy loses !M! Strength NL Runnermod:Neon"
   },
   "${modID}:Spam": {
     "NAME": "Spam",
@@ -360,5 +356,53 @@
   "${modID}:Startle": {
     "NAME": "Startle",
     "DESCRIPTION": "Apply !M! Vulnerable NL RunnerMod:Neon"
+  },
+  "${modID}:Cryostasis": {
+    "NAME": "Cryostasis",
+    "DESCRIPTION": "Gain !M! Blur NL Retain your hand NL End your turn NL Runnermod:Neon"
+  },
+  "${modID}:Escape": {
+    "NAME": "Escape!",
+    "DESCRIPTION": "Gain !B! Block NL Reduce this card's cost by 1 each time a card is played"
+  },
+  "${modID}:WireCoating": {
+    "NAME": "Wire Coating",
+    "DESCRIPTION": "Gain !B! Block NL Gain !M! Vigor"
+  },
+  "${modID}:CTRLV": {
+    "NAME": "CTRL-V",
+    "DESCRIPTION": "Make a copy of a card in your hand it costs 0 this turn"
+  },
+  "${modID}:AKIRA": {
+    "NAME": "AKIRA",
+    "DESCRIPTION": "Try to ascend"
+  },
+  "${modID}:SpaceLaser": {
+    "NAME": "Orbital Laser",
+    "DESCRIPTION": "Deal !D! damage NL Gain !M! Poison"
+  },
+  "${modID}:FatalError": {
+    "NAME": "- Fatal Error - ",
+    "DESCRIPTION": "die"
+  },
+  "${modID}:Drift": {
+    "NAME": "Drift",
+    "DESCRIPTION": "Deal !D! damage !M! times"
+  },
+  "${modID}:RegenFactor": {
+    "NAME": "Regen Factor",
+    "DESCRIPTION": "Gain !M! Regen"
+  },
+  "${modID}:Godspeed": {
+    "NAME": "Godspeed",
+    "DESCRIPTION": "Each time you take damage gain 3 block"
+  },
+  "${modID}:Apex": {
+    "NAME": "Apex",
+    "DESCRIPTION": "Gain !M! Vigor NL End your turn"
+  },
+  "${modID}:CheapShot": {
+    "NAME": "Cheap Shot",
+    "DESCRIPTION": "Deal !D! damage NL Apply !M! Weak NL RunnerMod:Neon"
   }
 }

@@ -2,6 +2,7 @@ package runnermod.cards.common;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.GainGoldAction;
 import com.megacrit.cardcrawl.actions.common.RemoveAllBlockAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -19,34 +20,25 @@ public class EMP extends BaseCard {
             RunnerCharacter.Enums.CARD_COLOR,
             CardType.SKILL,
             CardRarity.COMMON,
-            CardTarget.NONE,
-            0
+            CardTarget.ENEMY,
+            2
     );
 
-
+    private static int BLOCK = 10;
+    private static int BLOCK_UPG = 3;
     public EMP()
     {
         super(ID,info);
-        this.exhaust = true;
+        setBlock(BLOCK,BLOCK_UPG);
     }
 
-    //called when the card is upgraded to enact implemented change
-    @Override
-    public void upgrade()
-    {
-        if (!this.upgraded)
-        {
-            this.retain = true;
-            super.upgrade();
-        }
-    }
 
     //called when the card is played and performs the actions for the card
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for (AbstractMonster mo: AbstractDungeon.getCurrRoom().monsters.monsters) {
-            //puts remove all block action on the stack
-            addToBot(new RemoveAllBlockAction(mo,p));
-        }
+        int blockAmount = m.currentBlock;
+        addToBot(new RemoveAllBlockAction(m,p));
+        addToBot(new GainBlockAction(p,10+blockAmount));
+
     }
 }

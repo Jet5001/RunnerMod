@@ -27,13 +27,17 @@ public class WallOfStaticPower extends BasePower implements CloneablePowerInterf
         super.onApplyPower(power, target, source);
         if (!(target instanceof AbstractPlayer) && (power.type == PowerType.DEBUFF))
         {
-            addToBot(new GainBlockAction(source,this.amount));
+            if (AbstractDungeon.player.currentBlock <999)
+            {
+                addToBot(new GainBlockAction(source,this.amount));
+            }
         }
 
     }
 
     @Override
     public AbstractPower makeCopy() {
+
         return new WallOfStaticPower(owner, amount);
     }
 

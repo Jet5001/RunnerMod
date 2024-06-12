@@ -182,6 +182,18 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
     @Override
     public void update() {
         //overide stance if not from this mod
+        if (previousStance instanceof AKIRAStance)
+        {
+            this.isDone = true;
+            return;
+        }
+        if (stanceID == "AKIRA")
+        {
+            finalStance =  new AKIRAStance(new String[]{"AKIRA"}, new int[]{0});
+            AbstractDungeon.actionManager.addToTop(new ChangeStanceAction(finalStance));
+            this.isDone = true;
+            return;
+        }
         if (!(previousStance instanceof RunnerStance))
         {
             finalStance = makeStance(stanceID);

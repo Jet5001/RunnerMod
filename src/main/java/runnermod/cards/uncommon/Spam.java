@@ -21,13 +21,13 @@ public class Spam extends BaseCard {
             CardType.ATTACK,
             CardRarity.UNCOMMON,
             CardTarget.ALL_ENEMY,
-            1
+            2
     );
 
-    private static int DMG = 4;
-    private static int DMG_UP = 2;
+    private static int DMG = 8;
+    private static int DMG_UP = 0;
     private static int MAG = 1;
-    private static int MAG_UPG = 0;
+    private static int MAG_UPG = 1;
 
     public Spam()
     {
@@ -44,8 +44,11 @@ public class Spam extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DamageAllEnemiesAction(p,damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-        addToBot(new DrawCardAction(1));
-        addToBot(new SpamDiscountAction(this.magicNumber));
+        for (int i = 0; i < this.magicNumber; i++) {
+            addToBot(new DrawCardAction(1));
+            addToBot(new SpamDiscountAction(1));
+        }
+
 
     }
 
