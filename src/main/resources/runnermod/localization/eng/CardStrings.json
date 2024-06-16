@@ -374,7 +374,8 @@
   },
   "${modID}:AKIRA": {
     "NAME": "AKIRA",
-    "DESCRIPTION": "Try to ascend"
+    "DESCRIPTION": "Try to ascend",
+    "UPGRADE_DESCRIPTION": "Try to ascend NL Innate"
   },
   "${modID}:SpaceLaser": {
     "NAME": "Orbital Laser",

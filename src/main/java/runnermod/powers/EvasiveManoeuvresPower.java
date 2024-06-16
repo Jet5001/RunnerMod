@@ -40,4 +40,8 @@ public class EvasiveManoeuvresPower extends BasePower implements CloneablePowerI
         addToTop(new GainBlockAction(AbstractDungeon.player, 3));
         return super.onAttacked(info, damageAmount);
     }
+
+    public void updateDescription() {
+        this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+    }
 }

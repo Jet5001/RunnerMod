@@ -2,10 +2,12 @@ package runnermod.powers;
 
 import basemod.interfaces.CloneablePowerInterface;
 import basemod.interfaces.PostPowerApplySubscriber;
+import com.evacipated.cardcrawl.mod.stslib.actions.common.AutoplayCardAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.PlayTopCardAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -30,7 +32,9 @@ public class AutopilotPower extends BasePower implements CloneablePowerInterface
     public void atStartOfTurnPostDraw() {
         super.atStartOfTurnPostDraw();
         for (int i = 0; i < amount; i++) {
-            addToBot(new PlayTopCardAction(AbstractDungeon.getRandomMonster(),false));
+            AbstractCard c = AbstractDungeon.player.drawPile.getTopCard();
+            addToBot(new AutoplayCardAction(c,AbstractDungeon.player.drawPile));
+            //addToBot(new PlayTopCardAction(AbstractDungeon.getRandomMonster(),false));
         }
     }
 

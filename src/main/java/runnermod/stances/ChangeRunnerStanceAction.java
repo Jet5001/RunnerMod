@@ -197,6 +197,7 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
     @Override
     public void update() {
         //overide stance if not from this mod
+        previousStance = AbstractDungeon.player.stance;
         if (previousStance instanceof AKIRAStance)
         {
             this.isDone = true;

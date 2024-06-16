@@ -16,7 +16,7 @@ import runnermod.util.CardStats;
 public class Polyphony extends BaseCard {
     public static final String ID = makeID(Polyphony.class.getSimpleName());
     private static final CardStats info = new CardStats(
-            RunnerCharacter.Enums.CARD_COLOR,
+            CardColor.COLORLESS,
             CardType.ATTACK,
             CardRarity.SPECIAL,
             CardTarget.ALL_ENEMY,

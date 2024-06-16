@@ -32,6 +32,7 @@ public class Godspeed extends BaseCard {
         super(ID,info);
         setMagic(MAG,MAG_UPG);
         upgradeBaseCost(0);
+        setExhaust(true);
     }
 
 

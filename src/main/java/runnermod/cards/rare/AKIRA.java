@@ -27,6 +27,7 @@ public class AKIRA extends BaseCard {
         super(ID,info);
         //using magic number for the gold because why not. Might come in handy later
         this.setMagic(MAGIC, UPG_MAGIC);
+        setInnate(false,true);
     }
 
     //called when the card is upgraded
@@ -34,7 +35,6 @@ public class AKIRA extends BaseCard {
     public void upgrade()
     {
         super.upgrade();
-
     }
 
     //called when the card is played
