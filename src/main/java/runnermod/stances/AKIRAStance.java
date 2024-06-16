@@ -32,7 +32,7 @@ public class AKIRAStance extends RunnerStance {
     public static final String STANCE_ID = "AKIRA";
 
     private static final StanceStrings stanceString = CardCrawlGame.languagePack.getStanceString("AKIRA");
-    private static final String baseDescription = "WHAT ARE YOU GONNA DO NOW!!";
+    private static final String baseDescription = "You can't enter new stances";
 
     private static long sfxId = -1L;
     private int durability;
@@ -192,6 +192,11 @@ public class AKIRAStance extends RunnerStance {
         possibleCards.addToRandomSpot(new Godspeed());
         possibleCards.addToRandomSpot(new RegenFactor());
         possibleCards.addToRandomSpot(new SpaceLaser());
+        possibleCards.addToRandomSpot(new Autopilot());
+        possibleCards.addToRandomSpot(new Biohazard());
+        possibleCards.addToRandomSpot(new Polyphony());
+        possibleCards.addToRandomSpot(new TheWeaknessOfFlesh());
+        possibleCards.addToRandomSpot(new WallOfForce());
         AbstractCard tempDecoy = new Decoy();
         tempDecoy.rarity = AbstractCard.CardRarity.RARE;
         possibleCards.addToRandomSpot(tempDecoy);

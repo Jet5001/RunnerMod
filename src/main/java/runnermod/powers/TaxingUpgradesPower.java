@@ -33,23 +33,14 @@ public class TaxingUpgradesPower extends BasePower implements CloneablePowerInte
     public void atStartOfTurn() {
         super.atStartOfTurn();
         AbstractCreature player = AbstractDungeon.player;
-        int rand = new Random().nextInt(100);
-        if (rand < 50)
-        {
-            addToTop(new ApplyPowerAction(player,player,new WeakPower(player,1,false)));
-        }
-        rand = new Random().nextInt(100);
-        if (rand < 50)
-        {
-            addToTop(new ApplyPowerAction(player,player,new FrailPower(player,1,false)));
-        }
+        addToBot(new ApplyPowerAction(player,player,new Hacked(player,2,false)));
+        addToBot( new ApplyPowerAction(player,player,new TaxingUpgradesPower(player,1)));
     }
 
     @Override
     public void atStartOfTurnPostDraw() {
         super.atStartOfTurnPostDraw();
-        AbstractCreature player = AbstractDungeon.player;
-        addToBot(new DrawCardAction(2));
+        addToBot(new DrawCardAction(amount));
     }
 
     @Override

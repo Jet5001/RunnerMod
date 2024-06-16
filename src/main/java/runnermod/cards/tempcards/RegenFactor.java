@@ -34,6 +34,7 @@ public class RegenFactor extends BaseCard {
     {
         super(ID,info);
         setMagic(MAG,MAG_UPG);
+        setExhaust(true);
     }
 
 

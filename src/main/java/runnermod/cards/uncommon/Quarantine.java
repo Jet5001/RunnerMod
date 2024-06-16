@@ -33,7 +33,7 @@ public class Quarantine extends BaseCard {
             RunnerCharacter.Enums.CARD_COLOR,
             CardType.SKILL,
             CardRarity.UNCOMMON,
-            CardTarget.ENEMY,
+            CardTarget.ALL_ENEMY,
             1
     );
 

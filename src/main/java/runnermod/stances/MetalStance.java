@@ -87,7 +87,7 @@ public class MetalStance extends RunnerStance {
             AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new ArtifactStance(new String[]{"Artifact"}, new int[]{durabilityDictionary.get("Artifact")+1} )));
 
         }
-
+        updateDescription();
     }
 
     public void updateAnimation() {
@@ -108,7 +108,7 @@ public class MetalStance extends RunnerStance {
     public void updateDescription() {
         this.description = baseDescription;
         for (String id: Collections.list(durabilityDictionary.keys())) {
-                this.description += " " + id + " : " + durabilityDictionary.get(id) + " turns left NL ";
+                this.description += id + " : " + durabilityDictionary.get(id) + " durability left NL ";
         }
     }
 

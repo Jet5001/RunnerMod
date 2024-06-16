@@ -67,7 +67,7 @@
   },
   "${modID}:TaxingUpgrades": {
     "NAME": "Taxing Upgrades",
-    "DESCRIPTION": "At the start of your turn, 50% chance to gain 1 weak and 50% chance to 1 frail, and draw 2 cards"
+    "DESCRIPTION": "At the start of your turn, gain 2 RunnerMod:Hacked and draw a card for each turn after this is played"
   },
   "${modID}:Ward": {
     "NAME": "Ward",
@@ -111,11 +111,11 @@
   },
   "${modID}:GlitchedBlade": {
     "NAME": "Glitched Blade",
-    "DESCRIPTION": "Deal !D! damage NL Add a virus to your discard pile NL Each time a virus is played increase this card's damage by 6 this combat"
+    "DESCRIPTION": "Add a virus to your discard pile NL Deal !D! damage time the number of Viruses created this floor"
   },
   "${modID}:MalwareScan": {
     "NAME": "Malware Scan",
-    "DESCRIPTION": "Upgrade ALL Virus cards to 0 NL Draw a card"
+    "DESCRIPTION": "Remove 2 random statuses from your discard pile NL Draw a card NL RunnerMod:Neon"
   },
   "${modID}:Upgrades": {
     "NAME": "Upgrades",
@@ -192,7 +192,7 @@
   },
   "${modID}:InfectedBlade": {
     "NAME": "Infected Blade",
-    "DESCRIPTION": "Deal !D! damage and Apply !M! RunnerMod:Hacked X times NL RunnerMod:Equip RunnerMod:Blades 5"
+    "DESCRIPTION": "Deal !D! damage X times and Apply !M! RunnerMod:Hacked X times NL RunnerMod:Equip RunnerMod:Blades 5"
   },
   "${modID}:Charge": {
     "NAME": "Charge",
@@ -237,8 +237,7 @@
   },
   "${modID}:Adapt": {
     "NAME": "Adapt",
-    "DESCRIPTION": "Gain !DEX! Dexterity",
-    "UPGRADE_DESCRIPTION": "Gain !DEX! Dexterity NL Gain !STR! Strength"
+    "DESCRIPTION": "Gain !DEX! Dexterity NL Gain !STR! Strength"
   },
   "${modID}:Deplete": {
     "NAME": "Deplete",
@@ -293,13 +292,13 @@
     "NAME": "System Crash",
     "DESCRIPTION": "Deal 8 damage times the number of debuffs applied to the enemy",
     "EXTENDED_DESCRIPTION": [
-      " NL (Deals !D! damage.)",
-      ""
+      " NL (Deals !D! damage)"
     ]
   },
   "${modID}:ScrapArmour": {
     "NAME": "Scrap Armour",
-    "DESCRIPTION": "Whenever you gain durability gain that much Block"
+    "DESCRIPTION": "Whenever you gain durability gain that much Block",
+    "UPGRADE_DESCRIPTION": "Whenever you gain durability gain that much Block NL Innate"
   },
   "${modID}:Quarantine": {
     "NAME": "Quarantine",
@@ -324,11 +323,11 @@
   },
   "${modID}:Siphon": {
     "NAME": "Siphon",
-    "DESCRIPTION": "The enemy loses !M! Strength NL Runnermod:Neon"
+    "DESCRIPTION": "The enemy loses !M! Strength NL Exhaust NL Runnermod:Neon"
   },
   "${modID}:Spam": {
     "NAME": "Spam",
-    "DESCRIPTION": "Deal !D! damage to all enemies NL Draw a card and reduce its cost by !M! this turn"
+    "DESCRIPTION": "Deal !D! damage to all enemies NL Draw !M! card and reduce their cost by 1 this turn"
   },
   "${modID}:Decoy": {
     "NAME": "Decoy",
@@ -359,11 +358,11 @@
   },
   "${modID}:Cryostasis": {
     "NAME": "Cryostasis",
-    "DESCRIPTION": "Gain !M! Blur NL Retain your hand NL End your turn NL Runnermod:Neon"
+    "DESCRIPTION": "Block is not removed at the start of your next turn NL Retain your hand NL End your turn NL Runnermod:Neon"
   },
   "${modID}:Escape": {
     "NAME": "Escape!",
-    "DESCRIPTION": "Gain !B! Block NL Reduce this card's cost by 1 each time a card is played"
+    "DESCRIPTION": "Gain !B! Block NL Costs 1 less [E] for each card played this turn"
   },
   "${modID}:WireCoating": {
     "NAME": "Wire Coating",
@@ -383,7 +382,7 @@
   },
   "${modID}:FatalError": {
     "NAME": "- Fatal Error - ",
-    "DESCRIPTION": "die"
+    "DESCRIPTION": "- die -"
   },
   "${modID}:Drift": {
     "NAME": "Drift",
@@ -391,7 +390,7 @@
   },
   "${modID}:RegenFactor": {
     "NAME": "Regen Factor",
-    "DESCRIPTION": "Gain !M! Regen"
+    "DESCRIPTION": "Gain !M! Regen NL Exhaust"
   },
   "${modID}:Godspeed": {
     "NAME": "Godspeed",
@@ -404,5 +403,36 @@
   "${modID}:CheapShot": {
     "NAME": "Cheap Shot",
     "DESCRIPTION": "Deal !D! damage NL Apply !M! Weak NL RunnerMod:Neon"
+  },
+  "${modID}:RunPrep": {
+    "NAME": "Run Prep",
+    "DESCRIPTION": "Your next attack costs 0"
+  },
+  "${modID}:Parry": {
+    "NAME": "Parry",
+    "DESCRIPTION": "Gain !B! Block NL Runnermod:Neon"
+  },
+  "${modID}:Biohazard": {
+    "NAME": "Biohazard",
+    "DESCRIPTION": "Apply !M! random debuffs to random enemies NL Gain 5 Poison"
+  },
+  "${modID}:TheWeaknessOfFlesh": {
+    "NAME": "The Weakness of Flesh",
+    "DESCRIPTION": "Gain !M! plated armour lose 5 Dexterity"
+  },
+  "${modID}:Autopilot": {
+    "NAME": "Autopilot",
+    "DESCRIPTION": "At the start of your turn play the top !M! cards of your deck"
+  },
+  "${modID}:WallOfForce": {
+    "NAME": "Wall of Force",
+    "DESCRIPTION": "Gain !B! Block NL You don't lose block for 5 turns NL You can't gain block for 5 turns"
+  },
+  "${modID}:Polyphony": {
+    "NAME": "Polyphony",
+    "DESCRIPTION": "Deal 4 damage times the number of cards played this fight to all enemies",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage)"
+    ]
   }
 }

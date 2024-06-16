@@ -20,8 +20,8 @@ public class WallOfStatic extends BaseCard {
 
     );
 
-    private static final int MAGIC = 3;
-    private static final int MAGIC_UPG = 2;
+    private static final int MAGIC = 2;
+    private static final int MAGIC_UPG = 1;
 
 
     public WallOfStatic()
@@ -31,16 +31,6 @@ public class WallOfStatic extends BaseCard {
     }
 
 
-    @Override
-    public void upgrade()
-    {
-        if (!this.upgraded)
-        {
-            upgradeName();
-            this.isInnate = true;
-            super.upgrade();
-        }
-    }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {

@@ -89,7 +89,7 @@ public class TinkerStance extends RunnerStance {
             AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new OverclockStance(new String[]{"Overclock"}, new int[]{durabilityDictionary.get("Overclock")+1} )));
 
         }
-
+        updateDescription();
     }
 
     public void updateAnimation() {
@@ -110,7 +110,7 @@ public class TinkerStance extends RunnerStance {
     public void updateDescription() {
         this.description = baseDescription;
         for (String id: Collections.list(durabilityDictionary.keys())) {
-                this.description += " " + id + " : " + durabilityDictionary.get(id) + " turns left NL ";
+                this.description += id + " : " + durabilityDictionary.get(id) + " durability left NL ";
         }
     }
 

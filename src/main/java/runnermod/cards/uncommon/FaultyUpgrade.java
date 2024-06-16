@@ -31,6 +31,7 @@ public class FaultyUpgrade extends BaseCard {
     {
         super(ID,info);
         setMagic(MAGIC,MAGIC_UPG);
+        cardsToPreview = new Virus();
     }
 
 

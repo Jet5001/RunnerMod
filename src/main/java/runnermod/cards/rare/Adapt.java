@@ -25,7 +25,7 @@ public class Adapt extends BaseCard {
     );
 
 
-    public int strAmount = 0;
+    public int strAmount = 1;
     public int dexAmount = 1;
 
     public Adapt()
@@ -38,7 +38,6 @@ public class Adapt extends BaseCard {
     public void applyPowers() {
         super.applyPowers();
         initializeDescription();
-
     }
 
     @Override
@@ -60,10 +59,7 @@ public class Adapt extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (strAmount > 0)
-        {
-            addToBot(new ApplyPowerAction(p,p,new StrengthPower(p, strAmount)));
-        }
+        addToBot(new ApplyPowerAction(p,p,new StrengthPower(p, strAmount)));
         addToBot(new ApplyPowerAction(p,p,new DexterityPower(p, dexAmount)));
     }
 }

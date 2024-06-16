@@ -21,7 +21,6 @@ public class SwiftRun extends BaseCard {
     //Card Stats
     private static final int DAMAGE = 5;
     private static final int UPG_DAMAGE = 2;
-    private int runCardsPlayed = 0;
 
     public SwiftRun()
     {
@@ -30,26 +29,16 @@ public class SwiftRun extends BaseCard {
         tags.add(RunnerCharacter.Enums.RUN);
     }
 
-    @Override
-    public void atTurnStart() {
-        super.atTurnStart();
-        runCardsPlayed = 0;
-    }
-
-    @Override
-    public void triggerOnCardPlayed(AbstractCard cardPlayed) {
-        super.triggerOnCardPlayed(cardPlayed);
-        if (cardPlayed.hasTag(RunnerCharacter.Enums.RUN));
-        {
-            runCardsPlayed +=1;
-        }
-    }
 
     //when the card is played
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //put a quickRunAction into the buffer
         //added new action as specifics of damage dealt not done at this scope.
-        addToBot(new SwiftRunAction(m, new DamageInfo(p,damage, DamageInfo.DamageType.NORMAL),runCardsPlayed));
+        if(p instanceof RunnerCharacter)
+        {
+            addToBot(new SwiftRunAction(m, new DamageInfo(p,damage, DamageInfo.DamageType.NORMAL),((RunnerCharacter) p).runCardsPlayed));
+        }
+
     }
 }

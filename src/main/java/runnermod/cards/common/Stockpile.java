@@ -32,6 +32,7 @@ public class Stockpile extends BaseCard {
         this.isEthereal = true;
         //using magic number for the gold because why not. Might come in handy later
         this.setMagic(MAGIC, UPG_MAGIC);
+        upgradesDescription = true;
     }
 
     //called when the card is upgraded
@@ -44,6 +45,7 @@ public class Stockpile extends BaseCard {
             //remove Ethereal on upgrade
             this.isEthereal = false;
             super.upgrade();
+
         }
     }
 

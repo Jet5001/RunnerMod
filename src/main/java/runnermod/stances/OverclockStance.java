@@ -33,7 +33,6 @@ public class OverclockStance extends RunnerStance {
     private static long sfxId = -1L;
     private int durability;
     int cardsPlayedInStance;
-    private static int damagePerCard = 4;
     public OverclockStance(String[] ids, int[] durabilties) {
         super(ids,durabilties);
         this.ID = "Overclock";
@@ -57,7 +56,7 @@ public class OverclockStance extends RunnerStance {
         {
             AbstractDungeon.actionManager.addToBottom(new ChangeRunnerStanceAction("Neutral", 0));
         }
-
+        updateDescription();
     }
 
 
@@ -80,9 +79,9 @@ public class OverclockStance extends RunnerStance {
     public void updateDescription() {
         this.description = baseDescription;
         for (String id: Collections.list(durabilityDictionary.keys())) {
-                this.description += id + " : " + durabilityDictionary.get(id) + " turns left";
+                this.description += id + " : " + durabilityDictionary.get(id) + " durability left";
         }
-        this.description += cardsPlayedInStance + " Cards played in stance (" + cardsPlayedInStance*damagePerCard + "damage)";
+
     }
 
     //start visuals for this stance

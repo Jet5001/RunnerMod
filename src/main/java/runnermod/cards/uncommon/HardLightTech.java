@@ -30,15 +30,7 @@ public class HardLightTech extends BaseCard {
     }
 
 
-    @Override
-    public void upgrade()
-    {
-        if (!this.upgraded)
-        {
-            upgradeName();
-            super.upgrade();
-        }
-    }
+
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {

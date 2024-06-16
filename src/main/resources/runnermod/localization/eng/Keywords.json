@@ -4,7 +4,9 @@
     "PROPER_NAME": "Hacked",
     "NAMES": [
       "Hacked",
-      "Hack"
+      "Hack",
+      "hack",
+      "hacked"
     ],
     "DESCRIPTION": "Whenever a debuff is applied, deal damage equal to the amount of Hacked"
   },
@@ -38,7 +40,7 @@
     "NAMES": [
       "blades"
     ],
-    "DESCRIPTION": "Each time you play a skill deal damage equal to 3 times it's cost"
+    "DESCRIPTION": "Each time you play a card deal damage equal to 3 times it's cost"
   },
   {
     "ID": "Shields",
@@ -47,7 +49,7 @@
       "shields",
       "shield"
     ],
-    "DESCRIPTION": "Each time you play an attack gain block equal to 3 times it's cost"
+    "DESCRIPTION": "Each time you play a card gain block equal to 3 times it's cost"
   },
   {
     "ID": "Firewall",
@@ -72,19 +74,22 @@
     "NAMES": [
       "overclocker"
     ],
-    "DESCRIPTION": "Draw an extra card at the start of your turn NL While in this stance, if you have no cards in hand draw a card"
+    "DESCRIPTION": "Each time you play a card, draw a card and discard a card"
   },
 
   {
     "PROPER_NAME": "Combo Accel",
     "NAMES": [
+      "Enter Accel",
       "Enter_Accel"
+
     ],
     "DESCRIPTION": "Combines with current equipment to form Accel NL Each time you play a card, gain 1 Str and 2 Block next turn"
   },
   {
     "PROPER_NAME": "Combo Metal",
     "NAMES": [
+      "Enter Metal",
       "Enter_Metal"
     ],
     "DESCRIPTION": "Combines with current equipment to form Metal NL Each time you play a card, gain 1 dex and 1 thorns"
@@ -92,20 +97,25 @@
   {
     "PROPER_NAME": "Combo Tinker",
     "NAMES": [
-      "Enter_Metal"
+      "Enter Tinker",
+      "Enter_Tinker"
+
     ],
     "DESCRIPTION": "Combines with current equipment to form Metal NL Each time you play a card, upgrade a card in your hand"
   },
   {
     "PROPER_NAME": "Combo Blaster",
     "NAMES": [
+      "Enter Blaster",
       "Enter_Blaster"
+
     ],
     "DESCRIPTION": "Combines with current equipment to form Metal NL Each time you play a card, add a bolt to your hand"
   },
   {
     "PROPER_NAME": "Combo Berserker",
     "NAMES": [
+      "Enter Berserker",
       "Enter_Berserker"
     ],
     "DESCRIPTION": "Combines with current equipment to form Berserker NL Each time you play a card, deal 1 damage for each card played in this stance"
@@ -113,7 +123,9 @@
   {
     "PROPER_NAME": "Combo Hack",
     "NAMES": [
+      "Enter Hack",
       "Enter_Hack"
+
     ],
     "DESCRIPTION": "Combines with current equipment to form Hack NL Each time you play a card, Apply 1 hack to a random enemy"
   },

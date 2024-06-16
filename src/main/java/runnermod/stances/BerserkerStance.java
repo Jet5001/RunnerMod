@@ -18,6 +18,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.StanceStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
@@ -36,7 +37,7 @@ public class BerserkerStance extends RunnerStance {
     public static final String STANCE_ID = "Berserker";
 
     private static final StanceStrings stanceString = CardCrawlGame.languagePack.getStanceString("Berserker");
-    private static final String baseDescription = "While in this stance for each card you play deal damage equal to the number of cards played in this stance NL ";
+    private static final String baseDescription = "Each time you play a card deal damage equal to the number of cards played in this stance NL ";
 
     private static long sfxId = -1L;
     private int durability;
@@ -57,17 +58,12 @@ public class BerserkerStance extends RunnerStance {
         AbstractCreature p = AbstractDungeon.player;
 
         super.onPlayCard(card);
-            super.onPlayCard(card);
-            cardsPlayedInStance ++;
-            AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(AbstractDungeon.player, cardsPlayedInStance, DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE ));
-            if (!card.hasTag(RunnerCharacter.Enums.NEON))
-            {
-                reduceDurability(1);
-            }
-            if (durabilityDictionary.get("Overclock").equals(0) || durabilityDictionary.get("Overclock") < 0)
-            {
-                AbstractDungeon.actionManager.addToBottom(new ChangeRunnerStanceAction("Neutral", 0));
-            }
+        cardsPlayedInStance ++;
+        for (AbstractMonster m:AbstractDungeon.getMonsters().monsters)
+        {
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(AbstractDungeon.player, cardsPlayedInStance, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE,true ));
+        }
+
 
 
         if (!card.hasTag(RunnerCharacter.Enums.NEON))
@@ -78,7 +74,7 @@ public class BerserkerStance extends RunnerStance {
         //sort out new stance as durabilties fade
         if (durabilityDictionary.get("Blades").equals(0) || durabilityDictionary.get("Blades") < 0)
         {
-            if (durabilityDictionary.get("Overclock").equals(0))
+            if (durabilityDictionary.get("Overclock").equals(0) || durabilityDictionary.get("Overclock") < 0)
             {
                 AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));
                 return;
@@ -88,7 +84,7 @@ public class BerserkerStance extends RunnerStance {
         }
         if (durabilityDictionary.get("Overclock").equals(0) || durabilityDictionary.get("Overclock") < 0)
         {
-            if (durabilityDictionary.get("Blades").equals(0))
+            if (durabilityDictionary.get("Blades").equals(0) || durabilityDictionary.get("Blades") < 0)
             {
                 AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));
                 return;
@@ -96,7 +92,7 @@ public class BerserkerStance extends RunnerStance {
             AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new BladesStance(new String[]{"Blades"}, new int[]{durabilityDictionary.get("Blades")+1} )));
 
         }
-
+        updateDescription();
     }
 
     public void updateAnimation() {
@@ -117,8 +113,9 @@ public class BerserkerStance extends RunnerStance {
     public void updateDescription() {
         this.description = baseDescription;
         for (String id: Collections.list(durabilityDictionary.keys())) {
-                this.description += " " + id + " : " + durabilityDictionary.get(id) + " turns left NL ";
+                this.description +=  id + " : " + durabilityDictionary.get(id) + " cards left NL ";
         }
+        this.description += cardsPlayedInStance + " Cards played in stance";
     }
 
     public void onEnterStance() {

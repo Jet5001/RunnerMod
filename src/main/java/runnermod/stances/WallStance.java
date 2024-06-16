@@ -60,7 +60,7 @@ public class WallStance extends RunnerStance {
         {
             AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));
         }
-
+        updateDescription();
     }
 
     public void updateAnimation() {
@@ -81,7 +81,7 @@ public class WallStance extends RunnerStance {
     public void updateDescription() {
         this.description = baseDescription;
         for (String id: Collections.list(durabilityDictionary.keys())) {
-                this.description += id + " : " + durabilityDictionary.get(id) + " turns left";
+                this.description += id + " : " + durabilityDictionary.get(id) + " durability left";
         }
     }
 

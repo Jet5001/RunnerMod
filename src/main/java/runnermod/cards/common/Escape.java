@@ -16,15 +16,15 @@ public class Escape extends BaseCard {
             CardType.SKILL,
             CardRarity.COMMON,
             CardTarget.NONE,
-            6
+            5
     );
 
 //    //Card Stats
-    private static final int MAGIC = 30;
+    private static final int MAGIC = 15;
     private static final int UPG_MAGIC =0;
 
-    private static final int BLOCK = 30;
-    private static final int BLOCK_UPG = 0;
+    private static final int BLOCK = 15;
+    private static final int BLOCK_UPG = 5;
     public Escape()
     {
         super(ID,info);
@@ -42,18 +42,9 @@ public class Escape extends BaseCard {
     @Override
     public void onPlayCard(AbstractCard c, AbstractMonster m) {
         super.onPlayCard(c, m);
-        this.costForTurn -=1;
-    }
-
-    //called when the card is upgraded
-    @Override
-    public void upgrade()
-    {
-        if (!this.upgraded)
+        if (costForTurn > 0)
         {
-            upgradeName();
-            super.upgrade();
-            upgradeBaseCost(5);
+            this.costForTurn -=1;
         }
     }
 

@@ -1,15 +1,12 @@
-package runnermod.cards.uncommon;
+package runnermod.cards.rare;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
 import runnermod.cards.BaseCard;
 import runnermod.character.RunnerCharacter;
 import runnermod.util.CardStats;
@@ -19,7 +16,7 @@ public class SystemCrash extends BaseCard {
     private static final CardStats info = new CardStats(
             RunnerCharacter.Enums.CARD_COLOR,
             CardType.ATTACK,
-            CardRarity.UNCOMMON,
+            CardRarity.RARE,
             CardTarget.ENEMY,
             2
     );
@@ -78,6 +75,8 @@ public class SystemCrash extends BaseCard {
             initializeDescription();
         }
         super.applyPowers();
+        this.rawDescription = cardStrings.DESCRIPTION;
+        this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[0];
     }
 
     @Override

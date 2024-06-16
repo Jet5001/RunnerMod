@@ -1,16 +1,19 @@
 package runnermod.character;
 
+import basemod.BaseMod;
 import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.AbstractAnimation;
-import basemod.animations.SpriterAnimation;
+import basemod.interfaces.OnCardUseSubscriber;
+import basemod.interfaces.OnPlayerTurnStartSubscriber;
+import basemod.interfaces.PostBattleSubscriber;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.green.Neutralize;
 import com.megacrit.cardcrawl.cards.red.Strike_Red;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -18,8 +21,10 @@ import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import runnermod.cards.starter.CheapShot;
 import runnermod.cards.starter.Defend_Runner;
@@ -32,14 +37,13 @@ import java.util.ArrayList;
 import static runnermod.RunnerMod.characterPath;
 import static runnermod.RunnerMod.makeID;
 
-public class RunnerCharacter extends CustomPlayer {
+public class RunnerCharacter extends CustomPlayer implements OnCardUseSubscriber, OnPlayerTurnStartSubscriber, PostBattleSubscriber {
     //Stats
     public static final int ENERGY_PER_TURN = 3;
     public static final int MAX_HP = 70;
     public static final int STARTING_GOLD = 99;
     public static final int CARD_DRAW = 5;
     public static final int ORB_SLOTS = 0;
-    public int runCardsPlayed = 0;
 
     //Strings
     private static final String ID = makeID("Runner"); //This should match whatever you have in the CharacterStrings.json file
@@ -51,6 +55,29 @@ public class RunnerCharacter extends CustomPlayer {
     private static final String SHOULDER_1 = characterPath("shoulder.png"); //Shoulder 1 and 2 are used at rest sites.
     private static final String SHOULDER_2 = characterPath("shoulder2.png");
     private static final String CORPSE = characterPath("corpse.png"); //Corpse is when you die.
+
+    public int runCardsPlayed = 0;
+    public int cardsPlayed = 0;
+    @Override
+    public void receiveCardUsed(AbstractCard abstractCard) {
+        if (abstractCard.hasTag(Enums.RUN))
+        {
+            runCardsPlayed +=1;
+        }
+        cardsPlayed++;
+    }
+
+    @Override
+    public void receiveOnPlayerTurnStart() {
+        runCardsPlayed = 0;
+    }
+
+    @Override
+    public void receivePostBattle(AbstractRoom abstractRoom) {
+        img = baseImg;
+        runCardsPlayed = 0;
+        cardsPlayed = 0;
+    }
 
     public static class Enums {
         //These are used to identify your character, as well as your character's card color.
@@ -65,7 +92,10 @@ public class RunnerCharacter extends CustomPlayer {
         @SpireEnum public static AbstractCard.CardTags NEON;
         @SpireEnum public static AbstractCard.CardTags RUN;
     }
-
+    public Texture baseImg;
+    public Texture bladesStanceImg;
+    public Texture shieldsStanceImg;
+    public Texture overclockerStanceImg;
     public RunnerCharacter() {
         super(NAMES[0], Enums.RUNNER,
                 new CustomEnergyOrb(null, null, null), //Energy Orb
@@ -84,10 +114,14 @@ public class RunnerCharacter extends CustomPlayer {
                         getLoadout(),
                         20.0F, -20.0F, 200.0F, 250.0F, //Character hitbox. x y position, then width and height.
                         new EnergyManager(ENERGY_PER_TURN));
-
         //Location for text bubbles. You can adjust it as necessary later. For most characters, these values are fine.
-        dialogX = (drawX + 0.0F * Settings.scale);
-        dialogY = (drawY + 220.0F * Settings.scale);
+        dialogX = (drawX + 60f * Settings.scale);
+        dialogY = (drawY + 235.0F * Settings.scale);
+        BaseMod.subscribe(this);
+        baseImg = img;
+        bladesStanceImg = ImageMaster.loadImage(characterPath("Pose_Blades.png"));
+        shieldsStanceImg = ImageMaster.loadImage(characterPath("Pose_Shields.png"));
+        overclockerStanceImg = ImageMaster.loadImage(characterPath("Pose_Overclocker.png"));
     }
 
     @Override
@@ -219,5 +253,7 @@ public class RunnerCharacter extends CustomPlayer {
         //Makes a new instance of your character class.
         return new RunnerCharacter();
     }
+
+
 
 }

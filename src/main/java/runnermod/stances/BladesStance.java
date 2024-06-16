@@ -2,6 +2,7 @@ package runnermod.stances;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
@@ -70,7 +71,7 @@ public class BladesStance extends RunnerStance {
         {
             AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));
         }
-
+        updateDescription();
     }
 
     public void updateAnimation() {
@@ -91,7 +92,7 @@ public class BladesStance extends RunnerStance {
     public void updateDescription() {
         this.description = baseDescription;
         for (String id: Collections.list(durabilityDictionary.keys())) {
-                this.description += id + " : " + durabilityDictionary.get(id) + " turns left";
+                this.description += id + " : " + durabilityDictionary.get(id) + " durability left";
         }
     }
 

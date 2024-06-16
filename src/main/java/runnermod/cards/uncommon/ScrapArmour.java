@@ -28,12 +28,13 @@ public class ScrapArmour extends BaseCard {
     {
         super(ID,info);
         setMagic(MAG,MAG_UPG);
+        this.setInnate(false, true);
     }
 
     @Override
     public void upgrade() {
         super.upgrade();
-        this.setInnate(false, true);
+
     }
 
     @Override

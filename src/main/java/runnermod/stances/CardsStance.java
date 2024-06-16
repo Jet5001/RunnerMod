@@ -23,7 +23,7 @@ public class CardsStance extends RunnerStance {
     public static final String STANCE_ID = "Cards";
 
     private static final StanceStrings stanceString = CardCrawlGame.languagePack.getStanceString("Cards");
-    private static final String baseDescription = "While in this stance each time you play a non Bolt card add a Bolt to your hand NL ";
+    private static final String baseDescription = "Each time you play a non Bolt card add a Bolt to your hand NL ";
 
     private static long sfxId = -1L;
     private int durability;
@@ -31,7 +31,7 @@ public class CardsStance extends RunnerStance {
         super(ids,durabilties);
 
         this.ID = "Cards";
-        this.name = "Cards";
+        this.name = "Blaster";
         this.description = baseDescription;
         updateDescription();
     }
@@ -85,13 +85,13 @@ public class CardsStance extends RunnerStance {
             AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new ArtifactStance(new String[]{"Artifact"}, new int[]{durabilityDictionary.get("Artifact")+1} )));
 
         }
-
+        updateDescription();
     }
 
     public void updateDescription() {
         this.description = baseDescription;
         for (String id: Collections.list(durabilityDictionary.keys())) {
-                this.description += id + " : " + durabilityDictionary.get(id) + " turns left";
+                this.description += id + " : " + durabilityDictionary.get(id) + " durability left";
         }
     }
 

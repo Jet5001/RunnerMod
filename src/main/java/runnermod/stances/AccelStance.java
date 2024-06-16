@@ -25,7 +25,7 @@ public class AccelStance extends RunnerStance {
     public static final String STANCE_ID = "Accel";
 
     private static final StanceStrings stanceString = CardCrawlGame.languagePack.getStanceString("Accel");
-    private static final String baseDescription = "Each time you play a card gain 1 strength and 2 Block next turn NL ";
+    private static final String baseDescription = "Each time you play a card gain 1 strength this turn and 2 Block next turn NL ";
     private static long sfxId = -1L;
     private int durability;
 
@@ -80,7 +80,7 @@ public class AccelStance extends RunnerStance {
             }
             AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new BladesStance(new String[]{"Blades"}, new int[]{durabilityDictionary.get("Blades")+1} )));
         }
-
+        updateDescription();
     }
 
     public void updateAnimation() {
@@ -101,7 +101,7 @@ public class AccelStance extends RunnerStance {
     public void updateDescription() {
         this.description = baseDescription;
         for (String id: Collections.list(durabilityDictionary.keys())) {
-                this.description += " " + id + " : " + durabilityDictionary.get(id) + " turns left NL ";
+                this.description += id + " : " + durabilityDictionary.get(id) + " durability left NL ";
         }
     }
 

@@ -32,7 +32,7 @@ public class EvasiveManoeuvresPower extends BasePower implements CloneablePowerI
 
     @Override
     public AbstractPower makeCopy() {
-        return new InvestmentsPower(owner, amount);
+        return new EvasiveManoeuvresPower(owner, amount);
     }
 
     @Override

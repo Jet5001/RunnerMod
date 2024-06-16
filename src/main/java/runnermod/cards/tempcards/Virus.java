@@ -35,7 +35,7 @@ public class Virus extends BaseCard {
     public void triggerWhenDrawn() {
         super.triggerWhenDrawn();
         AbstractCreature p = AbstractDungeon.player;
-        addToBot(new DiscardAction(p,p,1,true));
+        addToBot(new VirusDiscardAction(p,p));
     }
 
     @Override
@@ -47,26 +47,5 @@ public class Virus extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for (AbstractCard c:AbstractDungeon.player.discardPile.group ) {
-            if (c instanceof GlitchedBlade)
-            {
-                c.baseDamage +=6;
-                c.applyPowers();
-            }
-        }
-        for (AbstractCard c:AbstractDungeon.player.hand.group ) {
-            if (c instanceof GlitchedBlade)
-            {
-                c.baseDamage +=6;
-                c.applyPowers();
-            }
-        }
-        for (AbstractCard c:AbstractDungeon.player.drawPile.group ) {
-            if (c instanceof GlitchedBlade)
-            {
-                c.baseDamage +=6;
-                c.applyPowers();
-            }
-        }
     }
 }

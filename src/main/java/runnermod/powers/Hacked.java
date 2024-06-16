@@ -16,6 +16,7 @@ import runnermod.cards.tempcards.Interest;
 
 import java.io.Console;
 
+import static runnermod.RunnerMod.info;
 import static runnermod.RunnerMod.makeID;
 
 public class Hacked extends BasePower implements CloneablePowerInterface, PostPowerApplySubscriber {
@@ -44,15 +45,19 @@ public class Hacked extends BasePower implements CloneablePowerInterface, PostPo
 
     @Override
     public AbstractPower makeCopy() {
-        return new InvestmentsPower(owner, amount);
+        return new Hacked(owner, amount);
     }
 
     @Override
     public void receivePostPowerApplySubscriber(AbstractPower power, AbstractCreature target, AbstractCreature source) {
         System.out.println("ApplyingPower");
-        if (power.type == AbstractPower.PowerType.DEBUFF && !power.ID.equals("Shackled") && source != this.owner && target == this.owner) {
+        if (power.type == AbstractPower.PowerType.DEBUFF && !power.ID.equals("Shackled")) {
             flash();
             addToBot(new DamageAction(target, new DamageInfo(source, this.amount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.POISON));
         }
+    }
+
+    public void updateDescription() {
+        this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
     }
 }

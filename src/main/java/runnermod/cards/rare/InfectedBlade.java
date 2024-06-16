@@ -46,6 +46,7 @@ public class InfectedBlade extends BaseCard {
         super(ID, info);
         setDamage(DMG,DMG_UPG);
         setMagic(MAG,MAG_UPG);
+        tags.add(RunnerCharacter.Enums.NEON);
     }
 
     @Override

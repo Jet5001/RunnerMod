@@ -29,7 +29,7 @@ public class HardLightPower extends BasePower implements CloneablePowerInterface
     public void onPlayCard(AbstractCard card, AbstractMonster m) {
         if (card.hasTag(RunnerCharacter.Enums.NEON))
         {
-            addToBot(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player,this.amount, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.LIGHTNING));
+            addToBot(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player,this.amount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.LIGHTNING));
         }
         super.onPlayCard(card, m);
     }

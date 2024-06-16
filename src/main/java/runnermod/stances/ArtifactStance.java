@@ -38,7 +38,7 @@ public class ArtifactStance extends RunnerStance {
 
         this.ID = "Artifact";
         this.name = "Artifact";
-        this.description = "Each time you play a skill deal damage equal to it's cost";
+        this.description = baseDescription;
         updateDescription();
     }
 
@@ -82,23 +82,23 @@ public class ArtifactStance extends RunnerStance {
         {
             AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));
         }
-
+        updateDescription();
     }
 
     public void updateDescription() {
         this.description = baseDescription;
         for (String id: Collections.list(durabilityDictionary.keys())) {
-                this.description += id + " : " + durabilityDictionary.get(id) + " turns left";
+                this.description += id + " : " + durabilityDictionary.get(id) + " durability left";
         }
     }
 
     public void onEnterStance() {
         if (sfxId != -1L)
             stopIdleSfx();
-        CardCrawlGame.sound.play("STANCE_ENTER_WRATH");
-        sfxId = CardCrawlGame.sound.playAndLoop("STANCE_LOOP_WRATH");
-        AbstractDungeon.effectsQueue.add(new BorderFlashEffect(Color.SCARLET, true));
-        AbstractDungeon.effectsQueue.add(new StanceChangeParticleGenerator(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, "Wrath"));
+        CardCrawlGame.sound.play("STANCE_ENTER_CALM");
+        sfxId = CardCrawlGame.sound.playAndLoop("STANCE_LOOP_CALM");
+        AbstractDungeon.effectsQueue.add(new BorderFlashEffect(Color.BLUE, true));
+        AbstractDungeon.effectsQueue.add(new StanceChangeParticleGenerator(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, "Calm"));
         AbstractCreature player = AbstractDungeon.player;
         //need to get previous artifact amount and replace with a new instance of artifact if
         //greater than one as new super artifact stacks with old regular artifact and could thefore be removed by debuffs

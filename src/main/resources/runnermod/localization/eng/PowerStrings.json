@@ -28,35 +28,36 @@
   "${modID}:Hacked": {
     "NAME": "Hacked",
     "DESCRIPTIONS": [
-      "Whenever a debuff is applied, take damage equal to the amount of Hacked"
+      "Whenever a debuff is applied, Loses #b",
+      " HP.  At start of turn reduce Hacked by #b 1"
     ]
   },
   "${modID}:WallOfStaticPower": {
     "NAME": "Wall of Static",
     "DESCRIPTIONS": [
       "Whenever a debuff is applied to an enemy, gain #b ",
-      "block "
+      " block "
     ]
   },
-  "${modID}:Durable": {
+  "${modID}:DurablePower": {
     "NAME": "Durable",
     "DESCRIPTIONS": [
       "Whenever you equip an equipment it has #b",
-      "extra durability "
+      " extra durability "
     ]
   },
   "${modID}:PawnShopPower": {
     "NAME": "Pawn Shop",
     "DESCRIPTIONS": [
       "At the start of your turn add #b",
-      "random broken weapons to your hand "
+      " random broken weapons to your hand "
     ]
   },
   "${modID}:BotNetPower": {
     "NAME": "Bot Net",
     "DESCRIPTIONS": [
       "At the start of your turn apply #b",
-      "random debuffs to random enemies"
+      " random debuffs to random enemies"
     ]
   },
   "${modID}:OvertaxPower": {
@@ -85,6 +86,13 @@
     "DESCRIPTIONS": [
       "Whenever you apply a debuff apply #b",
       " hack"
+    ]
+  },
+  "${modID}:AutopilotPower": {
+    "NAME": "Autopilot",
+    "DESCRIPTIONS": [
+      "At the start of your turn play the top #b",
+      " cards of your deck for free"
     ]
   },
   "${modID}:EvasiveManoeuvresPower": {

@@ -33,6 +33,7 @@ public class FreeRun extends BaseCard {
         setMagic(MAG,MAG_UPG);
         setBlock(BLOCK,BLOCK_UPG);
         setEthereal(true);
+        tags.add(RunnerCharacter.Enums.RUN);
     }
 
 

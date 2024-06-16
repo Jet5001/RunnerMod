@@ -1,4 +1,4 @@
-package runnermod.cards.uncommon;
+package runnermod.cards.common;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;

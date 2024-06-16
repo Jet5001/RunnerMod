@@ -1,13 +1,12 @@
 package runnermod.stances;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.stances.AbstractStance;
 import com.megacrit.cardcrawl.stances.NeutralStance;
-import org.lwjgl.Sys;
+import runnermod.character.RunnerCharacter;
 import runnermod.powers.ScrapArmourPower;
 
 import java.util.Collections;
@@ -60,12 +59,24 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
         switch (stanceID)
         {
             case "Wall":
+                if (AbstractDungeon.player instanceof RunnerCharacter)
+                {
+                    AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).shieldsStanceImg;
+                }
                 return new WallStance(new String[]{"Wall"},new int[]{durabilities[0]});
             case "Blades":
+                if (AbstractDungeon.player instanceof RunnerCharacter)
+                {
+                    AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).bladesStanceImg;
+                }
                 return new BladesStance(new String[]{"Blades"},new int[]{durabilities[0]});
             case "Artifact":
                 return new ArtifactStance(new String[]{"Artifact"},new int[]{durabilities[0]});
             case "Overclock":
+                if (AbstractDungeon.player instanceof RunnerCharacter)
+                {
+                    AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).overclockerStanceImg;
+                }
                 return new OverclockStance(new String[]{"Overclock"},new int[]{durabilities[0]});
             case "Accel":
                 //shuffle durabilities into correct spots for this combo
@@ -173,6 +184,10 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
                 }
                 return new BerserkerStance(new String[]{"Blades", "Overclock"},new int[]{durabilities[0], durabilities[1]});
             default:
+                if (AbstractDungeon.player instanceof RunnerCharacter)
+                {
+                    AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).baseImg;
+                }
                 return new NeutralStance();
         }
 

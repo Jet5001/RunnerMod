@@ -26,7 +26,7 @@ public class BotNet extends BaseCard {
     Random rng;
 
     private static int MAG = 1;
-    private static int MAG_UPG = 2;
+    private static int MAG_UPG = 1;
 
     public BotNet()
     {

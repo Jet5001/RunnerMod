@@ -32,8 +32,8 @@ public class DoubleTime extends BaseCard {
     );
 
 //    //Card Stats
-    private static final int MAGIC = 3;
-    private static final int UPG_MAGIC =0;
+    private static final int MAGIC = 2;
+    private static final int UPG_MAGIC =1;
 
     public DoubleTime()
     {
@@ -43,29 +43,13 @@ public class DoubleTime extends BaseCard {
         this.cardsToPreview = new Decoy();
     }
 
-    //called when the card is upgraded
-    @Override
-    public void upgrade()
-    {
-        super.upgrade();
-        if (!this.upgraded)
-        {
-            upgradeName();
-            this.upgraded = true;
-        }
-    }
 
     //called when the card is played
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToTop(new ChangeRunnerStanceAction("Overclock",magicNumber));
+        addToTop(new ChangeRunnerStanceAction("Overclock",3));
         //can't be bothered adding another number so I'm just checking
-        if (this.upgraded){
-            addToBot(new MakeTempCardInHandAction(new Decoy(),2));
-        }
-        else{
-            addToBot(new MakeTempCardInHandAction(new Decoy(), 3));
-        }
+            addToBot(new MakeTempCardInHandAction(new Decoy(),magicNumber));
     }
 
     @Override

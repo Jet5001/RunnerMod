@@ -34,16 +34,6 @@ public class Overtax extends BaseCard {
     }
 
 
-    @Override
-    public void upgrade()
-    {
-        if (!this.upgraded)
-        {
-            upgradeName();
-            this.isInnate = true;
-            super.upgrade();
-        }
-    }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
