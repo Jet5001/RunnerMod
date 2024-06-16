@@ -430,7 +430,7 @@
   },
   "${modID}:Polyphony": {
     "NAME": "Polyphony",
-    "DESCRIPTION": "Deal 4 damage times the number of cards played this fight to all enemies",
+    "DESCRIPTION": "Deal 4 damage times the number of cards played this turn to all enemies",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage)"
     ]

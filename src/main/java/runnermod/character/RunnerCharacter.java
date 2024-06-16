@@ -70,6 +70,7 @@ public class RunnerCharacter extends CustomPlayer implements OnCardUseSubscriber
     @Override
     public void receiveOnPlayerTurnStart() {
         runCardsPlayed = 0;
+        cardsPlayed = 0;
     }
 
     @Override
