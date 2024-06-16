@@ -18,7 +18,7 @@ public class Polyphony extends BaseCard {
     private static final CardStats info = new CardStats(
             RunnerCharacter.Enums.CARD_COLOR,
             CardType.ATTACK,
-            CardRarity.RARE,
+            CardRarity.SPECIAL,
             CardTarget.ALL_ENEMY,
             2
     );
