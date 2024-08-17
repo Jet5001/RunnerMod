@@ -258,11 +258,11 @@
   "${modID}:ThoughtlessIncursion": {
     "NAME": "Thoughtless Incursion",
     "DESCRIPTION": "Apply !M! random debuffs to random enemies NL obtain !M! random debuffs",
-    "UPGRADE_DESCRIPTION":  "Apply !M! random debuffs to random enemies NL obtain 3 random debuffs"
+    "UPGRADE_DESCRIPTION":  "Apply !M! random debuffs to random enemies NL obtain 2 random debuffs"
   },
   "${modID}:Digitise": {
     "NAME": "Digitise",
-    "DESCRIPTION": "Apply Runermod:Neon to !M! cards in your hand NL Exhaust"
+    "DESCRIPTION": "Apply RunnerMod:Neon to !M! cards in your hand NL Exhaust"
   },
   "${modID}:Bide": {
     "NAME": "Bide",
@@ -462,5 +462,9 @@
   "${modID}:Recouperate": {
     "NAME": "Recouperate",
     "DESCRIPTION": "Gain !B! Block NL Gain !M! Vitality"
+  },
+  "${modID}:DrainingRun": {
+    "NAME": "Draining Run",
+    "DESCRIPTION": "Deal !D! Damage NL Gain RunnerMod:Vitality equal to the health lost"
   }
 }
