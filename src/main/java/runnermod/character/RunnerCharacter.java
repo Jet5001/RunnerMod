@@ -58,6 +58,7 @@ public class RunnerCharacter extends CustomPlayer implements OnCardUseSubscriber
 
     public int runCardsPlayed = 0;
     public int cardsPlayed = 0;
+    public int cardsPlayedForTurn = 0;
     @Override
     public void receiveCardUsed(AbstractCard abstractCard) {
         if (abstractCard.hasTag(Enums.RUN))
@@ -65,12 +66,13 @@ public class RunnerCharacter extends CustomPlayer implements OnCardUseSubscriber
             runCardsPlayed +=1;
         }
         cardsPlayed++;
+        cardsPlayedForTurn++;
     }
 
     @Override
     public void receiveOnPlayerTurnStart() {
         runCardsPlayed = 0;
-        cardsPlayed = 0;
+        cardsPlayedForTurn = 0;
     }
 
     @Override
@@ -78,6 +80,7 @@ public class RunnerCharacter extends CustomPlayer implements OnCardUseSubscriber
         img = baseImg;
         runCardsPlayed = 0;
         cardsPlayed = 0;
+        cardsPlayedForTurn = 0;
     }
 
     public static class Enums {
@@ -92,11 +95,19 @@ public class RunnerCharacter extends CustomPlayer implements OnCardUseSubscriber
 
         @SpireEnum public static AbstractCard.CardTags NEON;
         @SpireEnum public static AbstractCard.CardTags RUN;
+        @SpireEnum public static AbstractCard.CardTags CONSERVE_VIGOUR;
     }
     public Texture baseImg;
     public Texture bladesStanceImg;
     public Texture shieldsStanceImg;
     public Texture overclockerStanceImg;
+    public Texture firewallStanceImg;
+    public Texture berserkerStanceImg;
+    public Texture blasterStanceImg;
+    public Texture hackStanceImg;
+    public Texture tinkerStanceImg;
+    public Texture metalStanceImg;
+    public Texture accelStanceImg;
     public RunnerCharacter() {
         super(NAMES[0], Enums.RUNNER,
                 new CustomEnergyOrb(null, null, null), //Energy Orb
@@ -123,6 +134,13 @@ public class RunnerCharacter extends CustomPlayer implements OnCardUseSubscriber
         bladesStanceImg = ImageMaster.loadImage(characterPath("Pose_Blades.png"));
         shieldsStanceImg = ImageMaster.loadImage(characterPath("Pose_Shields.png"));
         overclockerStanceImg = ImageMaster.loadImage(characterPath("Pose_Overclocker.png"));
+        firewallStanceImg = ImageMaster.loadImage(characterPath("Pose_Firewall.png"));
+        berserkerStanceImg = ImageMaster.loadImage(characterPath("Pose_Beserker_Crackling.png"));
+        blasterStanceImg = ImageMaster.loadImage(characterPath("Pose_Blaster.png"));
+        hackStanceImg = ImageMaster.loadImage(characterPath("Pose_Hack.png"));
+        tinkerStanceImg = ImageMaster.loadImage(characterPath("Pose_Tinker.png"));
+        metalStanceImg = ImageMaster.loadImage(characterPath("Pose_Metal.png"));
+        accelStanceImg = ImageMaster.loadImage(characterPath("Pose_Accel.png"));
     }
 
     @Override

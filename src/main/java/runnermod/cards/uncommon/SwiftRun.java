@@ -19,7 +19,7 @@ public class SwiftRun extends BaseCard {
     );
 
     //Card Stats
-    private static final int DAMAGE = 5;
+    private static final int DAMAGE = 8;
     private static final int UPG_DAMAGE = 2;
 
     public SwiftRun()

@@ -18,8 +18,8 @@ public class QuickRun extends BaseCard {
     );
 
     //Card Stats
-    private static final int DAMAGE = 5;
-    private static final int UPG_DAMAGE = 2;
+    private static final int DAMAGE = 6;
+    private static final int UPG_DAMAGE = 3;
 
     public QuickRun()
     {

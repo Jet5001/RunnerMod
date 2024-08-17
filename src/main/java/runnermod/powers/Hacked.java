@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import runnermod.cards.tempcards.Interest;
@@ -51,7 +52,8 @@ public class Hacked extends BasePower implements CloneablePowerInterface, PostPo
     @Override
     public void receivePostPowerApplySubscriber(AbstractPower power, AbstractCreature target, AbstractCreature source) {
         System.out.println("ApplyingPower");
-        if (power.type == AbstractPower.PowerType.DEBUFF && !power.ID.equals("Shackled")) {
+        if (power.type == AbstractPower.PowerType.DEBUFF && !power.ID.equals("Shackled") && power.owner != source) {
+
             flash();
             addToBot(new DamageAction(target, new DamageInfo(source, this.amount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.POISON));
         }

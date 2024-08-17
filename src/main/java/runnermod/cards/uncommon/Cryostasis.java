@@ -23,7 +23,7 @@ public class Cryostasis extends BaseCard {
             CardType.SKILL,
             CardRarity.UNCOMMON,
             CardTarget.NONE,
-            1
+            0
     );
 
     //Card Stats
@@ -34,9 +34,13 @@ public class Cryostasis extends BaseCard {
     {
         super(ID,info);
         setMagic(MAGIC,UPG_MAGIC);
-        upgradeBaseCost(0);
     }
 
+    @Override
+    public void upgrade() {
+        super.upgrade();
+        this.tags.add(RunnerCharacter.Enums.NEON);
+    }
 
     //Not applying vulnerable before damage for some reason?
     @Override

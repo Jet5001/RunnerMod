@@ -50,7 +50,7 @@ public class Cloaking extends BaseCard {
     //Not applying vulnerable before damage for some reason?
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(m, p, new BlockReturnPower(m, this.magicNumber),1, true, AbstractGameAction.AttackEffect.NONE));
+        addToBot(new ApplyPowerAction(m, p, new BlockReturnPower(m, this.magicNumber),magicNumber, true, AbstractGameAction.AttackEffect.NONE));
         addToTop(new ChangeRunnerStanceAction("Wall",3));
     }
 

@@ -73,8 +73,16 @@ public class HackStance extends RunnerStance {
         {
             if (durabilityDictionary.get("Blades").equals(0) ||durabilityDictionary.get("Blades") < 0)
             {
+                if (AbstractDungeon.player instanceof RunnerCharacter)
+                {
+                    AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).baseImg;
+                }
                 AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));
                 return;
+            }
+            if (AbstractDungeon.player instanceof RunnerCharacter)
+            {
+                AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).bladesStanceImg;
             }
             AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new BladesStance(new String[]{"Blades"}, new int[]{durabilityDictionary.get("Blades")+1} )));
 
@@ -83,8 +91,16 @@ public class HackStance extends RunnerStance {
         {
             if (durabilityDictionary.get("Artifact").equals(0) ||durabilityDictionary.get("Artifact") <0)
             {
+                if (AbstractDungeon.player instanceof RunnerCharacter)
+                {
+                    AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).baseImg;
+                }
                 AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));
                 return;
+            }
+            if (AbstractDungeon.player instanceof RunnerCharacter)
+            {
+                AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).firewallStanceImg;
             }
             AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new ArtifactStance(new String[]{"Artifact"}, new int[]{durabilityDictionary.get("Artifact")+1} )));
 

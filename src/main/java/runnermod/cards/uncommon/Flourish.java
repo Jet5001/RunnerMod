@@ -40,6 +40,8 @@ public class Flourish extends BaseCard {
         AbstractPower strength = AbstractDungeon.player.getPower("Strength");
         int originalStr = 0;
         int originalDex = 0;
+        int originalVitality = 0;
+        int originalVigor = 0;
         if (strength != null)
         {
             originalStr = strength.amount;
@@ -49,7 +51,17 @@ public class Flourish extends BaseCard {
         {
             originalDex = dex.amount;
         }
-        this.damage = this.damage + originalDex - originalStr;
+        AbstractPower vigor = AbstractDungeon.player.getPower("Vigor");
+        if (vigor!=null)
+        {
+            originalVigor = vigor.amount;
+        }
+        AbstractPower vitality = AbstractDungeon.player.getPower("RunnerMod:VitalityPower");
+        if (vitality!=null)
+        {
+            originalVitality = vitality.amount;
+        }
+        this.damage = this.damage + originalDex - originalStr - originalVigor + originalVitality;
     }
 
     @Override

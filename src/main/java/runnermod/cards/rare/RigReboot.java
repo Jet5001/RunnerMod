@@ -30,15 +30,10 @@ public class RigReboot extends BaseCard {
         super(ID,info);
         this.exhaust = true;
         setMagic(MAG,MAG_UPG);
+        setSelfRetain(false,true);
     }
 
-    @Override
-    public void upgrade() {
-        super.upgrade();
-        this.retain = true;
-        this.upgraded = true;
-        super.upgrade();
-    }
+
 
     //when the card is played
     @Override

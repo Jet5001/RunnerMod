@@ -22,9 +22,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
-import com.megacrit.cardcrawl.vfx.stance.CalmParticleEffect;
-import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
-import com.megacrit.cardcrawl.vfx.stance.StanceChangeParticleGenerator;
+import com.megacrit.cardcrawl.vfx.stance.*;
 import org.lwjgl.Sys;
 import runnermod.cards.RandomDebuffAction;
 import runnermod.character.RunnerCharacter;
@@ -76,8 +74,16 @@ public class BerserkerStance extends RunnerStance {
         {
             if (durabilityDictionary.get("Overclock").equals(0) || durabilityDictionary.get("Overclock") < 0)
             {
+                if (AbstractDungeon.player instanceof RunnerCharacter)
+                {
+                    AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).baseImg;
+                }
                 AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));
                 return;
+            }
+            if (AbstractDungeon.player instanceof RunnerCharacter)
+            {
+                AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).overclockerStanceImg;
             }
             AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new OverclockStance(new String[]{"Overclock"}, new int[]{durabilityDictionary.get("Overclock")+1} )));
 
@@ -86,8 +92,16 @@ public class BerserkerStance extends RunnerStance {
         {
             if (durabilityDictionary.get("Blades").equals(0) || durabilityDictionary.get("Blades") < 0)
             {
+                if (AbstractDungeon.player instanceof RunnerCharacter)
+                {
+                    AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).baseImg;
+                }
                 AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));
                 return;
+            }
+            if (AbstractDungeon.player instanceof RunnerCharacter)
+            {
+                AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).bladesStanceImg;
             }
             AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new BladesStance(new String[]{"Blades"}, new int[]{durabilityDictionary.get("Blades")+1} )));
 
@@ -110,6 +124,8 @@ public class BerserkerStance extends RunnerStance {
         }
     }
 
+
+
     public void updateDescription() {
         this.description = baseDescription;
         for (String id: Collections.list(durabilityDictionary.keys())) {
@@ -125,8 +141,9 @@ public class BerserkerStance extends RunnerStance {
         CardCrawlGame.sound.play("STANCE_ENTER_WRATH");
         sfxId = CardCrawlGame.sound.playAndLoop("STANCE_LOOP_WRATH");
         AbstractDungeon.effectsQueue.add(new BorderFlashEffect(Color.BLUE, true));
-        AbstractDungeon.effectsQueue.add(new StanceChangeParticleGenerator(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, "Wrath"));
+        AbstractDungeon.effectsQueue.add(new StanceChangeParticleGenerator(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, "WRATH"));
     }
+
 
     public void onExitStance() {
         stopIdleSfx();

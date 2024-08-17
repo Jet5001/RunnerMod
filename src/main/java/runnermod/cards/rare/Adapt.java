@@ -44,7 +44,6 @@ public class Adapt extends BaseCard {
     public void upgrade()
     {
         this.timesUpgraded++;
-        this.upgraded = true;
         this.name = cardStrings.NAME + "+" + this.timesUpgraded;
         if (timesUpgraded%2==0)
         {
@@ -54,7 +53,12 @@ public class Adapt extends BaseCard {
         {
             strAmount+=1;
         }
-        super.upgrade();
+        //super.upgrade();
+    }
+
+    @Override
+    public boolean canUpgrade() {
+        return true;
     }
 
     @Override

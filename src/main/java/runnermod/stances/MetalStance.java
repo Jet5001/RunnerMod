@@ -71,8 +71,16 @@ public class MetalStance extends RunnerStance {
         {
             if (durabilityDictionary.get("Wall").equals(0) ||durabilityDictionary.get("Wall") < 0)
             {
+                if (AbstractDungeon.player instanceof RunnerCharacter)
+                {
+                    AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).baseImg;
+                }
                 AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));
                 return;
+            }
+            if (AbstractDungeon.player instanceof RunnerCharacter)
+            {
+                AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).shieldsStanceImg;
             }
             AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new WallStance(new String[]{"Wall"}, new int[]{durabilityDictionary.get("Wall")+1} )));
 
@@ -81,8 +89,16 @@ public class MetalStance extends RunnerStance {
         {
             if (durabilityDictionary.get("Artifact").equals(0) ||durabilityDictionary.get("Artifact") < 0)
             {
+                if (AbstractDungeon.player instanceof RunnerCharacter)
+                {
+                    AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).baseImg;
+                }
                 AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction("Neutral"));
                 return;
+            }
+            if (AbstractDungeon.player instanceof RunnerCharacter)
+            {
+                AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).firewallStanceImg;
             }
             AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new ArtifactStance(new String[]{"Artifact"}, new int[]{durabilityDictionary.get("Artifact")+1} )));
 

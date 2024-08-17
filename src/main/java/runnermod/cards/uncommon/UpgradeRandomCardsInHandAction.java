@@ -32,7 +32,7 @@ public class UpgradeRandomCardsInHandAction extends AbstractGameAction {
         {
             int cardIndex = rng.nextInt(handSize);
             AbstractCard c = AbstractDungeon.player.hand.group.get(cardIndex);
-            if (c != source)
+            if (c != source && c.canUpgrade())
             {
                 c.upgrade();
                 cardsSelected++;

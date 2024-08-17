@@ -27,5 +27,26 @@
     "DESCRIPTIONS": [
       "At the start of your turn add 2 Decoys to your hand"
     ]
+  },
+  "${modID}:ICEBreaker": {
+    "NAME": "ICEBreaker",
+    "FLAVOR": "Now to make use of that bypass",
+    "DESCRIPTIONS": [
+      "The first time each turn you break an enemy's block gain [E]"
+    ]
+  },
+  "${modID}:BalanceProtocols": {
+    "NAME": "Balance Protocols",
+    "FLAVOR": "Lets keep this simple",
+    "DESCRIPTIONS": [
+      "The first time you would gain Vigor each turn gain an Equal amount of Vitality"
+    ]
+  },
+  "${modID}:ImpactHammer": {
+    "NAME": "Impact Hammer",
+    "FLAVOR": "Sometimes everything is just a nail",
+    "DESCRIPTIONS": [
+      "At the start of each turn gain 3 Vigor"
+    ]
   }
 }

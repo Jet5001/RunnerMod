@@ -30,8 +30,16 @@ public class PasteAction extends AbstractGameAction{
     }
     private void dupeCard(AbstractCard c)
     {
-        AbstractCard toDupe = c.makeCopy();
+        AbstractCard toDupe = c.makeStatEquivalentCopy();
         toDupe.costForTurn = 0;
+        for (AbstractCard.CardTags tag:c.tags) {
+            if (!toDupe.hasTag(tag))
+            {
+                toDupe.tags.add(tag);
+            }
+        }
+        toDupe.rawDescription = c.rawDescription;
+        toDupe.initializeDescription();
         addToTop(new MakeTempCardInHandAction(toDupe));
     }
 

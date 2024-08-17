@@ -26,7 +26,11 @@ public class CTRLV extends BaseCard {
         super(ID,info);
     }
 
-
+    @Override
+    public void upgrade() {
+        super.upgrade();
+        this.retain = true;
+    }
 
     //called when the card is played
     @Override

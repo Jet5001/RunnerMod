@@ -40,6 +40,7 @@ public class LostInTheCrowd extends BaseCard {
             AbstractCard previewCard = new Decoy();
             previewCard.upgrade();
             cardsToPreview = previewCard;
+            tags.add(RunnerCharacter.Enums.NEON);
         }
     }
 

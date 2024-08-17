@@ -1,8 +1,11 @@
 package runnermod.cards.rare;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.utility.ScryAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.FrailPower;
 import runnermod.cards.BaseCard;
 import runnermod.character.RunnerCharacter;
 import runnermod.stances.ChangeRunnerStanceAction;

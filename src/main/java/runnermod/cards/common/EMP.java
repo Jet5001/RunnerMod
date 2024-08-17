@@ -24,7 +24,7 @@ public class EMP extends BaseCard {
             2
     );
 
-    private static int BLOCK = 10;
+    private static int BLOCK = 12;
     private static int BLOCK_UPG = 3;
     public EMP()
     {
@@ -38,7 +38,7 @@ public class EMP extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         int blockAmount = m.currentBlock;
         addToBot(new RemoveAllBlockAction(m,p));
-        addToBot(new GainBlockAction(p,10+blockAmount));
+        addToBot(new GainBlockAction(p,this.block+blockAmount));
 
     }
 }

@@ -31,7 +31,7 @@ public class NeonBlades extends BaseCard {
             1
 
     );
-    private static final int DMG = 2;
+    private static final int DMG = 3;
     private static final int DMG_UPG = 3;
     private static final int MAGIC = 3;
     private static final int MAGIC_UPG = 0;

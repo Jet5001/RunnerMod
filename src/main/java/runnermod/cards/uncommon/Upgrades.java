@@ -26,7 +26,6 @@ public class Upgrades extends BaseCard {
     public Upgrades()
     {
         super(ID,info);
-        this.exhaust = true;
         rng = new Random();
         setMagic(MAGIC,MAGIC_UPG);
     }

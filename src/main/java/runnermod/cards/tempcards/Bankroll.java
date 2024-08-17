@@ -31,29 +31,19 @@ public class Bankroll extends BaseCard {
     public Bankroll()
     {
         super(ID,info);
+        setMagic(10,-2);
     }
 
     @Override
     public void applyPowers()
     {
-        this.baseDamage =  AbstractDungeon.player.gold/10;
+        this.baseDamage = AbstractDungeon.player.gold/magicNumber;
         super.applyPowers();
         this.rawDescription = cardStrings.DESCRIPTION;
         this.rawDescription += cardStrings.EXTENDED_DESCRIPTION[0];
         initializeDescription();
     }
 
-    @Override
-    public void upgrade()
-    {
-        if (!this.upgraded)
-        {
-            upgradeName();
-            extraDamage=6;
-            super.upgrade();
-        }
-
-    }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {

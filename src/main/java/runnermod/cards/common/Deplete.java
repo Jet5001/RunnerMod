@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.EnergizedBluePower;
 import runnermod.cards.BaseCard;
 import runnermod.character.RunnerCharacter;
+import runnermod.powers.DepletedPower;
 import runnermod.powers.Hacked;
 import runnermod.util.CardStats;
 
@@ -17,7 +18,7 @@ public class Deplete extends BaseCard {
             CardType.SKILL,
             CardRarity.COMMON,
             CardTarget.NONE,
-            1
+            0
     );
 
     private static final int MAG = 2;
@@ -31,13 +32,13 @@ public class Deplete extends BaseCard {
     @Override
     public void upgrade() {
         super.upgrade();
-        upgradeBaseCost(0);
+        this.tags.add(RunnerCharacter.Enums.NEON);
     }
 
     //called when the card is played and performs the actions for the card
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.player.gainEnergy(magicNumber);
-        addToBot(new ApplyPowerAction(p,p,new EnergizedBluePower(p,-1)));
+        addToBot(new ApplyPowerAction(p,p,new DepletedPower(p,1)));
     }
 }

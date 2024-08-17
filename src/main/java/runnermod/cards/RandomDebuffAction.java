@@ -14,12 +14,13 @@ import com.megacrit.cardcrawl.powers.watcher.MarkPower;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import org.lwjgl.Sys;
 import runnermod.powers.Hacked;
+import runnermod.powers.Overwhelm;
 
 import java.util.*;
 
 public class RandomDebuffAction extends AbstractGameAction {
 
-    List<String> debuffs = new ArrayList<String>(Arrays.asList("Hack", "Shackled", "Frail", "Poison", "Vulnerable", "Weak", "Block Return", "Choked", "Constricted", "Corpse Explosion", "Mark"));
+    List<String> debuffs = new ArrayList<String>(Arrays.asList("Hack", "Shackled", "Frail", "Poison", "Vulnerable", "Weak", "Block Return", "Choked", "Constricted", "Corpse Explosion", "Overwhelm"));
     Random rng = new Random();
     AbstractCreature owner;
     public RandomDebuffAction(AbstractCreature owner, AbstractCreature target)
@@ -33,7 +34,7 @@ public class RandomDebuffAction extends AbstractGameAction {
     public void update() {
         if (target != null)
         {
-            String debuff = debuffs.get(rng.nextInt(debuffs.size()-1));
+            String debuff = debuffs.get(rng.nextInt(debuffs.size()));
             System.out.println(debuff);
             switch (debuff)
             {
@@ -71,6 +72,9 @@ public class RandomDebuffAction extends AbstractGameAction {
                     break;
                 case "Mark":
                     addToBot(new ApplyPowerAction(target, owner, new MarkPower(target,5), 1));
+                    break;
+                case "Overwhelm":
+                    addToBot(new ApplyPowerAction(target,owner,new Overwhelm(target,1)));
                 case "Hack":
                     addToBot(new ApplyPowerAction(target, owner, new Hacked(target,1), 1));
                     break;

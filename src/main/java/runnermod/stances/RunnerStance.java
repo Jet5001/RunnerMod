@@ -27,15 +27,15 @@ public abstract class RunnerStance extends AbstractStance {
 
     public void reduceDurability(int amount)
     {
-
         for (String id: Collections.list(durabilityDictionary.keys())) {
             durabilityDictionary.put(id, durabilityDictionary.get(id)-amount);
         }
         //update description as it doesn't like to update for some reason
-        this.description = "";
-        for (String id: Collections.list(durabilityDictionary.keys())) {
-            this.description += id + " : " + durabilityDictionary.get(id) + " cards left";
-        }
+        //this.description = "";
+        //for (String id: Collections.list(durabilityDictionary.keys())) {
+        //    this.description += id + " : " + durabilityDictionary.get(id) + " cards left";
+        //}
+        updateDescription();
     }
 
 
@@ -43,6 +43,6 @@ public abstract class RunnerStance extends AbstractStance {
 
     @Override
     public void updateDescription() {
-
+        //Overwritten in the actual stances... Use this for updating descriptions
     }
 }

@@ -69,8 +69,16 @@ public class CardsStance extends RunnerStance {
         {
             if (durabilityDictionary.get("Overclock").equals(0) ||durabilityDictionary.get("Overclock") < 0)
             {
+                if (AbstractDungeon.player instanceof RunnerCharacter)
+                {
+                    AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).baseImg;
+                }
                 AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));
                 return;
+            }
+            if (AbstractDungeon.player instanceof RunnerCharacter)
+            {
+                AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).overclockerStanceImg;
             }
             AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new OverclockStance(new String[]{"Overclock"}, new int[]{durabilityDictionary.get("Overclock")+1} )));
 
@@ -79,8 +87,16 @@ public class CardsStance extends RunnerStance {
         {
             if (durabilityDictionary.get("Artifact").equals(0) ||durabilityDictionary.get("Artifact") < 0)
             {
+                if (AbstractDungeon.player instanceof RunnerCharacter)
+                {
+                    AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).baseImg;
+                }
                 AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction("Neutral"));
                 return;
+            }
+            if (AbstractDungeon.player instanceof RunnerCharacter)
+            {
+                AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).firewallStanceImg;
             }
             AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new ArtifactStance(new String[]{"Artifact"}, new int[]{durabilityDictionary.get("Artifact")+1} )));
 

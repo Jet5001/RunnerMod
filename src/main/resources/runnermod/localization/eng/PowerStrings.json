@@ -64,7 +64,7 @@
     "NAME": "Overtax",
     "DESCRIPTIONS": [
       "At the start of your turn gain #b",
-      "extra [E]"
+      " extra [E]"
     ]
   },
   "${modID}:HardLightPower": {
@@ -98,7 +98,8 @@
   "${modID}:EvasiveManoeuvresPower": {
     "NAME": "Evasive Manoeuvres",
     "DESCRIPTIONS": [
-      "Whenever you take damage this turn gain 5 Block"
+      "Whenever you take damage this turn gain #b ",
+      " Block"
     ]
   },
   "${modID}:ShortCircuitPower": {
@@ -107,6 +108,27 @@
       "At the start of your turn exhaust #b",
       " cards in your hand and gain #b",
       "energy"
+    ]
+  },
+  "${modID}:DepletedPower": {
+    "NAME": "Depleted",
+    "DESCRIPTIONS": [
+      "At the start of your gain #b",
+      " less [E]"
+    ]
+  },
+  "${modID}:Overwhelm": {
+    "NAME": "Overwhelmed",
+    "DESCRIPTIONS": [
+      "At the start of the turn deal #b",
+      " damage"
+    ]
+  },
+  "${modID}:VitalityPower": {
+    "NAME": "Vitality",
+    "DESCRIPTIONS": [
+      "When gaining Block gain #b",
+      " more"
     ]
   }
 }

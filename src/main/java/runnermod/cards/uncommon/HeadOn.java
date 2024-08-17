@@ -35,29 +35,41 @@ public class HeadOn extends BaseCard {
     public void calculateCardDamage(AbstractMonster m) {
         super.calculateCardDamage(m);
         AbstractPower strength = AbstractDungeon.player.getPower("Strength");
+        AbstractPower vigor = AbstractDungeon.player.getPower("Vigor");
         AbstractPower dex = AbstractDungeon.player.getPower("Dexterity");
         int originalStr = 0;
         int originalDex = 0;
+        int originalVigor = 0;
         if (strength != null)
         {
             originalStr = strength.amount;
+        }
+        if (vigor != null)
+        {
+            originalVigor = vigor.amount;
         }
         if (dex!=null)
         {
             originalDex = dex.amount;
         }
-        this.block = this.block + originalStr - originalDex;
+        this.block = this.block + originalStr - originalDex + originalVigor;
     }
 
     @Override
     public void applyPowers() {
         super.applyPowers();
         AbstractPower strength = AbstractDungeon.player.getPower("Strength");
+        AbstractPower vigor = AbstractDungeon.player.getPower("Vigor");
         int originalStr = 0;
+        int originalVigor = 0;
         int originalDex = 0;
         if (strength != null)
         {
             originalStr = strength.amount;
+        }
+        if (vigor != null)
+        {
+            originalVigor = vigor.amount;
         }
         AbstractPower dex = AbstractDungeon.player.getPower("Dexterity");
         if (dex!=null)
@@ -67,6 +79,10 @@ public class HeadOn extends BaseCard {
         if (strength != null)
         {
             strength.amount = 0;
+        }
+        if (vigor != null)
+        {
+            vigor.amount = 0;
         }
         if (dex != null)
         {
@@ -80,6 +96,10 @@ public class HeadOn extends BaseCard {
         if (dex != null)
         {
             dex.amount = originalDex;
+        }
+        if (vigor != null)
+        {
+            vigor.amount = originalVigor;
         }
     }
     //Not applying vulnerable before damage for some reason?

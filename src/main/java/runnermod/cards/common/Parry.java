@@ -19,7 +19,7 @@ public class Parry extends BaseCard {
             1
     );
 
-    private static int BLOCK = 6;
+    private static int BLOCK = 7;
     private static int BLOCK_UPG = 3;
     public Parry()
     {

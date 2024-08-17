@@ -22,5 +22,19 @@
       "Add #b",
       " Bolts to your hand"
     ]
+  },
+  "${modID}:VitalityPotion": {
+    "NAME": "Vitality Potion",
+    "DESCRIPTIONS": [
+      "Add #b",
+      " RunnerMod:Vitality"
+    ]
+  },
+  "${modID}:VigorPotion": {
+    "NAME": "Vigor Potion",
+    "DESCRIPTIONS": [
+      "Add #b",
+      " Vigor"
+    ]
   }
 }

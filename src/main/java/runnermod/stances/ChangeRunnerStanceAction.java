@@ -71,6 +71,10 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
                 }
                 return new BladesStance(new String[]{"Blades"},new int[]{durabilities[0]});
             case "Artifact":
+                if (AbstractDungeon.player instanceof RunnerCharacter)
+                {
+                    AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).firewallStanceImg;
+                }
                 return new ArtifactStance(new String[]{"Artifact"},new int[]{durabilities[0]});
             case "Overclock":
                 if (AbstractDungeon.player instanceof RunnerCharacter)
@@ -97,6 +101,10 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
                     }
                 }
                 //make new stance and return
+                if (AbstractDungeon.player instanceof RunnerCharacter)
+                {
+                    AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).accelStanceImg;
+                }
                 return new AccelStance(new String[]{"Blades", "Wall"},new int[]{durabilities[0], durabilities[1]});
             case "Hack":
                 if (newStanceID == "Blades")
@@ -113,6 +121,10 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
                     {
                         durabilities[1] = Math.max(durabilities[1], ((RunnerStance)previousStance).durabilityDictionary.get(id));
                     }
+                }
+                if (AbstractDungeon.player instanceof RunnerCharacter)
+                {
+                    AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).hackStanceImg;
                 }
                 return new HackStance(new String[]{"Artifact", "Blades"},new int[]{durabilities[0], durabilities[1]});
             case "Metal":
@@ -131,6 +143,10 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
                         durabilities[1] = Math.max(durabilities[1], ((RunnerStance)previousStance).durabilityDictionary.get(id));
                     }
                 }
+                if (AbstractDungeon.player instanceof RunnerCharacter)
+                {
+                    AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).metalStanceImg;
+                }
                 return new MetalStance(new String[]{"Artifact", "Wall"},new int[]{durabilities[0], durabilities[1]});
             case "Tinker":
                 if (newStanceID == "Wall")
@@ -147,6 +163,10 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
                     {
                         durabilities[1] = Math.max(durabilities[1], ((RunnerStance)previousStance).durabilityDictionary.get(id));
                     }
+                }
+                if (AbstractDungeon.player instanceof RunnerCharacter)
+                {
+                    AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).tinkerStanceImg;
                 }
                 return new TinkerStance(new String[]{"Overclock", "Wall"},new int[]{durabilities[0], durabilities[1]});
             case "Cards":
@@ -165,6 +185,10 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
                         durabilities[1] = Math.max(durabilities[1], ((RunnerStance)previousStance).durabilityDictionary.get(id));
                     }
                 }
+                if (AbstractDungeon.player instanceof RunnerCharacter)
+                {
+                    AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).blasterStanceImg;
+                }
                 return new CardsStance(new String[]{"Artifact", "Overclock"},new int[]{durabilities[0], durabilities[1]});
             case "Berserker":
                 if (newStanceID == "Overclock")
@@ -181,6 +205,10 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
                     {
                         durabilities[1] = Math.max(durabilities[1], ((RunnerStance)previousStance).durabilityDictionary.get(id));
                     }
+                }
+                if (AbstractDungeon.player instanceof RunnerCharacter)
+                {
+                    AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).berserkerStanceImg;
                 }
                 return new BerserkerStance(new String[]{"Blades", "Overclock"},new int[]{durabilities[0], durabilities[1]});
             default:
@@ -205,6 +233,10 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
         }
         if (stanceID == "AKIRA")
         {
+            if (AbstractDungeon.player instanceof RunnerCharacter)
+            {
+                AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).baseImg;
+            }
             finalStance =  new AKIRAStance(new String[]{"AKIRA"}, new int[]{0});
             AbstractDungeon.actionManager.addToTop(new ChangeStanceAction(finalStance));
             this.isDone = true;

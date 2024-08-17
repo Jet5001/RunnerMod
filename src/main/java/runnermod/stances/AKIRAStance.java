@@ -93,7 +93,7 @@ public class AKIRAStance extends RunnerStance {
         int amountToRemove = Math.max(3,Math.round((float)totalCards/5));
         AKIRAExhaust(amountToRemove);
         AKIRAAdd(amountToRemove);
-        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new FrailPower(AbstractDungeon.player,99,false)));
+
     }
 
     public void onExitStance() {
@@ -108,6 +108,7 @@ public class AKIRAStance extends RunnerStance {
     }
     private void AKIRAExhaust(int amountToRemove)
     {
+
         CardGroup starters = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         CardGroup others = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         for (AbstractCard c:AbstractDungeon.player.drawPile.group) {
@@ -142,6 +143,7 @@ public class AKIRAStance extends RunnerStance {
         }
         starters.shuffle();
         others.shuffle();
+        amountToRemove = Math.min(amountToRemove, starters.size() + others.size());
         if (starters.size() <= amountToRemove)
         {
             amountToRemove -= starters.size();
@@ -200,6 +202,7 @@ public class AKIRAStance extends RunnerStance {
         AbstractCard tempDecoy = new Decoy();
         tempDecoy.rarity = AbstractCard.CardRarity.RARE;
         possibleCards.addToRandomSpot(tempDecoy);
+        possibleCards.shuffle();
         AbstractCard randomCard;
         for (int i = 0; i < cardsToAdd; i++) {
             randomCard = possibleCards.getRandomCard(rng);

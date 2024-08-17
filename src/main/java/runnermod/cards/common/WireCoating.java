@@ -1,11 +1,13 @@
 package runnermod.cards.common;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
+import runnermod.RunnerMod;
 import runnermod.cards.BaseCard;
 import runnermod.character.RunnerCharacter;
 import runnermod.util.CardStats;
@@ -31,6 +33,7 @@ public class WireCoating extends BaseCard {
         super(ID,info);
         this.setBlock(BLOCK,BLOCK_UPG);
         this.setMagic(MAGIC,UPG_MAGIC);
+
     }
 
     @Override

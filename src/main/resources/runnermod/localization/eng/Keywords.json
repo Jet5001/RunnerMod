@@ -11,6 +11,14 @@
     "DESCRIPTION": "Whenever a debuff is applied, deal damage equal to the amount of Hacked"
   },
   {
+    "ID": "Vitality",
+    "PROPER_NAME": "Vitality",
+    "NAMES": [
+      "Vitality"
+    ],
+    "DESCRIPTION": "Whenever you gain Block gain gain more"
+  },
+  {
     "ID": "Equip",
     "PROPER_NAME": "Equip",
     "NAMES": [
@@ -33,6 +41,15 @@
       "neon"
     ],
     "DESCRIPTION": "This card does not reduce the durability of your equipment"
+  },
+  {
+    "ID": "Overwhelm",
+    "PROPER_NAME": "Overwhelmed",
+    "NAMES": [
+      "Overwhelm",
+      "Overwhelmed"
+    ],
+    "DESCRIPTION": "Overwhelmed creatures lose HP at the start of their turn equal to the number of cards played the last turn times the amount of overwhelmed"
   },
   {
     "ID": "Blades",
