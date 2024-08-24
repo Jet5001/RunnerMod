@@ -21,9 +21,16 @@ public class BlinkingHexParticle extends AbstractGameEffect {
     private float dvx;
     private Texture img;
 
+    public BlinkingHexParticle(Color color) {
+        //this.scale = MathUtils.random(1.0F, 1.5F);
+        this();
+        this.color = new Color(color.r, color.g, color.b, 0);
+    }
+
     public BlinkingHexParticle() {
         this.scale = Settings.scale;
         //this.scale = MathUtils.random(1.0F, 1.5F);
+        this.color = new Color(1,1,1,0);
         this.startingDuration = this.scale + 0.8F;
         this.duration = this.startingDuration;
         this.scale *= Settings.scale;
@@ -36,7 +43,7 @@ public class BlinkingHexParticle extends AbstractGameEffect {
         if (this.x > AbstractDungeon.player.hb.cX) {
             this.rotation = -this.rotation;
         }
-        this.img = ImageMaster.loadImage("runnermod/images/particles/WallOfStaticPower.png");
+        this.img = ImageMaster.loadImage("runnermod/images/particles/HexParticle_smol.png");
     }
 
     public void update() {
@@ -88,7 +95,7 @@ public class BlinkingHexParticle extends AbstractGameEffect {
     public void render(SpriteBatch sb) {
         sb.setColor(this.color);
         sb.setBlendFunction(770, 1);
-        sb.draw(this.img, this.x, this.y + this.vY, 32.0F, 16.0F, 96.0F, 96f, this.scale, this.scale , this.rotation, 0, 0, 64, 64, false, false);
+        sb.draw(this.img, this.x, this.y + this.vY, 0, 0, 32.0F, 32f, this.scale, this.scale , this.rotation, 0, 0, 64, 54, false, false);
         sb.setBlendFunction(770, 771);
     }
 

@@ -58,51 +58,7 @@ public class MetalStance extends RunnerStance {
         AbstractCreature p = AbstractDungeon.player;
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DexterityPower(p, 1), 1, true, AbstractGameAction.AttackEffect.NONE));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ThornsPower(p, 2), 1, true, AbstractGameAction.AttackEffect.NONE));
-
         super.onPlayCard(card);
-
-        if (!card.hasTag(RunnerCharacter.Enums.NEON))
-        {
-            reduceDurability(1);
-        }
-
-        //sort out new stance as durabilties fade
-        if (durabilityDictionary.get("Artifact").equals(0) ||durabilityDictionary.get("Artifact") < 0)
-        {
-            if (durabilityDictionary.get("Wall").equals(0) ||durabilityDictionary.get("Wall") < 0)
-            {
-                if (AbstractDungeon.player instanceof RunnerCharacter)
-                {
-                    AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).baseImg;
-                }
-                AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));
-                return;
-            }
-            if (AbstractDungeon.player instanceof RunnerCharacter)
-            {
-                AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).shieldsStanceImg;
-            }
-            AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new WallStance(new String[]{"Wall"}, new int[]{durabilityDictionary.get("Wall")+1} )));
-
-        }
-        if (durabilityDictionary.get("Wall").equals(0) ||durabilityDictionary.get("Wall") < 0)
-        {
-            if (durabilityDictionary.get("Artifact").equals(0) ||durabilityDictionary.get("Artifact") < 0)
-            {
-                if (AbstractDungeon.player instanceof RunnerCharacter)
-                {
-                    AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).baseImg;
-                }
-                AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction("Neutral"));
-                return;
-            }
-            if (AbstractDungeon.player instanceof RunnerCharacter)
-            {
-                AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).firewallStanceImg;
-            }
-            AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new ArtifactStance(new String[]{"Artifact"}, new int[]{durabilityDictionary.get("Artifact")+1} )));
-
-        }
         updateDescription();
     }
 
@@ -111,13 +67,14 @@ public class MetalStance extends RunnerStance {
             this.particleTimer -= Gdx.graphics.getDeltaTime();
             if (this.particleTimer < 0.0F) {
                 this.particleTimer = 0.05F;
-                AbstractDungeon.effectsQueue.add(new CalmParticleEffect());
+                AbstractDungeon.effectsQueue.add(new BlinkingHexParticle());
+                AbstractDungeon.effectsQueue.add(new WrathHexParticle());
             }
         }
         this.particleTimer2 -= Gdx.graphics.getDeltaTime();
         if (this.particleTimer2 < 0.0F) {
             this.particleTimer2 = MathUtils.random(0.3F, 0.4F);
-            AbstractDungeon.effectsQueue.add(new StanceAuraEffect("Calm"));
+            //AbstractDungeon.effectsQueue.add(new RunnerStanceAura("Blades"));
         }
     }
 

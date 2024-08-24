@@ -53,8 +53,6 @@ public class BerserkerStance extends RunnerStance {
 
     @Override
     public void onPlayCard(AbstractCard card) {
-        AbstractCreature p = AbstractDungeon.player;
-
         super.onPlayCard(card);
         cardsPlayedInStance ++;
         for (AbstractMonster m:AbstractDungeon.getMonsters().monsters)
@@ -62,65 +60,28 @@ public class BerserkerStance extends RunnerStance {
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(AbstractDungeon.player, cardsPlayedInStance, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE,true ));
         }
 
-
-
-        if (!card.hasTag(RunnerCharacter.Enums.NEON))
-        {
-            reduceDurability(1);
-        }
-
         //sort out new stance as durabilties fade
-        if (durabilityDictionary.get("Blades").equals(0) || durabilityDictionary.get("Blades") < 0)
-        {
-            if (durabilityDictionary.get("Overclock").equals(0) || durabilityDictionary.get("Overclock") < 0)
-            {
-                if (AbstractDungeon.player instanceof RunnerCharacter)
-                {
-                    AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).baseImg;
-                }
-                AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));
-                return;
-            }
-            if (AbstractDungeon.player instanceof RunnerCharacter)
-            {
-                AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).overclockerStanceImg;
-            }
-            AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new OverclockStance(new String[]{"Overclock"}, new int[]{durabilityDictionary.get("Overclock")+1} )));
 
-        }
-        if (durabilityDictionary.get("Overclock").equals(0) || durabilityDictionary.get("Overclock") < 0)
-        {
-            if (durabilityDictionary.get("Blades").equals(0) || durabilityDictionary.get("Blades") < 0)
-            {
-                if (AbstractDungeon.player instanceof RunnerCharacter)
-                {
-                    AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).baseImg;
-                }
-                AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));
-                return;
-            }
-            if (AbstractDungeon.player instanceof RunnerCharacter)
-            {
-                AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).bladesStanceImg;
-            }
-            AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new BladesStance(new String[]{"Blades"}, new int[]{durabilityDictionary.get("Blades")+1} )));
-
-        }
         updateDescription();
     }
 
     public void updateAnimation() {
+        //Active Particles
         if (!Settings.DISABLE_EFFECTS) {
             this.particleTimer -= Gdx.graphics.getDeltaTime();
             if (this.particleTimer < 0.0F) {
-                this.particleTimer = 0.05F;
-                AbstractDungeon.effectsQueue.add(new CalmParticleEffect());
+                this.particleTimer = 0.1F;
+                AbstractDungeon.effectsQueue.add(new BackwardsHexFloatParticle());
             }
         }
+
+        //Aura Particles
         this.particleTimer2 -= Gdx.graphics.getDeltaTime();
         if (this.particleTimer2 < 0.0F) {
-            this.particleTimer2 = MathUtils.random(0.3F, 0.4F);
-            AbstractDungeon.effectsQueue.add(new StanceAuraEffect("Wrath"));
+            this.particleTimer2 = MathUtils.random(0.4F, 0.5F);
+            //RunnerStanceAura bladesAura = new RunnerStanceAura("Wrath");
+            //bladesAura.setColour(new Color(0f,255f,85f,0f));
+            //AbstractDungeon.effectsQueue.add(bladesAura);
         }
     }
 

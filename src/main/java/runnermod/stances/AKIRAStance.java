@@ -78,6 +78,11 @@ public class AKIRAStance extends RunnerStance {
         this.description = baseDescription;
     }
 
+    @Override
+    public void onPlayCard(AbstractCard card) {
+        //Overwrite to not call parent class method
+    }
+
     public void onEnterStance() {
         if (sfxId != -1L)
             stopIdleSfx();

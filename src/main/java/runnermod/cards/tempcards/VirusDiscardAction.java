@@ -24,23 +24,25 @@ public class VirusDiscardAction extends AbstractGameAction {
     //the effect that executes on the stack when able to
     @Override
     public void update() {
-        Random rng = new Random();
         AbstractCard toDiscard;
+        toDiscard = AbstractDungeon.player.hand.getRandomCard(new Random());
         boolean nonVirus = false;
-        for (AbstractCard c:AbstractDungeon.player.hand.group) {
-            if (c instanceof Virus)
+        for (int i = 0; i < AbstractDungeon.player.hand.size()-1; i++) {
+            if(!(AbstractDungeon.player.hand.group.get(i) instanceof Virus))
             {
                 nonVirus = true;
             }
         }
-        if (!nonVirus)
+        if(!nonVirus)
         {
             this.isDone = true;
             return;
         }
-        do {
-            toDiscard = AbstractDungeon.player.hand.getRandomCard(rng);
-        }while (toDiscard instanceof Virus);
+        if (toDiscard instanceof Virus)
+        {
+            return;
+        }
+
         AbstractDungeon.player.hand.moveToDiscardPile(toDiscard);
         this.isDone = true;
     }

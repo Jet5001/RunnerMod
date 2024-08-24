@@ -31,7 +31,7 @@ public class HackStance extends RunnerStance {
     public static final String STANCE_ID = "Hack";
 
     private static final StanceStrings stanceString = CardCrawlGame.languagePack.getStanceString("Hack");
-    private static final String baseDescription = "Each time you play a card ALL enemies gain 1 Hack NL ";
+    private static final String baseDescription = "Each time you play a card a random enemy gains 1 Hack NL ";
 
     private static long sfxId = -1L;
     private int durability;
@@ -60,51 +60,9 @@ public class HackStance extends RunnerStance {
     @Override
     public void onPlayCard(AbstractCard card) {
         AbstractCreature p = AbstractDungeon.player;
-        for (AbstractMonster mo : (AbstractDungeon.getCurrRoom()).monsters.monsters)
-            AbstractDungeon.actionManager.addToBottom((AbstractGameAction)new ApplyPowerAction((AbstractCreature)mo, (AbstractCreature)p, (AbstractPower)new Hacked((AbstractCreature)mo, 1), 1, true, AbstractGameAction.AttackEffect.NONE));
+        AbstractMonster mo = AbstractDungeon.getRandomMonster();
+        AbstractDungeon.actionManager.addToBottom((AbstractGameAction)new ApplyPowerAction((AbstractCreature)mo, (AbstractCreature)p, (AbstractPower)new Hacked((AbstractCreature)mo, 1), 1, true, AbstractGameAction.AttackEffect.NONE));
         super.onPlayCard(card);
-        if (!card.hasTag(RunnerCharacter.Enums.NEON))
-        {
-            reduceDurability(1);
-        }
-
-        //sort out new stance as durabilties fade
-        if (durabilityDictionary.get("Artifact").equals(0) ||durabilityDictionary.get("Artifact") <0)
-        {
-            if (durabilityDictionary.get("Blades").equals(0) ||durabilityDictionary.get("Blades") < 0)
-            {
-                if (AbstractDungeon.player instanceof RunnerCharacter)
-                {
-                    AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).baseImg;
-                }
-                AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));
-                return;
-            }
-            if (AbstractDungeon.player instanceof RunnerCharacter)
-            {
-                AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).bladesStanceImg;
-            }
-            AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new BladesStance(new String[]{"Blades"}, new int[]{durabilityDictionary.get("Blades")+1} )));
-
-        }
-        if (durabilityDictionary.get("Blades").equals(0) ||durabilityDictionary.get("Blades") <0)
-        {
-            if (durabilityDictionary.get("Artifact").equals(0) ||durabilityDictionary.get("Artifact") <0)
-            {
-                if (AbstractDungeon.player instanceof RunnerCharacter)
-                {
-                    AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).baseImg;
-                }
-                AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));
-                return;
-            }
-            if (AbstractDungeon.player instanceof RunnerCharacter)
-            {
-                AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).firewallStanceImg;
-            }
-            AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(new ArtifactStance(new String[]{"Artifact"}, new int[]{durabilityDictionary.get("Artifact")+1} )));
-
-        }
         updateDescription();
     }
 
@@ -113,13 +71,14 @@ public class HackStance extends RunnerStance {
             this.particleTimer -= Gdx.graphics.getDeltaTime();
             if (this.particleTimer < 0.0F) {
                 this.particleTimer = 0.05F;
-                AbstractDungeon.effectsQueue.add(new WrathParticleEffect());
+                AbstractDungeon.effectsQueue.add(new WrathHexParticle(Color.SCARLET));
+                AbstractDungeon.effectsQueue.add(new BackwardsHexFloatParticle(Color.SCARLET));
             }
         }
         this.particleTimer2 -= Gdx.graphics.getDeltaTime();
         if (this.particleTimer2 < 0.0F) {
             this.particleTimer2 = MathUtils.random(0.3F, 0.4F);
-            AbstractDungeon.effectsQueue.add(new StanceAuraEffect("Wrath"));
+            //AbstractDungeon.effectsQueue.add(new StanceAuraEffect("Wrath"));
         }
     }
 

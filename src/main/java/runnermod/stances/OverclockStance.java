@@ -48,14 +48,6 @@ public class OverclockStance extends RunnerStance {
         super.onPlayCard(card);
         AbstractDungeon.actionManager.addToBottom(new DiscardAction(AbstractDungeon.player,AbstractDungeon.player,1,true));
         AbstractDungeon.actionManager.addToBottom(new DrawCardAction(1));
-        if (!card.hasTag(RunnerCharacter.Enums.NEON))
-        {
-            reduceDurability(1);
-        }
-        if (durabilityDictionary.get("Overclock").equals(0) || durabilityDictionary.get("Overclock") < 0)
-        {
-            AbstractDungeon.actionManager.addToBottom(new ChangeRunnerStanceAction("Neutral", 0));
-        }
         updateDescription();
     }
 
@@ -66,13 +58,13 @@ public class OverclockStance extends RunnerStance {
             this.particleTimer -= Gdx.graphics.getDeltaTime();
             if (this.particleTimer < 0.0F) {
                 this.particleTimer = 0.05F;
-                AbstractDungeon.effectsQueue.add(new CalmParticleEffect());
+                AbstractDungeon.effectsQueue.add(new BackwardsHexFloatParticle(Color.YELLOW));
             }
         }
         this.particleTimer2 -= Gdx.graphics.getDeltaTime();
         if (this.particleTimer2 < 0.0F) {
             this.particleTimer2 = MathUtils.random(0.3F, 0.4F);
-            AbstractDungeon.effectsQueue.add(new StanceAuraEffect("WRATH"));
+            //AbstractDungeon.effectsQueue.add(new RunnerStanceAura("Blades"));
         }
     }
 

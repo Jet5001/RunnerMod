@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.watcher.EndTurnDeathPower;
 import runnermod.cards.BaseCard;
@@ -39,6 +40,14 @@ public class EndOfTheLine extends BaseCard {
         //put a quickRunAction into the buffer
         //added new action as specifics of damage dealt not done at this scope.
         addToBot(new DamageAction(m, new DamageInfo(p,damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
-        addToBot(new ApplyPowerAction(p,p, new EndTurnDeathPower(p)));
+        if (!p.hasPower("Artifact"))
+        {
+            addToBot(new ApplyPowerAction(p,p, new EndTurnDeathPower(p)));
+        }
+        else
+        {
+            p.getPower("Artifact").flash();
+        }
+
     }
 }

@@ -61,27 +61,27 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
             case "Wall":
                 if (AbstractDungeon.player instanceof RunnerCharacter)
                 {
-                    AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).shieldsStanceImg;
+                    AbstractDungeon.player.img = RunnerStance.GetStanceImg("Wall");
                 }
-                return new WallStance(new String[]{"Wall"},new int[]{durabilities[0]});
+                return RunnerStance.MakeStance("Wall", new String[]{"Wall"},new int[]{durabilities[0]});
             case "Blades":
                 if (AbstractDungeon.player instanceof RunnerCharacter)
                 {
-                    AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).bladesStanceImg;
+                    AbstractDungeon.player.img = RunnerStance.GetStanceImg("Blades");
                 }
-                return new BladesStance(new String[]{"Blades"},new int[]{durabilities[0]});
+                return RunnerStance.MakeStance("Blades", new String[]{"Blades"},new int[]{durabilities[0]});
             case "Artifact":
                 if (AbstractDungeon.player instanceof RunnerCharacter)
                 {
-                    AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).firewallStanceImg;
+                    AbstractDungeon.player.img = RunnerStance.GetStanceImg("Artifact");
                 }
-                return new ArtifactStance(new String[]{"Artifact"},new int[]{durabilities[0]});
+                return RunnerStance.MakeStance("Artifact", new String[]{"Artifact"},new int[]{durabilities[0]});
             case "Overclock":
                 if (AbstractDungeon.player instanceof RunnerCharacter)
                 {
-                    AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).overclockerStanceImg;
+                    AbstractDungeon.player.img = RunnerStance.GetStanceImg("Overclock");
                 }
-                return new OverclockStance(new String[]{"Overclock"},new int[]{durabilities[0]});
+                return RunnerStance.MakeStance("Overclock", new String[]{"Overclock"},new int[]{durabilities[0]});
             case "Accel":
                 //shuffle durabilities into correct spots for this combo
                 if (newStanceID == "Wall")
@@ -226,7 +226,7 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
     public void update() {
         //overide stance if not from this mod
         previousStance = AbstractDungeon.player.stance;
-        if (previousStance instanceof AKIRAStance)
+        if (previousStance instanceof AKIRAStance || previousStance instanceof  GlitchedStance)
         {
             this.isDone = true;
             return;
@@ -242,6 +242,13 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
             this.isDone = true;
             return;
         }
+        if (stanceID == "Glitched")
+        {
+            finalStance =  new GlitchedStance(new String[]{"Glitched"}, new int[]{0}, AbstractDungeon.player.stance);
+            AbstractDungeon.actionManager.addToTop(new ChangeStanceAction(finalStance));
+            this.isDone = true;
+            return;
+        }
         if (!(previousStance instanceof RunnerStance))
         {
             finalStance = makeStance(stanceID);
@@ -249,7 +256,6 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
         else
         {
             String newID = "";
-            //if new stance already part of existing stance then flag as the same
             String components = "";
             for (String id: Collections.list(((RunnerStance) previousStance).durabilityDictionary.keys())) {
                 components += id;
@@ -266,6 +272,7 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
                 }
             }
             System.out.println("Previous stance durabilities: " + ((RunnerStance) previousStance).durabilityDictionary.keys());
+            //if new stance already part of existing stance then flag as the same
             if (components.contains(stanceID))
             {
                 newID = "same";

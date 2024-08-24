@@ -58,14 +58,6 @@ public class BladesStance extends RunnerStance {
             AbstractDungeon.actionManager.addToBottom(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, card.cost*3, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         }
         super.onPlayCard(card);
-        if (!card.hasTag(RunnerCharacter.Enums.NEON))
-        {
-            reduceDurability(1);
-        }
-        if (durabilityDictionary.get("Blades").equals(0) || durabilityDictionary.get("Blades") < 0)
-        {
-            AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));
-        }
         updateDescription();
     }
 
@@ -76,6 +68,7 @@ public class BladesStance extends RunnerStance {
             if (this.particleTimer < 0.0F) {
                 this.particleTimer = 0.1F;
                 AbstractDungeon.effectsQueue.add(new BackwardsHexFloatParticle());
+                //AbstractDungeon.effectsQueue.add(new BlinkingHexParticle());
             }
         }
 
@@ -83,9 +76,9 @@ public class BladesStance extends RunnerStance {
         this.particleTimer2 -= Gdx.graphics.getDeltaTime();
         if (this.particleTimer2 < 0.0F) {
             this.particleTimer2 = MathUtils.random(0.4F, 0.5F);
-            RunnerStanceAura bladesAura = new RunnerStanceAura("Wrath");
-            bladesAura.setColour(new Color(0f,255f,85f,0f));
-            AbstractDungeon.effectsQueue.add(bladesAura);
+            //RunnerStanceAura bladesAura = new RunnerStanceAura("Wrath");
+            //bladesAura.setColour(new Color(0f,255f,85f,0f));
+            //AbstractDungeon.effectsQueue.add(bladesAura);
         }
     }
 
@@ -102,7 +95,7 @@ public class BladesStance extends RunnerStance {
         CardCrawlGame.sound.play("STANCE_ENTER_WRATH");
         sfxId = CardCrawlGame.sound.playAndLoop("STANCE_LOOP_WRATH");
         AbstractDungeon.effectsQueue.add(new BorderFlashEffect(Color.SCARLET, true));
-
+        //Particles that trigger once on stance entry
         AbstractDungeon.effectsQueue.add(new RunnerStanceChangeParticleGenerator(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, "Blades"));
     }
 

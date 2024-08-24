@@ -4,7 +4,9 @@ import basemod.interfaces.OnPlayerTurnStartSubscriber;
 import basemod.interfaces.OnStartBattleSubscriber;
 import com.megacrit.cardcrawl.actions.common.GainGoldAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import org.lwjgl.Sys;
 import runnermod.potions.BasePotion;
 import runnermod.character.RunnerCharacter;
 import com.badlogic.gdx.graphics.Color;
@@ -38,9 +40,14 @@ public class LiquidGold extends BasePotion implements OnStartBattleSubscriber {
     }
 
 
+
     @Override
     public void receiveOnBattleStart(AbstractRoom abstractRoom) {
         this.potency += 10;
         this.description = getDescription();
+        //Update text manually as game doesn't do that
+        this.tips.clear();
+        this.tips.add(new PowerTip(this.name, this.description));
+        addAdditionalTips();
     }
 }

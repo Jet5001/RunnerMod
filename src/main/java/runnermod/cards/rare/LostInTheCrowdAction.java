@@ -1,5 +1,6 @@
 package runnermod.cards.rare;
 
+import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -19,8 +20,7 @@ public class LostInTheCrowdAction extends AbstractGameAction {
     //the effect that executes on the stack when able to
     @Override
     public void update() {
-        int cardsToMake = 10 - AbstractDungeon.player.hand.size();
-        //mark as completed so it doesn't repeat every frame and can be removed from the buffer
+        int cardsToMake =  - AbstractDungeon.player.hand.size();
         if (upgraded)
         {
             AbstractCard newCard = new Decoy();

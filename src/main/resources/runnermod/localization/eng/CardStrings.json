@@ -248,7 +248,7 @@
   },
   "${modID}:BotNet": {
     "NAME": "Bot Net",
-    "DESCRIPTION": "At the start of your turn apply !M! random to a random enemy",
+    "DESCRIPTION": "At the start of your turn apply !M! random debuff to a random enemy",
     "UPGRADE_DESCRIPTION": "At the start of your turn apply !M! random debuffs to random enemies"
   },
   "${modID}:MalwareStorm": {
@@ -445,7 +445,7 @@
   },
   "${modID}:Momentum": {
     "NAME": "Momentum",
-    "DESCRIPTION": "Deal 3 damage twice NL Apply 2 RunnerMod:Overwhelm"
+    "DESCRIPTION": "Deal !D! damage twice NL Apply !M! RunnerMod:Overwhelm"
   },
   "${modID}:ScrapRun": {
     "NAME": "Scrap Run",
@@ -453,7 +453,7 @@
   },
   "${modID}:ScoutingRun": {
     "NAME": "Scouting Run",
-    "DESCRIPTION": "Draw 3 cards NL Put !M! cards from your hand to the bottom of your deck"
+    "DESCRIPTION": "Draw !M! cards NL Put 3 cards from your hand to the bottom of your deck"
   },
   "${modID}:StealthStrike": {
     "NAME": "Stealth Strike",

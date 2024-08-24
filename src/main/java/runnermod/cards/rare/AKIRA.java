@@ -1,5 +1,6 @@
 package runnermod.cards.rare;
 
+import basemod.helpers.BaseModCardTags;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.utility.ScryAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -30,6 +31,7 @@ public class AKIRA extends BaseCard {
         super(ID,info);
         //using magic number for the gold because why not. Might come in handy later
         this.setMagic(MAGIC, UPG_MAGIC);
+        this.tags.add(BaseModCardTags.FORM);
         setInnate(false,true);
     }
 

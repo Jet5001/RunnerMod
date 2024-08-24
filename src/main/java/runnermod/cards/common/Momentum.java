@@ -18,7 +18,7 @@ public class Momentum extends BaseCard {
             CardType.ATTACK,
             CardRarity.COMMON,
             CardTarget.ENEMY,
-            1
+            2
     );
 
     //Card Stats

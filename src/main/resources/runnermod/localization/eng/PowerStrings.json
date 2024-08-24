@@ -70,7 +70,7 @@
   "${modID}:HardLightPower": {
     "NAME": "Hard Light Technology",
     "DESCRIPTIONS": [
-      "Whenever you play a  Runnermod:Neon card deal #b",
+      "Whenever you play a  RunnerMod:Neon card deal #b",
       " damage to a random enemy"
     ]
   },
@@ -120,7 +120,7 @@
   "${modID}:Overwhelm": {
     "NAME": "Overwhelmed",
     "DESCRIPTIONS": [
-      "At the start of the turn deal #b",
+      "At the end of their turn takes #b",
       " damage"
     ]
   },

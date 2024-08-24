@@ -67,107 +67,15 @@ public class InfectedBlade extends BaseCard {
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
         rawDescription = "";
         this.rawDescription = CardCrawlGame.languagePack.getCardStrings(ID).DESCRIPTION;
-        String newStance = determineNewStance("Blades");
-        if (newStance == "Accel")
+        String newStance = RunnerStance.determineNewStance("Blades");
+        this.rawDescription += RunnerStance.getStanceChangeDescription(newStance);
+        if(RunnerStance.getStanceChangeDescription(newStance) != "")
         {
             this.glowColor = Color.RED;
-            rawDescription += " NL RunnerMod:Enter_Accel";
-        }
-        if (newStance == "Metal")
-        {
-            this.glowColor = Color.RED;
-            rawDescription += " NL RunnerMod:Enter_Metal";
-        }
-        if (newStance == "Hack")
-        {
-            this.glowColor = Color.RED;
-            rawDescription += " NL RunnerMod:Enter_Hack";
-        }
-        if (newStance == "Tinker")
-        {
-            this.glowColor = Color.RED;
-            rawDescription += " NL RunnerMod:Enter_Tinker";
-        }
-        if (newStance == "Cards")
-        {
-            this.glowColor = Color.RED;
-            rawDescription += " NL RunnerMod:Enter_Blaster";
-        }
-        if (newStance == "Berserker")
-        {
-            this.glowColor = Color.RED;
-            rawDescription += " NL RunnerMod:Enter_Berserker";
         }
         initializeDescription();
 
     }
 
-    private String determineNewStance(String ID)
-    {
 
-        Dictionary<String,String> comboLookup = new Hashtable<>();
-        //Combo table to reference previous stance and new stance to see what you get
-        comboLookup.put("BladesWall","Accel");
-        comboLookup.put("WallBlades","Accel");
-        comboLookup.put("BladesArtifact","Hack");
-        comboLookup.put("ArtifactBlades","Hack");
-        comboLookup.put("WallArtifact","Metal");
-        comboLookup.put("ArtifactWall","Metal");
-        comboLookup.put("WallOverclock","Tinker");
-        comboLookup.put("OverclockWall","Tinker");
-        comboLookup.put("ArtifactOverclock","Cards");
-        comboLookup.put("OverclockArtifact","Cards");
-        comboLookup.put("BladesOverclock", "Berserker");
-        comboLookup.put("OverclockBlades", "Berserker");
-        AbstractStance previousStance = AbstractDungeon.player.stance;
-        String stanceID = ID;
-        String newID = "";
-
-
-        if (previousStance instanceof AKIRAStance)
-        {
-            return "";
-        }
-
-        if (!(previousStance instanceof RunnerStance))
-        {
-            return ID;
-        }
-        else
-        {
-
-            //if new stance already part of existing stance then flag as the same
-            String components = "";
-            for (String id: Collections.list(((RunnerStance) previousStance).durabilityDictionary.keys())) {
-                components += id;
-            }
-            System.out.println("Previous stance durabilities: " + ((RunnerStance) previousStance).durabilityDictionary.keys());
-            if (components.contains(stanceID))
-            {
-                newID = "same";
-            }
-            else
-            {
-                //get combo name if not the same
-
-                //get previous max durability id to combo with longest lasting part
-                String previousMaxDurabilityID = "";
-                int tempMaxDurability = -1;
-                for (String id: Collections.list(((RunnerStance) previousStance).durabilityDictionary.keys())) {
-                    if (((RunnerStance) previousStance).durabilityDictionary.get(id) > tempMaxDurability)
-                    {
-                        previousMaxDurabilityID=  id;
-                    }
-                }
-                //get combo
-                newID = comboLookup.get(previousMaxDurabilityID + stanceID);
-                //extra check to be careful (defaults to new stance)
-                if (newID == null)
-                {
-                    newID = stanceID;
-                }
-            }
-        }
-        return newID;
-    }
 }

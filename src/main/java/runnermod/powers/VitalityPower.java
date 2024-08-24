@@ -27,15 +27,30 @@ public class VitalityPower extends BasePower implements CloneablePowerInterface 
         super(POWER_ID,TYPE,TURNBASED, owner, amount);
     }
 
+//    @Override
+//    public void onGainedBlock(float blockAmount) {
+//        flash();
+//        blockAmount += this.amount;
+//        addToBot(new RemoveSpecificPowerAction(this.owner,this.owner, this));
+//        addToBot(new GainBlockAction(AbstractDungeon.player, amount));
+//        super.onGainedBlock(blockAmount);
+//    }
+
+
     @Override
-    public void onGainedBlock(float blockAmount) {
-        flash();
-        blockAmount += this.amount;
-        addToBot(new RemoveSpecificPowerAction(this.owner,this.owner, this));
-        addToBot(new GainBlockAction(AbstractDungeon.player, amount));
-        super.onGainedBlock(blockAmount);
+    public float modifyBlockLast(float blockAmount) {
+        return super.modifyBlockLast(blockAmount + this.amount);
     }
 
+    @Override
+    public void onUseCard(AbstractCard card, UseCardAction action) {
+        if (card.block >0)
+        {
+            flash();
+            addToTop(new RemoveSpecificPowerAction(this.owner,this.owner, this));
+        }
+        super.onUseCard(card, action);
+    }
 
     @Override
     public AbstractPower makeCopy() {

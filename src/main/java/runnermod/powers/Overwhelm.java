@@ -2,6 +2,8 @@ package runnermod.powers;
 
 import basemod.interfaces.CloneablePowerInterface;
 import basemod.interfaces.PostPowerApplySubscriber;
+import com.badlogic.gdx.graphics.Color;
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.HealthBarRenderPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
@@ -17,7 +19,7 @@ import runnermod.character.RunnerCharacter;
 
 import static runnermod.RunnerMod.makeID;
 
-public class Overwhelm extends BasePower implements CloneablePowerInterface {
+public class Overwhelm extends BasePower implements CloneablePowerInterface, HealthBarRenderPower {
 
 
     public static final String POWER_ID = makeID("Overwhelm");
@@ -42,21 +44,29 @@ public class Overwhelm extends BasePower implements CloneablePowerInterface {
         updateDescription();
     }
 
-    @Override
-    public void atStartOfTurn() {
-        super.atEndOfRound();
-        if (AbstractDungeon.player instanceof RunnerCharacter)
-        {
+    public void atEndOfTurn(boolean isPlayer) {
+        if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
             flash();
+            //For some reason crashes if not thorns type damage?
             addToBot(new DamageAction(owner, new DamageInfo(source, this.amount * ((RunnerCharacter) AbstractDungeon.player).cardsPlayedForTurn, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE));
             addToBot(new RemoveSpecificPowerAction(this.owner,source,this));
         }
-        super.atStartOfTurn();
     }
+
 
     public void updateDescription() {
         if (AbstractDungeon.player instanceof RunnerCharacter) {
             this.description = DESCRIPTIONS[0] + amount * (((RunnerCharacter) AbstractDungeon.player).cardsPlayedForTurn) + DESCRIPTIONS[1];
         }
+    }
+
+    @Override
+    public int getHealthBarAmount() {
+        return this.amount * ((RunnerCharacter) AbstractDungeon.player).cardsPlayedForTurn;
+    }
+
+    @Override
+    public Color getColor() {
+        return Color.PURPLE;
     }
 }

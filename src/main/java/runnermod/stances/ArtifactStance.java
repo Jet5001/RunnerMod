@@ -61,27 +61,19 @@ public class ArtifactStance extends RunnerStance {
             this.particleTimer -= Gdx.graphics.getDeltaTime();
             if (this.particleTimer < 0.0F) {
                 this.particleTimer = 0.05F;
-                AbstractDungeon.effectsQueue.add(new WrathParticleEffect());
+                AbstractDungeon.effectsQueue.add(new BlinkingHexParticle(Color.ORANGE));
             }
         }
         this.particleTimer2 -= Gdx.graphics.getDeltaTime();
         if (this.particleTimer2 < 0.0F) {
             this.particleTimer2 = MathUtils.random(0.3F, 0.4F);
-            AbstractDungeon.effectsQueue.add(new StanceAuraEffect("Wrath"));
+            //AbstractDungeon.effectsQueue.add(new StanceAuraEffect("Wrath"));
         }
     }
 
     @Override
     public void onPlayCard(AbstractCard card) {
         super.onPlayCard(card);
-        if (!card.hasTag(RunnerCharacter.Enums.NEON))
-        {
-            reduceDurability(1);
-        }
-        if (durabilityDictionary.get("Artifact").equals(0) || durabilityDictionary.get("Artifact")<0)
-        {
-            AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));
-        }
         updateDescription();
     }
 

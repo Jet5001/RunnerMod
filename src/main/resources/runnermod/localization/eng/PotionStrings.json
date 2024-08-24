@@ -13,7 +13,7 @@
     "NAME": "Liquid Gold",
     "DESCRIPTIONS": [
       "Gain #b",
-      " #yGold NL Gains an extra 10 gold for every fight"
+      " #yGold NL Gains an extra 10 gold at the start of every fight"
     ]
   },
   "${modID}:BottledAmmo": {
