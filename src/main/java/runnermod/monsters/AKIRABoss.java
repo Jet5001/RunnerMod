@@ -51,6 +51,8 @@ public class AKIRABoss extends AbstractMonster {
 
     private boolean usedHeal = false;
     private boolean lastDebuffIsStance;
+    private boolean firstTurn = false;
+    private boolean attackedRecently =false;
     private int turnCount = 1;
     private int bufferCount = 3;
 
@@ -80,6 +82,7 @@ public class AKIRABoss extends AbstractMonster {
             case 1:
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this,this,new BufferPower(this,bufferCount)));
                 bufferCount++;
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this,this, new StrengthPower(this,1)));
                 break;
             case 2:
                 for (i = 0; i < 3; i++) {
@@ -95,13 +98,24 @@ public class AKIRABoss extends AbstractMonster {
                 break;
             case 4:
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.SMASH));
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this,this, new StrengthPower(this,2)));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this,this, new StrengthPower(this,3)));
                 break;
             case 5:
                 AbstractDungeon.actionManager.addToBottom(new RemoveDebuffsAction(this));
                 AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this, this, "Shackled"));
                 AbstractDungeon.actionManager.addToBottom(new HealAction(this, this, this.maxHealth / 4));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this,this, new IntangiblePlayerPower(this,1)));
+                int strAmount = 0;
+                for (int j = 0; j < this.powers.size(); j++) {
+                    if(powers.get(j) instanceof StrengthPower)
+                    {
+                        strAmount = powers.get(j).amount;
+                    }
+                }
+                if(strAmount > 0)
+                {
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this,this, new StrengthPower(this,strAmount)));
+                }
         }
         AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
         turnCount++;
@@ -115,12 +129,16 @@ public class AKIRABoss extends AbstractMonster {
             setMove(Heal, Intent.BUFF);
             return;
         }
-        if(turnCount % 4 == 1)
+        if(firstTurn)
+        {
+            setMove(ForceStance, Intent.DEBUFF);
+            firstTurn = false;
+        }
+        if(turnCount % 5 == 1)
         {
             if(!lastDebuffIsStance)
             {
                 setMove(ForceStance, Intent.DEBUFF);
-                lastDebuffIsStance = true;
             }
             else
             {
@@ -128,19 +146,22 @@ public class AKIRABoss extends AbstractMonster {
             }
             return;
         }
-        if(num < 33 && !lastTwoMoves(BufferDefence) && !lastMove(BufferDefence))
-        {
-            setMove(BufferDefence,Intent.DEFEND);
-            return;
-        }
-        if(num < 66 && !lastTwoMoves(DebuffAttacks) && !lastMove(DebuffAttacks))
+        if(num < 33 && !lastMove(DebuffAttacks))
         {
             setMove(DebuffAttacks,Intent.ATTACK_DEBUFF,this.damage.get(0).base,3,true);
+            attackedRecently = true;
             return;
         }
-        if(num < 99 && !lastTwoMoves(ChunkAttack) && !lastMove(ChunkAttack))
+        if(num < 70 && !lastMove(ChunkAttack))
         {
-            setMove(ChunkAttack,Intent.ATTACK, this.damage.get(1).base);
+            setMove(ChunkAttack,Intent.ATTACK_BUFF, this.damage.get(1).base);
+            attackedRecently = true;
+            return;
+        }
+        if(num < 100 && !lastTwoMoves(BufferDefence) && !lastMove(BufferDefence) && attackedRecently)
+        {
+            setMove(BufferDefence,Intent.DEFEND_BUFF);
+            attackedRecently = false;
             return;
         }
         getMove(AbstractDungeon.aiRng.random(99));
