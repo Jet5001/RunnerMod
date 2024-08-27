@@ -36,12 +36,6 @@ public class WireCoating extends BaseCard {
 
     }
 
-    @Override
-    public void atTurnStart() {
-        super.atTurnStart();
-        this.resetAttributes();
-        applyPowers();
-    }
 
 
     //called when the card is played

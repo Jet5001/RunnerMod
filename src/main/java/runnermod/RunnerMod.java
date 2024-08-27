@@ -96,8 +96,10 @@ public class RunnerMod implements
         //Set up the mod information displayed in the in-game mods menu.
         //The information used is taken from your pom.xml file.
         BaseMod.registerModBadge(badgeTexture, info.Name, GeneralUtils.arrToString(info.Authors), info.Description, null);
-        BaseMod.addMonster(AKIRABoss.ID, "Akira",()->new AKIRABoss());
-        BaseMod.addBoss(TheBeyond.ID,AKIRABoss.ID,resourcesFolder + "/images/monsters/AkiraBossIconTemp.png",resourcesFolder + "/images/monsters/AkiraBossIconTemp.png");
+
+        //Commented out as boss is still WIP
+        //BaseMod.addMonster(AKIRABoss.ID, "Akira",()->new AKIRABoss());
+        //BaseMod.addBoss(TheBeyond.ID,AKIRABoss.ID,resourcesFolder + "/images/monsters/AkiraBossIconTemp.png",resourcesFolder + "/images/monsters/AkiraBossIconTemp.png");
         registerPotions();
     }
 

@@ -38,7 +38,7 @@ public class GlitchedStance extends RunnerStance {
 
     @Override
     public void onEndOfTurn() {
-        if (((RunnerCharacter) AbstractDungeon.player).cardsPlayedForTurn < 3)
+        if (AbstractDungeon.actionManager.cardsPlayedThisTurn.size() < 3)
         {
             AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(previousStance));
         }

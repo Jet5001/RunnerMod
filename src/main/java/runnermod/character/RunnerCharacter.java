@@ -57,30 +57,23 @@ public class RunnerCharacter extends CustomPlayer implements OnCardUseSubscriber
     private static final String CORPSE = characterPath("corpse.png"); //Corpse is when you die.
 
     public int runCardsPlayed = 0;
-    public int cardsPlayed = 0;
-    public int cardsPlayedForTurn = 0;
     @Override
     public void receiveCardUsed(AbstractCard abstractCard) {
         if (abstractCard.hasTag(Enums.RUN))
         {
             runCardsPlayed +=1;
         }
-        cardsPlayed++;
-        cardsPlayedForTurn++;
     }
 
     @Override
     public void receiveOnPlayerTurnStart() {
         runCardsPlayed = 0;
-        cardsPlayedForTurn = 0;
     }
 
     @Override
     public void receivePostBattle(AbstractRoom abstractRoom) {
         img = baseImg;
         runCardsPlayed = 0;
-        cardsPlayed = 0;
-        cardsPlayedForTurn = 0;
     }
 
     public static class Enums {

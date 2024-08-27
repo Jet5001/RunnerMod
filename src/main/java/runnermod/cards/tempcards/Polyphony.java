@@ -44,7 +44,7 @@ public class Polyphony extends BaseCard {
     public void calculateCardDamage(AbstractMonster mo) {
         if (AbstractDungeon.player instanceof RunnerCharacter)
         {
-            cardsPlayed = ((RunnerCharacter) AbstractDungeon.player).cardsPlayed;
+            cardsPlayed = AbstractDungeon.actionManager.cardsPlayedThisCombat.size();
         }
         this.baseDamage = cardsPlayed * this.magicNumber;
         super.calculateCardDamage(mo);
@@ -55,7 +55,7 @@ public class Polyphony extends BaseCard {
         cardsPlayed = 0;
         if (AbstractDungeon.player instanceof RunnerCharacter)
         {
-            cardsPlayed = ((RunnerCharacter) AbstractDungeon.player).cardsPlayed;
+            cardsPlayed =AbstractDungeon.actionManager.cardsPlayedThisCombat.size();
         }
 
         this.baseDamage = (cardsPlayed +1) * this.magicNumber;
@@ -70,7 +70,7 @@ public class Polyphony extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (AbstractDungeon.player instanceof RunnerCharacter)
         {
-            cardsPlayed = ((RunnerCharacter) AbstractDungeon.player).cardsPlayed;
+            cardsPlayed = AbstractDungeon.actionManager.cardsPlayedThisCombat.size();
         }
 
         this.baseDamage = cardsPlayed * this.magicNumber;

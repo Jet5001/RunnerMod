@@ -48,7 +48,7 @@ public class Overwhelm extends BasePower implements CloneablePowerInterface, Hea
         if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
             flash();
             //For some reason crashes if not thorns type damage?
-            addToBot(new DamageAction(owner, new DamageInfo(source, this.amount * ((RunnerCharacter) AbstractDungeon.player).cardsPlayedForTurn, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE));
+            addToBot(new DamageAction(owner, new DamageInfo(source, this.amount * AbstractDungeon.actionManager.cardsPlayedThisTurn.size(), DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.FIRE));
             addToBot(new RemoveSpecificPowerAction(this.owner,source,this));
         }
     }
@@ -56,13 +56,13 @@ public class Overwhelm extends BasePower implements CloneablePowerInterface, Hea
 
     public void updateDescription() {
         if (AbstractDungeon.player instanceof RunnerCharacter) {
-            this.description = DESCRIPTIONS[0] + amount * (((RunnerCharacter) AbstractDungeon.player).cardsPlayedForTurn) + DESCRIPTIONS[1];
+            this.description = DESCRIPTIONS[0] + amount * AbstractDungeon.actionManager.cardsPlayedThisTurn.size() + DESCRIPTIONS[1];
         }
     }
 
     @Override
     public int getHealthBarAmount() {
-        return this.amount * ((RunnerCharacter) AbstractDungeon.player).cardsPlayedForTurn;
+        return this.amount * AbstractDungeon.actionManager.cardsPlayedThisTurn.size();
     }
 
     @Override
