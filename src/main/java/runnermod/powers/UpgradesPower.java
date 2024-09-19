@@ -1,38 +1,37 @@
 package runnermod.powers;
 
 import basemod.interfaces.CloneablePowerInterface;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import runnermod.cards.common.UpgradeRandomCardsInHandAction;
 
 import static runnermod.RunnerMod.makeID;
 
-public class ScrapArmourPower extends BasePower implements CloneablePowerInterface {
+public class UpgradesPower extends BasePower implements CloneablePowerInterface {
 
 
-    public static final String POWER_ID = makeID("ScrapArmourPower");
+    public static final String POWER_ID = makeID("UpgradesPower");
     public static final PowerType TYPE = PowerType.BUFF;
     private static final boolean TURNBASED = false;
 
-    public ScrapArmourPower(AbstractCreature owner, int scrapAmount)
+    public UpgradesPower(AbstractCreature owner, int amount)
     {
-        super(POWER_ID,TYPE,TURNBASED, owner, scrapAmount);
+        super(POWER_ID,TYPE,TURNBASED, owner, amount);
     }
 
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
     }
 
-    public void onDurabilityGain(int durability)
-    {
-        addToBot(new GainBlockAction(AbstractDungeon.player, this.amount));
+    @Override
+    public void atStartOfTurnPostDraw() {
+        addToBot(new UpgradeRandomCardsInHandAction(amount));
+        super.atStartOfTurnPostDraw();
     }
-
 
     @Override
     public AbstractPower makeCopy() {
-        return new ScrapArmourPower(owner, amount);
+        return new UpgradesPower(owner, amount);
     }
 
     public void updateDescription() {

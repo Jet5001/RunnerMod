@@ -32,15 +32,14 @@ public class WallStanceSwitch extends BaseCard {
     );
 
 //    //Card Stats
-    private static final int MAGIC = 3;
-    private static final int UPG_MAGIC =0;
 
     private static final int BLOCK = 5;
     private static final int BLOCK_UPG = 3;
+    private static final int DUR = 3;
     public WallStanceSwitch()
     {
         super(ID,info);
-        this.setMagic(MAGIC, UPG_MAGIC);
+        this.misc = DUR;
         this.tags.add(RunnerCharacter.Enums.NEON);
         this.setBlock(BLOCK,BLOCK_UPG);
     }
@@ -50,7 +49,7 @@ public class WallStanceSwitch extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //add gain gold action to the stack
-        addToTop(new ChangeRunnerStanceAction("Wall",magicNumber));
+        addToTop(new ChangeRunnerStanceAction("Wall",misc));
         addToBot(new GainBlockAction(p,this.block));
     }
 

@@ -40,11 +40,12 @@ public class Quarantine extends BaseCard {
     //Card Stats
     private static final int MAGIC = 3;
     private static final int UPG_MAGIC = 1;
-
+    private static final int DUR = 3;
     public Quarantine()
     {
         super(ID,info);
         setMagic(MAGIC,UPG_MAGIC);
+        this.misc = DUR;
         setInnate(true);
         this.tags.add(RunnerCharacter.Enums.NEON);
     }
@@ -59,7 +60,7 @@ public class Quarantine extends BaseCard {
             if (!mo.hasPower("Artifact"))
                 addToBot(new ApplyPowerAction(mo, p, new GainStrengthPower(mo, this.magicNumber), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
         }
-        addToTop(new ChangeRunnerStanceAction("Artifact",3));
+        addToTop(new ChangeRunnerStanceAction("Artifact",misc));
     }
 
     @Override
@@ -68,107 +69,14 @@ public class Quarantine extends BaseCard {
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
         rawDescription = "";
         this.rawDescription = CardCrawlGame.languagePack.getCardStrings(ID).DESCRIPTION;
-        String newStance = determineNewStance("Artifact");
-        if (newStance == "Accel")
+        String newStance = RunnerStance.determineNewStance("Artifact");
+        this.rawDescription += RunnerStance.getStanceChangeDescription(newStance);
+        if(RunnerStance.getStanceChangeDescription(newStance) != "")
         {
             this.glowColor = Color.RED;
-            rawDescription += " NL RunnerMod:Enter_Accel";
-        }
-        if (newStance == "Metal")
-        {
-            this.glowColor = Color.RED;
-            rawDescription += " NL RunnerMod:Enter_Metal";
-        }
-        if (newStance == "Hack")
-        {
-            this.glowColor = Color.RED;
-            rawDescription += " NL RunnerMod:Enter_Hack";
-        }
-        if (newStance == "Tinker")
-        {
-            this.glowColor = Color.RED;
-            rawDescription += " NL RunnerMod:Enter_Tinker";
-        }
-        if (newStance == "Cards")
-        {
-            this.glowColor = Color.RED;
-            rawDescription += " NL RunnerMod:Enter_Blaster";
-        }
-        if (newStance == "Berserker")
-        {
-            this.glowColor = Color.RED;
-            rawDescription += " NL RunnerMod:Enter_Berserker";
         }
         initializeDescription();
 
     }
 
-    private String determineNewStance(String ID)
-    {
-
-        Dictionary<String,String> comboLookup = new Hashtable<>();
-        //Combo table to reference previous stance and new stance to see what you get
-        comboLookup.put("BladesWall","Accel");
-        comboLookup.put("WallBlades","Accel");
-        comboLookup.put("BladesArtifact","Hack");
-        comboLookup.put("ArtifactBlades","Hack");
-        comboLookup.put("WallArtifact","Metal");
-        comboLookup.put("ArtifactWall","Metal");
-        comboLookup.put("WallOverclock","Tinker");
-        comboLookup.put("OverclockWall","Tinker");
-        comboLookup.put("ArtifactOverclock","Cards");
-        comboLookup.put("OverclockArtifact","Cards");
-        comboLookup.put("BladesOverclock", "Berserker");
-        comboLookup.put("OverclockBlades", "Berserker");
-        AbstractStance previousStance = AbstractDungeon.player.stance;
-        String stanceID = ID;
-        String newID = "";
-
-
-        if (previousStance instanceof AKIRAStance)
-        {
-            return "";
-        }
-
-        if (!(previousStance instanceof RunnerStance))
-        {
-            return ID;
-        }
-        else
-        {
-
-            //if new stance already part of existing stance then flag as the same
-            String components = "";
-            for (String id: Collections.list(((RunnerStance) previousStance).durabilityDictionary.keys())) {
-                components += id;
-            }
-            System.out.println("Previous stance durabilities: " + ((RunnerStance) previousStance).durabilityDictionary.keys());
-            if (components.contains(stanceID))
-            {
-                newID = "same";
-            }
-            else
-            {
-                //get combo name if not the same
-
-                //get previous max durability id to combo with longest lasting part
-                String previousMaxDurabilityID = "";
-                int tempMaxDurability = -1;
-                for (String id: Collections.list(((RunnerStance) previousStance).durabilityDictionary.keys())) {
-                    if (((RunnerStance) previousStance).durabilityDictionary.get(id) > tempMaxDurability)
-                    {
-                        previousMaxDurabilityID=  id;
-                    }
-                }
-                //get combo
-                newID = comboLookup.get(previousMaxDurabilityID + stanceID);
-                //extra check to be careful (defaults to new stance)
-                if (newID == null)
-                {
-                    newID = stanceID;
-                }
-            }
-        }
-        return newID;
-    }
 }

@@ -21,7 +21,7 @@ public class ScrapArmour extends BaseCard {
             1
     );
 
-    private static int MAG = 1;
+    private static int MAG = 4;
     private static int MAG_UPG = 0;
 
     public ScrapArmour()
@@ -39,7 +39,7 @@ public class ScrapArmour extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p,p,new ScrapArmourPower(p,magicNumber)));
+        addToBot(new ApplyPowerAction(p,p,new ScrapArmourPower(p,4)));
     }
 
 

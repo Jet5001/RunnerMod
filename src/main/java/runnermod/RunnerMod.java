@@ -5,8 +5,10 @@ import basemod.BaseMod;
 import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.TheBeyond;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.stances.AbstractStance;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import runnermod.cards.BaseCard;
@@ -16,6 +18,7 @@ import runnermod.character.RunnerCharacter;
 import runnermod.monsters.AKIRABoss;
 import runnermod.potions.BasePotion;
 import runnermod.powers.Hacked;
+import runnermod.relics.BackPocket;
 import runnermod.relics.BaseRelic;
 import runnermod.util.GeneralUtils;
 import runnermod.util.KeywordInfo;
@@ -45,7 +48,8 @@ public class RunnerMod implements
         EditStringsSubscriber,
         EditKeywordsSubscriber,
         PostInitializeSubscriber,
-        PostPowerApplySubscriber{
+        PostPowerApplySubscriber,
+        PrePlayerUpdateSubscriber{
     public static ModInfo info;
     public static String modID; //Edit your pom.xml to change this
     static { loadModInfo(); }
@@ -98,8 +102,8 @@ public class RunnerMod implements
         BaseMod.registerModBadge(badgeTexture, info.Name, GeneralUtils.arrToString(info.Authors), info.Description, null);
 
         //Commented out as boss is still WIP
-        //BaseMod.addMonster(AKIRABoss.ID, "Akira",()->new AKIRABoss());
-        //BaseMod.addBoss(TheBeyond.ID,AKIRABoss.ID,resourcesFolder + "/images/monsters/AkiraBossIconTemp.png",resourcesFolder + "/images/monsters/AkiraBossIconTemp.png");
+        BaseMod.addMonster(AKIRABoss.ID, "Akira",()->new AKIRABoss());
+        BaseMod.addBoss(TheBeyond.ID,AKIRABoss.ID,resourcesFolder + "/images/monsters/AkiraBossIconTemp.png",resourcesFolder + "/images/monsters/AkiraBossIconTemp.png");
         registerPotions();
     }
 
@@ -284,6 +288,18 @@ public class RunnerMod implements
             if (pow instanceof PostPowerApplySubscriber)
             {
                 ((PostPowerApplySubscriber) pow).receivePostPowerApplySubscriber(power,target,source);
+            }
+        }
+    }
+
+    @Override
+    public void receivePrePlayerUpdate() {
+        for (AbstractRelic r : AbstractDungeon.player.relics) {
+            {
+                if (r instanceof BackPocket)
+                {
+                    ((BackPocket) r).receivePrePlayerUpdate();
+                }
             }
         }
     }

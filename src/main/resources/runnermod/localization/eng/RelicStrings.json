@@ -14,13 +14,6 @@
       " block when attacking an enemy with block"
     ]
   },
-  "${modID}:ViralAi": {
-    "NAME": "Viral AI",
-    "FLAVOR": "It tries to pick the best action",
-    "DESCRIPTIONS": [
-      "Gain a strike or a defend at the start of your turn"
-    ]
-  },
   "${modID}:Drone": {
     "NAME": "Drone",
     "FLAVOR": "It doesn't do much",
@@ -47,6 +40,42 @@
     "FLAVOR": "Sometimes everything is just a nail",
     "DESCRIPTIONS": [
       "At the start of each turn gain 3 Vigor"
+    ]
+  },
+  "${modID}:MirrorShard": {
+    "NAME": "Mirror Shard",
+    "FLAVOR": "You only see a fragment when looking inwards",
+    "DESCRIPTIONS": [
+      "Whenever you play a 0 cost card gain 1 Block"
+    ]
+  },
+  "${modID}:BackPocket": {
+    "NAME": "Back Pocket",
+    "FLAVOR": "The lint lives here",
+    "DESCRIPTIONS": [
+      "The first time you reach 0 energy in a turn draw 1 card"
+    ]
+  },
+  "${modID}:FissionCore": {
+    "NAME": "Fission Core",
+    "FLAVOR": "Powering UP",
+    "DESCRIPTIONS": [
+      "Whenever you use a new equipment each fight, gain 1 strength"
+    ]
+  },
+  "${modID}:RoboLouse": {
+    "NAME": "Robo Louse",
+    "FLAVOR": "Wires are tasty",
+    "DESCRIPTIONS": [
+      "At the start of each combat, apply 3 hack to all enemies"
+    ]
+  },
+  "${modID}:BrokenVisor": {
+    "NAME": "Broken Visor",
+    "FLAVOR": "Wires are tasty",
+    "DESCRIPTIONS": [
+      "Chose and add 1 Akira Card to your deck",
+      "Chose 1 to add "
     ]
   }
 }

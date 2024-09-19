@@ -25,7 +25,7 @@ public class DurablePower extends BasePower implements CloneablePowerInterface {
     public void onPlayCard(AbstractCard card, AbstractMonster m) {
         if (card.rawDescription.toLowerCase().contains("equip") || card.rawDescription.contains("RunnerMod:Equip"))
         {
-            card.magicNumber +=amount;
+            card.misc +=amount;
         }
         super.onPlayCard(card, m);
     }

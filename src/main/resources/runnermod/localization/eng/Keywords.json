@@ -24,7 +24,7 @@
     "NAMES": [
       "equip"
     ],
-    "DESCRIPTION": "Equipment loses 1 durability for each card you play. NL Equipment automatically combines together."
+    "DESCRIPTION": "Equipment starts with 3 durability and loses 1 durability for each card you play. NL Equipment automatically combines together."
   },
   {
     "ID": "Repair",

@@ -117,11 +117,12 @@
   },
   "${modID}:MalwareScan": {
     "NAME": "Malware Scan",
-    "DESCRIPTION": "Remove 2 random statuses from your deck NL Draw a card NL RunnerMod:Neon"
+    "DESCRIPTION": "Remove !M! random statuses from your deck NL Draw a card NL RunnerMod:Neon"
   },
   "${modID}:Upgrades": {
     "NAME": "Upgrades",
-    "DESCRIPTION": "Upgrade !M! random cards in your hand NL Draw 1 card"
+    "DESCRIPTION": "At the start of your turn upgrade a random card in your hand",
+    "UPGRADE_DESCRIPTION": "At the start of your turn upgrade !M! cards in your hand"
   },
   "${modID}:SlowLoris": {
     "NAME": "Slow Loris",
@@ -145,20 +146,19 @@
   },
   "${modID}:BladesStanceSwitch": {
     "NAME": "Equip Blades",
-    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Blades !M! NL Deal !D! damage NL RunnerMod:Neon"
+    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Blades NL Deal !D! damage NL RunnerMod:Neon"
   },
   "${modID}:WallStanceSwitch": {
     "NAME": "Equip Shields",
-    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Shields !M! NL Gain !B! Block NL RunnerMod:Neon"
+    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Shields NL Gain !B! Block NL RunnerMod:Neon"
   },
   "${modID}:ArtifactStanceSwitch": {
     "NAME": "Equip Firewall",
-    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Firewall !M! NL Scry 3 NL RunnerMod:Neon"
+    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Firewall NL Apply 2 Weak NL RunnerMod:Neon"
   },
   "${modID}:OverclockStanceSwitch": {
     "NAME": "Equip Overclocker",
-    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Overclocker !M! NL Draw 1 card NL RunnerMod:Neon",
-    "UPGRADE_DESCRIPTION": " RunnerMod:Equip  RunnerMod:Overclocker !M! NL Draw 2 cards NL RunnerMod:Neon"
+    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Overclocker NL Draw !M! card NL RunnerMod:Neon"
   },
   "${modID}:Durable": {
     "NAME": "Durable",
@@ -186,15 +186,15 @@
   },
   "${modID}:NeonBlades": {
     "NAME": "Neon Blades",
-    "DESCRIPTION": "Deal !D! damage 2 times NL  RunnerMod:Equip  RunnerMod:Blades !M! NL RunnerMod:Neon"
+    "DESCRIPTION": "Deal !D! damage 2 times NL  RunnerMod:Equip  RunnerMod:Blades NL RunnerMod:Neon"
   },
   "${modID}:Flouresce": {
     "NAME": "Flouresce",
-    "DESCRIPTION": "ALL enemies lose !M! strength this turn NL RunnerMod:Neon"
+    "DESCRIPTION": "ALL enemies lose !M! strength this turn NL RunnerMod:Neon NL Exhaust"
   },
   "${modID}:InfectedBlade": {
     "NAME": "Infected Blade",
-    "DESCRIPTION": "Deal !D! damage X times and Apply !M! RunnerMod:Hacked X times NL RunnerMod:Equip RunnerMod:Blades 3 NL RunnerMod:Neon"
+    "DESCRIPTION": "Deal !D! damage X times and Apply !M! RunnerMod:Hacked X times NL RunnerMod:Equip RunnerMod:Blades NL RunnerMod:Neon"
   },
   "${modID}:Charge": {
     "NAME": "Charge",
@@ -272,9 +272,9 @@
     "NAME": "Infect",
     "DESCRIPTION": "Deal !D! damage and apply !M! RunnerMod:Hacked"
   },
-  "${modID}:Barrage": {
+  "${modID}:BladeStorm": {
     "NAME": "Bladestorm",
-    "DESCRIPTION": "Deal !D! damage !M! times Runnermod:Neon"
+    "DESCRIPTION": "Deal !D! damage !M! times to ALL enemies Runnermod:Neon"
   },
   "${modID}:Stalemate": {
     "NAME": "Stalemate",
@@ -301,8 +301,8 @@
   },
   "${modID}:ScrapArmour": {
     "NAME": "Scrap Armour",
-    "DESCRIPTION": "Whenever you gain durability gain that much Block",
-    "UPGRADE_DESCRIPTION": "Whenever you gain durability gain that much Block NL Innate"
+    "DESCRIPTION": "Whenever you gain durability gain !M! Block",
+    "UPGRADE_DESCRIPTION": "Whenever you gain durability gain !M! Block NL Innate"
   },
   "${modID}:Quarantine": {
     "NAME": "Quarantine",
@@ -350,8 +350,8 @@
   },
   "${modID}:DoubleTime": {
     "NAME": "Double Time",
-    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Overclocker !M! NL Add 2 Decoys to your hand NL RunnerMod:Neon",
-    "UPGRADE_DESCRIPTION": " RunnerMod:Equip  RunnerMod:Overclocker !M! NL Add 3 Decoys to your hand NL RunnerMod:Neon"
+    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Overclocker NL Add 2 Decoys to your hand NL RunnerMod:Neon",
+    "UPGRADE_DESCRIPTION": " RunnerMod:Equip  RunnerMod:Overclocker NL Add 3 Decoys to your hand NL RunnerMod:Neon"
   },
   "${modID}:ShortCircuit": {
     "NAME": "Short Circuit",
@@ -381,7 +381,7 @@
   },
   "${modID}:AKIRA": {
     "NAME": "AKIRA",
-    "DESCRIPTION": "Try to ascend NL (Replace part of your deck with unstable cards NL You can no longer use equipment)",
+    "DESCRIPTION": "Replace part of your deck with unstable cards NL You can no longer use equipment",
     "UPGRADE_DESCRIPTION": "Try to ascend NL Innate NL (Replace part of your deck with unstable cards NL You can no longer use equipment)"
   },
   "${modID}:SpaceLaser": {
@@ -453,7 +453,7 @@
   },
   "${modID}:ScoutingRun": {
     "NAME": "Scouting Run",
-    "DESCRIPTION": "Draw !M! cards NL Put 3 cards from your hand to the bottom of your deck"
+    "DESCRIPTION": "Draw !M! cards NL Put 2 cards from your hand to the bottom of your deck"
   },
   "${modID}:StealthStrike": {
     "NAME": "Stealth Strike",
@@ -461,10 +461,18 @@
   },
   "${modID}:Recouperate": {
     "NAME": "Recouperate",
-    "DESCRIPTION": "Gain !B! Block NL Gain !M! Vitality"
+    "DESCRIPTION": "Gain !B! Block NL Gain !M! RunnerMod:Vitality"
   },
   "${modID}:DrainingRun": {
     "NAME": "Draining Run",
     "DESCRIPTION": "Deal !D! Damage NL Gain RunnerMod:Vitality equal to the health lost"
+  },
+  "${modID}:Overcome": {
+    "NAME": "Overcome",
+    "DESCRIPTION": "Deal !D! damage NL Permanently increase this card's damage by !M! NL Exhaust "
+  },
+  "${modID}:Thievery": {
+    "NAME": "Thievery",
+    "DESCRIPTION": "Deal !D! damage NL Chose 1 of !M! cards of any colour and play it NL It Exhausts"
   }
 }

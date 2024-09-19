@@ -1,4 +1,4 @@
-package runnermod.cards.uncommon;
+package runnermod.cards.common;
 
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -37,11 +37,11 @@ public class ScoutingRun extends BaseCard {
         addToBot(new DrawCardAction(magicNumber));
         if (upgraded)
         {
-            addToBot(new ScoutingRunShuffleAction(magicNumber -1));
+            addToBot(new ScoutingRunShuffleAction(magicNumber -2));
         }
         else
         {
-            addToBot(new ScoutingRunShuffleAction(magicNumber));
+            addToBot(new ScoutingRunShuffleAction(magicNumber-1));
         }
 
     }

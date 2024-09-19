@@ -271,7 +271,7 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
                     }
                 }
             }
-            System.out.println("Previous stance durabilities: " + ((RunnerStance) previousStance).durabilityDictionary.keys());
+            System.out.println("Previous stance durabilities: " + ((RunnerStance) previousStance).durabilityDictionary.keys().toString());
             //if new stance already part of existing stance then flag as the same
             if (components.contains(stanceID))
             {
@@ -288,6 +288,7 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
                     if (((RunnerStance) previousStance).durabilityDictionary.get(id) > tempMaxDurability)
                     {
                         previousMaxDurabilityID=  id;
+                        tempMaxDurability = ((RunnerStance) previousStance).durabilityDictionary.get(id);
                     }
                 }
                 //get combo

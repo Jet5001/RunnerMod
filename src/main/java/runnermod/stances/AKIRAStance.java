@@ -152,8 +152,8 @@ public class AKIRAStance extends RunnerStance {
         if (starters.size() <= amountToRemove)
         {
             amountToRemove -= starters.size();
-            for (AbstractCard c:starters.group) {
-                exhaustCard(c, starters);
+            for (int i = 0; i < starters.size(); i++) {
+                exhaustCard(starters.group.get(i), starters);
             }
 
             for (int i = 0; i < amountToRemove; i++) {

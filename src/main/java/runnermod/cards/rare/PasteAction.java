@@ -41,6 +41,7 @@ public class PasteAction extends AbstractGameAction{
         toDupe.rawDescription = c.rawDescription;
         toDupe.initializeDescription();
         addToTop(new MakeTempCardInHandAction(toDupe));
+        toDupe.triggerWhenCopied();
     }
 
     public void update() {

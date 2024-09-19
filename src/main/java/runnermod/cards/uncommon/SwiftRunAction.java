@@ -3,19 +3,29 @@ package runnermod.cards.uncommon;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import runnermod.character.RunnerCharacter;
 
 public class SwiftRunAction extends AbstractGameAction {
 
     private DamageInfo info;
     private int runCardsPlayed;
-    SwiftRunAction(AbstractCreature target, DamageInfo info, int runsPlayed)
+    SwiftRunAction(AbstractCreature target, DamageInfo info)
     {
         this.info = info;
         setValues(target,info);
         this.actionType = ActionType.DAMAGE;
-        this.runCardsPlayed = runsPlayed;
+        runCardsPlayed = 0;
+        for (AbstractCard c: AbstractDungeon.actionManager.cardsPlayedThisTurn) {
+            if (c.hasTag(RunnerCharacter.Enums.RUN))
+            {
+                runCardsPlayed +=1;
+            }
+        }
+
     }
 
 

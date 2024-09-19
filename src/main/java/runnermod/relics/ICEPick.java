@@ -38,6 +38,7 @@ public class ICEPick extends BaseRelic{
             if (target.currentBlock >=BLOCK_BYPASS)
             {
                 target.currentBlock = target.currentBlock - BLOCK_BYPASS;
+                flash();
             }
             else
             {

@@ -34,17 +34,17 @@ public class BladesStanceSwitch extends BaseCard {
     );
 
 //    //Card Stats
-    private static final int MAGIC = 3;
-    private static final int UPG_MAGIC =0;
 
     private static final int DMG = 6;
     private static final int DMG_UPG = 3;
+
+    private static final int DUR = 3;
     public BladesStanceSwitch()
     {
         super(ID,info);
         //using magic number for the gold because why not. Might come in handy later
-        this.setMagic(MAGIC, UPG_MAGIC);
         setDamage(DMG,DMG_UPG);
+        this.misc = DUR;
         this.tags.add(RunnerCharacter.Enums.NEON);
     }
 
@@ -54,7 +54,7 @@ public class BladesStanceSwitch extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //add gain gold action to the stack
-        addToTop(new ChangeRunnerStanceAction("Blades",magicNumber));
+        addToTop(new ChangeRunnerStanceAction("Blades",misc));
         addToBot(new DamageAction(m,new DamageInfo(p,damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
     }
 

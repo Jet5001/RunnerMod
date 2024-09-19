@@ -41,11 +41,13 @@ public class InfectedBlade extends BaseCard {
     private static final int DMG_UPG  = 1;
     private static final int MAG = 2;
     private static final int MAG_UPG = 1;
+    private static final int DUR = 3;
 
     public InfectedBlade() {
         super(ID, info);
         setDamage(DMG,DMG_UPG);
         setMagic(MAG,MAG_UPG);
+        this.misc = DUR;
         tags.add(RunnerCharacter.Enums.NEON);
     }
 
@@ -55,7 +57,7 @@ public class InfectedBlade extends BaseCard {
             addToBot(new DamageAction(m,new DamageInfo(p,damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
             addToBot(new ApplyPowerAction(m,p,new Hacked(m,this.magicNumber)));
         }
-        addToBot(new ChangeRunnerStanceAction("Blades",3));
+        addToBot(new ChangeRunnerStanceAction("Blades",misc));
         if (!this.freeToPlayOnce) {
             p.energy.use(EnergyPanel.totalCount);
         }

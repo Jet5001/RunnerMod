@@ -4,6 +4,7 @@ import basemod.interfaces.OnPlayerTurnStartSubscriber;
 import basemod.interfaces.OnStartBattleSubscriber;
 import com.megacrit.cardcrawl.actions.common.GainGoldAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import org.lwjgl.Sys;
@@ -33,7 +34,6 @@ public class LiquidGold extends BasePotion implements OnStartBattleSubscriber {
     }
 
 
-
     @Override
     public void use(AbstractCreature abstractCreature) {
         addToBot(new GainGoldAction(this.potency));
@@ -49,5 +49,15 @@ public class LiquidGold extends BasePotion implements OnStartBattleSubscriber {
         this.tips.clear();
         this.tips.add(new PowerTip(this.name, this.description));
         addAdditionalTips();
+    }
+
+    public boolean canUse() {
+        if (AbstractDungeon.actionManager.turnHasEnded &&
+                (AbstractDungeon.getCurrRoom()).phase == AbstractRoom.RoomPhase.COMBAT)
+            return false;
+        if ((AbstractDungeon.getCurrRoom()).event != null &&
+                (AbstractDungeon.getCurrRoom()).event instanceof com.megacrit.cardcrawl.events.shrines.WeMeetAgain)
+            return false;
+        return true;
     }
 }

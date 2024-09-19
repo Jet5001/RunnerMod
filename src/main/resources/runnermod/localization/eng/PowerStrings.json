@@ -16,7 +16,8 @@
   "${modID}:SelfRepairScripts": {
     "NAME": "Self Repair Scripts",
     "DESCRIPTIONS": [
-      "At the start of your turn, RunnerMod:repair #b"
+      "At the start of your turn, restore #b",
+      "durability to your equipment"
     ]
   },
   "${modID}:TaxingUpgradesPower": {
@@ -70,7 +71,7 @@
   "${modID}:HardLightPower": {
     "NAME": "Hard Light Technology",
     "DESCRIPTIONS": [
-      "Whenever you play a  RunnerMod:Neon card deal #b",
+      "Whenever you play a  Neon card deal #b",
       " damage to a random enemy"
     ]
   },
@@ -78,7 +79,7 @@
     "NAME": "Scrap Armour",
     "DESCRIPTIONS": [
       "Whenever you gain durability gain #b",
-      " times that much block"
+      " block"
     ]
   },
   "${modID}:LaughingManPower": {
@@ -129,6 +130,13 @@
     "DESCRIPTIONS": [
       "When gaining Block gain #b",
       " more"
+    ]
+  },
+  "${modID}:UpgradesPower": {
+    "NAME": "Upgrades",
+    "DESCRIPTIONS": [
+      "At the start of your turn upgrade #b",
+      " random cards in your hand"
     ]
   }
 }

@@ -13,7 +13,7 @@ import static runnermod.RunnerMod.makeID;
 public class Drone extends BaseRelic{
     private static final String NAME = "Drone";
     public static final String ID = makeID(NAME);
-    public static final RelicTier RARITY = RelicTier.UNCOMMON;
+    public static final RelicTier RARITY = RelicTier.RARE;
     private static final LandingSound SOUND = LandingSound.CLINK;
     public Drone()
     {

@@ -30,13 +30,15 @@ public class OverclockStanceSwitch extends BaseCard {
     );
 
 //    //Card Stats
-    private static final int MAGIC = 3;
-    private static final int UPG_MAGIC =0;
+    private static final int MAGIC = 1;
+    private static final int UPG_MAGIC =1;
+    private static final int DUR = 3;
 
     public OverclockStanceSwitch()
     {
         super(ID,info);
         //using magic number for the gold because why not. Might come in handy later
+        this.misc = DUR;
         this.setMagic(MAGIC, UPG_MAGIC);
         this.tags.add(RunnerCharacter.Enums.NEON);
     }
@@ -57,14 +59,9 @@ public class OverclockStanceSwitch extends BaseCard {
     //called when the card is played
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToTop(new ChangeRunnerStanceAction("Overclock",magicNumber));
+        addToTop(new ChangeRunnerStanceAction("Overclock",misc));
         //can't be bothered adding another number so I'm just checking
-        if (this.upgraded){
-            addToBot(new DrawCardAction(2));
-        }
-        else{
-            addToBot(new DrawCardAction(1));
-        }
+        addToBot(new DrawCardAction(magicNumber));
     }
 
     @Override

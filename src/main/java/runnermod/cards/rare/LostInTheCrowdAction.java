@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import runnermod.cards.tempcards.Decoy;
+import runnermod.character.RunnerCharacter;
 
 public class LostInTheCrowdAction extends AbstractGameAction {
 
@@ -20,7 +21,7 @@ public class LostInTheCrowdAction extends AbstractGameAction {
     //the effect that executes on the stack when able to
     @Override
     public void update() {
-        int cardsToMake =  - AbstractDungeon.player.hand.size();
+        int cardsToMake = BaseMod.MAX_HAND_SIZE - AbstractDungeon.player.hand.size();
         if (upgraded)
         {
             AbstractCard newCard = new Decoy();

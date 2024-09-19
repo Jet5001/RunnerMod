@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.stances.AbstractStance;
 import runnermod.cards.BaseCard;
 import runnermod.character.RunnerCharacter;
@@ -26,19 +27,20 @@ public class ArtifactStanceSwitch extends BaseCard {
             RunnerCharacter.Enums.CARD_COLOR,
             CardType.SKILL,
             CardRarity.COMMON,
-            CardTarget.NONE,
+            CardTarget.ALL_ENEMY,
             1
     );
 
 //    //Card Stats
     private static final int MAGIC = 3;
     private static final int UPG_MAGIC =0;
-
+    private static final int MISC = 3;
     public ArtifactStanceSwitch()
     {
         super(ID,info);
         //using magic number for the gold because why not. Might come in handy later
         this.setMagic(MAGIC, UPG_MAGIC);
+        this.misc = MISC;
         this.tags.add(RunnerCharacter.Enums.NEON);
     }
 
@@ -60,8 +62,11 @@ public class ArtifactStanceSwitch extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         //add gain gold action to the stack
-        addToTop(new ChangeRunnerStanceAction("Artifact",3));
-        addToBot(new ScryAction(3));
+        addToTop(new ChangeRunnerStanceAction("Artifact",misc));
+        for (AbstractMonster mo:AbstractDungeon.getMonsters().monsters) {
+            addToBot(new ApplyPowerAction(mo,p,new WeakPower(p,2,false)));
+        }
+
     }
 
     @Override

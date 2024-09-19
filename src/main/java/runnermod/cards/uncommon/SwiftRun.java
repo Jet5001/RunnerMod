@@ -35,10 +35,6 @@ public class SwiftRun extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         //put a quickRunAction into the buffer
         //added new action as specifics of damage dealt not done at this scope.
-        if(p instanceof RunnerCharacter)
-        {
-            addToBot(new SwiftRunAction(m, new DamageInfo(p,damage, DamageInfo.DamageType.NORMAL),((RunnerCharacter) p).runCardsPlayed));
-        }
-
+        addToBot(new SwiftRunAction(m, new DamageInfo(p,damage, DamageInfo.DamageType.NORMAL)));
     }
 }

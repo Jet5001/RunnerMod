@@ -30,7 +30,6 @@ public class EMP extends BaseCard {
     {
         super(ID,info);
         setBlock(BLOCK,BLOCK_UPG);
-
     }
 
 

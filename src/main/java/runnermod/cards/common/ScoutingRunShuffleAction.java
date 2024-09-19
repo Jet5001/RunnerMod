@@ -1,4 +1,4 @@
-package runnermod.cards.uncommon;
+package runnermod.cards.common;
 
 import com.evacipated.cardcrawl.mod.stslib.actions.common.MoveCardsAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;

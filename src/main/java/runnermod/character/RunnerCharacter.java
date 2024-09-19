@@ -7,6 +7,7 @@ import basemod.animations.AbstractAnimation;
 import basemod.interfaces.OnCardUseSubscriber;
 import basemod.interfaces.OnPlayerTurnStartSubscriber;
 import basemod.interfaces.PostBattleSubscriber;
+import basemod.interfaces.PrePlayerUpdateSubscriber;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -19,13 +20,16 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
+import runnermod.cards.common.QuickRun;
 import runnermod.cards.starter.CheapShot;
 import runnermod.cards.starter.Defend_Runner;
 import runnermod.cards.starter.Strike_Runner;
@@ -37,7 +41,7 @@ import java.util.ArrayList;
 import static runnermod.RunnerMod.characterPath;
 import static runnermod.RunnerMod.makeID;
 
-public class RunnerCharacter extends CustomPlayer implements OnCardUseSubscriber, OnPlayerTurnStartSubscriber, PostBattleSubscriber {
+public class RunnerCharacter extends CustomPlayer implements OnCardUseSubscriber, OnPlayerTurnStartSubscriber, PostBattleSubscriber, PrePlayerUpdateSubscriber {
     //Stats
     public static final int ENERGY_PER_TURN = 3;
     public static final int MAX_HP = 70;
@@ -56,24 +60,30 @@ public class RunnerCharacter extends CustomPlayer implements OnCardUseSubscriber
     private static final String SHOULDER_2 = characterPath("shoulder2.png");
     private static final String CORPSE = characterPath("corpse.png"); //Corpse is when you die.
 
-    public int runCardsPlayed = 0;
     @Override
     public void receiveCardUsed(AbstractCard abstractCard) {
-        if (abstractCard.hasTag(Enums.RUN))
-        {
-            runCardsPlayed +=1;
-        }
     }
 
     @Override
     public void receiveOnPlayerTurnStart() {
-        runCardsPlayed = 0;
+
     }
 
     @Override
     public void receivePostBattle(AbstractRoom abstractRoom) {
         img = baseImg;
-        runCardsPlayed = 0;
+    }
+
+    @Override
+    public void receivePrePlayerUpdate() {
+        for (AbstractRelic r : this.relics) {
+            {
+                if (r instanceof PrePlayerUpdateSubscriber)
+                {
+                    ((PrePlayerUpdateSubscriber) r).receivePrePlayerUpdate();
+                }
+            }
+        }
     }
 
     public static class Enums {
@@ -168,7 +178,7 @@ public class RunnerCharacter extends CustomPlayer implements OnCardUseSubscriber
     public AbstractCard getStartCardForEvent() {
         //This card is used for the Gremlin card matching game.
         //It should be a non-strike non-defend starter card, but it doesn't have to be.
-        return new Strike_Red();
+        return new QuickRun();
     }
 
     /*- Below this is methods that you should *probably* adjust, but don't have to. -*/
@@ -211,7 +221,7 @@ public class RunnerCharacter extends CustomPlayer implements OnCardUseSubscriber
         //Font used to display your current energy.
         //energyNumFontRed, Blue, Green, and Purple are used by the basegame characters.
         //It is possible to make your own, but not convenient.
-        return FontHelper.energyNumFontRed;
+        return FontHelper.energyNumFontBlue;
     }
 
     @Override
