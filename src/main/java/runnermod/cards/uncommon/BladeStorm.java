@@ -16,7 +16,7 @@ public class BladeStorm extends BaseCard {
             RunnerCharacter.Enums.CARD_COLOR,
             CardType.ATTACK,
             CardRarity.UNCOMMON,
-            CardTarget.ENEMY,
+            CardTarget.ALL_ENEMY,
             2
     );
 
@@ -39,7 +39,7 @@ public class BladeStorm extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (int i = 0; i < magicNumber; i++) {
             //addToBot(new DamageAction(m,new DamageInfo(p,damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-            addToBot(new DamageAllEnemiesAction(p,damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HEAVY));
+            addToBot(new DamageAllEnemiesAction(p,this.baseDamage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HEAVY));
         }
 
     }

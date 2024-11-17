@@ -1,9 +1,8 @@
-package runnermod.cards.common;
+package runnermod.cards.uncommon;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.BetterDiscardPileToHandAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -23,9 +22,9 @@ public class ScrapRun extends BaseCard {
 
     //Card Stats
     private static final int DAMAGE = 3;
-    private static final int UPG_DAMAGE = 0;
+    private static final int UPG_DAMAGE = 2;
     private static final int MAG = 1;
-    private static final int MAG_UPG = 1;
+    private static final int MAG_UPG = 0;
     public ScrapRun()
     {
         super(ID,info);

@@ -39,6 +39,7 @@ public class FissionCore extends BaseRelic{
     public void atBattleStartPreDraw() {
         enteredStances.clear();
         super.atBattleStartPreDraw();
+        enteredStances.add(AbstractDungeon.player.stance.name);
     }
 
     @Override
@@ -51,5 +52,10 @@ public class FissionCore extends BaseRelic{
             addToBot(new ApplyPowerAction(p,p,new StrengthPower(p, 1)));
         }
         super.onChangeStance(prevStance, newStance);
+    }
+
+    @Override
+    public boolean canSpawn() {
+        return AbstractDungeon.player instanceof RunnerCharacter &&  super.canSpawn();
     }
 }

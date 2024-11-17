@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.stances.AbstractStance;
 import com.megacrit.cardcrawl.stances.NeutralStance;
 import runnermod.character.RunnerCharacter;
+import runnermod.powers.DurablePower;
 import runnermod.powers.ScrapArmourPower;
 
 import java.util.Collections;
@@ -23,12 +24,20 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
     int[] durabilities = new int[3];
     String newStanceID;
     String stanceID;
+    int additionalDurability;
     //Only use for single stance
     public ChangeRunnerStanceAction(String stanceID, int durability)
     {
         this.stanceID = stanceID;
         newStanceID = stanceID;
-        this.durabilities[0] = durability;
+        additionalDurability = 0;
+        for (AbstractPower p :AbstractDungeon.player.powers) {
+            if(p instanceof DurablePower)
+            {
+                additionalDurability += p.amount;
+            }
+        }
+        this.durabilities[0] = durability + additionalDurability;
         for (AbstractPower p :AbstractDungeon.player.powers) {
             if (p.getClass() == ScrapArmourPower.class)
             {
@@ -86,6 +95,7 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
                 //shuffle durabilities into correct spots for this combo
                 if (newStanceID == "Wall")
                 {
+
                     durabilities[1] = durabilities[0];
                     durabilities[0]=0;
                 }

@@ -27,7 +27,7 @@
     "NAME": "Vitality Potion",
     "DESCRIPTIONS": [
       "Add #b",
-      " RunnerMod:Vitality"
+      " Vitality"
     ]
   },
   "${modID}:VigorPotion": {

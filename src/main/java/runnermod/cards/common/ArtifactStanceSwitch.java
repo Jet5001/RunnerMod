@@ -27,7 +27,7 @@ public class ArtifactStanceSwitch extends BaseCard {
             RunnerCharacter.Enums.CARD_COLOR,
             CardType.SKILL,
             CardRarity.COMMON,
-            CardTarget.ALL_ENEMY,
+            CardTarget.SELF,
             1
     );
 
@@ -63,9 +63,9 @@ public class ArtifactStanceSwitch extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         //add gain gold action to the stack
         addToTop(new ChangeRunnerStanceAction("Artifact",misc));
-        for (AbstractMonster mo:AbstractDungeon.getMonsters().monsters) {
-            addToBot(new ApplyPowerAction(mo,p,new WeakPower(p,2,false)));
-        }
+        //for (AbstractMonster mo:AbstractDungeon.getMonsters().monsters) {
+        //    addToBot(new ApplyPowerAction(mo,p,new WeakPower(p,2,false)));
+        //}
 
     }
 

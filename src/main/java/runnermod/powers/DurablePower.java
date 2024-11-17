@@ -21,14 +21,14 @@ public class DurablePower extends BasePower implements CloneablePowerInterface {
         super(POWER_ID,TYPE,TURNBASED, owner, amount);
     }
 
-    @Override
-    public void onPlayCard(AbstractCard card, AbstractMonster m) {
-        if (card.rawDescription.toLowerCase().contains("equip") || card.rawDescription.contains("RunnerMod:Equip"))
-        {
-            card.misc +=amount;
-        }
-        super.onPlayCard(card, m);
-    }
+    //@Override
+    //public void onPlayCard(AbstractCard card, AbstractMonster m) {
+    //    if (card.rawDescription.toLowerCase().contains("equip") || card.rawDescription.contains("RunnerMod:Equip"))
+    //    {
+    //        card.misc +=amount;
+    //    }
+    //    super.onPlayCard(card, m);
+    //}
 
     @Override
     public AbstractPower makeCopy() {

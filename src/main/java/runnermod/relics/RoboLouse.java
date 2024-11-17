@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import runnermod.character.RunnerCharacter;
+import runnermod.powers.Hacked;
 
 import static runnermod.RunnerMod.makeID;
 
@@ -30,7 +31,7 @@ public class RoboLouse extends BaseRelic{
     @Override
     public void atBattleStart() {
         for (AbstractMonster m:AbstractDungeon.getMonsters().monsters ) {
-            addToTop(new ApplyPowerAction(m, AbstractDungeon.player, new VulnerablePower(m, 3, false)));
+            addToTop(new ApplyPowerAction(m, AbstractDungeon.player, new Hacked(m, 3, false)));
         }
         super.atBattleStart();
     }

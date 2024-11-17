@@ -36,9 +36,6 @@ public class Digitise extends BaseCard {
     //called when the card is played
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        for (int i = 0; i < magicNumber; i++) {
-            addToBot(new DigitiseAction());
-        }
-
+            addToBot(new DigitiseAction(magicNumber));
     }
 }

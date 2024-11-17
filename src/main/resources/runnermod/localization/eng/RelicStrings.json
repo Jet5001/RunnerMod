@@ -69,13 +69,5 @@
     "DESCRIPTIONS": [
       "At the start of each combat, apply 3 hack to all enemies"
     ]
-  },
-  "${modID}:BrokenVisor": {
-    "NAME": "Broken Visor",
-    "FLAVOR": "Wires are tasty",
-    "DESCRIPTIONS": [
-      "Chose and add 1 Akira Card to your deck",
-      "Chose 1 to add "
-    ]
   }
 }

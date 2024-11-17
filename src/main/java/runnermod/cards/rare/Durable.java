@@ -20,7 +20,7 @@ public class Durable extends BaseCard {
 
     );
 
-    private static int MAG = 3;
+    private static int MAG = 2;
     private static int MAG_UP = 0;
     public Durable()
     {

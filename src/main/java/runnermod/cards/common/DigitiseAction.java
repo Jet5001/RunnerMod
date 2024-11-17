@@ -23,10 +23,13 @@ public class DigitiseAction extends AbstractGameAction{
 
     private boolean upgraded = false;
 
-    public DigitiseAction() {
+    private int numToSelect;
+
+    public DigitiseAction(int numToSelect) {
         this.actionType = AbstractGameAction.ActionType.CARD_MANIPULATION;
         this.p = AbstractDungeon.player;
         this.duration = Settings.ACTION_DUR_FAST;
+        this.numToSelect = numToSelect;
     }
 
     public void update() {
@@ -53,7 +56,7 @@ public class DigitiseAction extends AbstractGameAction{
                 }
             this.p.hand.group.removeAll(this.cannotUpgrade);
             if (this.p.hand.group.size() > 1) {
-                AbstractDungeon.handCardSelectScreen.open(TEXT[0], 1, false, false, false, false);
+                AbstractDungeon.handCardSelectScreen.open(TEXT[0], numToSelect, false, false, false, false);
                 tickDuration();
                 return;
             }
