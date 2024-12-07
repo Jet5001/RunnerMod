@@ -230,7 +230,6 @@ public abstract class RunnerStance extends AbstractStance {
             else
             {
                 //get combo name if not the same
-
                 //get previous max durability id to combo with longest lasting part
                 String previousMaxDurabilityID = "";
                 int tempMaxDurability = -1;
@@ -238,6 +237,7 @@ public abstract class RunnerStance extends AbstractStance {
                     if (((RunnerStance) previousStance).durabilityDictionary.get(id) > tempMaxDurability)
                     {
                         previousMaxDurabilityID=  id;
+                        tempMaxDurability = ((RunnerStance) previousStance).durabilityDictionary.get(id);
                     }
                 }
                 //get combo

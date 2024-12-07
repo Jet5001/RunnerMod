@@ -39,7 +39,7 @@ public class InfectedBlade extends BaseCard {
 
     private static final int DMG = 3;
     private static final int DMG_UPG  = 1;
-    private static final int MAG = 2;
+    private static final int MAG = 3;
     private static final int MAG_UPG = 1;
     private static final int DUR = 3;
 
@@ -71,7 +71,7 @@ public class InfectedBlade extends BaseCard {
         this.rawDescription = CardCrawlGame.languagePack.getCardStrings(ID).DESCRIPTION;
         String newStance = RunnerStance.determineNewStance("Blades");
         this.rawDescription += RunnerStance.getStanceChangeDescription(newStance);
-        if(RunnerStance.getStanceChangeDescription(newStance) != "")
+        if(RunnerStance.getStanceChangeDescription(newStance).equals(""))
         {
             this.glowColor = Color.RED;
         }

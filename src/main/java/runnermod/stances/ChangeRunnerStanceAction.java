@@ -6,6 +6,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.stances.AbstractStance;
 import com.megacrit.cardcrawl.stances.NeutralStance;
+import com.megacrit.cardcrawl.vfx.SpeechBubble;
+import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import runnermod.character.RunnerCharacter;
 import runnermod.powers.DurablePower;
 import runnermod.powers.ScrapArmourPower;
@@ -234,8 +236,11 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        //overide stance if not from this mod
         previousStance = AbstractDungeon.player.stance;
+        if(previousStance instanceof AKIRAStance && stanceID.equals("Glitched"))
+        {
+            AbstractDungeon.effectList.add(new SpeechBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, "Can't Corrupt me now, I'm already broken", true));
+        }
         if (previousStance instanceof AKIRAStance || previousStance instanceof  GlitchedStance)
         {
             this.isDone = true;
@@ -289,20 +294,8 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
             }
             else
             {
-                //get combo name if not the same
-
-                //get previous max durability id to combo with longest lasting part
-                String previousMaxDurabilityID = "";
-                int tempMaxDurability = -1;
-                for (String id: Collections.list(((RunnerStance) previousStance).durabilityDictionary.keys())) {
-                    if (((RunnerStance) previousStance).durabilityDictionary.get(id) > tempMaxDurability)
-                    {
-                        previousMaxDurabilityID=  id;
-                        tempMaxDurability = ((RunnerStance) previousStance).durabilityDictionary.get(id);
-                    }
-                }
                 //get combo
-                newID = comboLookup.get(previousMaxDurabilityID + stanceID);
+                newID = RunnerStance.determineNewStance(stanceID);
                 //extra check to be careful (defaults to new stance)
                 if (newID == null)
                 {

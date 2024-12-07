@@ -31,17 +31,16 @@ public class VitalityPower extends BasePower implements CloneablePowerInterface 
         super(POWER_ID,TYPE,TURNBASED, owner, amount);
     }
 
-        @Override
+    @Override
     public float modifyBlockLast(float blockAmount) {
-
         return super.modifyBlockLast(blockAmount + this.amount);
     }
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
         //since modify block happens before this call this amount is added automatically
-        //the fore if below is true block value of card >0 base (-1 if not set) so is likely meant to add block
-        if(card.block > this.amount-1)
+        //the if below is true when block value of card >0 base (-1 if not set) so is likely meant to add block
+        if(card.baseBlock > this.amount-1)
         {
             flash();
             addToTop(new RemoveSpecificPowerAction(this.owner,this.owner, this));

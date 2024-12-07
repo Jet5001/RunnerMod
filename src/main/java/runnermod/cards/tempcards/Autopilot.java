@@ -2,12 +2,9 @@ package runnermod.cards.tempcards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.PoisonPower;
+import com.megacrit.cardcrawl.powers.MayhemPower;
 import runnermod.cards.BaseCard;
-import runnermod.cards.RandomDebuffAction;
-import runnermod.powers.AutopilotPower;
 import runnermod.util.CardStats;
 
 
@@ -38,6 +35,6 @@ public class Autopilot extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p,p,new AutopilotPower(p,magicNumber)));
+        addToBot(new ApplyPowerAction(p,p,new MayhemPower(p,magicNumber)));
     }
 }

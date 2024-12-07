@@ -20,7 +20,7 @@ public class EvasiveManoeuvres extends BaseCard {
             1
     );
 
-    private static final int BLOCK = 3;
+    private static final int BLOCK = 4;
     private static final int BLOCK_UPG = 3;
     private static final int MAG = 1;
     private static final int MAG_UPG = 0;
