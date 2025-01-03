@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.powers.watcher.BlockReturnPower;
 import com.megacrit.cardcrawl.powers.watcher.MarkPower;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import org.lwjgl.Sys;
+import runnermod.powers.FlourishPower;
 import runnermod.powers.Hacked;
 import runnermod.powers.Overwhelm;
 
@@ -20,7 +21,7 @@ import java.util.*;
 
 public class RandomDebuffAction extends AbstractGameAction {
 
-    List<String> debuffs = new ArrayList<String>(Arrays.asList("Hack", "Shackled", "Frail", "Poison", "Vulnerable", "Weak", "Block Return", "Choked", "Constricted", "Corpse Explosion"));
+    List<String> debuffs = new ArrayList<String>(Arrays.asList("Hack", "Shackled", "Mark", "Poison", "Vulnerable", "Weak", "Block Return", "Choked", "Constricted", "Corpse Explosion","Flourish"));
     Random rng = new Random();
     AbstractCreature owner;
     public RandomDebuffAction(AbstractCreature owner, AbstractCreature target)
@@ -77,6 +78,9 @@ public class RandomDebuffAction extends AbstractGameAction {
                     addToBot(new ApplyPowerAction(target,owner,new Overwhelm(target,1)));
                 case "Hack":
                     addToBot(new ApplyPowerAction(target, owner, new Hacked(target,1), 1));
+                    break;
+                case "Flourish":
+                    addToBot(new ApplyPowerAction(target, owner, new FlourishPower(target,2), 1));
                     break;
             }
         }

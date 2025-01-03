@@ -2,6 +2,7 @@ package runnermod.cards.uncommon;
 
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
+import com.megacrit.cardcrawl.actions.unique.RetainCardsAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import runnermod.cards.BaseCard;
@@ -34,6 +35,7 @@ public class Manifest extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DrawCardAction(magicNumber));
+        addToBot(new RetainCardsAction(p,2));
         addToBot(new MakeTempCardInDiscardAction(new Virus(),1));
     }
 }

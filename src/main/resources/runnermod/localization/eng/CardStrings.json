@@ -138,7 +138,7 @@
   },
   "${modID}:Flourish": {
     "NAME": "Flourish",
-    "DESCRIPTION": "Deal !D! damage !M! times NL increases with Dexterity instead of Strength"
+    "DESCRIPTION": "Deal !D! damage NL Whenever you gain block this turn deal !M! damage to that enemy"
   },
   "${modID}:WallOfStatic": {
     "NAME": "Wall of Static",
@@ -188,9 +188,9 @@
     "NAME": "Mending",
     "DESCRIPTION": " RunnerMod:Repair !M! NL RunnerMod:Neon"
   },
-  "${modID}:NeonBlades": {
-    "NAME": "Neon Blades",
-    "DESCRIPTION": "Deal !D! damage 2 times NL  RunnerMod:Equip  RunnerMod:Blades NL RunnerMod:Neon"
+  "${modID}:BladeDraw": {
+    "NAME": "Blade Draw",
+    "DESCRIPTION": "Deal !D! damage NL Gain !M! Strength, until the end of the turn NL RunnerMod:Equip  RunnerMod:Blades NL RunnerMod:Neon"
   },
   "${modID}:Flouresce": {
     "NAME": "Flouresce",
@@ -286,7 +286,7 @@
   },
   "${modID}:Manifest": {
     "NAME": "Manifest",
-    "DESCRIPTION": "Draw !M! cards NL Add a virus to your discard pile"
+    "DESCRIPTION": "Draw !M! cards NL Chose 2 cards to retain this turn NL Add a virus to your discard pile"
   },
   "${modID}:SwiftRun": {
     "NAME": "Swift Run",

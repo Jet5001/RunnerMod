@@ -138,5 +138,12 @@
       "At the start of your turn upgrade #b",
       " random cards in your hand"
     ]
+  },
+  "${modID}:FlourishPower": {
+    "NAME": "Flourish",
+    "DESCRIPTIONS": [
+      "Whenever the player gains block take #b",
+      " damage"
+    ]
   }
 }
