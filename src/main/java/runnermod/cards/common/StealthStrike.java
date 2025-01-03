@@ -46,6 +46,7 @@ public class StealthStrike extends BaseCard {
         this.setMagic(MAGIC, UPG_MAGIC);
         setDamage(DMG,DMG_UPG);
         this.tags.add(RunnerCharacter.Enums.CONSERVE_VIGOUR);
+        this.tags.add(CardTags.STRIKE);
     }
 
 

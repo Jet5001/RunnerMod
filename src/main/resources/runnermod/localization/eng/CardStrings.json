@@ -158,7 +158,7 @@
   },
   "${modID}:ArtifactStanceSwitch": {
     "NAME": "Equip Firewall",
-    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Firewall NL RunnerMod:Neon"
+    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Firewall NL Gain !M! RunnerMod:Vitality NL RunnerMod:Neon"
   },
   "${modID}:OverclockStanceSwitch": {
     "NAME": "Equip Overclocker",

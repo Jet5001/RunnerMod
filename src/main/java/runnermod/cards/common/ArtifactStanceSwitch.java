@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.stances.AbstractStance;
 import runnermod.cards.BaseCard;
 import runnermod.character.RunnerCharacter;
+import runnermod.powers.VitalityPower;
 import runnermod.stances.AKIRAStance;
 import runnermod.stances.ChangeRunnerStanceAction;
 import runnermod.stances.RunnerStance;
@@ -63,10 +64,7 @@ public class ArtifactStanceSwitch extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         //add gain gold action to the stack
         addToTop(new ChangeRunnerStanceAction("Artifact",misc));
-        //for (AbstractMonster mo:AbstractDungeon.getMonsters().monsters) {
-        //    addToBot(new ApplyPowerAction(mo,p,new WeakPower(p,2,false)));
-        //}
-
+        addToTop(new ApplyPowerAction(p,p, new VitalityPower(p,magicNumber),1));
     }
 
     @Override
