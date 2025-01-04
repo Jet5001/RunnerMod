@@ -32,8 +32,8 @@ public class DoubleTime extends BaseCard {
     );
 
 //    //Card Stats
-    private static final int MAGIC = 3;
-    private static final int UPG_MAGIC =0;
+    private static final int MAGIC = 2;
+    private static final int UPG_MAGIC =1;
     private static final int DUR = 3;
 
     public DoubleTime()
@@ -50,16 +50,7 @@ public class DoubleTime extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToTop(new ChangeRunnerStanceAction("Overclock",misc));
-        //can't be bothered adding another number so I'm just checking
-        if(upgraded)
-        {
-            addToBot(new MakeTempCardInHandAction(new Decoy(),3));
-        }
-        else
-        {
-            addToBot(new MakeTempCardInHandAction(new Decoy(),2));
-        }
-
+        addToBot(new MakeTempCardInHandAction(new Decoy(),magicNumber));
     }
 
     @Override

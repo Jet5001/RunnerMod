@@ -243,7 +243,7 @@
   },
   "${modID}:Adapt": {
     "NAME": "Adapt",
-    "DESCRIPTION": "Gain !DEX! Dexterity NL Gain !STR! Strength"
+    "DESCRIPTION": "Gain !DEX! Dexterity NL Gain !STR! Strength NL Can be upgraded any number of times"
   },
   "${modID}:Deplete": {
     "NAME": "Deplete",
@@ -261,8 +261,8 @@
   },
   "${modID}:ThoughtlessIncursion": {
     "NAME": "Thoughtless Incursion",
-    "DESCRIPTION": "Apply !M! random debuffs NL obtain !M! random debuffs",
-    "UPGRADE_DESCRIPTION":  "Apply !M! random debuffs NL obtain 2 random debuffs"
+    "DESCRIPTION": "Apply !M! random debuffs NL Obtain 2 random debuffs",
+    "UPGRADE_DESCRIPTION":  "Apply !M! random debuffs NL Obtain 2 random debuffs"
   },
   "${modID}:Digitise": {
     "NAME": "Digitise",
@@ -354,8 +354,8 @@
   },
   "${modID}:DoubleTime": {
     "NAME": "Double Time",
-    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Overclocker NL Add 2 Decoys to your hand NL RunnerMod:Neon",
-    "UPGRADE_DESCRIPTION": " RunnerMod:Equip  RunnerMod:Overclocker NL Add 3 Decoys to your hand NL RunnerMod:Neon"
+    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Overclocker NL Add !M! Decoys to your hand NL RunnerMod:Neon",
+    "UPGRADE_DESCRIPTION": " RunnerMod:Equip  RunnerMod:Overclocker NL Add !M! Decoys to your hand NL RunnerMod:Neon"
   },
   "${modID}:ShortCircuit": {
     "NAME": "Short Circuit",
