@@ -14,7 +14,7 @@ public class ThoughtlessIncursion extends BaseCard {
             RunnerCharacter.Enums.CARD_COLOR,
             CardType.SKILL,
             CardRarity.COMMON,
-            CardTarget.NONE,
+            CardTarget.SELF_AND_ENEMY,
             0
     );
 
@@ -25,7 +25,6 @@ public class ThoughtlessIncursion extends BaseCard {
     public ThoughtlessIncursion()
     {
         super(ID,info);
-        //using magic number for the gold because why not. Might come in handy later
         this.setMagic(MAGIC, UPG_MAGIC);
     }
 
@@ -34,11 +33,9 @@ public class ThoughtlessIncursion extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         //add gain gold action to the stack
         for (int i = 0; i < magicNumber; i++) {
-            AbstractMonster mon = AbstractDungeon.getRandomMonster();
-            addToBot(new RandomDebuffAction(p, mon));
+            addToBot(new RandomDebuffAction(p, m));
         }
         for (int i = 0; i < 2; i++) {
-            AbstractMonster mon = AbstractDungeon.getRandomMonster();
             addToBot(new RandomDebuffAction(p, p));
         }
 

@@ -28,7 +28,7 @@ public class MetalStance extends RunnerStance {
     public static final String STANCE_ID = "Metal";
 
     private static final StanceStrings stanceString = CardCrawlGame.languagePack.getStanceString("Metal");
-    private static final String baseDescription = "Each time you play a card gain 1 Dexterity and 2 Thorns NL ";
+    private static final String baseDescription = "Each time you play a card gain 3 Block and 2 Thorns NL ";
 
     private static long sfxId = -1L;
     private int durability;
@@ -41,23 +41,10 @@ public class MetalStance extends RunnerStance {
         updateDescription();
     }
 
-//    public float atDamageGive(float damage, DamageInfo.DamageType type) {
-//        if (type == DamageInfo.DamageType.NORMAL)
-//            return damage * 2.0F;
-//        return damage;
-//    }
-//
-//    public float atDamageReceive(float damage, DamageInfo.DamageType type) {
-//        if (type == DamageInfo.DamageType.NORMAL)
-//            return damage * 2.0F;
-//        return damage;
-//    }
-
 
     @Override
     public void onPlayCard(AbstractCard card) {
         AbstractCreature p = AbstractDungeon.player;
-        //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DexterityPower(p, 1), 1, true, AbstractGameAction.AttackEffect.NONE));
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player,3));
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ThornsPower(p, 2), 1, true, AbstractGameAction.AttackEffect.NONE));
         super.onPlayCard(card);

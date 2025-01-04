@@ -261,8 +261,8 @@
   },
   "${modID}:ThoughtlessIncursion": {
     "NAME": "Thoughtless Incursion",
-    "DESCRIPTION": "Apply !M! random debuffs to random enemies NL obtain !M! random debuffs",
-    "UPGRADE_DESCRIPTION":  "Apply !M! random debuffs to random enemies NL obtain 2 random debuffs"
+    "DESCRIPTION": "Apply !M! random debuffs NL obtain !M! random debuffs",
+    "UPGRADE_DESCRIPTION":  "Apply !M! random debuffs NL obtain 2 random debuffs"
   },
   "${modID}:Digitise": {
     "NAME": "Digitise",
