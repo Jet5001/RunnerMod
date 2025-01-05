@@ -35,7 +35,7 @@ public class RandomDebuffAction extends AbstractGameAction {
     public void update() {
         if (target != null)
         {
-            String debuff = debuffs.get(rng.nextInt(debuffs.size()));
+            String debuff = debuffs.get(AbstractDungeon.miscRng.random(debuffs.size()-1));
             System.out.println(debuff);
             switch (debuff)
             {

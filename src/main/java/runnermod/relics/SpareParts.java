@@ -1,5 +1,7 @@
 package runnermod.relics;
 
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import runnermod.character.RunnerCharacter;
 import runnermod.stances.ChangeRunnerStanceAction;
 
@@ -25,8 +27,7 @@ public class SpareParts extends BaseRelic{
 
     @Override
     public void atBattleStart() {
-        Random rng = new Random();
-        switch (rng.nextInt(4)) {
+        switch (AbstractDungeon.miscRng.random(3)) {
             case 0:
                 addToBot(new ChangeRunnerStanceAction("Blades", 3));
                 break;
