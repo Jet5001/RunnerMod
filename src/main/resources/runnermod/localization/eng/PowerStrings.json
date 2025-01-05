@@ -129,7 +129,7 @@
     "NAME": "Vitality",
     "DESCRIPTIONS": [
       "When gaining Block gain #b",
-      " more"
+      " more and remove all Vitality"
     ]
   },
   "${modID}:UpgradesPower": {

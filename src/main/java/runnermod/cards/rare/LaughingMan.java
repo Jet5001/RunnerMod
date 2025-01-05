@@ -20,7 +20,7 @@ public class LaughingMan extends BaseCard {
 
     );
 
-    private static final int MAGIC = 1;
+    private static final int MAGIC = 4;
     private static final int MAGIC_UPG = 0;
 
 

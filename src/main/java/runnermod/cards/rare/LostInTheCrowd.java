@@ -24,25 +24,17 @@ public class LostInTheCrowd extends BaseCard {
     public LostInTheCrowd() {
         super(ID, info);
         setEthereal(true,false);
-        tags.add(RunnerCharacter.Enums.NEON);
         AbstractCard previewCard = new Decoy();
-        if (this.upgraded)
-        {
-            previewCard.upgrade();
-        }
         this.cardsToPreview = previewCard;
     }
 
     @Override
     public void upgrade() {
         super.upgrade();
-        if (!upgraded)
-        {
-            AbstractCard previewCard = new Decoy();
-            previewCard.upgrade();
-            cardsToPreview = previewCard;
-            tags.add(RunnerCharacter.Enums.NEON);
-        }
+        AbstractCard previewCard = new Decoy();
+        previewCard.upgrade();
+        cardsToPreview = previewCard;
+        tags.add(RunnerCharacter.Enums.NEON);
     }
 
     @Override

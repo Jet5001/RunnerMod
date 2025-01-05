@@ -34,6 +34,17 @@ public class GlitchedBlade extends BaseCard {
         cardsToPreview = new Virus();
     }
 
+    @Override
+    public void applyPowers() {
+        super.applyPowers();
+        initializeDescription();
+    }
+
+    @Override
+    public void calculateCardDamage(AbstractMonster m) {
+        super.calculateCardDamage(m);
+        initializeDescription();
+    }
 
     //when the card is played
     @Override

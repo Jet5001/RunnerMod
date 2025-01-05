@@ -23,7 +23,7 @@ import runnermod.character.RunnerCharacter;
 public class GlitchedStance extends RunnerStance {
 
     private static final StanceStrings stanceString = CardCrawlGame.languagePack.getStanceString("Glitched");
-    private static final String baseDescription = "You take double damage from attacks and your attacks deal half damage NL Play less than 3 cards in a turn to solve";
+    private static final String baseDescription = "You take double damage from attacks and your attacks deal half damage NL Play less than #b 3 cards in a turn to solve";
     private static long sfxId = -1L;
 
     private AbstractStance previousStance;

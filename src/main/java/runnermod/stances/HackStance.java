@@ -31,7 +31,7 @@ public class HackStance extends RunnerStance {
     public static final String STANCE_ID = "Hack";
 
     private static final StanceStrings stanceString = CardCrawlGame.languagePack.getStanceString("Hack");
-    private static final String baseDescription = "Each time you play a card a random enemy gains 1 Hack NL ";
+    private static final String baseDescription = "Each time you play a card a random enemy gains #b 1 Hack NL ";
 
     private static long sfxId = -1L;
     private int durability;

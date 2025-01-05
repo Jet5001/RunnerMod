@@ -12,7 +12,7 @@ import static runnermod.RunnerMod.makeID;
 public class ICEPick extends BaseRelic{
     private static final String NAME = "ICEPick";
     public static final String ID = makeID(NAME);
-    public static final RelicTier RARITY = RelicTier.STARTER;
+    public static final RelicTier RARITY = RelicTier.SHOP;
     private static final LandingSound SOUND = LandingSound.CLINK;
     private static final int BLOCK_BYPASS = 2;
     public ICEPick()

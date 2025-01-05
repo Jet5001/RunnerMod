@@ -16,7 +16,7 @@
     "NAMES": [
       "Vitality"
     ],
-    "DESCRIPTION": "Whenever you gain Block gain gain more"
+    "DESCRIPTION": "Whenever you gain Block gain an additional amount equal to your amount of vitality"
   },
   {
     "ID": "Equip",

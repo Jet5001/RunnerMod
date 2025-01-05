@@ -25,13 +25,13 @@ public class Adapt extends BaseCard {
     );
 
 
-    public int strAmount = 1;
-    public int dexAmount = 1;
-
     public Adapt()
     {
         super(ID,info);
         this.upgradesDescription = true;
+        this.setMagic(1);
+        this.setCustomVar("DEX",1,0);
+        initializeDescription();
     }
 
     @Override
@@ -44,16 +44,11 @@ public class Adapt extends BaseCard {
     public void upgrade()
     {
         this.timesUpgraded++;
+        upgradeMagicNumber(1);
+        this.upgraded = true;
         this.name = cardStrings.NAME + "+" + this.timesUpgraded;
-        if (timesUpgraded%2==0)
-        {
-            dexAmount +=1;
-        }
-        else
-        {
-            strAmount+=1;
-        }
-        //super.upgrade();
+        initializeTitle();
+        initializeDescription();
     }
 
     @Override
@@ -63,8 +58,8 @@ public class Adapt extends BaseCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p,p,new StrengthPower(p, strAmount)));
-        addToBot(new ApplyPowerAction(p,p,new DexterityPower(p, dexAmount)));
+        addToBot(new ApplyPowerAction(p,p,new StrengthPower(p, magicNumber)));
+        addToBot(new ApplyPowerAction(p,p,new DexterityPower(p, customVar("DEX"))));
     }
 }
 

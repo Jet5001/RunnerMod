@@ -11,21 +11,21 @@
   },
   "${modID}:QuickRun": {
     "NAME": "Quick Run",
-    "DESCRIPTION": "Deal !D! damage. NL If this causes the enemy to lose HP you gain [E]"
+    "DESCRIPTION": "Deal !D! damage. NL If this causes the enemy to lose HP you gain [E]."
   },
   "${modID}:QuickRun2": {
     "NAME": "Quick Run 2.0",
-    "DESCRIPTION": "Deal !D! damage. NL If you've played 3 cards this turn gain [E] [E]"
+    "DESCRIPTION": "Deal !D! damage. NL If you've played 3 cards this turn gain [E] [E]."
   },
 
   "${modID}:Pilfer": {
     "NAME": "Pilfer",
-    "DESCRIPTION": "Deal !D! damage. Gain !M! Gold"
+    "DESCRIPTION": "Deal !D! damage. If fatal, gain !M! Gold."
   },
 
   "${modID}:Bankroll": {
     "NAME": "Bankroll",
-    "DESCRIPTION": "Deal damage equal to 1/!M!th of your total gold",
+    "DESCRIPTION": "Deal damage equal to 1/!M!th of your total gold.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
     ]
@@ -33,7 +33,7 @@
 
   "${modID}:Investments": {
     "NAME": "Investments",
-    "DESCRIPTION": "At the start of your next X turns, add an Investment into your hand",
+    "DESCRIPTION": "At the start of your next X turns, add an Investment into your hand.",
     "UPGRADE_DESCRIPTION": "At the start of your next X turns, add an Investment into your hand NL Retain"
   },
 
@@ -45,16 +45,16 @@
 
   "${modID}:Stockpile": {
     "NAME": "Stockpile",
-    "DESCRIPTION": "Gain !M! gold NL Ethereal NL Exhaust",
-    "UPGRADE_DESCRIPTION": "Gain !M! gold NL Exhaust"
+    "DESCRIPTION": "Gain !M! gold. NL Ethereal NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Gain !M! gold. NL Exhaust."
   },
   "${modID}:EMP": {
     "NAME": "EMP",
-    "DESCRIPTION": "Gain !B! Block NL Steal ALL Block from an enemy"
+    "DESCRIPTION": "Gain !B! Block. NL Steal ALL Block from an enemy."
   },
   "${modID}:AdaptiveShields": {
     "NAME": "Adaptive Shields",
-    "DESCRIPTION": "Gain !B! Block, if the enemy intends to attack apply !M! Weak"
+    "DESCRIPTION": "Gain !B! Block, if the enemy intends to attack apply !M! Weak."
   },
   "${modID}:AdaptiveStrike": {
     "NAME": "Adaptive Strike",
@@ -62,155 +62,159 @@
   },
   "${modID}:SelfRepairScripts": {
     "NAME": "Self Repair Scripts",
-    "DESCRIPTION": "RunnerMod:repair !M! at the start of each turn"
+    "DESCRIPTION": "RunnerMod:repair !M! at the start of each turn."
   },
   "${modID}:RigReboot": {
     "NAME": "Rig Reboot",
-    "DESCRIPTION": "Remove ALL your debuffs , NL Draw !M! NL Exhaust",
-    "UPGRADE_DESCRIPTION": "Remove ALL your debuffs NL Draw !M! NL Exhaust NL Retain"
+    "DESCRIPTION": "Remove ALL your debuffs. NL Draw !M! cards. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Remove ALL your debuffs. NL Draw !M! cards. NL Exhaust. NL Retain."
   },
   "${modID}:Improvise": {
     "NAME": "Improvise",
-    "DESCRIPTION": "Discard your hand NL Scry 3 NL Draw 3 NL Gain [E] NL Exhaust",
-    "UPGRADE_DESCRIPTION": "Discard your hand NL Scry 3 NL Draw 3 NL Gain [E] [E] NL Exhaust"
+    "DESCRIPTION": "Discard your hand. NL Scry 3. NL Draw 3. NL Gain [E]. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Discard your hand. NL Scry 3. NL Draw 3. NL Gain [E] [E]. NL Exhaust."
   },
   "${modID}:Ward": {
     "NAME": "Ward",
-    "DESCRIPTION": "Gain !B! Block NL  RunnerMod:Equip  RunnerMod:shields"
+    "DESCRIPTION": "Gain !B! Block. NL  RunnerMod:Equip  RunnerMod:shields."
   },
   "${modID}:BladeStrike": {
     "NAME": "Blade Strke",
-    "DESCRIPTION": "Deal !D! damage NL  RunnerMod:Equip  RunnerMod:Blades"
+    "DESCRIPTION": "Deal !D! damage. NL  RunnerMod:Equip  RunnerMod:Blades."
   },
   "${modID}:DDOS": {
     "NAME": "DDOS",
-    "DESCRIPTION": "Deal !D! damage to all enemies, any enemy that loses health this way gains 1 vulnerable"
+    "DESCRIPTION": "Deal !D! damage to all enemies, any enemy that loses health this way gains 1 vulnerable."
   },
   "${modID}:Strike_Runner": {
     "NAME": "Strike",
-    "DESCRIPTION": "Deal !D! damage"
+    "DESCRIPTION": "Deal !D! damage."
   },
   "${modID}:Defend_Runner": {
     "NAME": "Defend",
-    "DESCRIPTION": "Gain !B! Block"
+    "DESCRIPTION": "Gain !B! Block."
   },
   "${modID}:Withdrawal": {
     "NAME": "Withdrawal",
-    "DESCRIPTION": "Add a Bankroll to your discard pile NL Exhaust",
-    "UPGRADE_DESCRIPTION": "Add an Upgraded Bankroll to your discard pile NL Exhaust"
+    "DESCRIPTION": "Add a Bankroll to your discard pile. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Add an Upgraded Bankroll to your discard pile. NL Exhaust."
   },
   "${modID}:Trojan": {
     "NAME": "Trojan",
-    "DESCRIPTION": "Apply !M! Vulnerable"
+    "DESCRIPTION": "Apply !M! Vulnerable."
   },
   "${modID}:Hack": {
     "NAME": "Hack",
-    "DESCRIPTION": "Apply !M! RunnerMod:Hacked"
+    "DESCRIPTION": "Apply !M! RunnerMod:Hacked."
   },
   "${modID}:Virus": {
     "NAME": "Virus",
-    "DESCRIPTION": "When drawn discard a card at random NL Exhaust"
+    "DESCRIPTION": "When drawn discard a card at random. NL Exhaust."
   },
   "${modID}:FaultyUpgrade": {
     "NAME": "Faulty Upgrade",
-    "DESCRIPTION": "Gain !M! Strength NL Gain !M! Dexterity NL Add 2 Viruses to your discard pile"
+    "DESCRIPTION": "Gain !M! Strength. NL Gain !M! Dexterity. NL Add 2 Viruses to your discard pile."
   },
   "${modID}:GlitchedBlade": {
     "NAME": "Glitched Blade",
-    "DESCRIPTION": "Add a virus to your discard pile NL Deal !D! damage time the number of Viruses created this floor"
+    "DESCRIPTION": "Add a virus to your discard pile. NL Deal !D! damage time the number of Viruses created this floor.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (Deals !D! damage)"
+    ]
   },
   "${modID}:MalwareScan": {
     "NAME": "Malware Scan",
-    "DESCRIPTION": "Remove !M! random statuses from your deck NL Draw a card NL RunnerMod:Neon"
+    "DESCRIPTION": "Remove !M! random statuses from your deck. NL Draw a card. NL RunnerMod:Neon."
   },
   "${modID}:Upgrades": {
     "NAME": "Upgrades",
-    "DESCRIPTION": "At the start of your turn upgrade a random card in your hand",
-    "UPGRADE_DESCRIPTION": "At the start of your turn upgrade !M! cards in your hand"
+    "DESCRIPTION": "At the start of your turn upgrade a random card in your hand.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn upgrade !M! cards in your hand."
   },
   "${modID}:SlowLoris": {
     "NAME": "Slow Loris",
-    "DESCRIPTION": "Deal !D! damage !M! times"
+    "DESCRIPTION": "Deal !D! damage !M! times."
   },
   "${modID}:HeadOn": {
     "NAME": "Head On",
-    "DESCRIPTION": "Gain !B! block !M! times NL increases with Damage instead of Block"
+    "DESCRIPTION": "Gain !B! block !M! times. NL Increases with Damage instead of Block."
   },
   "${modID}:Flourish": {
     "NAME": "Flourish",
-    "DESCRIPTION": "Deal !D! damage NL Whenever you gain block this turn deal !M! damage to that enemy"
+    "DESCRIPTION": "Deal !D! damage. NL Whenever you gain block this turn deal !M! damage to that enemy."
   },
   "${modID}:WallOfStatic": {
     "NAME": "Wall of Static",
-    "DESCRIPTION": "Whenever you apply a debuff to an enemy gain !M! block"
+    "DESCRIPTION": "Whenever you apply a debuff to an enemy gain !M! block."
   },
   "${modID}:TimeIsMoney": {
     "NAME": "Time is Money",
-    "DESCRIPTION": "Spend !M! gold NL Take an extra turn after this one"
+    "DESCRIPTION": "Spend !M! gold. NL Take an extra turn after this one."
   },
   "${modID}:BladesStanceSwitch": {
     "NAME": "Equip Blades",
-    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Blades NL Deal !D! damage NL RunnerMod:Neon"
+    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Blades. NL Deal !D! damage. NL RunnerMod:Neon."
   },
   "${modID}:WallStanceSwitch": {
     "NAME": "Equip Shields",
-    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Shields NL Gain !B! Block NL RunnerMod:Neon"
+    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Shields. NL Gain !B! Block. NL RunnerMod:Neon."
   },
   "${modID}:ArtifactStanceSwitch": {
     "NAME": "Equip Firewall",
-    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Firewall NL Gain !M! RunnerMod:Vitality NL RunnerMod:Neon"
+    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Firewall. NL Gain !M! RunnerMod:Vitality. NL RunnerMod:Neon."
   },
   "${modID}:OverclockStanceSwitch": {
     "NAME": "Equip Overclocker",
-    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Overclocker NL Draw !M! card NL RunnerMod:Neon"
+    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Overclocker. NL Draw !M! card. NL RunnerMod:Neon.",
+    "UPGRADE_DESCRIPTION": " RunnerMod:Equip  RunnerMod:Overclocker. NL Draw !M! cards. NL RunnerMod:Neon."
   },
   "${modID}:Durable": {
     "NAME": "Durable",
-    "DESCRIPTION": "Equipment you equip has 2 more durability"
+    "DESCRIPTION": "Equipment you equip has 2 more durability."
   },
   "${modID}:EndOfTheLine": {
     "NAME": "End of The Line",
-    "DESCRIPTION": "Deal !D! damage. NL Die next turn NL Exhaust"
+    "DESCRIPTION": "Deal !D! damage. NL Die next turn. NL Exhaust."
   },
   "${modID}:InsuranceScam": {
     "NAME": "Insurance Scam",
-    "DESCRIPTION": "Take !D! damage. Gain !M! times that much gold"
+    "DESCRIPTION": "Take !D! damage. Gain !M! times that much gold."
   },
   "${modID}:FinancialSmokescreen": {
     "NAME": "Finanical Smokescreen",
-    "DESCRIPTION": "Lose !M! gold NL Escape the combat"
+    "DESCRIPTION": "Lose !M! gold. NL Escape the combat."
   },
   "${modID}:Bolt": {
     "NAME": "Bolt",
-    "DESCRIPTION": "Deal !D! damage Apply a random debuff NL RunnerMod:Neon NL Exhaust"
+    "DESCRIPTION": "Deal !D! damage. NL Apply a random debuff. NL RunnerMod:Neon. NL Exhaust."
   },
   "${modID}:Mending": {
     "NAME": "Mending",
-    "DESCRIPTION": " RunnerMod:Repair !M! NL RunnerMod:Neon"
+    "DESCRIPTION": " RunnerMod:Repair !M!. NL RunnerMod:Neon."
   },
   "${modID}:BladeDraw": {
     "NAME": "Blade Draw",
-    "DESCRIPTION": "Deal !D! damage NL Gain !M! Strength, until the end of the turn NL RunnerMod:Equip  RunnerMod:Blades NL RunnerMod:Neon"
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! Strength until the end of this turn. NL RunnerMod:Equip  RunnerMod:Blades. NL RunnerMod:Neon."
   },
   "${modID}:Flouresce": {
     "NAME": "Flouresce",
-    "DESCRIPTION": "ALL enemies lose !M! strength this turn NL RunnerMod:Neon NL Exhaust"
+    "DESCRIPTION": "ALL enemies lose !M! strength this turn. NL RunnerMod:Neon. NL Exhaust."
   },
   "${modID}:InfectedBlade": {
     "NAME": "Infected Blade",
-    "DESCRIPTION": "Deal !D! damage X times and Apply !M! RunnerMod:Hacked X times NL RunnerMod:Equip RunnerMod:Blades NL RunnerMod:Neon"
+    "DESCRIPTION": "Deal !D! damage and Apply !M! RunnerMod:Hacked X times. NL RunnerMod:Equip RunnerMod:Blades. NL RunnerMod:Neon."
   },
   "${modID}:Charge": {
     "NAME": "Charge",
-    "DESCRIPTION": "Add !M! Bolts to your hand"
+    "DESCRIPTION": "Add !M! Bolts to your hand."
   },
   "${modID}:HardLightTech": {
     "NAME": "Hard Light Tech",
-    "DESCRIPTION": "Deal !M! damage to a random enemy when you play a RunnerMod:Neon card"
+    "DESCRIPTION": "Deal !M! damage to a random enemy when you play a RunnerMod:Neon card."
   },
   "${modID}:BrokenBlades": {
     "NAME": "Broken Blades",
-    "DESCRIPTION": "RunnerMod:Equip RunnerMod:Blades !M! NL Ethereal NL Exhaust"
+    "DESCRIPTION": "RunnerMod:Equip RunnerMod:Blades. !M! NL Ethereal. NL Exhaust."
   },
   "${modID}:BrokenShields": {
     "NAME": "Broken Shields",
@@ -235,162 +239,159 @@
   },
   "${modID}:NanoFilamentBlade": {
     "NAME": "Nano Filament Blade",
-    "DESCRIPTION": "Deal !D! damage NL can be upgraded any number of times"
+    "DESCRIPTION": "Deal !D! damage. NL can be upgraded any number of times."
   },
   "${modID}:MultiLayerShield": {
     "NAME": "Multi Layer Shield",
-    "DESCRIPTION": "Gain !B! Block NL Can be upgraded any number of times"
+    "DESCRIPTION": "Gain !B! Block. NL Can be upgraded any number of times."
   },
   "${modID}:Adapt": {
     "NAME": "Adapt",
-    "DESCRIPTION": "Gain !DEX! Dexterity NL Gain !STR! Strength NL Can be upgraded any number of times"
+    "DESCRIPTION": "Gain !M! Strength. NL Gain !RunnerMod:DEX! Dexterity. NL Can be upgraded any number of times."
   },
   "${modID}:Deplete": {
     "NAME": "Deplete",
-    "DESCRIPTION": "Gain [E] [E] NL Gain 1 less [E] next turn",
-    "UPGRADE_DESCRIPTION": "Gain [E] [E] NL Gain 1 less [E] next turn NL RunnerMod:Neon"
+    "DESCRIPTION": "Gain [E] [E]. NL Gain 1 less [E] next turn.",
+    "UPGRADE_DESCRIPTION": "Gain [E] [E]. NL Gain 1 less [E] next turn. NL RunnerMod:Neon."
   },
   "${modID}:BotNet": {
     "NAME": "Bot Net",
-    "DESCRIPTION": "At the start of your turn apply !M! random debuff to a random enemy",
-    "UPGRADE_DESCRIPTION": "At the start of your turn apply !M! random debuffs to random enemies"
+    "DESCRIPTION": "At the start of your turn apply !M! random debuff to a random enemy.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn apply !M! random debuffs to random enemies."
   },
   "${modID}:MalwareStorm": {
     "NAME": "Malware Storm",
-    "DESCRIPTION": "Apply !M! random debuffs to random enemies"
+    "DESCRIPTION": "Apply !M! random debuffs to random enemies."
   },
   "${modID}:ThoughtlessIncursion": {
     "NAME": "Thoughtless Incursion",
-    "DESCRIPTION": "Apply !M! random debuffs NL Obtain 2 random debuffs",
-    "UPGRADE_DESCRIPTION":  "Apply !M! random debuffs NL Obtain 2 random debuffs"
+    "DESCRIPTION": "Apply !M! random debuffs. NL Obtain 2 random debuffs.",
+    "UPGRADE_DESCRIPTION":  "Apply !M! random debuffs. NL Obtain 2 random debuffs."
   },
   "${modID}:Digitise": {
     "NAME": "Digitise",
-    "DESCRIPTION": "Apply RunnerMod:Neon to !M! cards in your hand NL Exhaust"
-  },
-  "${modID}:Bide": {
-    "NAME": "Bide",
-    "DESCRIPTION": "Gain [E] [E] , the enemy gains 10 block"
+    "DESCRIPTION": "Apply RunnerMod:Neon to !M! cards in your hand. NL Exhaust."
   },
   "${modID}:Infect": {
     "NAME": "Infect",
-    "DESCRIPTION": "Deal !D! damage and apply !M! RunnerMod:Hacked"
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! RunnerMod:Hacked."
   },
   "${modID}:BladeStorm": {
     "NAME": "Bladestorm",
-    "DESCRIPTION": "Deal !D! damage !M! times to ALL enemies Runnermod:Neon"
+    "DESCRIPTION": "Deal !D! damage !M! times to ALL enemies. Runnermod:Neon."
   },
   "${modID}:Stalemate": {
     "NAME": "Stalemate",
-    "DESCRIPTION": "Gain !B! Block the enemy gains 5 block"
+    "DESCRIPTION": "Gain !B! Block. The enemy gains 5 block."
   },
   "${modID}:Manifest": {
     "NAME": "Manifest",
-    "DESCRIPTION": "Draw !M! cards NL Chose 2 cards to retain this turn NL Add a virus to your discard pile"
+    "DESCRIPTION": "Draw !M! cards. NL Chose 2 cards to retain this turn. NL Add a virus to your discard pile."
   },
   "${modID}:SwiftRun": {
     "NAME": "Swift Run",
-    "DESCRIPTION": "Deal !D! damage. NL If this causes the enemy to lose HP draw a card for each Run card played this turn"
+    "DESCRIPTION": "Deal !D! damage. NL If this causes the enemy to lose HP, draw a card for each Run card played this turn."
   },
   "${modID}:Overtax": {
     "NAME": "Overtax",
-    "DESCRIPTION": "At the start of each turn gain 1 extra energy. NL Lose !M! Strength and !M! Dexterity"
+    "DESCRIPTION": "Lose !M! Strength and !M! Dexterity. NL At the start of each turn gain [E]."
   },
   "${modID}:SystemCrash": {
     "NAME": "System Crash",
-    "DESCRIPTION": "Deal 6 damage times the number of debuffs applied to the enemy",
+    "DESCRIPTION": "Deal 6 damage times the number of debuffs applied to the enemy.",
     "EXTENDED_DESCRIPTION": [
-      " NL (Deals !D! damage)"
+      " NL (Deals !D! damage.)"
     ]
   },
   "${modID}:ScrapArmour": {
     "NAME": "Scrap Armour",
-    "DESCRIPTION": "Whenever you gain durability gain !M! Block",
-    "UPGRADE_DESCRIPTION": "Whenever you gain durability gain !M! Block NL Innate"
+    "DESCRIPTION": "Whenever you gain durability, gain !M! Block.",
+    "UPGRADE_DESCRIPTION": "Whenever you gain durability, gain !M! Block. NL Innate."
   },
   "${modID}:Quarantine": {
     "NAME": "Quarantine",
-    "DESCRIPTION": "All enemies lose !M! Strength for 1 turn NL RunnerMod:Equip RunnerMod:Firewall NL RunnerMod:Neon NL Innate"
+    "DESCRIPTION": "All enemies lose !M! Strength for 1 turn. NL RunnerMod:Equip RunnerMod:Firewall. NL RunnerMod:Neon. NL Innate."
   },
   "${modID}:Cloaking": {
     "NAME": "Cloaking",
-    "DESCRIPTION": "Whenever you attack this enemy, gain !M! Block NL RunnerMod:Equip RunnerMod:shields NL RunnerMod:Neon NL Exhaust"
+    "DESCRIPTION": "Whenever you attack this enemy, gain !M! Block. NL RunnerMod:Equip RunnerMod:shields. NL RunnerMod:Neon. NL Exhaust."
   },
   "${modID}:FreeRun": {
     "NAME": "Free Run",
-    "DESCRIPTION": "Gain !B! block NL Draw !M! cards NL Ethereal"
+    "DESCRIPTION": "Gain !B! block. NL Draw !M! card. NL Ethereal.",
+    "UPGRADE_DESCRIPTION": "Gain !B! block. NL Draw !M! cards. NL Ethereal."
   },
   "${modID}:LaughingMan": {
     "NAME": "Laughing Man",
-    "DESCRIPTION": "Whenever you apply a debuff apply 1 RunnerMod:Hacked NL Ethereal",
-    "UPGRADE_DESCRIPTION": "Whenever you apply a debuff apply 1 RunnerMod:Hacked"
+    "DESCRIPTION": "At the start of each turn apply !M! RunnerMod:Hacked to ALL enemies. NL Ethereal.",
+    "UPGRADE_DESCRIPTION": "At the start of each turn apply !M! RunnerMod:Hacked to ALL enemies."
   },
   "${modID}:EvasiveManoeuvres": {
     "NAME": "Evasive Manoeuvres",
-    "DESCRIPTION": "Gain !B! Block NL Whenever you take damage this turn Gain 3 Block"
+    "DESCRIPTION": "Gain !B! Block. NL Whenever you take damage this turn Gain 3 Block."
   },
   "${modID}:Siphon": {
     "NAME": "Siphon",
-    "DESCRIPTION": "The enemy loses !M! Strength NL Exhaust NL Runnermod:Neon"
+    "DESCRIPTION": "The enemy loses !M! Strength. NL Exhaust. NL Runnermod:Neon."
   },
   "${modID}:Spam": {
     "NAME": "Spam",
-    "DESCRIPTION": "Deal !D! damage to all enemies NL Draw !M! card and reduce its cost by 1 this turn",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage to all enemies NL Draw !M! card and reduce their cost by 1 this turn"
+    "DESCRIPTION": "Deal !D! damage to all enemies. NL Draw !M! card and reduce its cost by 1 this turn.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to all enemies. NL Draw !M! cards and reduce their cost by 1 this turn."
   },
   "${modID}:Decoy": {
     "NAME": "Decoy",
-    "DESCRIPTION": "RunnerMod:Neon NL Does Nothing NL Exhaust",
-    "UPGRADE_DESCRIPTION": "RunnerMod:Neon NL Does Nothing with Intent NL Exhaust"
+    "DESCRIPTION": "RunnerMod:Neon. NL Does Nothing. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "RunnerMod:Neon. NL Does Nothing with Intent. NL Exhaust."
   },
   "${modID}:LostInTheCrowd": {
     "NAME": "Lost in the Crowd",
-    "DESCRIPTION": "Fill your hand with decoys NL Ethereal",
-    "UPGRADE_DESCRIPTION": "Fill your hand with upgraded decoys NL Ethereal NL RunnerMod:Neon"
+    "DESCRIPTION": "Fill your hand with decoys. NL Ethereal.",
+    "UPGRADE_DESCRIPTION": "Fill your hand with upgraded decoys. NL Ethereal. NL RunnerMod:Neon."
   },
   "${modID}:GhostInTheShell": {
     "NAME": "Ghost in the Shell",
-    "DESCRIPTION": "Gain !B! Block NL Add !M! Decoys to your hand"
+    "DESCRIPTION": "Gain !B! Block. NL Add !M! Decoys to your hand."
   },
   "${modID}:DoubleTime": {
     "NAME": "Double Time",
-    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Overclocker NL Add !M! Decoys to your hand NL RunnerMod:Neon",
-    "UPGRADE_DESCRIPTION": " RunnerMod:Equip  RunnerMod:Overclocker NL Add !M! Decoys to your hand NL RunnerMod:Neon"
+    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Overclocker. NL Add !M! Decoys to your hand. NL RunnerMod:Neon.",
+    "UPGRADE_DESCRIPTION": " RunnerMod:Equip  RunnerMod:Overclocker. NL Add !M! Decoys to your hand. NL RunnerMod:Neon."
   },
   "${modID}:ShortCircuit": {
     "NAME": "Short Circuit",
-    "DESCRIPTION": " At the start of your turn Exhaust a card in your hand and gain [E]"
+    "DESCRIPTION": " At the start of your turn Exhaust a card in your hand and gain [E]."
   },
   "${modID}:Startle": {
     "NAME": "Startle",
-    "DESCRIPTION": "Apply !M! Vulnerable NL RunnerMod:Neon"
+    "DESCRIPTION": "Apply !M! Vulnerable. NL RunnerMod:Neon."
   },
   "${modID}:Cryostasis": {
     "NAME": "Cryostasis",
-    "DESCRIPTION": "Block is not removed at the start of your next turn NL Retain your hand NL End your turn",
-    "UPGRADE_DESCRIPTION": "Block is not removed at the start of your next turn NL Retain your hand NL End your turn NL Runnermod:Neon"
+    "DESCRIPTION": "Block is not removed at the start of your next turn. NL Retain your hand. NL End your turn.",
+    "UPGRADE_DESCRIPTION": "Block is not removed at the start of your next turn. NL Retain your hand. NL End your turn. NL Runnermod:Neon."
   },
   "${modID}:Escape": {
     "NAME": "Escape!",
-    "DESCRIPTION": "Gain !B! Block NL Costs 1 less [E] for each card played this turn"
+    "DESCRIPTION": "Gain !B! Block. NL Costs 1 less [E] for each card played this turn."
   },
   "${modID}:WireCoating": {
     "NAME": "Wire Coating",
-    "DESCRIPTION": "Gain !B! Block NL Gain !M! Vigor"
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! Vigor."
   },
   "${modID}:CTRLV": {
     "NAME": "CTRL-V",
-    "DESCRIPTION": "Make a copy of a card in your hand it costs 0 this turn",
-    "UPGRADE_DESCRIPTION": "Make a copy of a card in your hand it costs 0 this turn NL Retain"
+    "DESCRIPTION": "Make a copy of a card in your hand it costs 0 this turn.",
+    "UPGRADE_DESCRIPTION": "Make a copy of a card in your hand it costs 0 this turn. NL Retain."
   },
   "${modID}:AKIRA": {
     "NAME": "AKIRA",
-    "DESCRIPTION": "Replace part of your deck with unstable cards NL You can no longer use equipment",
-    "UPGRADE_DESCRIPTION": "Try to ascend NL Innate NL (Replace part of your deck with unstable cards NL You can no longer use equipment)"
+    "DESCRIPTION": "Replace part of your deck with unstable cards. NL You can no longer use equipment.",
+    "UPGRADE_DESCRIPTION": "Try to ascend. NL Innate. NL (Replace part of your deck with unstable cards NL You can no longer use equipment.)"
   },
   "${modID}:SpaceLaser": {
     "NAME": "Orbital Laser",
-    "DESCRIPTION": "Deal !D! damage NL Gain !M! Poison"
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! Poison."
   },
   "${modID}:FatalError": {
     "NAME": "- Fatal Error - ",
@@ -398,85 +399,86 @@
   },
   "${modID}:Drift": {
     "NAME": "Drift",
-    "DESCRIPTION": "Deal !D! damage !M! times"
+    "DESCRIPTION": "Deal !D! damage !M! times."
   },
   "${modID}:RegenFactor": {
     "NAME": "Regen Factor",
-    "DESCRIPTION": "Gain !M! Regen NL Exhaust"
+    "DESCRIPTION": "Gain !M! Regen. NL Exhaust."
   },
   "${modID}:Godspeed": {
     "NAME": "Godspeed",
-    "DESCRIPTION": "Each time you take damage gain 3 block"
+    "DESCRIPTION": "Each time you take damage gain 3 block."
   },
   "${modID}:Apex": {
     "NAME": "Apex",
-    "DESCRIPTION": "Gain !M! Vigor NL End your turn"
+    "DESCRIPTION": "Gain !M! Vigor. NL End your turn."
   },
   "${modID}:CheapShot": {
     "NAME": "Cheap Shot",
-    "DESCRIPTION": "Deal !D! damage NL Apply !M! Weak NL RunnerMod:Neon"
+    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak. NL RunnerMod:Neon."
   },
   "${modID}:RunPrep": {
     "NAME": "Run Prep",
-    "DESCRIPTION": "Your next attack costs 0"
+    "DESCRIPTION": "Your next attack costs 0."
   },
   "${modID}:Parry": {
     "NAME": "Parry",
-    "DESCRIPTION": "Gain !B! Block NL Runnermod:Neon"
+    "DESCRIPTION": "Gain !B! Block. NL Runnermod:Neon."
   },
   "${modID}:Biohazard": {
     "NAME": "Biohazard",
-    "DESCRIPTION": "Apply !M! random debuffs to random enemies NL Gain 5 Poison"
+    "DESCRIPTION": "Apply !M! random debuffs to random enemies. NL Gain 5 Poison."
   },
   "${modID}:TheWeaknessOfFlesh": {
     "NAME": "The Weakness of Flesh",
-    "DESCRIPTION": "Gain !M! plated armour lose 5 Dexterity"
+    "DESCRIPTION": "Gain !M! plated armour. NL lose 5 Dexterity."
   },
   "${modID}:Autopilot": {
     "NAME": "Autopilot",
-    "DESCRIPTION": "At the start of your turn play the top !M! cards of your deck"
+    "DESCRIPTION": "At the start of your turn play the top !M! cards of your deck."
   },
   "${modID}:WallOfForce": {
     "NAME": "Wall of Force",
-    "DESCRIPTION": "Gain !B! Block NL You don't lose block for 5 turns NL You can't gain block for 5 turns"
+    "DESCRIPTION": "Gain !B! Block. NL You don't lose block for 5 turns. NL You can't gain block for 5 turns."
   },
   "${modID}:Polyphony": {
     "NAME": "Polyphony",
-    "DESCRIPTION": "Deal 4 damage times the number of cards played this turn to all enemies",
+    "DESCRIPTION": "Deal 4 damage times the number of cards played this turn to all enemies.",
     "EXTENDED_DESCRIPTION": [
-      " NL (Deals !D! damage)"
+      " NL (Deals !D! damage.)"
     ]
   },
   "${modID}:Momentum": {
     "NAME": "Momentum",
-    "DESCRIPTION": "Deal !D! damage twice NL Apply !M! RunnerMod:Overwhelm"
+    "DESCRIPTION": "Deal !D! damage twice. NL Apply !M! RunnerMod:Overwhelm."
   },
   "${modID}:ScrapRun": {
     "NAME": "Scrap Run",
-    "DESCRIPTION": "Deal !D! damage twice add !M! card from your discard pile to your hand"
+    "DESCRIPTION": "Deal !D! damage twice. NL Add !M! card from your discard pile to your hand.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage twice. NL Add !M! cards from your discard pile to your hand."
   },
   "${modID}:ScoutingRun": {
     "NAME": "Scouting Run",
-    "DESCRIPTION": "Draw !M! cards NL Put 2 cards from your hand to the bottom of your deck"
+    "DESCRIPTION": "Draw !M! cards. NL Put 2 cards from your hand to the bottom of your deck."
   },
   "${modID}:StealthStrike": {
     "NAME": "Stealth Strike",
-    "DESCRIPTION": "Deal !D! Damage NL Gain !M! Vigour NL Doesn't Consume Vigour"
+    "DESCRIPTION": "Deal !D! Damage. NL Gain !M! Vigour. NL Doesn't Consume Vigour."
   },
   "${modID}:Recouperate": {
     "NAME": "Recouperate",
-    "DESCRIPTION": "Gain !B! Block NL Gain !M! RunnerMod:Vitality"
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! RunnerMod:Vitality."
   },
   "${modID}:DrainingRun": {
     "NAME": "Draining Run",
-    "DESCRIPTION": "Deal !D! Damage NL Gain RunnerMod:Vitality equal to the health lost"
+    "DESCRIPTION": "Deal !D! Damage. NL Gain RunnerMod:Vitality equal to the health lost."
   },
   "${modID}:Overcome": {
     "NAME": "Overcome",
-    "DESCRIPTION": "Deal !D! damage NL Permanently increase this card's damage by !M! NL Exhaust "
+    "DESCRIPTION": "Deal !D! damage. NL Permanently increase this card's damage by !M!. NL Exhaust."
   },
   "${modID}:Thievery": {
     "NAME": "Thievery",
-    "DESCRIPTION": "Deal !D! damage NL Chose 1 of !M! cards of any colour and play it NL It Exhausts"
+    "DESCRIPTION": "Deal !D! damage. NL Chose 1 of !M! cards of any colour and play it. NL It Exhausts."
   }
 }

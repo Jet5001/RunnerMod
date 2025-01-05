@@ -12,12 +12,9 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.stances.AbstractStance;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import runnermod.cards.BaseCard;
-import runnermod.cards.rare.DexAmount;
-import runnermod.cards.rare.StrAmount;
 import runnermod.character.RunnerCharacter;
 import runnermod.monsters.AKIRABoss;
 import runnermod.potions.BasePotion;
-import runnermod.powers.Hacked;
 import runnermod.relics.BackPocket;
 import runnermod.relics.BaseRelic;
 import runnermod.util.GeneralUtils;
@@ -249,8 +246,6 @@ public class RunnerMod implements
     public void receiveEditCards() {
         new AutoAdd(modID).packageFilter(BaseCard.class).setDefaultSeen(true).cards();
         new AutoAdd(modID).packageFilter(AbstractStance.class);
-        BaseMod.addDynamicVariable(new StrAmount());
-        BaseMod.addDynamicVariable(new DexAmount());
     }
 
     public static void registerPotions() {

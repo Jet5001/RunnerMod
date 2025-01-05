@@ -6,6 +6,8 @@ import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
+import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import runnermod.powers.VitalityPower;
 
 public class DrainingRunAction extends AbstractGameAction {
@@ -26,6 +28,7 @@ public class DrainingRunAction extends AbstractGameAction {
         {
             int previousHealth = target.currentHealth;
             target.damage(info);
+            AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, AttackEffect.SLASH_VERTICAL, false));
             if (target.currentHealth < previousHealth)
             {
                 //add to top to execute next

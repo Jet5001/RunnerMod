@@ -20,7 +20,7 @@ public class BladesStance extends RunnerStance {
     public static final String STANCE_ID = "Blades";
 
     private static final StanceStrings stanceString = CardCrawlGame.languagePack.getStanceString("Blades");
-    private static final String baseDescription = "Each time you play a card, deal damage equal to 3 times it's cost NL ";
+    private static final String baseDescription = "Each time you play a card, deal damage equal to #b 3 times it's cost NL ";
 
     private static long sfxId = -1L;
     private int durability;

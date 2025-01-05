@@ -35,6 +35,7 @@ import runnermod.cards.starter.Defend_Runner;
 import runnermod.cards.starter.Strike_Runner;
 import runnermod.cards.starter.Pilfer;
 import runnermod.relics.ICEPick;
+import runnermod.relics.SpareParts;
 
 import java.util.ArrayList;
 
@@ -169,7 +170,7 @@ public class RunnerCharacter extends CustomPlayer implements OnCardUseSubscriber
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
         //IDs of starting relics. You can have multiple, but one is recommended.
-        retVal.add(ICEPick.ID);
+        retVal.add(SpareParts.ID);
 
         return retVal;
     }

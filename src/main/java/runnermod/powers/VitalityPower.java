@@ -40,7 +40,7 @@ public class VitalityPower extends BasePower implements CloneablePowerInterface 
     public void onUseCard(AbstractCard card, UseCardAction action) {
         //since modify block happens before this call this amount is added automatically
         //the if below is true when block value of card >0 base (-1 if not set) so is likely meant to add block
-        if(card.baseBlock > this.amount-1)
+        if(card.baseBlock > 0)
         {
             flash();
             addToTop(new RemoveSpecificPowerAction(this.owner,this.owner, this));

@@ -28,7 +28,7 @@ public class MetalStance extends RunnerStance {
     public static final String STANCE_ID = "Metal";
 
     private static final StanceStrings stanceString = CardCrawlGame.languagePack.getStanceString("Metal");
-    private static final String baseDescription = "Each time you play a card gain 3 Block and 2 Thorns NL ";
+    private static final String baseDescription = "Each time you play a card gain #b 3 Block and #b 2 Thorns NL ";
 
     private static long sfxId = -1L;
     private int durability;

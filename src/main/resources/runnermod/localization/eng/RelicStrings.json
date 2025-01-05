@@ -18,7 +18,7 @@
     "NAME": "Drone",
     "FLAVOR": "It doesn't do much",
     "DESCRIPTIONS": [
-      "At the start of your turn add 2 Decoys to your hand"
+      "At the start of your turn add #b 2 Decoys to your hand"
     ]
   },
   "${modID}:ICEBreaker": {
@@ -39,28 +39,28 @@
     "NAME": "Impact Hammer",
     "FLAVOR": "Sometimes everything is just a nail",
     "DESCRIPTIONS": [
-      "At the start of each turn gain 3 Vigor"
+      "At the start of each turn gain #b 3 #yVigor"
     ]
   },
   "${modID}:MirrorShard": {
     "NAME": "Mirror Shard",
     "FLAVOR": "You only see a fragment when looking inwards",
     "DESCRIPTIONS": [
-      "Whenever you play a 0 cost card gain 1 Block"
+      "Whenever you play a 0 cost card gain #b 1 Block"
     ]
   },
   "${modID}:BackPocket": {
     "NAME": "Back Pocket",
     "FLAVOR": "The lint lives here",
     "DESCRIPTIONS": [
-      "The first time you reach 0 energy in a turn draw 1 card"
+      "The first time you reach 0 energy in a turn draw #b 1 card"
     ]
   },
   "${modID}:FissionCore": {
     "NAME": "Fission Core",
     "FLAVOR": "Powering UP",
     "DESCRIPTIONS": [
-      "Whenever you use a new equipment each fight, gain 1 strength"
+      "Whenever you use a new equipment each fight, gain #b 1 strength"
     ]
   },
   "${modID}:RoboLouse": {
@@ -68,6 +68,13 @@
     "FLAVOR": "Wires are tasty",
     "DESCRIPTIONS": [
       "At the start of each combat, apply 3 hack to all enemies"
+    ]
+  },
+  "${modID}:SpareParts": {
+    "NAME": "Trusted Technology",
+    "FLAVOR": "A well worn arsenal fine tuned for your every movement",
+    "DESCRIPTIONS": [
+      "At the start of each combat #yEquip a random Equipment. NL Equipment can combine together. NL e.g. Blades + Shields = Accel."
     ]
   }
 }
