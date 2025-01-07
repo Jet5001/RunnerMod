@@ -68,6 +68,8 @@ public class RunnerMod implements
 
     private static final Color cardColour = new Color(124f/255f, 48f/255f, 255f/255f, 1f);
 
+    public static EquipmentRenderer equipmentRenderer;
+
     //This is used to prefix the IDs of various objects like cards and relics,
     //to avoid conflicts between different mods using the same name for things.
     public static String makeID(String id) {
@@ -102,6 +104,8 @@ public class RunnerMod implements
         BaseMod.addMonster(AKIRABoss.ID, "Akira",()->new AKIRABoss());
         BaseMod.addBoss(TheBeyond.ID,AKIRABoss.ID,resourcesFolder + "/images/monsters/AkiraBossIconTemp.png",resourcesFolder + "/images/monsters/AkiraBossIconTemp.png");
         registerPotions();
+        
+        equipmentRenderer = new EquipmentRenderer();
     }
 
     /*----------Localization----------*/
