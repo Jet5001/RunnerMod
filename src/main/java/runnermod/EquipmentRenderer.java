@@ -180,6 +180,10 @@ public class EquipmentRenderer {
                 if (durability != null) {
                     e.durability = (int) durability;
                 }
+                else
+                {
+                    e.durability = 0;
+                }
 
             }
             if (e.hb.hovered && !AbstractDungeon.isScreenUp && !CardCrawlGame.isPopupOpen) {
