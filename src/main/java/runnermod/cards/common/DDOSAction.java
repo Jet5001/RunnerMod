@@ -12,11 +12,13 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 public class DDOSAction extends AbstractGameAction {
 
     private DamageInfo info;
-    DDOSAction(AbstractCreature source, DamageInfo info)
+    private int VulnerableAmount;
+    DDOSAction(AbstractCreature source, DamageInfo info, int VulnerableAmount)
     {
         this.info = info;
         setValues(target,info);
         this.actionType = ActionType.DAMAGE;
+        this.VulnerableAmount = VulnerableAmount;
     }
 
 
@@ -30,7 +32,7 @@ public class DDOSAction extends AbstractGameAction {
             if (m.currentHealth < prevHealth)
             {
                 healthLost = true;
-                addToTop(new ApplyPowerAction(m,AbstractDungeon.player, new VulnerablePower(m,1,false)));
+                addToTop(new ApplyPowerAction(m,AbstractDungeon.player, new VulnerablePower(m,VulnerableAmount,false)));
             }
             }
         if (healthLost)

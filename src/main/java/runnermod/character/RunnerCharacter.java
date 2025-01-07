@@ -30,10 +30,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import runnermod.cards.common.QuickRun;
-import runnermod.cards.starter.CheapShot;
-import runnermod.cards.starter.Defend_Runner;
-import runnermod.cards.starter.Strike_Runner;
-import runnermod.cards.starter.Pilfer;
+import runnermod.cards.starter.*;
 import runnermod.relics.ICEPick;
 import runnermod.relics.SpareParts;
 
@@ -160,7 +157,7 @@ public class RunnerCharacter extends CustomPlayer implements OnCardUseSubscriber
         retVal.add(Defend_Runner.ID);
         retVal.add(Defend_Runner.ID);
         retVal.add(Defend_Runner.ID);
-        retVal.add(Pilfer.ID);
+        retVal.add(FlashKnuckle.ID);
         retVal.add(CheapShot.ID);
 
         return retVal;

@@ -21,7 +21,7 @@ public class Infect extends BaseCard {
             1
     );
 
-    private static final int DMG = 5;
+    private static final int DMG = 8;
     private static final int DMG_UPG = 3;
     private static final int MAG = 2;
     private static final int MAG_UPG = 0;

@@ -145,5 +145,12 @@
       "Whenever the player gains block take #b",
       " damage"
     ]
+  },
+  "${modID}:ShockedPower": {
+    "NAME": "Shocked",
+    "DESCRIPTIONS": [
+      "The next time damage is taken, take #b",
+      " more"
+    ]
   }
 }

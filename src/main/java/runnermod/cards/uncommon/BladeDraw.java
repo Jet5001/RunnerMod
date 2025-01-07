@@ -29,10 +29,10 @@ public class BladeDraw extends BaseCard {
 
     );
     private static final int DMG = 7;
-    private static final int DMG_UPG = 2;
+    private static final int DMG_UPG = 3;
     private static final int DUR = 3;
     private static final int MAG = 2;
-    private static final int MAG_UPG = 0;
+    private static final int MAG_UPG = 1;
     public BladeDraw()
     {
         super(ID,info);

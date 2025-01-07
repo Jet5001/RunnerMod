@@ -31,8 +31,6 @@ public class SlowLoris extends BaseCard {
         setMagic(MAGIC,MAGIC_UPG);
     }
 
-
-    //Not applying vulnerable before damage for some reason?
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (int i = 0; i < magicNumber; i++) {

@@ -2,17 +2,11 @@ package runnermod.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.colorless.DarkShackles;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.powers.watcher.BlockReturnPower;
 import com.megacrit.cardcrawl.powers.watcher.MarkPower;
-import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
-import org.lwjgl.Sys;
 import runnermod.powers.FlourishPower;
 import runnermod.powers.Hacked;
 import runnermod.powers.Overwhelm;

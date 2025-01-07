@@ -16,7 +16,7 @@ public class FlourishPower extends BasePower implements CloneablePowerInterface 
 
 
     public static final String POWER_ID = makeID("FlourishPower");
-    public static final PowerType TYPE = PowerType.BUFF;
+    public static final PowerType TYPE = PowerType.DEBUFF;
     private static final boolean TURNBASED = false;
     public FlourishPower(AbstractCreature owner, int amount)
     {

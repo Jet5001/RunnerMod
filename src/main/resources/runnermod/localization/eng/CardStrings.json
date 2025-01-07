@@ -84,7 +84,7 @@
   },
   "${modID}:DDOS": {
     "NAME": "DDOS",
-    "DESCRIPTION": "Deal !D! damage to all enemies, any enemy that loses health this way gains 1 vulnerable."
+    "DESCRIPTION": "Deal !D! damage to all enemies, any enemy that loses health this way gains !M! vulnerable."
   },
   "${modID}:Strike_Runner": {
     "NAME": "Strike",
@@ -463,7 +463,7 @@
   },
   "${modID}:StealthStrike": {
     "NAME": "Stealth Strike",
-    "DESCRIPTION": "Deal !D! Damage. NL Gain !M! Vigour. NL Doesn't Consume Vigour."
+    "DESCRIPTION": "Deal !D! Damage. NL Gain !M! Vigor. NL Doesn't Consume Vigor."
   },
   "${modID}:Recouperate": {
     "NAME": "Recouperate",
@@ -480,5 +480,9 @@
   "${modID}:Thievery": {
     "NAME": "Thievery",
     "DESCRIPTION": "Deal !D! damage. NL Chose 1 of !M! cards of any colour and play it. NL It Exhausts."
+  },
+  "${modID}:FlashKnuckle": {
+    "NAME": "Flash Knuckle",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! Vigor."
   }
 }

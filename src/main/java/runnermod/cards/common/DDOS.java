@@ -20,18 +20,21 @@ public class DDOS extends BaseCard {
             1
     );
 
-    private static final int DMG = 5;
-    private static final int DMG_UPG = 2;
+    private static final int DMG = 6;
+    private static final int DMG_UPG = 3;
+    private static final int MAG = 1;
+    private static final int MAG_UPG = 1;
     public DDOS()
     {
         super(ID,info);
         setDamage(DMG,DMG_UPG);
+        setMagic(MAG,MAG_UPG);
     }
 
 
     //called when the card is played and performs the actions for the card
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-            addToBot(new DDOSAction(p,  new DamageInfo(p,damage, DamageInfo.DamageType.NORMAL)));
+            addToBot(new DDOSAction(p,  new DamageInfo(p,damage, DamageInfo.DamageType.NORMAL),magicNumber));
     }
 }
