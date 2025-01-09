@@ -20,12 +20,14 @@ import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import com.megacrit.cardcrawl.vfx.stance.CalmParticleEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceChangeParticleGenerator;
+import runnermod.RunnerMod;
 import runnermod.character.RunnerCharacter;
+import runnermod.util.LocalizedRunnerStanceStrings;
 
 import java.util.Collections;
 
 public class OverclockStance extends RunnerStance {
-    public static final String STANCE_ID = "Overclock";
+    public static String STANCE_ID = "Overclock";
 
 
     private static long sfxId = -1L;
@@ -34,6 +36,9 @@ public class OverclockStance extends RunnerStance {
     public OverclockStance(String[] ids, int[] durabilties) {
         super(ids,durabilties);
         this.ID = "Overclock";
+        stanceString = LocalizedRunnerStanceStrings.getRunnerStanceStrings(RunnerMod.makeID(STANCE_ID));
+        baseDescription = stanceString.DESCRIPTION;
+        name = stanceString.NAME;
         this.description = baseDescription;
         updateDescription();
     }
@@ -65,13 +70,6 @@ public class OverclockStance extends RunnerStance {
         }
     }
 
-    public void updateDescription() {
-        this.description = baseDescription;
-        for (String id: Collections.list(durabilityDictionary.keys())) {
-                this.description += id + " : " + durabilityDictionary.get(id) + " durability left";
-        }
-
-    }
 
     //start visuals for this stance
     public void onEnterStance() {

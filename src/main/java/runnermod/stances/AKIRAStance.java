@@ -20,8 +20,10 @@ import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceChangeParticleGenerator;
 import com.megacrit.cardcrawl.vfx.stance.WrathParticleEffect;
 import org.lwjgl.Sys;
+import runnermod.RunnerMod;
 import runnermod.cards.tempcards.*;
 import runnermod.character.RunnerCharacter;
+import runnermod.util.LocalizedRunnerStanceStrings;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -29,7 +31,7 @@ import java.util.List;
 import java.util.Random;
 
 public class AKIRAStance extends RunnerStance {
-    public static final String STANCE_ID = "AKIRA";
+    protected static String STANCE_ID = "AKIRA";
 
 
     private static long sfxId = -1L;
@@ -38,6 +40,9 @@ public class AKIRAStance extends RunnerStance {
     public AKIRAStance(String[] ids, int[] durabilties) {
         super(ids,durabilties);
         this.ID = "AKIRA";
+        stanceString = LocalizedRunnerStanceStrings.getRunnerStanceStrings(RunnerMod.makeID(STANCE_ID));
+        baseDescription = stanceString.DESCRIPTION;
+        name = stanceString.NAME;
         this.description = baseDescription;
         updateDescription();
     }

@@ -11,13 +11,16 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.StanceStrings;
+import com.megacrit.cardcrawl.stances.AbstractStance;
 import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
+import runnermod.RunnerMod;
 import runnermod.character.RunnerCharacter;
+import runnermod.util.LocalizedRunnerStanceStrings;
 
 import java.util.Collections;
 
 public class BladesStance extends RunnerStance {
-    public static final String STANCE_ID = "Blades";
+    public static String STANCE_ID = "Blades";
 
 
     private static long sfxId = -1L;
@@ -26,6 +29,9 @@ public class BladesStance extends RunnerStance {
     public BladesStance(String[] ids, int[] durabilties) {
         super(ids,durabilties);
         this.ID = "Blades";
+        stanceString = LocalizedRunnerStanceStrings.getRunnerStanceStrings(RunnerMod.makeID(STANCE_ID));
+        baseDescription = stanceString.DESCRIPTION;
+        this.name = stanceString.NAME;
         this.description = baseDescription;
         updateDescription();
     }
@@ -79,12 +85,6 @@ public class BladesStance extends RunnerStance {
         }
     }
 
-    public void updateDescription() {
-        this.description = baseDescription;
-        for (String id: Collections.list(durabilityDictionary.keys())) {
-                this.description += id + " : " + durabilityDictionary.get(id) + " durability left";
-        }
-    }
 
     public void onEnterStance() {
         if (sfxId != -1L)

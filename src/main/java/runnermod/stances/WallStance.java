@@ -18,7 +18,7 @@ import runnermod.util.RunnerStanceStrings;
 import java.util.Collections;
 
 public class WallStance extends RunnerStance {
-    public static final String STANCE_ID = RunnerMod.makeID("Shields");
+    public static String STANCE_ID = "Wall";
 
     private static long sfxId = -1L;
     private int durability;
@@ -26,6 +26,9 @@ public class WallStance extends RunnerStance {
     public WallStance(String[] ids, int[] durabilties) {
         super(ids,durabilties);
         this.ID = "Wall";
+        stanceString = LocalizedRunnerStanceStrings.getRunnerStanceStrings(RunnerMod.makeID(STANCE_ID));
+        baseDescription = stanceString.DESCRIPTION;
+        name = stanceString.NAME;
         this.description = baseDescription;
         updateDescription();
     }

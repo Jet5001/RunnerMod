@@ -24,15 +24,17 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import com.megacrit.cardcrawl.vfx.stance.*;
 import org.lwjgl.Sys;
+import runnermod.RunnerMod;
 import runnermod.cards.RandomDebuffAction;
 import runnermod.character.RunnerCharacter;
 import runnermod.powers.Hacked;
+import runnermod.util.LocalizedRunnerStanceStrings;
 
 import java.util.Collections;
 import java.util.Random;
 
 public class BerserkerStance extends RunnerStance {
-    public static final String STANCE_ID = "Berserker";
+    public static String STANCE_ID = "Berserker";
 
 
     private static long sfxId = -1L;
@@ -42,6 +44,9 @@ public class BerserkerStance extends RunnerStance {
     public BerserkerStance(String[] ids, int[] durabilties) {
         super(ids,durabilties);
         this.ID = "Berserker";
+        stanceString = LocalizedRunnerStanceStrings.getRunnerStanceStrings(RunnerMod.makeID(STANCE_ID));
+        baseDescription = stanceString.DESCRIPTION;
+        name = stanceString.NAME;
         this.description = baseDescription;
         updateDescription();
     }
@@ -83,14 +88,6 @@ public class BerserkerStance extends RunnerStance {
     }
 
 
-
-    public void updateDescription() {
-        this.description = baseDescription;
-        for (String id: Collections.list(durabilityDictionary.keys())) {
-                this.description +=  id + " : " + durabilityDictionary.get(id) + " cards left NL ";
-        }
-        this.description += cardsPlayedInStance + " Cards played in stance";
-    }
 
     public void onEnterStance() {
         cardsPlayedInStance = 0;

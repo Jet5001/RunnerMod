@@ -21,14 +21,16 @@ import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceChangeParticleGenerator;
 import com.megacrit.cardcrawl.vfx.stance.WrathParticleEffect;
+import runnermod.RunnerMod;
 import runnermod.cards.common.Hack;
 import runnermod.character.RunnerCharacter;
 import runnermod.powers.Hacked;
+import runnermod.util.LocalizedRunnerStanceStrings;
 
 import java.util.Collections;
 
 public class HackStance extends RunnerStance {
-    public static final String STANCE_ID = "Hack";
+    public static String STANCE_ID = "Hack";
 
     private static long sfxId = -1L;
     private int durability;
@@ -36,6 +38,9 @@ public class HackStance extends RunnerStance {
     public HackStance(String[] ids, int[] durabilties) {
         super(ids,durabilties);
         this.ID = "Hack";
+        stanceString = LocalizedRunnerStanceStrings.getRunnerStanceStrings(RunnerMod.makeID(STANCE_ID));
+        baseDescription = stanceString.DESCRIPTION;
+        name = stanceString.NAME;
         this.description = baseDescription;
         updateDescription();
     }
@@ -78,12 +83,6 @@ public class HackStance extends RunnerStance {
         }
     }
 
-    public void updateDescription() {
-        this.description = baseDescription;
-        for (String id: Collections.list(durabilityDictionary.keys())) {
-                this.description +=  id + " : " + durabilityDictionary.get(id) + " durability left NL ";
-        }
-    }
 
     public void onEnterStance() {
         if (sfxId != -1L)

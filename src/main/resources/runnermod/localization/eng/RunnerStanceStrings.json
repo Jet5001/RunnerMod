@@ -3,21 +3,21 @@
     "NAME": "Name",
     "DESCRIPTION": "Description."
   },
-  "${modID}:Shields": {
+  "${modID}:Wall": {
     "NAME": "Shields",
-    "DESCRIPTION": "When you play an attack gain block equal to it's cost"
+    "DESCRIPTION": "When you play an attack gain block equal to it's cost."
   },
   "${modID}:Accel": {
     "NAME": "Accel",
-    "DESCRIPTION": "Each time you play a card gain #b 1 strength this turn and #b 2 Block next turn "
+    "DESCRIPTION": "Each time you play a card gain #b 1 strength this turn and #b 2 Block next turn."
   },
-  "${modID}:Firewall": {
+  "${modID}:Artifact": {
     "NAME": "Firewall",
-    "DESCRIPTION": "You cannot gain debuffs and cards don't exhaust on play "
+    "DESCRIPTION": "You cannot gain debuffs and cards don't exhaust on play."
   },
   "${modID}:Berserker": {
     "NAME": "Berserker",
-    "DESCRIPTION": "Each time you play a card deal damage equal to the number of cards played in this stance "
+    "DESCRIPTION": "Each time you play a card deal damage equal to the number of cards played in this stance."
   },
   "${modID}:Blades": {
     "NAME": "Blades",

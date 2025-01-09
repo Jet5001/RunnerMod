@@ -21,12 +21,14 @@ import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceChangeParticleGenerator;
 import com.megacrit.cardcrawl.vfx.stance.WrathParticleEffect;
+import runnermod.RunnerMod;
 import runnermod.character.RunnerCharacter;
+import runnermod.util.LocalizedRunnerStanceStrings;
 
 import java.util.Collections;
 
 public class ArtifactStance extends RunnerStance {
-    public static final String STANCE_ID = "Artifact";
+    public static String STANCE_ID = "Artifact";
 
 
     private static long sfxId = -1L;
@@ -36,7 +38,11 @@ public class ArtifactStance extends RunnerStance {
         super(ids,durabilties);
 
         this.ID = "Artifact";
+        stanceString = LocalizedRunnerStanceStrings.getRunnerStanceStrings(RunnerMod.makeID(STANCE_ID));
+        baseDescription = stanceString.DESCRIPTION;
+        this.name = stanceString.NAME;
         this.description = baseDescription;
+        this.description += " NL ";
         updateDescription();
     }
 
@@ -75,12 +81,6 @@ public class ArtifactStance extends RunnerStance {
         updateDescription();
     }
 
-    public void updateDescription() {
-        this.description = baseDescription;
-        for (String id: Collections.list(durabilityDictionary.keys())) {
-                this.description += id + " : " + durabilityDictionary.get(id) + " durability left";
-        }
-    }
 
     public void onEnterStance() {
         if (sfxId != -1L)
@@ -138,4 +138,5 @@ public class ArtifactStance extends RunnerStance {
             sfxId = -1L;
         }
     }
+
 }

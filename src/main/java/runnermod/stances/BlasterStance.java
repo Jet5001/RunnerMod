@@ -11,12 +11,14 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.StanceStrings;
 import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceChangeParticleGenerator;
+import runnermod.RunnerMod;
 import runnermod.cards.tempcards.Bolt;
+import runnermod.util.LocalizedRunnerStanceStrings;
 
 import java.util.Collections;
 
 public class BlasterStance extends RunnerStance {
-    public static final String STANCE_ID = "Blaster";
+    public static String STANCE_ID = "Blaster";
 
 
     private static long sfxId = -1L;
@@ -25,6 +27,9 @@ public class BlasterStance extends RunnerStance {
         super(ids,durabilties);
 
         this.ID = "Blaster";
+        stanceString = LocalizedRunnerStanceStrings.getRunnerStanceStrings(RunnerMod.makeID(STANCE_ID));
+        baseDescription = stanceString.DESCRIPTION;
+        name = stanceString.NAME;
         this.description = baseDescription;
         updateDescription();
     }
@@ -59,12 +64,6 @@ public class BlasterStance extends RunnerStance {
         updateDescription();
     }
 
-    public void updateDescription() {
-        this.description = baseDescription;
-        for (String id: Collections.list(durabilityDictionary.keys())) {
-                this.description += id + " : " + durabilityDictionary.get(id) + " durability left NL ";
-        }
-    }
 
     public void onEnterStance() {
         if (sfxId != -1L)

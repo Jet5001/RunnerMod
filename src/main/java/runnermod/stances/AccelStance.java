@@ -17,12 +17,14 @@ import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceChangeParticleGenerator;
 import com.megacrit.cardcrawl.vfx.stance.WrathParticleEffect;
+import runnermod.RunnerMod;
 import runnermod.character.RunnerCharacter;
+import runnermod.util.LocalizedRunnerStanceStrings;
 
 import java.util.Collections;
 
 public class AccelStance extends RunnerStance {
-    public static final String STANCE_ID = "Accel";
+    public static String STANCE_ID = "Accel";
 
     private static long sfxId = -1L;
     private int durability;
@@ -30,9 +32,13 @@ public class AccelStance extends RunnerStance {
     public AccelStance(String[] ids, int[] durabilties) {
         super(ids,durabilties);
         this.ID = "Accel";
+        stanceString = LocalizedRunnerStanceStrings.getRunnerStanceStrings(RunnerMod.makeID(STANCE_ID));
+        baseDescription = stanceString.DESCRIPTION;
+        name = stanceString.NAME;
         this.description = baseDescription;
         updateDescription();
     }
+
 
 //    public float atDamageGive(float damage, DamageInfo.DamageType type) {
 //        if (type == DamageInfo.DamageType.NORMAL)
@@ -70,6 +76,7 @@ public class AccelStance extends RunnerStance {
             AbstractDungeon.effectsQueue.add(new StanceAuraEffect("Wrath"));
         }
     }
+
 
 
 

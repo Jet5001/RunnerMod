@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.stances.AbstractStance;
 import com.megacrit.cardcrawl.stances.NeutralStance;
+import runnermod.RunnerMod;
 import runnermod.character.RunnerCharacter;
 import runnermod.util.LocalizedRunnerStanceStrings;
 import runnermod.util.RunnerStanceStrings;
@@ -18,25 +19,32 @@ import java.util.Hashtable;
 public abstract class RunnerStance extends AbstractStance {
     public Dictionary<String,Integer> durabilityDictionary;
 
-    public static final String STANCE_ID = "ExampleStance";
-    protected static final RunnerStanceStrings stanceString = LocalizedRunnerStanceStrings.getRunnerStanceStrings(STANCE_ID);
-    protected static final String baseDescription = stanceString.DESCRIPTION;
-    protected static final String name = stanceString.NAME;
+    public static String STANCE_ID = "ExampleStance";
+    protected RunnerStanceStrings stanceString = LocalizedRunnerStanceStrings.getRunnerStanceStrings(STANCE_ID);
+    protected String baseDescription = stanceString.DESCRIPTION;
     RunnerStance(String[] ids, int[] durabilties)
     {
         durabilityDictionary = new Hashtable<>();
         for (int i = 0; i < ids.length; i++) {
             durabilityDictionary.put(ids[i],durabilties[i] );
         }
+        stanceString = LocalizedRunnerStanceStrings.getRunnerStanceStrings(RunnerMod.makeID(STANCE_ID));
+        baseDescription = stanceString.DESCRIPTION;
+        name = stanceString.NAME;
     }
 
-    RunnerStance(String id, int durabilty)
-    {
-            durabilityDictionary = new Hashtable<>();
-            durabilityDictionary.put(id,durabilty);
+    RunnerStance(String id, int durabilty) {
+        durabilityDictionary = new Hashtable<>();
+        durabilityDictionary.put(id, durabilty);
     }
 
-
+    public void updateDescription() {
+        this.description = baseDescription;
+        this.description += " NL ";
+        for (String id: Collections.list(durabilityDictionary.keys())) {
+            this.description += "NL " + id + " : " + durabilityDictionary.get(id) + " durability left NL ";
+        }
+    }
 
     public void onPlayCard(AbstractCard card) {
         if(card.hasTag(RunnerCharacter.Enums.NEON))
@@ -261,10 +269,5 @@ public abstract class RunnerStance extends AbstractStance {
     }
 
 
-    public void updateDescription() {
-        this.description = baseDescription;
-        for (String id: Collections.list(durabilityDictionary.keys())) {
-            this.description += "NL " + name + " : " + durabilityDictionary.get(id) + " durability left NL ";
-        }
-    }
+
 }

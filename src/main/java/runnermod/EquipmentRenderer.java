@@ -35,7 +35,7 @@ public class EquipmentRenderer {
     private static final Color textColor = Settings.CREAM_COLOR.cpy();
     private static final Color alphaColor = new Color(1.0F, 1.0F, 1.0F, 0.5F);
     private static final float fontScale = 0.7F;
-    private static final float scale = 0.85F * Settings.scale;
+    private static final float scale = 0.6F * Settings.scale;
     private static final float cubeScale = scale * 1.15F;
     private static float NUM_X_OFFSET;
     private static float NUM_Y_OFFSET;
@@ -80,26 +80,26 @@ public class EquipmentRenderer {
         tinkerHB = new Hitbox(tinkerTexture.getWidth() * scale, tinkerTexture.getHeight() * scale);
 
         equipment.put("accel", new DisplayEquipment(AccelStance.STANCE_ID, accelTexture, smallCircleTexture, accelHB,
-                LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Accel")).NAME, LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Accel")).DESCRIPTION));
+                LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID(AccelStance.STANCE_ID)).NAME, LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID(AccelStance.STANCE_ID)).DESCRIPTION));
         equipment.put("berserker", new DisplayEquipment(BerserkerStance.STANCE_ID, berserkerTexture, smallCircleTexture, berserkerHB,
-                LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Berserker")).NAME, LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Berserker")).DESCRIPTION));
+                LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID(BerserkerStance.STANCE_ID)).NAME, LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID(BerserkerStance.STANCE_ID)).DESCRIPTION));
         equipment.put("blades", new DisplayEquipment(BladesStance.STANCE_ID, bladesTexture, circleTexture, bladesHB,
-                        LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Blades")).NAME, LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Blades")).DESCRIPTION));
+                        LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID(BladesStance.STANCE_ID)).NAME, LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID(BladesStance.STANCE_ID)).DESCRIPTION));
         equipment.put("blaster", new DisplayEquipment(BlasterStance.STANCE_ID, blasterTexture, smallCircleTexture, blasterHB,
-                LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Blaster")).NAME, LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Blaster")).DESCRIPTION));
+                LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID(BlasterStance.STANCE_ID)).NAME, LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID(BlasterStance.STANCE_ID)).DESCRIPTION));
         equipment.put("firewall", new DisplayEquipment(ArtifactStance.STANCE_ID, firewallTexture, circleTexture, firewallHB,
-                LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Firewall")).NAME, LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Firewall")).DESCRIPTION));
+                LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID(ArtifactStance.STANCE_ID)).NAME, LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID(ArtifactStance.STANCE_ID)).DESCRIPTION));
         equipment.put("hack",
                 new DisplayEquipment(HackStance.STANCE_ID, hackTexture, smallCircleTexture, hackHB,
-                        LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Hack")).NAME, LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Hack")).DESCRIPTION));
+                        LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID(HackStance.STANCE_ID)).NAME, LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID(HackStance.STANCE_ID)).DESCRIPTION));
         equipment.put("metal", new DisplayEquipment(MetalStance.STANCE_ID, metalTexture, smallCircleTexture, metalHB,
-                LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Metal")).NAME, LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Metal")).DESCRIPTION));
+                LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID(MetalStance.STANCE_ID)).NAME, LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID(MetalStance.STANCE_ID)).DESCRIPTION));
         equipment.put("overclock", new DisplayEquipment(OverclockStance.STANCE_ID, overclockTexture, circleTexture, overclockHB,
-                LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Overclock")).NAME, LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Overclock")).DESCRIPTION));
+                LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID(OverclockStance.STANCE_ID)).NAME, LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID(OverclockStance.STANCE_ID)).DESCRIPTION));
         equipment.put("shields", new DisplayEquipment(WallStance.STANCE_ID, shieldsTexture, circleTexture, shieldsHB,
-                LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Shields")).NAME, LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Shields")).DESCRIPTION));
+                LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID(WallStance.STANCE_ID)).NAME, LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID(WallStance.STANCE_ID)).DESCRIPTION));
         equipment.put("tinker", new DisplayEquipment(TinkerStance.STANCE_ID, tinkerTexture, smallCircleTexture, tinkerHB,
-                LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Tinker")).NAME, LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Tinker")).DESCRIPTION));
+                LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID(TinkerStance.STANCE_ID)).NAME, LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID(TinkerStance.STANCE_ID)).DESCRIPTION));
 
     }
 
@@ -109,7 +109,7 @@ public class EquipmentRenderer {
             return;
         }
 
-        float cX = Settings.WIDTH / 2.0F;
+        float cX = Settings.WIDTH / 8.0F;
         float cY = AbstractDungeon.player.hb.y + AbstractDungeon.player.hb.height + 200f * Settings.scale;
 
         float x1 = cX - 203.0F * scale;

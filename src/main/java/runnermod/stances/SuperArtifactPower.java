@@ -12,7 +12,6 @@ public class SuperArtifactPower extends AbstractPower {
     public static final String POWER_ID = "Artifact";
 
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings("Artifact");
-    private static final String baseDescription = "Each time you play a card gain 1 strength and 1 dexterity";
 
     public static final String NAME = powerStrings.NAME;
 
