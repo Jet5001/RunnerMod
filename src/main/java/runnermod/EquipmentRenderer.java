@@ -1,6 +1,7 @@
 package runnermod;
 
 import static runnermod.RunnerMod.imagePath;
+import static runnermod.RunnerMod.makeID;
 
 import java.util.HashMap;
 
@@ -20,13 +21,14 @@ import runnermod.stances.AccelStance;
 import runnermod.stances.ArtifactStance;
 import runnermod.stances.BerserkerStance;
 import runnermod.stances.BladesStance;
-import runnermod.stances.CardsStance;
+import runnermod.stances.BlasterStance;
 import runnermod.stances.HackStance;
 import runnermod.stances.MetalStance;
 import runnermod.stances.OverclockStance;
 import runnermod.stances.RunnerStance;
 import runnermod.stances.TinkerStance;
 import runnermod.stances.WallStance;
+import runnermod.util.LocalizedRunnerStanceStrings;
 import runnermod.util.TextureLoader;
 
 public class EquipmentRenderer {
@@ -78,25 +80,26 @@ public class EquipmentRenderer {
         tinkerHB = new Hitbox(tinkerTexture.getWidth() * scale, tinkerTexture.getHeight() * scale);
 
         equipment.put("accel", new DisplayEquipment(AccelStance.STANCE_ID, accelTexture, smallCircleTexture, accelHB,
-                "Accel", "temp"));
-        equipment.put("berserker", new DisplayEquipment(BerserkerStance.STANCE_ID, berserkerTexture, smallCircleTexture,
-                berserkerHB, "Berserker", "temp"));
-        equipment.put("blades",
-                new DisplayEquipment(BladesStance.STANCE_ID, bladesTexture, circleTexture, bladesHB, "Blades", "temp"));
-        equipment.put("blaster", new DisplayEquipment(CardsStance.STANCE_ID, blasterTexture, smallCircleTexture,
-                blasterHB, "Cards", "temp"));
-        equipment.put("firewall", new DisplayEquipment(ArtifactStance.STANCE_ID, firewallTexture, circleTexture,
-                firewallHB, "Firewall", "temp"));
+                LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Accel")).NAME, LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Accel")).DESCRIPTION));
+        equipment.put("berserker", new DisplayEquipment(BerserkerStance.STANCE_ID, berserkerTexture, smallCircleTexture, berserkerHB,
+                LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Berserker")).NAME, LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Berserker")).DESCRIPTION));
+        equipment.put("blades", new DisplayEquipment(BladesStance.STANCE_ID, bladesTexture, circleTexture, bladesHB,
+                        LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Blades")).NAME, LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Blades")).DESCRIPTION));
+        equipment.put("blaster", new DisplayEquipment(BlasterStance.STANCE_ID, blasterTexture, smallCircleTexture, blasterHB,
+                LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Blaster")).NAME, LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Blaster")).DESCRIPTION));
+        equipment.put("firewall", new DisplayEquipment(ArtifactStance.STANCE_ID, firewallTexture, circleTexture, firewallHB,
+                LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Firewall")).NAME, LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Firewall")).DESCRIPTION));
         equipment.put("hack",
-                new DisplayEquipment(HackStance.STANCE_ID, hackTexture, smallCircleTexture, hackHB, "Hack", "temp"));
+                new DisplayEquipment(HackStance.STANCE_ID, hackTexture, smallCircleTexture, hackHB,
+                        LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Hack")).NAME, LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Hack")).DESCRIPTION));
         equipment.put("metal", new DisplayEquipment(MetalStance.STANCE_ID, metalTexture, smallCircleTexture, metalHB,
-                "Metal", "temp"));
-        equipment.put("overclock", new DisplayEquipment(OverclockStance.STANCE_ID, overclockTexture, circleTexture,
-                overclockHB, "Overclock", "temp"));
+                LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Metal")).NAME, LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Metal")).DESCRIPTION));
+        equipment.put("overclock", new DisplayEquipment(OverclockStance.STANCE_ID, overclockTexture, circleTexture, overclockHB,
+                LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Overclock")).NAME, LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Overclock")).DESCRIPTION));
         equipment.put("shields", new DisplayEquipment(WallStance.STANCE_ID, shieldsTexture, circleTexture, shieldsHB,
-                "Shields", "temp"));
-        equipment.put("tinker", new DisplayEquipment(TinkerStance.STANCE_ID, tinkerTexture, smallCircleTexture,
-                tinkerHB, "Tinker", "temp"));
+                LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Shields")).NAME, LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Shields")).DESCRIPTION));
+        equipment.put("tinker", new DisplayEquipment(TinkerStance.STANCE_ID, tinkerTexture, smallCircleTexture, tinkerHB,
+                LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Tinker")).NAME, LocalizedRunnerStanceStrings.getRunnerStanceStrings(makeID("Tinker")).DESCRIPTION));
 
     }
 
@@ -107,7 +110,7 @@ public class EquipmentRenderer {
         }
 
         float cX = Settings.WIDTH / 2.0F;
-        float cY = AbstractDungeon.player.hb.y + AbstractDungeon.player.hb.height + 300.0F * Settings.scale;
+        float cY = AbstractDungeon.player.hb.y + AbstractDungeon.player.hb.height + 200f * Settings.scale;
 
         float x1 = cX - 203.0F * scale;
         float x2 = cX - 105.0F * scale;

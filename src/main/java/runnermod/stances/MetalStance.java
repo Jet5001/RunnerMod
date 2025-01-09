@@ -27,16 +27,12 @@ import java.util.Collections;
 public class MetalStance extends RunnerStance {
     public static final String STANCE_ID = "Metal";
 
-    private static final StanceStrings stanceString = CardCrawlGame.languagePack.getStanceString("Metal");
-    private static final String baseDescription = "Each time you play a card gain #b 3 Block and #b 2 Thorns NL ";
-
     private static long sfxId = -1L;
     private int durability;
 
     public MetalStance(String[] ids, int[] durabilties) {
         super(ids,durabilties);
         this.ID = "Metal";
-        this.name = "Metal";
         this.description = baseDescription;
         updateDescription();
     }

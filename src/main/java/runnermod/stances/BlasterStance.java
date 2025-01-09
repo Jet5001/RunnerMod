@@ -4,34 +4,27 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
-import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.StanceStrings;
 import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
-import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceChangeParticleGenerator;
-import com.megacrit.cardcrawl.vfx.stance.WrathParticleEffect;
 import runnermod.cards.tempcards.Bolt;
-import runnermod.character.RunnerCharacter;
 
 import java.util.Collections;
 
-public class CardsStance extends RunnerStance {
-    public static final String STANCE_ID = "Cards";
+public class BlasterStance extends RunnerStance {
+    public static final String STANCE_ID = "Blaster";
 
-    private static final StanceStrings stanceString = CardCrawlGame.languagePack.getStanceString("Cards");
-    private static final String baseDescription = "Each time you play a non Bolt card add a Bolt to your hand NL ";
 
     private static long sfxId = -1L;
     private int durability;
-    public CardsStance(String[] ids, int[] durabilties) {
+    public BlasterStance(String[] ids, int[] durabilties) {
         super(ids,durabilties);
 
-        this.ID = "Cards";
-        this.name = "Blaster";
+        this.ID = "Blaster";
         this.description = baseDescription;
         updateDescription();
     }

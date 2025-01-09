@@ -8,6 +8,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.stances.AbstractStance;
 import com.megacrit.cardcrawl.stances.NeutralStance;
 import runnermod.character.RunnerCharacter;
+import runnermod.util.LocalizedRunnerStanceStrings;
+import runnermod.util.RunnerStanceStrings;
 
 import java.util.Collections;
 import java.util.Dictionary;
@@ -16,6 +18,10 @@ import java.util.Hashtable;
 public abstract class RunnerStance extends AbstractStance {
     public Dictionary<String,Integer> durabilityDictionary;
 
+    public static final String STANCE_ID = "ExampleStance";
+    protected static final RunnerStanceStrings stanceString = LocalizedRunnerStanceStrings.getRunnerStanceStrings(STANCE_ID);
+    protected static final String baseDescription = stanceString.DESCRIPTION;
+    protected static final String name = stanceString.NAME;
     RunnerStance(String[] ids, int[] durabilties)
     {
         durabilityDictionary = new Hashtable<>();
@@ -29,6 +35,8 @@ public abstract class RunnerStance extends AbstractStance {
             durabilityDictionary = new Hashtable<>();
             durabilityDictionary.put(id,durabilty);
     }
+
+
 
     public void onPlayCard(AbstractCard card) {
         if(card.hasTag(RunnerCharacter.Enums.NEON))
@@ -253,9 +261,10 @@ public abstract class RunnerStance extends AbstractStance {
     }
 
 
-
-    @Override
     public void updateDescription() {
-        //Overwritten in the actual stances... Use this for updating descriptions
+        this.description = baseDescription;
+        for (String id: Collections.list(durabilityDictionary.keys())) {
+            this.description += "NL " + name + " : " + durabilityDictionary.get(id) + " durability left NL ";
+        }
     }
 }

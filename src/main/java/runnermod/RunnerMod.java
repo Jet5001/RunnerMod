@@ -17,9 +17,7 @@ import runnermod.monsters.AKIRABoss;
 import runnermod.potions.BasePotion;
 import runnermod.relics.BackPocket;
 import runnermod.relics.BaseRelic;
-import runnermod.util.GeneralUtils;
-import runnermod.util.KeywordInfo;
-import runnermod.util.TextureLoader;
+import runnermod.util.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.GdxRuntimeException;
@@ -147,8 +145,6 @@ public class RunnerMod implements
                 localizationPath(lang, "CharacterStrings.json"));
         BaseMod.loadCustomStringsFile(EventStrings.class,
                 localizationPath(lang, "EventStrings.json"));
-        BaseMod.loadCustomStringsFile(OrbStrings.class,
-                localizationPath(lang, "OrbStrings.json"));
         BaseMod.loadCustomStringsFile(PotionStrings.class,
                 localizationPath(lang, "PotionStrings.json"));
         BaseMod.loadCustomStringsFile(PowerStrings.class,
@@ -157,6 +153,7 @@ public class RunnerMod implements
                 localizationPath(lang, "RelicStrings.json"));
         BaseMod.loadCustomStringsFile(UIStrings.class,
                 localizationPath(lang, "UIStrings.json"));
+        LocalizedRunnerStanceStrings.loadRunnerStanceStringsFile(localizationPath(lang,"RunnerStanceStrings.json"));
     }
 
     @Override

@@ -19,21 +19,22 @@ import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceChangeParticleGenerator;
 import com.megacrit.cardcrawl.vfx.stance.WrathParticleEffect;
 import runnermod.character.RunnerCharacter;
+import runnermod.util.LocalizedRunnerStanceStrings;
+import runnermod.util.RunnerStanceStrings;
 
-public class GlitchedStance extends RunnerStance {
+public class GlitchedStance extends AbstractStance {
 
-    private static final StanceStrings stanceString = CardCrawlGame.languagePack.getStanceString("Glitched");
-    private static final String baseDescription = "You take double damage from attacks and your attacks deal half damage NL Play less than #b 3 cards in a turn to solve";
+    private static final String STANCE_ID = "Glitched";
+    private static final RunnerStanceStrings stanceString = LocalizedRunnerStanceStrings.getRunnerStanceStrings(STANCE_ID);
     private static long sfxId = -1L;
 
     private AbstractStance previousStance;
-    GlitchedStance(String[] ids, int[] durabilties, AbstractStance previousStance)
+    GlitchedStance(AbstractStance previousStance)
     {
-        super(ids,durabilties);
         this.previousStance = previousStance;
         this.ID = "Glitched";
-        this.name = "Glitched";
-        this.description = baseDescription;
+        this.name = stanceString.NAME;
+        this.description = stanceString.DESCRIPTION;
     }
 
     @Override

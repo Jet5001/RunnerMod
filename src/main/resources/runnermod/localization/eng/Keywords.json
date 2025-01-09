@@ -75,7 +75,7 @@
       "firewall",
       "firewallwalls"
     ],
-    "DESCRIPTION": "You cannot obtain debuffs while in this stance"
+    "DESCRIPTION": "You cannot gain debuffs and cards don't exhaust on play"
   },
   {
     "ID": "Blaster",

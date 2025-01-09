@@ -28,16 +28,12 @@ import java.util.Collections;
 public class TinkerStance extends RunnerStance {
     public static final String STANCE_ID = "Tinker";
 
-    private static final StanceStrings stanceString = CardCrawlGame.languagePack.getStanceString("Tinker");
-    private static final String baseDescription = "Each time you play a card upgrade a card in your hand NL ";
-
     private static long sfxId = -1L;
     private int durability;
 
     public TinkerStance(String[] ids, int[] durabilties) {
         super(ids,durabilties);
         this.ID = "Tinker";
-        this.name = "Tinker";
         this.description = baseDescription;
         updateDescription();
     }

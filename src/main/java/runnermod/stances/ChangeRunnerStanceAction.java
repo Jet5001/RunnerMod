@@ -7,7 +7,6 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.stances.AbstractStance;
 import com.megacrit.cardcrawl.stances.NeutralStance;
 import com.megacrit.cardcrawl.vfx.SpeechBubble;
-import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import runnermod.character.RunnerCharacter;
 import runnermod.powers.DurablePower;
 import runnermod.powers.ScrapArmourPower;
@@ -201,7 +200,7 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
                 {
                     AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).blasterStanceImg;
                 }
-                return new CardsStance(new String[]{"Artifact", "Overclock"},new int[]{durabilities[0], durabilities[1]});
+                return new BlasterStance(new String[]{"Artifact", "Overclock"},new int[]{durabilities[0], durabilities[1]});
             case "Berserker":
                 if (newStanceID == "Overclock")
                 {
@@ -259,7 +258,7 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
         }
         if (stanceID == "Glitched")
         {
-            finalStance =  new GlitchedStance(new String[]{"Glitched"}, new int[]{0}, AbstractDungeon.player.stance);
+            finalStance =  new GlitchedStance(AbstractDungeon.player.stance);
             AbstractDungeon.actionManager.addToTop(new ChangeStanceAction(finalStance));
             this.isDone = true;
             return;

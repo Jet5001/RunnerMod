@@ -24,15 +24,12 @@ import java.util.Collections;
 public class AccelStance extends RunnerStance {
     public static final String STANCE_ID = "Accel";
 
-    private static final StanceStrings stanceString = CardCrawlGame.languagePack.getStanceString("Accel");
-    private static final String baseDescription = "Each time you play a card gain #b 1 strength this turn and #b 2 Block next turn NL ";
     private static long sfxId = -1L;
     private int durability;
 
     public AccelStance(String[] ids, int[] durabilties) {
         super(ids,durabilties);
         this.ID = "Accel";
-        this.name = "Accel";
         this.description = baseDescription;
         updateDescription();
     }
@@ -74,12 +71,7 @@ public class AccelStance extends RunnerStance {
         }
     }
 
-    public void updateDescription() {
-        this.description = baseDescription;
-        for (String id: Collections.list(durabilityDictionary.keys())) {
-                this.description += id + " : " + durabilityDictionary.get(id) + " durability left NL ";
-        }
-    }
+
 
     public void onEnterStance() {
         if (sfxId != -1L)

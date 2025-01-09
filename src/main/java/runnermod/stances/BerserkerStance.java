@@ -34,8 +34,6 @@ import java.util.Random;
 public class BerserkerStance extends RunnerStance {
     public static final String STANCE_ID = "Berserker";
 
-    private static final StanceStrings stanceString = CardCrawlGame.languagePack.getStanceString("Berserker");
-    private static final String baseDescription = "Each time you play a card deal damage equal to the number of cards played in this stance NL ";
 
     private static long sfxId = -1L;
     private int durability;
@@ -44,7 +42,6 @@ public class BerserkerStance extends RunnerStance {
     public BerserkerStance(String[] ids, int[] durabilties) {
         super(ids,durabilties);
         this.ID = "Berserker";
-        this.name = "Berserker";
         this.description = baseDescription;
         updateDescription();
     }

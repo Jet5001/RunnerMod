@@ -1,0 +1,54 @@
+{
+  "${modID}:ExampleStance": {
+    "NAME": "Name",
+    "DESCRIPTION": "Description."
+  },
+  "${modID}:Shields": {
+    "NAME": "Shields",
+    "DESCRIPTION": "When you play an attack gain block equal to it's cost"
+  },
+  "${modID}:Accel": {
+    "NAME": "Accel",
+    "DESCRIPTION": "Each time you play a card gain #b 1 strength this turn and #b 2 Block next turn "
+  },
+  "${modID}:Firewall": {
+    "NAME": "Firewall",
+    "DESCRIPTION": "You cannot gain debuffs and cards don't exhaust on play "
+  },
+  "${modID}:Berserker": {
+    "NAME": "Berserker",
+    "DESCRIPTION": "Each time you play a card deal damage equal to the number of cards played in this stance "
+  },
+  "${modID}:Blades": {
+    "NAME": "Blades",
+    "DESCRIPTION": "Each time you play a card, deal damage equal to #b 3 times it's cost "
+  },
+  "${modID}:Blaster": {
+    "NAME": "Blaster",
+    "DESCRIPTION": "Each time you play a non Bolt card add a Bolt to your hand "
+  },
+  "${modID}:Hack": {
+    "NAME": "Hack",
+    "DESCRIPTION": "Each time you play a card a random enemy gains #b 1 Hack "
+  },
+  "${modID}:Metal": {
+    "NAME": "Metal",
+    "DESCRIPTION": "Each time you play a card gain #b 3 Block and #b 2 Thorns "
+  },
+  "${modID}:Overclock": {
+    "NAME": "Overclock",
+    "DESCRIPTION": "Each time you play a card discard a card and draw a card "
+  },
+  "${modID}:Tinker": {
+    "NAME": "Tinker",
+    "DESCRIPTION": "Each time you play a card upgrade a card in your hand "
+  },
+  "${modID}:Glitched": {
+    "NAME": "Glitched",
+    "DESCRIPTION": "You take double damage from attacks and your attacks deal half damage NL Play less than #b 3 cards in a turn to solve"
+  },
+  "${modID}:Akira": {
+    "NAME": "Akira",
+    "DESCRIPTION": "You can't enter new stances"
+  }
+}

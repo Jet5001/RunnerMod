@@ -27,8 +27,6 @@ import java.util.Collections;
 public class OverclockStance extends RunnerStance {
     public static final String STANCE_ID = "Overclock";
 
-    private static final StanceStrings stanceString = CardCrawlGame.languagePack.getStanceString("Overclock");
-    private static final String baseDescription = "Each time you play a card discard a card and draw a card NL ";
 
     private static long sfxId = -1L;
     private int durability;
@@ -36,7 +34,6 @@ public class OverclockStance extends RunnerStance {
     public OverclockStance(String[] ids, int[] durabilties) {
         super(ids,durabilties);
         this.ID = "Overclock";
-        this.name = "Overclock";
         this.description = baseDescription;
         updateDescription();
     }

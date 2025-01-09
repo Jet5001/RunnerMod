@@ -28,8 +28,6 @@ import java.util.Collections;
 public class ArtifactStance extends RunnerStance {
     public static final String STANCE_ID = "Artifact";
 
-    private static final StanceStrings stanceString = CardCrawlGame.languagePack.getStanceString("Artifact");
-    private static final String baseDescription = "You cannot gain debuffs and cards don't exhaust on play NL ";
 
     private static long sfxId = -1L;
     private int durability;
@@ -38,7 +36,6 @@ public class ArtifactStance extends RunnerStance {
         super(ids,durabilties);
 
         this.ID = "Artifact";
-        this.name = "Artifact";
         this.description = baseDescription;
         updateDescription();
     }

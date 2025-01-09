@@ -85,8 +85,8 @@
   "${modID}:LaughingManPower": {
     "NAME": "Laughing Man",
     "DESCRIPTIONS": [
-      "Whenever you apply a debuff apply #b",
-      " hack"
+      "At the start of your turn apply #b",
+      " hack to ALL enemies"
     ]
   },
   "${modID}:AutopilotPower": {

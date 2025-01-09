@@ -19,8 +19,6 @@ import java.util.Collections;
 public class BladesStance extends RunnerStance {
     public static final String STANCE_ID = "Blades";
 
-    private static final StanceStrings stanceString = CardCrawlGame.languagePack.getStanceString("Blades");
-    private static final String baseDescription = "Each time you play a card, deal damage equal to #b 3 times it's cost NL ";
 
     private static long sfxId = -1L;
     private int durability;
@@ -28,7 +26,6 @@ public class BladesStance extends RunnerStance {
     public BladesStance(String[] ids, int[] durabilties) {
         super(ids,durabilties);
         this.ID = "Blades";
-        this.name = "Blades";
         this.description = baseDescription;
         updateDescription();
     }

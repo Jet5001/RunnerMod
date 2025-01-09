@@ -31,8 +31,6 @@ import java.util.Random;
 public class AKIRAStance extends RunnerStance {
     public static final String STANCE_ID = "AKIRA";
 
-    private static final StanceStrings stanceString = CardCrawlGame.languagePack.getStanceString("AKIRA");
-    private static final String baseDescription = "You can't enter new stances";
 
     private static long sfxId = -1L;
     private int durability;
@@ -40,7 +38,6 @@ public class AKIRAStance extends RunnerStance {
     public AKIRAStance(String[] ids, int[] durabilties) {
         super(ids,durabilties);
         this.ID = "AKIRA";
-        this.name = "AKIRA";
         this.description = baseDescription;
         updateDescription();
     }

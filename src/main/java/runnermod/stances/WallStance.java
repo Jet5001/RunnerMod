@@ -4,26 +4,21 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.StanceStrings;
 import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
-import com.megacrit.cardcrawl.vfx.stance.CalmParticleEffect;
-import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceChangeParticleGenerator;
-import com.megacrit.cardcrawl.vfx.stance.WrathParticleEffect;
-import runnermod.character.RunnerCharacter;
+import runnermod.RunnerMod;
+import runnermod.util.LocalizedRunnerStanceStrings;
+import runnermod.util.RunnerStanceStrings;
 
 import java.util.Collections;
 
 public class WallStance extends RunnerStance {
-    public static final String STANCE_ID = "Wall";
-
-    private static final StanceStrings stanceString = CardCrawlGame.languagePack.getStanceString("Wall");
-    private static final String baseDescription = "Each time you play a card gain block equal to #b 3 times it's cost NL ";
+    public static final String STANCE_ID = RunnerMod.makeID("Shields");
 
     private static long sfxId = -1L;
     private int durability;
@@ -31,7 +26,6 @@ public class WallStance extends RunnerStance {
     public WallStance(String[] ids, int[] durabilties) {
         super(ids,durabilties);
         this.ID = "Wall";
-        this.name = "Wall";
         this.description = baseDescription;
         updateDescription();
     }
@@ -67,13 +61,6 @@ public class WallStance extends RunnerStance {
         if (this.particleTimer2 < 0.0F) {
             this.particleTimer2 = MathUtils.random(0.3F, 0.4F);
             //AbstractDungeon.effectsQueue.add(new StanceAuraEffect("CALM"));
-        }
-    }
-
-    public void updateDescription() {
-        this.description = baseDescription;
-        for (String id: Collections.list(durabilityDictionary.keys())) {
-                this.description += id + " : " + durabilityDictionary.get(id) + " durability left";
         }
     }
 
