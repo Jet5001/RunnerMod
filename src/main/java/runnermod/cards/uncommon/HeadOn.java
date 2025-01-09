@@ -102,7 +102,59 @@ public class HeadOn extends BaseCard {
             vigor.amount = originalVigor;
         }
     }
-    //Not applying vulnerable before damage for some reason?
+
+    @Override
+    public void initializeDescription() {
+        if(AbstractDungeon.player == null)
+        {
+            super.initializeDescription();
+            return;
+        }
+        AbstractPower strength = AbstractDungeon.player.getPower("Strength");
+        AbstractPower vigor = AbstractDungeon.player.getPower("Vigor");
+        int originalStr = 0;
+        int originalVigor = 0;
+        int originalDex = 0;
+        if (strength != null)
+        {
+            originalStr = strength.amount;
+        }
+        if (vigor != null)
+        {
+            originalVigor = vigor.amount;
+        }
+        AbstractPower dex = AbstractDungeon.player.getPower("Dexterity");
+        if (dex!=null)
+        {
+            originalDex = dex.amount;
+        }
+        if (strength != null)
+        {
+            strength.amount = 0;
+        }
+        if (vigor != null)
+        {
+            vigor.amount = 0;
+        }
+        if (dex != null)
+        {
+            dex.amount = 0;
+        }
+        super.initializeDescription();
+        if (strength != null)
+        {
+            strength.amount = originalStr;
+        }
+        if (dex != null)
+        {
+            dex.amount = originalDex;
+        }
+        if (vigor != null)
+        {
+            vigor.amount = originalVigor;
+        }
+    }
+
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (int i = 0; i < this.magicNumber; i++) {

@@ -46,11 +46,11 @@ public class BladesStance extends RunnerStance {
     @Override
     public void onPlayCard(AbstractCard card) {
         //check for x cost at -1
-        if (card.cost == -1)
+        if (card.cost < -1)
         {
             AbstractDungeon.actionManager.addToBottom(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, card.energyOnUse*3, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         }
-        else
+        else if(card.cost > 0)
         {
             AbstractDungeon.actionManager.addToBottom(new DamageRandomEnemyAction(new DamageInfo(AbstractDungeon.player, card.cost*3, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         }

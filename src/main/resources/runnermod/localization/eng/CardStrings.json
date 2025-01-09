@@ -113,11 +113,11 @@
   },
   "${modID}:FaultyUpgrade": {
     "NAME": "Faulty Upgrade",
-    "DESCRIPTION": "Gain !M! Strength. NL Gain !M! Dexterity. NL Add 2 Viruses to your discard pile."
+    "DESCRIPTION": "Gain !M! Strength. NL Gain !M! Dexterity. NL Add 2 *Viruses to your discard pile."
   },
   "${modID}:GlitchedBlade": {
     "NAME": "Glitched Blade",
-    "DESCRIPTION": "Add a virus to your discard pile. NL Deal !D! damage time the number of Viruses created this floor.",
+    "DESCRIPTION": "Add a virus to your discard pile. NL Deal !D! damage time the number of *Viruses created this floor.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage)"
     ]
@@ -197,7 +197,7 @@
     "DESCRIPTION": "Deal !D! damage. NL Gain !M! Strength until the end of this turn. NL RunnerMod:Equip  RunnerMod:Blades. NL RunnerMod:Neon."
   },
   "${modID}:Flouresce": {
-    "NAME": "Flouresce",
+    "NAME": "Fluoresce",
     "DESCRIPTION": "ALL enemies lose !M! strength this turn. NL RunnerMod:Neon. NL Exhaust."
   },
   "${modID}:InfectedBlade": {
@@ -206,7 +206,7 @@
   },
   "${modID}:Charge": {
     "NAME": "Charge",
-    "DESCRIPTION": "Add !M! Bolts to your hand."
+    "DESCRIPTION": "Add !M! *Bolts to your hand."
   },
   "${modID}:HardLightTech": {
     "NAME": "Hard Light Tech",
@@ -286,7 +286,7 @@
   },
   "${modID}:Manifest": {
     "NAME": "Manifest",
-    "DESCRIPTION": "Draw !M! cards. NL Chose 2 cards to retain this turn. NL Add a virus to your discard pile."
+    "DESCRIPTION": "Draw !M! cards. NL Chose 2 cards to retain this turn. NL Add a *viruses to your discard pile."
   },
   "${modID}:SwiftRun": {
     "NAME": "Swift Run",
@@ -346,17 +346,17 @@
   },
   "${modID}:LostInTheCrowd": {
     "NAME": "Lost in the Crowd",
-    "DESCRIPTION": "Fill your hand with decoys. NL Ethereal.",
-    "UPGRADE_DESCRIPTION": "Fill your hand with upgraded decoys. NL Ethereal. NL RunnerMod:Neon."
+    "DESCRIPTION": "Fill your hand with *decoys. NL Ethereal.",
+    "UPGRADE_DESCRIPTION": "Fill your hand with upgraded *decoys. NL Ethereal. NL RunnerMod:Neon."
   },
   "${modID}:GhostInTheShell": {
     "NAME": "Ghost in the Shell",
-    "DESCRIPTION": "Gain !B! Block. NL Add !M! Decoys to your hand."
+    "DESCRIPTION": "Gain !B! Block. NL Add !M! *Decoys to your hand."
   },
   "${modID}:DoubleTime": {
     "NAME": "Double Time",
-    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Overclocker. NL Add !M! Decoys to your hand. NL RunnerMod:Neon.",
-    "UPGRADE_DESCRIPTION": " RunnerMod:Equip  RunnerMod:Overclocker. NL Add !M! Decoys to your hand. NL RunnerMod:Neon."
+    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Overclocker. NL Add !M! *Decoys to your hand. NL RunnerMod:Neon.",
+    "UPGRADE_DESCRIPTION": " RunnerMod:Equip  RunnerMod:Overclocker. NL Add !M! *Decoys to your hand. NL RunnerMod:Neon."
   },
   "${modID}:ShortCircuit": {
     "NAME": "Short Circuit",
@@ -466,7 +466,7 @@
     "DESCRIPTION": "Deal !D! Damage. NL Gain !M! Vigor. NL Doesn't Consume Vigor."
   },
   "${modID}:Recouperate": {
-    "NAME": "Recouperate",
+    "NAME": "Recuperate",
     "DESCRIPTION": "Gain !B! Block. NL Gain !M! RunnerMod:Vitality."
   },
   "${modID}:DrainingRun": {

@@ -15,7 +15,7 @@ import java.util.*;
 
 public class RandomDebuffAction extends AbstractGameAction {
 
-    List<String> debuffs = new ArrayList<String>(Arrays.asList("Hack", "Shackled", "Mark", "Poison", "Vulnerable", "Weak", "Block Return", "Choked", "Constricted", "Corpse Explosion","Flourish"));
+    List<String> debuffs = new ArrayList<String>(Arrays.asList("Hack", "Shackled", "Mark", "Poison", "Vulnerable", "Weak", "Block Return", "Choked", "Constricted", "Corpse Explosion"));
     Random rng = new Random();
     AbstractCreature owner;
     public RandomDebuffAction(AbstractCreature owner, AbstractCreature target)
@@ -42,7 +42,7 @@ public class RandomDebuffAction extends AbstractGameAction {
                     addToBot(new ApplyPowerAction(target, owner, new FrailPower(target,1,false), 1));
                     break;
                 case "Poison":
-                    addToBot(new ApplyPowerAction(target, owner, new PoisonPower(target,AbstractDungeon.player,4), 1));
+                    addToBot(new ApplyPowerAction(target, owner, new PoisonPower(target,AbstractDungeon.player,2), 1));
                     break;
                 case "Slow":
                     addToBot(new ApplyPowerAction(target, owner, new SlowPower(target,1)));
