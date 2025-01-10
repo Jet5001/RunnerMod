@@ -51,7 +51,7 @@ public class Hacked extends BasePower implements CloneablePowerInterface, PostPo
 
     @Override
     public void receivePostPowerApplySubscriber(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-        if (power.type == AbstractPower.PowerType.DEBUFF && !power.ID.equals("Shackled") && power.owner != owner) {
+        if (power.type == AbstractPower.PowerType.DEBUFF && !power.ID.equals("Shackled") && power.owner != source) {
             flash();
             addToBot(new DamageAction(owner, new DamageInfo(source, this.amount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.POISON));
         }

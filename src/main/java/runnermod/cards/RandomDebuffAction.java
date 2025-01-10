@@ -2,6 +2,7 @@ package runnermod.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.*;
@@ -15,7 +16,8 @@ import java.util.*;
 
 public class RandomDebuffAction extends AbstractGameAction {
 
-    List<String> debuffs = new ArrayList<String>(Arrays.asList("Hack", "Shackled", "Mark", "Poison", "Vulnerable", "Weak", "Block Return", "Choked", "Constricted", "Corpse Explosion"));
+    List<String> EnemyDebuffs = new ArrayList<String>(Arrays.asList("Hack", "Shackled", "Mark", "Poison", "Vulnerable", "Weak", "Block Return", "Choked", "Constricted", "Corpse Explosion","Flourish"));
+    List<String> PlayerDebuffs = new ArrayList<String>(Arrays.asList("Frail","Shackled", "Mark", "Poison", "Vulnerable", "Weak", "Block Return", "Choked", "Constricted", "Corpse Explosion"));
     Random rng = new Random();
     AbstractCreature owner;
     public RandomDebuffAction(AbstractCreature owner, AbstractCreature target)
@@ -29,7 +31,15 @@ public class RandomDebuffAction extends AbstractGameAction {
     public void update() {
         if (target != null)
         {
-            String debuff = debuffs.get(AbstractDungeon.miscRng.random(debuffs.size()-1));
+            String debuff = "";
+            if(target instanceof AbstractPlayer)
+            {
+                debuff = PlayerDebuffs.get(AbstractDungeon.miscRng.random(PlayerDebuffs.size()-1));
+            }
+            else
+            {
+                debuff = EnemyDebuffs.get(AbstractDungeon.miscRng.random(EnemyDebuffs.size()-1));
+            }
             System.out.println(debuff);
             switch (debuff)
             {
@@ -42,7 +52,14 @@ public class RandomDebuffAction extends AbstractGameAction {
                     addToBot(new ApplyPowerAction(target, owner, new FrailPower(target,1,false), 1));
                     break;
                 case "Poison":
-                    addToBot(new ApplyPowerAction(target, owner, new PoisonPower(target,AbstractDungeon.player,2), 1));
+                    if(target instanceof AbstractPlayer)
+                    {
+                        addToBot(new ApplyPowerAction(target, owner, new PoisonPower(target,AbstractDungeon.player,2), 1));
+                    }
+                    else
+                    {
+                        addToBot(new ApplyPowerAction(target, owner, new PoisonPower(target,AbstractDungeon.player,3), 1));
+                    }
                     break;
                 case "Slow":
                     addToBot(new ApplyPowerAction(target, owner, new SlowPower(target,1)));
