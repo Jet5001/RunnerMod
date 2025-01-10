@@ -1,23 +1,14 @@
 package runnermod.powers;
 
-import basemod.BaseMod;
 import basemod.interfaces.CloneablePowerInterface;
-import basemod.interfaces.OnPowersModifiedSubscriber;
 import basemod.interfaces.PostPowerApplySubscriber;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import runnermod.cards.tempcards.Interest;
 
-import java.io.Console;
-
-import static runnermod.RunnerMod.info;
 import static runnermod.RunnerMod.makeID;
 
 public class Hacked extends BasePower implements CloneablePowerInterface, PostPowerApplySubscriber {

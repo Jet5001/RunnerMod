@@ -6,7 +6,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import runnermod.cards.BaseCard;
 import runnermod.character.RunnerCharacter;
 import runnermod.powers.LaughingManPower;
-import runnermod.powers.PawnShopPower;
 import runnermod.util.CardStats;
 
 public class LaughingMan extends BaseCard {

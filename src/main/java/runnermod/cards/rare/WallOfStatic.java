@@ -5,7 +5,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import runnermod.cards.BaseCard;
 import runnermod.character.RunnerCharacter;
-import runnermod.powers.InvestmentsPower;
 import runnermod.powers.WallOfStaticPower;
 import runnermod.util.CardStats;
 
