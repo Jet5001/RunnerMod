@@ -131,10 +131,10 @@ public class Cloaking extends BaseCard {
 
             //if new stance already part of existing stance then flag as the same
             String components = "";
-            for (String id: Collections.list(((RunnerStance) previousStance).durabilityDictionary.keys())) {
+            for (String id: (((RunnerStance) previousStance).durabilityDictionary.keySet().toArray(new String[0]))) {
                 components += id;
             }
-            System.out.println("Previous stance durabilities: " + ((RunnerStance) previousStance).durabilityDictionary.keys());
+            //System.out.println("Previous stance durabilities: " + ((RunnerStance) previousStance).durabilityDictionary.keys());
             if (components.contains(stanceID))
             {
                 newID = "same";
@@ -146,7 +146,7 @@ public class Cloaking extends BaseCard {
                 //get previous max durability id to combo with longest lasting part
                 String previousMaxDurabilityID = "";
                 int tempMaxDurability = -1;
-                for (String id: Collections.list(((RunnerStance) previousStance).durabilityDictionary.keys())) {
+                for (String id: (((RunnerStance) previousStance).durabilityDictionary.keySet().toArray(new String[0]))) {
                     if (((RunnerStance) previousStance).durabilityDictionary.get(id) > tempMaxDurability)
                     {
                         previousMaxDurabilityID=  id;

@@ -16,6 +16,8 @@ import runnermod.cards.tempcards.Bolt;
 import runnermod.util.LocalizedRunnerStanceStrings;
 
 import java.util.Collections;
+import java.util.Dictionary;
+import java.util.LinkedHashMap;
 
 public class BlasterStance extends RunnerStance {
     public static String STANCE_ID = "Blaster";
@@ -26,6 +28,15 @@ public class BlasterStance extends RunnerStance {
     public BlasterStance(String[] ids, int[] durabilties) {
         super(ids,durabilties);
 
+        this.ID = "Blaster";
+        stanceString = LocalizedRunnerStanceStrings.getRunnerStanceStrings(RunnerMod.makeID(STANCE_ID));
+        baseDescription = stanceString.DESCRIPTION;
+        name = stanceString.NAME;
+        this.description = baseDescription;
+        updateDescription();
+    }
+    public BlasterStance(LinkedHashMap<String,Integer> durabilties) {
+        super(durabilties);
         this.ID = "Blaster";
         stanceString = LocalizedRunnerStanceStrings.getRunnerStanceStrings(RunnerMod.makeID(STANCE_ID));
         baseDescription = stanceString.DESCRIPTION;

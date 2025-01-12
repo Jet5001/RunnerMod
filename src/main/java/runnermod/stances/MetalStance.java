@@ -25,6 +25,8 @@ import runnermod.character.RunnerCharacter;
 import runnermod.util.LocalizedRunnerStanceStrings;
 
 import java.util.Collections;
+import java.util.Dictionary;
+import java.util.LinkedHashMap;
 
 public class MetalStance extends RunnerStance {
     public static String STANCE_ID = "Metal";
@@ -34,6 +36,16 @@ public class MetalStance extends RunnerStance {
 
     public MetalStance(String[] ids, int[] durabilties) {
         super(ids,durabilties);
+        this.ID = "Metal";
+        stanceString = LocalizedRunnerStanceStrings.getRunnerStanceStrings(RunnerMod.makeID(STANCE_ID));
+        baseDescription = stanceString.DESCRIPTION;
+        name = stanceString.NAME;
+        this.description = baseDescription;
+        updateDescription();
+    }
+
+    public MetalStance(LinkedHashMap<String,Integer> newDurabilities) {
+        super(newDurabilities);
         this.ID = "Metal";
         stanceString = LocalizedRunnerStanceStrings.getRunnerStanceStrings(RunnerMod.makeID(STANCE_ID));
         baseDescription = stanceString.DESCRIPTION;

@@ -15,16 +15,17 @@ import runnermod.util.RunnerStanceStrings;
 import java.util.Collections;
 import java.util.Dictionary;
 import java.util.Hashtable;
+import java.util.LinkedHashMap;
 
 public abstract class RunnerStance extends AbstractStance {
-    public Dictionary<String,Integer> durabilityDictionary;
+    public LinkedHashMap<String,Integer> durabilityDictionary;
 
     public static String STANCE_ID = "ExampleStance";
     protected RunnerStanceStrings stanceString = LocalizedRunnerStanceStrings.getRunnerStanceStrings(STANCE_ID);
     protected String baseDescription = stanceString.DESCRIPTION;
     RunnerStance(String[] ids, int[] durabilties)
     {
-        durabilityDictionary = new Hashtable<>();
+        durabilityDictionary = new LinkedHashMap<>();
         for (int i = 0; i < ids.length; i++) {
             durabilityDictionary.put(ids[i],durabilties[i] );
         }
@@ -33,15 +34,21 @@ public abstract class RunnerStance extends AbstractStance {
         name = stanceString.NAME;
     }
 
-    RunnerStance(String id, int durabilty) {
-        durabilityDictionary = new Hashtable<>();
-        durabilityDictionary.put(id, durabilty);
+    RunnerStance(LinkedHashMap<String,Integer> durabilities)
+    {
+        durabilityDictionary = durabilities;
+        stanceString = LocalizedRunnerStanceStrings.getRunnerStanceStrings(RunnerMod.makeID(STANCE_ID));
+        baseDescription = stanceString.DESCRIPTION;
+        name = stanceString.NAME;
+    }
+
+    protected RunnerStance() {
     }
 
     public void updateDescription() {
         this.description = baseDescription;
         this.description += " NL ";
-        for (String id: Collections.list(durabilityDictionary.keys())) {
+        for (String id: (durabilityDictionary.keySet().toArray(new String[0]))) {
             this.description += "NL " + id + " : " + durabilityDictionary.get(id) + " durability left NL ";
         }
     }
@@ -51,11 +58,11 @@ public abstract class RunnerStance extends AbstractStance {
         {
             return;
         }
-        String durability1 = Collections.list(durabilityDictionary.keys()).get(0);
+        String durability1 = durabilityDictionary.keySet().toArray(new String[0])[0];
         String durability2 = null;
-        if (Collections.list(durabilityDictionary.keys()).size() >=2)
+        if (durabilityDictionary.keySet().size() >=2)
         {
-            durability2 = Collections.list(durabilityDictionary.keys()).get(1);
+            durability2 = durabilityDictionary.keySet().toArray(new String[0])[1];
         }
         if (durability2 != null)
         {
@@ -69,14 +76,14 @@ public abstract class RunnerStance extends AbstractStance {
     }
 
     public void reduceDurability(int amount) {
-        for (String id : Collections.list(durabilityDictionary.keys())) {
+        for (String id: (durabilityDictionary.keySet().toArray(new String[0]))) {
             durabilityDictionary.put(id, durabilityDictionary.get(id) - amount);
         }
     }
 
     public void reduceDurability(int amount, String durability)
     {
-        for (String id: Collections.list(durabilityDictionary.keys())) {
+        for (String id: (durabilityDictionary.keySet().toArray(new String[0]))) {
             durabilityDictionary.put(id, durabilityDictionary.get(id)-amount);
         }
         if (durabilityDictionary.get(durability).equals(0) || durabilityDictionary.get(durability)<0)
@@ -88,7 +95,7 @@ public abstract class RunnerStance extends AbstractStance {
 
     public void reduceDurability(int amount, String durability1, String durability2)
     {
-        for (String id: Collections.list(durabilityDictionary.keys())) {
+        for (String id: (durabilityDictionary.keySet().toArray(new String[0]))) {
             durabilityDictionary.put(id, durabilityDictionary.get(id)-amount);
         }
 
@@ -235,10 +242,10 @@ public abstract class RunnerStance extends AbstractStance {
 
             //if new stance already part of existing stance then flag as the same
             String components = "";
-            for (String id: Collections.list(((RunnerStance) previousStance).durabilityDictionary.keys())) {
+            for (String id: (((RunnerStance) previousStance).durabilityDictionary.keySet().toArray(new String[0]))) {
                 components += id;
             }
-            System.out.println("Previous stance durabilities: " + ((RunnerStance) previousStance).durabilityDictionary.keys());
+            //System.out.println("Previous stance durabilities: " + ((RunnerStance) previousStance).durabilityDictionary.keys());
             if (components.contains(stanceID))
             {
                 newID = "same";
@@ -249,8 +256,8 @@ public abstract class RunnerStance extends AbstractStance {
                 //get previous max durability id to combo with longest lasting part
                 String previousMaxDurabilityID = "";
                 int tempMaxDurability = -1;
-                for (String id: Collections.list(((RunnerStance) previousStance).durabilityDictionary.keys())) {
-                    if (((RunnerStance) previousStance).durabilityDictionary.get(id) > tempMaxDurability)
+                for (String id: (((RunnerStance) previousStance).durabilityDictionary.keySet().toArray(new String[0]))) {
+                    if (((RunnerStance) previousStance).durabilityDictionary.get(id) >= tempMaxDurability)
                     {
                         previousMaxDurabilityID=  id;
                         tempMaxDurability = ((RunnerStance) previousStance).durabilityDictionary.get(id);

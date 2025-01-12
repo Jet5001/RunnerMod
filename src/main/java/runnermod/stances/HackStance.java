@@ -28,6 +28,8 @@ import runnermod.powers.Hacked;
 import runnermod.util.LocalizedRunnerStanceStrings;
 
 import java.util.Collections;
+import java.util.Dictionary;
+import java.util.LinkedHashMap;
 
 public class HackStance extends RunnerStance {
     public static String STANCE_ID = "Hack";
@@ -37,6 +39,15 @@ public class HackStance extends RunnerStance {
 
     public HackStance(String[] ids, int[] durabilties) {
         super(ids,durabilties);
+        this.ID = "Hack";
+        stanceString = LocalizedRunnerStanceStrings.getRunnerStanceStrings(RunnerMod.makeID(STANCE_ID));
+        baseDescription = stanceString.DESCRIPTION;
+        name = stanceString.NAME;
+        this.description = baseDescription;
+        updateDescription();
+    }
+    public HackStance(LinkedHashMap<String,Integer> newDurabilities) {
+        super(newDurabilities);
         this.ID = "Hack";
         stanceString = LocalizedRunnerStanceStrings.getRunnerStanceStrings(RunnerMod.makeID(STANCE_ID));
         baseDescription = stanceString.DESCRIPTION;

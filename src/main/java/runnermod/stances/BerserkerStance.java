@@ -31,6 +31,8 @@ import runnermod.powers.Hacked;
 import runnermod.util.LocalizedRunnerStanceStrings;
 
 import java.util.Collections;
+import java.util.Dictionary;
+import java.util.LinkedHashMap;
 import java.util.Random;
 
 public class BerserkerStance extends RunnerStance {
@@ -50,6 +52,18 @@ public class BerserkerStance extends RunnerStance {
         this.description = baseDescription;
         updateDescription();
     }
+
+    public BerserkerStance(LinkedHashMap<String,Integer> newDurabilities) {
+        super(newDurabilities);
+        this.ID = "Berserker";
+        stanceString = LocalizedRunnerStanceStrings.getRunnerStanceStrings(RunnerMod.makeID(STANCE_ID));
+        baseDescription = stanceString.DESCRIPTION;
+        name = stanceString.NAME;
+        this.description = baseDescription;
+        updateDescription();
+    }
+
+
 
 
 

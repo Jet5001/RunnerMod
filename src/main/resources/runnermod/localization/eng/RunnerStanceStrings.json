@@ -37,7 +37,7 @@
   },
   "${modID}:Overclock": {
     "NAME": "Overclock",
-    "DESCRIPTION": "Each time you play a card discard a card and draw a card "
+    "DESCRIPTION": "Each time you play a card discard your rightmost card and draw a card "
   },
   "${modID}:Tinker": {
     "NAME": "Tinker",

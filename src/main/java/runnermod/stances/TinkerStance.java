@@ -26,6 +26,8 @@ import runnermod.character.RunnerCharacter;
 import runnermod.util.LocalizedRunnerStanceStrings;
 
 import java.util.Collections;
+import java.util.Dictionary;
+import java.util.LinkedHashMap;
 
 public class TinkerStance extends RunnerStance {
     public static String STANCE_ID = "Tinker";
@@ -35,6 +37,16 @@ public class TinkerStance extends RunnerStance {
 
     public TinkerStance(String[] ids, int[] durabilties) {
         super(ids,durabilties);
+        this.ID = "Tinker";
+        stanceString = LocalizedRunnerStanceStrings.getRunnerStanceStrings(RunnerMod.makeID(STANCE_ID));
+        baseDescription = stanceString.DESCRIPTION;
+        name = stanceString.NAME;
+        this.description = baseDescription;
+        updateDescription();
+    }
+
+    public TinkerStance(LinkedHashMap<String,Integer> newDurabilities) {
+        super(newDurabilities);
         this.ID = "Tinker";
         stanceString = LocalizedRunnerStanceStrings.getRunnerStanceStrings(RunnerMod.makeID(STANCE_ID));
         baseDescription = stanceString.DESCRIPTION;

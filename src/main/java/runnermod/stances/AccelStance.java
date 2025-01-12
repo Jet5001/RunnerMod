@@ -22,6 +22,8 @@ import runnermod.character.RunnerCharacter;
 import runnermod.util.LocalizedRunnerStanceStrings;
 
 import java.util.Collections;
+import java.util.Dictionary;
+import java.util.LinkedHashMap;
 
 public class AccelStance extends RunnerStance {
     public static String STANCE_ID = "Accel";
@@ -31,6 +33,15 @@ public class AccelStance extends RunnerStance {
 
     public AccelStance(String[] ids, int[] durabilties) {
         super(ids,durabilties);
+        this.ID = "Accel";
+        stanceString = LocalizedRunnerStanceStrings.getRunnerStanceStrings(RunnerMod.makeID(STANCE_ID));
+        baseDescription = stanceString.DESCRIPTION;
+        name = stanceString.NAME;
+        this.description = baseDescription;
+        updateDescription();
+    }
+    public AccelStance(LinkedHashMap<String,Integer> newDurabilities) {
+        super(newDurabilities);
         this.ID = "Accel";
         stanceString = LocalizedRunnerStanceStrings.getRunnerStanceStrings(RunnerMod.makeID(STANCE_ID));
         baseDescription = stanceString.DESCRIPTION;
