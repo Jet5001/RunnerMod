@@ -46,7 +46,6 @@ public class Quarantine extends BaseCard {
         super(ID,info);
         setMagic(MAGIC,UPG_MAGIC);
         this.misc = DUR;
-        setInnate(true);
         this.tags.add(RunnerCharacter.Enums.NEON);
     }
 

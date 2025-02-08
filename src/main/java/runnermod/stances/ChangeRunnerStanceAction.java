@@ -13,10 +13,7 @@ import runnermod.character.RunnerCharacter;
 import runnermod.powers.DurablePower;
 import runnermod.powers.ScrapArmourPower;
 
-import java.util.Collections;
-import java.util.Dictionary;
-import java.util.Hashtable;
-import java.util.LinkedHashMap;
+import java.util.*;
 
 public class ChangeRunnerStanceAction extends AbstractGameAction {
 
@@ -87,13 +84,13 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
 
     AbstractStance makeComboStance(String newstanceID)
     {
-        Hashtable<String, Pair<String,String>> componentLookup = new Hashtable<>();
-        componentLookup.put("Accel",new Pair<>("Blades","Wall"));
-        componentLookup.put("Hack",new Pair<>("Artifact","Blades"));
-        componentLookup.put("Metal",new Pair<>("Artifact","Wall"));
-        componentLookup.put("Tinker",new Pair<>("Overclock","Wall"));
-        componentLookup.put("Cards",new Pair<>("Artifact","Overclock"));
-        componentLookup.put("Berserker",new Pair<>("Blades","Overclock"));
+        Hashtable<String, Map.Entry<String,String>> componentLookup = new Hashtable<>();
+        componentLookup.put("Accel", new AbstractMap.SimpleEntry<>("Blades","Wall"));
+        componentLookup.put("Hack",new AbstractMap.SimpleEntry<>("Artifact","Blades"));
+        componentLookup.put("Metal",new AbstractMap.SimpleEntry<>("Artifact","Wall"));
+        componentLookup.put("Tinker",new AbstractMap.SimpleEntry<>("Overclock","Wall"));
+        componentLookup.put("Cards",new AbstractMap.SimpleEntry<>("Artifact","Overclock"));
+        componentLookup.put("Berserker",new AbstractMap.SimpleEntry<>("Blades","Overclock"));
         String Component1 = componentLookup.get(newstanceID).getKey();
         String Component2 = componentLookup.get(newstanceID).getValue();
         LinkedHashMap<String,Integer> newDurabilities = new LinkedHashMap<String,Integer>();
@@ -166,7 +163,7 @@ public class ChangeRunnerStanceAction extends AbstractGameAction {
         {
             if (AbstractDungeon.player instanceof RunnerCharacter)
             {
-                AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).baseImg;
+                AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).akiraStanceImg;
             }
             finalStance =  new AKIRAStance(new String[]{"AKIRA"}, new int[]{0});
             AbstractDungeon.actionManager.addToTop(new ChangeStanceAction(finalStance));

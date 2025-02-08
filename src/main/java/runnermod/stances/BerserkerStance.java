@@ -64,8 +64,11 @@ public class BerserkerStance extends RunnerStance {
     }
 
 
-
-
+    @Override
+    public void updateDescription() {
+        super.updateDescription();
+        description += stanceString.EXTRA_DESCRIPTIONS[0] + (cardsPlayedInStance+1) + stanceString.EXTRA_DESCRIPTIONS[1];
+    }
 
     @Override
     public void onPlayCard(AbstractCard card) {

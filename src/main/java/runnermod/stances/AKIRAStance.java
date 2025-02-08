@@ -31,7 +31,7 @@ import java.util.List;
 import java.util.Random;
 
 public class AKIRAStance extends RunnerStance {
-    protected static String STANCE_ID = "AKIRA";
+    protected static String STANCE_ID = "Akira";
 
 
     private static long sfxId = -1L;
@@ -39,7 +39,7 @@ public class AKIRAStance extends RunnerStance {
     com.megacrit.cardcrawl.random.Random rng = new com.megacrit.cardcrawl.random.Random();
     public AKIRAStance(String[] ids, int[] durabilties) {
         super(ids,durabilties);
-        this.ID = "AKIRA";
+        this.ID = "Akira";
         stanceString = LocalizedRunnerStanceStrings.getRunnerStanceStrings(RunnerMod.makeID(STANCE_ID));
         baseDescription = stanceString.DESCRIPTION;
         name = stanceString.NAME;

@@ -15,7 +15,7 @@ public class Godspeed extends BaseCard {
     public static final String ID = makeID(Godspeed.class.getSimpleName());
     private static final CardStats info = new CardStats(
             CardColor.COLORLESS,
-            CardType.SKILL,
+            CardType.POWER,
             CardRarity.SPECIAL,
             CardTarget.NONE,
             1

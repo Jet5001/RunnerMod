@@ -5,11 +5,11 @@
   },
   "${modID}:Wall": {
     "NAME": "Shields",
-    "DESCRIPTION": "When you play an attack gain block equal to it's cost."
+    "DESCRIPTION": "When you play an attack gain block equal to #b 3 times it's cost."
   },
   "${modID}:Accel": {
     "NAME": "Accel",
-    "DESCRIPTION": "Each time you play a card gain #b 1 strength this turn and #b 2 Block next turn."
+    "DESCRIPTION": "Each time you play a card gain #b 2 strength until this equipment breaks."
   },
   "${modID}:Artifact": {
     "NAME": "Firewall",
@@ -17,7 +17,11 @@
   },
   "${modID}:Berserker": {
     "NAME": "Berserker",
-    "DESCRIPTION": "Each time you play a card deal damage equal to the number of cards played in this stance."
+    "DESCRIPTION": "Each time you play a card deal damage equal to the number of cards played in this stance.",
+    "EXTRA_DESCRIPTIONS": [
+      "(Deals #b ",
+      " Damage)"
+      ]
   },
   "${modID}:Blades": {
     "NAME": "Blades",
@@ -37,7 +41,7 @@
   },
   "${modID}:Overclock": {
     "NAME": "Overclock",
-    "DESCRIPTION": "Each time you play a card discard your rightmost card and draw a card "
+    "DESCRIPTION": "Each time you play a card discard your left most card and draw a card "
   },
   "${modID}:Tinker": {
     "NAME": "Tinker",
@@ -45,7 +49,7 @@
   },
   "${modID}:Glitched": {
     "NAME": "Glitched",
-    "DESCRIPTION": "You take double damage from attacks and your attacks deal half damage NL Play less than #b 3 cards in a turn to solve"
+    "DESCRIPTION": "You take double damage from attacks and your attacks deal half damage NL Play less than #b 3 or less cards in a turn to solve"
   },
   "${modID}:Akira": {
     "NAME": "Akira",

@@ -25,9 +25,13 @@ public class DiscardRightMostAction extends AbstractGameAction {
     public void update() {
         AbstractCard c;
         AbstractPlayer p = AbstractDungeon.player;
-        c = this.p.hand.getTopCard();
-        this.p.hand.moveToDiscardPile(c);
-        c.triggerOnManualDiscard();
+        if(p.hand.size() > 0)
+        {
+            c = this.p.hand.getTopCard();
+            this.p.hand.moveToDiscardPile(c);
+            c.triggerOnManualDiscard();
+        }
+
         isDone = true;
     }
 }

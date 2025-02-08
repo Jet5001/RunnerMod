@@ -152,5 +152,12 @@
       "The next time damage is taken, take #b",
       " more"
     ]
+  },
+  "${modID}:DetonatePower": {
+    "NAME": "Detonate",
+    "DESCRIPTIONS": [
+      "When this unit dies, it deals #b",
+      " damage"
+    ]
   }
 }

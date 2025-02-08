@@ -101,7 +101,7 @@
       "Enter_Accel"
 
     ],
-    "DESCRIPTION": "Combines with current equipment to form Accel NL Each time you play a card, gain 1 Str and 2 Block next turn"
+    "DESCRIPTION": "Combines with current equipment to form Accel NL Each time you play a card, gain 1 Strength"
   },
   {
     "PROPER_NAME": "Combo Metal",
@@ -109,7 +109,7 @@
       "Enter Metal",
       "Enter_Metal"
     ],
-    "DESCRIPTION": "Combines with current equipment to form Metal NL Each time you play a card, gain 1 dex and 1 thorns"
+    "DESCRIPTION": "Combines with current equipment to form Metal NL Each time you play a card, gain 3 block and 2 thorns"
   },
   {
     "PROPER_NAME": "Combo Tinker",

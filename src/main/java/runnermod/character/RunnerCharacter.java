@@ -15,12 +15,10 @@ import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.red.Strike_Red;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
@@ -29,15 +27,14 @@ import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
+import runnermod.RunnerMod;
 import runnermod.cards.common.QuickRun;
 import runnermod.cards.starter.*;
-import runnermod.relics.ICEPick;
 import runnermod.relics.SpareParts;
 
 import java.util.ArrayList;
 
-import static runnermod.RunnerMod.characterPath;
-import static runnermod.RunnerMod.makeID;
+import static runnermod.RunnerMod.*;
 
 public class RunnerCharacter extends CustomPlayer implements OnCardUseSubscriber, OnPlayerTurnStartSubscriber, PostBattleSubscriber, PrePlayerUpdateSubscriber {
     //Stats
@@ -109,9 +106,28 @@ public class RunnerCharacter extends CustomPlayer implements OnCardUseSubscriber
     public Texture tinkerStanceImg;
     public Texture metalStanceImg;
     public Texture accelStanceImg;
+    public Texture akiraStanceImg;
+
+    private static final String[] OrbTextures = {
+            RunnerMod.imagePath("character/orb/energy_base.png"),
+            RunnerMod.imagePath("character/orb/Swirl_1.png"),
+            RunnerMod.imagePath("character/orb/Swirl_2.png"),
+            RunnerMod.imagePath("character/orb/Swirl_3.png"),
+            RunnerMod.imagePath("character/orb/Swirl_4.png"),
+            RunnerMod.imagePath("character/orb/Rim.png"),
+            RunnerMod.imagePath("character/orb/Glass.png"),
+            RunnerMod.imagePath("character/orb/energy_based.png"),
+            RunnerMod.imagePath("character/orb/Swirl_1d.png"),
+            RunnerMod.imagePath("character/orb/Swirl_2d.png"),
+            RunnerMod.imagePath("character/orb/Swirl_3d.png"),
+            RunnerMod.imagePath("character/orb/Swirl_4d.png"),
+            RunnerMod.imagePath("character/orb/Rim.png"),
+            };
+
+    private static final float[] layerSpeeds = new float[]{0f,20f, -20f, 40f, -0f, -40f};
     public RunnerCharacter() {
         super(NAMES[0], Enums.RUNNER,
-                new CustomEnergyOrb(null, null, null), //Energy Orb
+                new CustomEnergyOrb(OrbTextures,RunnerMod.imagePath("character/orb/VFX.png"), layerSpeeds), //Energy Orb
                 //new SpriterAnimation(characterPath("animation/default.scml"))); //Animation
                 new AbstractAnimation() {
                     @Override
@@ -142,6 +158,10 @@ public class RunnerCharacter extends CustomPlayer implements OnCardUseSubscriber
         tinkerStanceImg = ImageMaster.loadImage(characterPath("Pose_Tinker.png"));
         metalStanceImg = ImageMaster.loadImage(characterPath("Pose_Metal.png"));
         accelStanceImg = ImageMaster.loadImage(characterPath("Pose_Accel.png"));
+        akiraStanceImg = ImageMaster.loadImage(characterPath("Pose_Akira.png"));
+
+
+
     }
 
     @Override

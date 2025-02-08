@@ -88,7 +88,11 @@ public abstract class RunnerStance extends AbstractStance {
         }
         if (durabilityDictionary.get(durability).equals(0) || durabilityDictionary.get(durability)<0)
         {
-            AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));
+            if (AbstractDungeon.player instanceof RunnerCharacter)
+            {
+                AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).baseImg;
+            }
+            AbstractDungeon.actionManager.addToTop(new ChangeStanceAction(new NeutralStance()));
         }
         updateDescription();
     }
@@ -107,7 +111,7 @@ public abstract class RunnerStance extends AbstractStance {
                 {
                     AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).baseImg;
                 }
-                AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));
+                AbstractDungeon.actionManager.addToTop(new ChangeStanceAction(new NeutralStance()));
                 return;
             }
             if (AbstractDungeon.player instanceof RunnerCharacter)
@@ -125,7 +129,7 @@ public abstract class RunnerStance extends AbstractStance {
                 {
                     AbstractDungeon.player.img = ((RunnerCharacter) AbstractDungeon.player).baseImg;
                 }
-                AbstractDungeon.actionManager.addToTop(new ChangeRunnerStanceAction("Neutral",0));
+                AbstractDungeon.actionManager.addToTop(new ChangeStanceAction(new NeutralStance()));
                 return;
             }
             if (AbstractDungeon.player instanceof RunnerCharacter)

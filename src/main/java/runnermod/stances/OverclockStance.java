@@ -48,7 +48,7 @@ public class OverclockStance extends RunnerStance {
     @Override
     public void onPlayCard(AbstractCard card) {
         super.onPlayCard(card);
-        AbstractDungeon.actionManager.addToBottom(new DiscardRightMostAction(AbstractDungeon.player,AbstractDungeon.player,1));
+        AbstractDungeon.actionManager.addToBottom(new DiscardLeftMostAction(AbstractDungeon.player,AbstractDungeon.player,1));
         AbstractDungeon.actionManager.addToBottom(new DrawCardAction(1));
         updateDescription();
     }

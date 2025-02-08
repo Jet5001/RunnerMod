@@ -100,7 +100,7 @@ public class RunnerMod implements
 
         //Commented out as boss is still WIP
         BaseMod.addMonster(AKIRABoss.ID, "Akira",()->new AKIRABoss());
-        BaseMod.addBoss(TheBeyond.ID,AKIRABoss.ID,resourcesFolder + "/images/monsters/AkiraBossIconTemp.png",resourcesFolder + "/images/monsters/AkiraBossIconTemp.png");
+        BaseMod.addBoss(TheBeyond.ID,AKIRABoss.ID,resourcesFolder + "/images/monsters/AkiraBossIcon.png",resourcesFolder + "/images/monsters/AkiraBossIconFaded.png");
         registerPotions();
         
         equipmentRenderer = new EquipmentRenderer();

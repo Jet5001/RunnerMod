@@ -10,10 +10,9 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 public class SpamDiscountAction extends AbstractGameAction {
 
     private int discount;
-    SpamDiscountAction(int discount)
+    protected SpamDiscountAction()
     {
-        this.discount = discount;
-        this.actionType = ActionType.DRAW;
+        this.actionType = ActionType.CARD_MANIPULATION;
     }
 
 
@@ -21,14 +20,7 @@ public class SpamDiscountAction extends AbstractGameAction {
     @Override
     public void update() {
         AbstractCard c = AbstractDungeon.player.hand.getTopCard();
-        if (c.cost >= discount)
-        {
-            c.costForTurn = c.cost - discount;
-        }
-        else
-        {
-            c.costForTurn = 0;
-        }
+        c.freeToPlayOnce = true;
         //mark as completed so it doesn't repeat every frame and can be removed from the buffer
         this.isDone = true;
     }

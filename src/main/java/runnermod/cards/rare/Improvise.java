@@ -35,7 +35,6 @@ public class Improvise extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new DiscardHandAction(p,p));
-        addToBot(new ScryAction(3));
         addToBot(new DrawCardAction(3));
         addToBot(new GainEnergyAction(magicNumber));
     }

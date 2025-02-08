@@ -25,9 +25,9 @@ public class Spam extends BaseCard {
     );
 
     private static int DMG = 8;
-    private static int DMG_UP = 0;
+    private static int DMG_UP = 3;
     private static int MAG = 1;
-    private static int MAG_UPG = 1;
+    private static int MAG_UPG = 0;
 
     public Spam()
     {
@@ -46,7 +46,7 @@ public class Spam extends BaseCard {
         addToBot(new DamageAllEnemiesAction(p,damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
         for (int i = 0; i < this.magicNumber; i++) {
             addToBot(new DrawCardAction(1));
-            addToBot(new SpamDiscountAction(1));
+            addToBot(new SpamDiscountAction());
         }
 
 

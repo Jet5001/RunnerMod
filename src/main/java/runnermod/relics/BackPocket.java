@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
+import runnermod.cards.uncommon.SpamDiscountAction;
 import runnermod.character.RunnerCharacter;
 
 import static runnermod.RunnerMod.makeID;
@@ -41,6 +42,7 @@ public class BackPocket extends BaseRelic implements PrePlayerUpdateSubscriber {
             flash();
             usedThisTurn = true;
             addToBot(new DrawCardAction(1));
+            addToBot(new BackPocketDiscountAction());
         }
     }
 }

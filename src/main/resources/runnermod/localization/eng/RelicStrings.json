@@ -6,7 +6,7 @@
       "Gain [E] at the start of your turn. [E] is an energy icon."
     ]
   },
-  "${modID}:ICEPick": {
+  "${modID}:IcePick": {
     "NAME": "ICE Pick",
     "FLAVOR": "A reliable ICE breaker, works especially well against firewalls",
     "DESCRIPTIONS": [
@@ -53,7 +53,7 @@
     "NAME": "Back Pocket",
     "FLAVOR": "The lint lives here",
     "DESCRIPTIONS": [
-      "The first time you reach 0 energy in a turn draw #b 1 card"
+      "The first time you reach 0 energy in a turn draw #b 1 card and reduce it's cost by 1 this turn"
     ]
   },
   "${modID}:FissionCore": {

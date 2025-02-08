@@ -32,6 +32,11 @@ public class HeadOn extends BaseCard {
     }
 
     @Override
+    protected void calculateVarAsBlock(String key) {
+        super.calculateVarAsBlock(key);
+    }
+
+    @Override
     public void calculateCardDamage(AbstractMonster m) {
         super.calculateCardDamage(m);
         AbstractPower strength = AbstractDungeon.player.getPower("Strength");
@@ -161,4 +166,5 @@ public class HeadOn extends BaseCard {
             addToBot(new GainBlockAction(p,p,this.block));
         }
     }
+
 }

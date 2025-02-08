@@ -18,6 +18,9 @@ import runnermod.RunnerMod;
 import runnermod.cards.tempcards.Virus;
 import runnermod.stances.ChangeRunnerStanceAction;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import static runnermod.RunnerMod.characterPath;
 import static runnermod.RunnerMod.imagePath;
 
@@ -29,7 +32,7 @@ public class AKIRABoss extends AbstractMonster {
     public static final String[] MOVES = monsterStrings.MOVES;
     public static final String[] DIALOG = monsterStrings.DIALOG;
 
-    private static int maxHP = 348;
+    private static int maxHP = 398;
     private static float hb_x  = -10.0F;
     private static float hb_y  = -30.0F;
     private static float offsetX = 0f;
@@ -41,25 +44,27 @@ public class AKIRABoss extends AbstractMonster {
     private static final byte ForceStance = 0;
     private static final byte BufferDefence = 1;
     private static final byte DebuffAttacks = 2;
-    private static final byte AddViruses = 3;
-    private static final byte ChunkAttack = 4;
-    private static final byte Heal = 5;
+    private static final byte ChunkAttack = 3;
+    private static final byte Heal = 4;
 
     private int MultiAttackDamage = 6;
-    private int ChunkDamage = 35;
+    private int MultiAttackDamageWeaker =2;
+    private int ChunkDamage = 28;
 
 
     private boolean usedHeal = false;
-    private boolean lastDebuffIsStance;
     private boolean firstTurn = false;
     private boolean attackedRecently =false;
     private int turnCount = 1;
     private int bufferCount = 3;
 
+    int mirrorsSpawned = 0;
+
     public AKIRABoss() {
         super("Akira", ID, maxHP, hb_x, hb_y, hb_w, hb_h, imgUrl,offsetX,offsetY);
         this.damage.add(new DamageInfo(this, this.MultiAttackDamage, DamageInfo.DamageType.NORMAL));
         this.damage.add(new DamageInfo(this, this.ChunkDamage, DamageInfo.DamageType.NORMAL));
+        this.damage.add(new DamageInfo(this, this.MultiAttackDamageWeaker, DamageInfo.DamageType.NORMAL));
         this.type = AbstractMonster.EnemyType.BOSS;
     }
 
@@ -82,29 +87,47 @@ public class AKIRABoss extends AbstractMonster {
             case 1:
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this,this,new BufferPower(this,bufferCount)));
                 bufferCount++;
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this,this, new StrengthPower(this,1)));
+                if(AbstractDungeon.ascensionLevel >= 9) {
+                    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this, this, new StrengthPower(this, 1)));
+                }
                 break;
             case 2:
                 for (i = 0; i < 3; i++) {
-                    AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+                    if(usedHeal)
+                    {
+                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(2), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+                    }
+                    else
+                    {
+                        AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(0), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+                    }
+
                 }
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new FrailPower(AbstractDungeon.player, 1, true), 1));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new VulnerablePower(AbstractDungeon.player, 1, true), 1));
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, this, new WeakPower(AbstractDungeon.player, 1, true), 1));
+                if(AbstractDungeon.ascensionLevel >= 19)
+                {
+                    AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new Virus(),3,true,true ));
+                }
                 break;
             case 3:
-                AbstractDungeon.actionManager.addToBottom(new VFXAction(this, new ShockWaveEffect(this.hb.cX, this.hb.cY, Settings.BLUE_TEXT_COLOR, ShockWaveEffect.ShockWaveType.CHAOTIC), 0.75F));
-                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new Virus(),3,true,true ));
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.SMASH));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this,this, new StrengthPower(this,2)));
+                if(usedHeal)
+                {
+                    List<DarkMirror> mirrors = (List<DarkMirror>) AbstractDungeon.getMonsters().monsters.stream().map(m -> m instanceof DarkMirror ? (DarkMirror)m:null).filter(m -> m!=null && !m.isDeadOrEscaped()).collect(Collectors.toList());
+                    if(mirrors.size() <=4)
+                    {
+                        AbstractDungeon.actionManager.addToBottom((AbstractGameAction)new SpawnMonsterAction(new DarkMirror(), true));
+                    }
+                }
                 break;
             case 4:
-                AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, this.damage.get(1), AbstractGameAction.AttackEffect.SMASH));
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this,this, new StrengthPower(this,3)));
-                break;
-            case 5:
                 AbstractDungeon.actionManager.addToBottom(new RemoveDebuffsAction(this));
                 AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this, this, "Shackled"));
                 AbstractDungeon.actionManager.addToBottom(new HealAction(this, this, this.maxHealth / 4));
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this,this, new IntangiblePlayerPower(this,1)));
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this,this, new IntangiblePlayerPower(this,2)));
                 int strAmount = 0;
                 for (int j = 0; j < this.powers.size(); j++) {
                     if(powers.get(j) instanceof StrengthPower)
@@ -116,9 +139,25 @@ public class AKIRABoss extends AbstractMonster {
                 {
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this,this, new StrengthPower(this,strAmount)));
                 }
+                List<DarkMirror> mirrors = (List<DarkMirror>) AbstractDungeon.getMonsters().monsters.stream().map(m -> m instanceof DarkMirror ? (DarkMirror)m:null).filter(m -> m!=null && !m.isDeadOrEscaped()).collect(Collectors.toList());
+                if(mirrors.size() <=4)
+                {
+                    AbstractDungeon.actionManager.addToBottom((AbstractGameAction)new SpawnMonsterAction(new DarkMirror(), true));
+                }
         }
         AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
         turnCount++;
+    }
+
+
+    public void damage(DamageInfo info) {
+        super.damage(info);
+        if (!this.isDying && this.currentHealth <= this.maxHealth / 2.0F && this.nextMove != 3 && !usedHeal) {
+            setMove(Heal, AbstractMonster.Intent.UNKNOWN);
+            createIntent();
+            AbstractDungeon.actionManager.addToBottom((AbstractGameAction)new SetMoveAction(this, Heal, AbstractMonster.Intent.UNKNOWN));
+            usedHeal = true;
+        }
     }
 
     @Override
@@ -126,24 +165,17 @@ public class AKIRABoss extends AbstractMonster {
         if(currentHealth < maxHealth/3 && !usedHeal)
         {
             usedHeal = true;
-            setMove(Heal, Intent.BUFF);
+            setMove(Heal, Intent.UNKNOWN);
             return;
         }
         if(firstTurn)
         {
-            setMove(ForceStance, Intent.DEBUFF);
+            setMove(ForceStance, Intent.STRONG_DEBUFF);
             firstTurn = false;
         }
         if(turnCount % 5 == 1)
         {
-            if(!lastDebuffIsStance)
-            {
-                setMove(ForceStance, Intent.DEBUFF);
-            }
-            else
-            {
-                setMove(AddViruses, Intent.DEBUFF);
-            }
+            setMove(ForceStance, Intent.STRONG_DEBUFF);
             return;
         }
         if(num < 33 && !lastMove(DebuffAttacks))
@@ -152,7 +184,7 @@ public class AKIRABoss extends AbstractMonster {
             attackedRecently = true;
             return;
         }
-        if(num < 70 && !lastMove(ChunkAttack))
+        if(num < 75 && !lastMove(ChunkAttack))
         {
             setMove(ChunkAttack,Intent.ATTACK_BUFF, this.damage.get(1).base);
             attackedRecently = true;

@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class LocalizedRunnerStanceStrings {
     private static final String LOCALIZATIONPATH = "localization";
-    private static Map<String,RunnerStanceStrings> runnerStaceStrings = new HashMap<String,RunnerStanceStrings>();
+    private static Map<String,RunnerStanceStrings> runnerStanceStrings = new HashMap<String,RunnerStanceStrings>();
     private static Gson gson = new Gson();
     private static Type runnerStanceStringType = (new TypeToken<Map<String,RunnerStanceStrings>>(){}).getType();
 
@@ -26,12 +26,12 @@ public class LocalizedRunnerStanceStrings {
 
     private static void loadJsonStrings(String jsonString){
         Map map = new HashMap((Map)gson.fromJson(jsonString, runnerStanceStringType));
-        runnerStaceStrings.putAll(map);
+        runnerStanceStrings.putAll(map);
     }
 
     public static RunnerStanceStrings getRunnerStanceStrings(String cutsceneName) {
-        if (runnerStaceStrings.containsKey(cutsceneName)) {
-            return  runnerStaceStrings.get(cutsceneName);
+        if (runnerStanceStrings.containsKey(cutsceneName)) {
+            return  runnerStanceStrings.get(cutsceneName);
         } else {
             return RunnerStanceStrings.getMockRunnerStanceString();
         }

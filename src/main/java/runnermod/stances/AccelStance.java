@@ -6,6 +6,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.watcher.ChangeStanceAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -30,6 +31,7 @@ public class AccelStance extends RunnerStance {
 
     private static long sfxId = -1L;
     private int durability;
+    public int strengthGained = 0;
 
     public AccelStance(String[] ids, int[] durabilties) {
         super(ids,durabilties);
@@ -39,6 +41,7 @@ public class AccelStance extends RunnerStance {
         name = stanceString.NAME;
         this.description = baseDescription;
         updateDescription();
+        strengthGained = 0;
     }
     public AccelStance(LinkedHashMap<String,Integer> newDurabilities) {
         super(newDurabilities);
@@ -67,8 +70,8 @@ public class AccelStance extends RunnerStance {
     @Override
     public void onPlayCard(AbstractCard card) {
 
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player,AbstractDungeon.player,new StrengthPower(AbstractDungeon.player, 1)));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player,AbstractDungeon.player,new NextTurnBlockPower(AbstractDungeon.player, 2)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player,AbstractDungeon.player,new StrengthPower(AbstractDungeon.player, 2)));
+        strengthGained+= 2;
         super.onPlayCard(card);
         updateDescription();
     }
@@ -102,6 +105,8 @@ public class AccelStance extends RunnerStance {
 
     public void onExitStance() {
         stopIdleSfx();
+        AbstractPlayer p = AbstractDungeon.player;
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p,new StrengthPower(p,-strengthGained)));
     }
 
     public void stopIdleSfx() {

@@ -71,8 +71,8 @@
   },
   "${modID}:Improvise": {
     "NAME": "Improvise",
-    "DESCRIPTION": "Discard your hand. NL Scry 3. NL Draw 3. NL Gain [E]. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Discard your hand. NL Scry 3. NL Draw 3. NL Gain [E] [E]. NL Exhaust."
+    "DESCRIPTION": "Discard your hand. NL Draw 3. NL Gain [E]. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Discard your hand. NL Draw 3. NL Gain [E] [E]. NL Exhaust."
   },
   "${modID}:Ward": {
     "NAME": "Ward",
@@ -124,7 +124,8 @@
   },
   "${modID}:MalwareScan": {
     "NAME": "Malware Scan",
-    "DESCRIPTION": "Remove !M! random statuses from your deck. NL Draw a card. NL RunnerMod:Neon."
+    "DESCRIPTION": "Remove !M! random status from your deck. NL Draw a card. NL RunnerMod:Neon.",
+    "UPGRADE_DESCRIPTION": "Remove !M! random statuses from your deck. NL Draw a card. NL RunnerMod:Neon."
   },
   "${modID}:Upgrades": {
     "NAME": "Upgrades",
@@ -286,7 +287,7 @@
   },
   "${modID}:Manifest": {
     "NAME": "Manifest",
-    "DESCRIPTION": "Draw !M! cards. NL Chose 2 cards to retain this turn. NL Add a *viruses to your discard pile."
+    "DESCRIPTION": "Draw !M! cards. NL Chose 2 cards to retain this turn. NL Add a *virus to your discard pile."
   },
   "${modID}:SwiftRun": {
     "NAME": "Swift Run",
@@ -310,7 +311,7 @@
   },
   "${modID}:Quarantine": {
     "NAME": "Quarantine",
-    "DESCRIPTION": "All enemies lose !M! Strength for 1 turn. NL RunnerMod:Equip RunnerMod:Firewall. NL RunnerMod:Neon. NL Innate."
+    "DESCRIPTION": "All enemies lose !M! Strength for 1 turn. NL RunnerMod:Equip RunnerMod:Firewall. NL RunnerMod:Neon."
   },
   "${modID}:Cloaking": {
     "NAME": "Cloaking",
@@ -336,8 +337,8 @@
   },
   "${modID}:Spam": {
     "NAME": "Spam",
-    "DESCRIPTION": "Deal !D! damage to all enemies. NL Draw !M! card and reduce its cost by 1 this turn.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage to all enemies. NL Draw !M! cards and reduce their cost by 1 this turn."
+    "DESCRIPTION": "Deal !D! damage to all enemies. NL Draw !M! card and it costs 0 this turn.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to all enemies. NL Draw !M! cards and they cost 0 this turn."
   },
   "${modID}:Decoy": {
     "NAME": "Decoy",
@@ -383,11 +384,6 @@
     "NAME": "CTRL-V",
     "DESCRIPTION": "Make a copy of a card in your hand it costs 0 this turn.",
     "UPGRADE_DESCRIPTION": "Make a copy of a card in your hand it costs 0 this turn. NL Retain."
-  },
-  "${modID}:AKIRA": {
-    "NAME": "AKIRA",
-    "DESCRIPTION": "Replace part of your deck with unstable cards. NL You can no longer use equipment.",
-    "UPGRADE_DESCRIPTION": "Try to ascend. NL Innate. NL (Replace part of your deck with unstable cards NL You can no longer use equipment.)"
   },
   "${modID}:SpaceLaser": {
     "NAME": "Orbital Laser",
@@ -443,7 +439,7 @@
   },
   "${modID}:Polyphony": {
     "NAME": "Polyphony",
-    "DESCRIPTION": "Deal 4 damage times the number of cards played this turn to all enemies.",
+    "DESCRIPTION": "Deal 4 damage times the number of cards played this combat to all enemies.",
     "EXTENDED_DESCRIPTION": [
       " NL (Deals !D! damage.)"
     ]
@@ -484,5 +480,10 @@
   "${modID}:FlashKnuckle": {
     "NAME": "Flash Knuckle",
     "DESCRIPTION": "Deal !D! damage. NL Gain !M! Vigor."
+  },
+  "${modID}:Akira": {
+    "NAME": "AKIRA",
+    "DESCRIPTION": "Replace part of your deck with unstable cards. NL You can no longer use equipment.",
+    "UPGRADE_DESCRIPTION": "Try to ascend. NL Innate. NL (Replace part of your deck with unstable cards NL You can no longer use equipment.)"
   }
 }

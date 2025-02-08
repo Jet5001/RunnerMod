@@ -18,6 +18,7 @@ import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceAuraEffect;
 import com.megacrit.cardcrawl.vfx.stance.StanceChangeParticleGenerator;
 import com.megacrit.cardcrawl.vfx.stance.WrathParticleEffect;
+import runnermod.RunnerMod;
 import runnermod.character.RunnerCharacter;
 import runnermod.util.LocalizedRunnerStanceStrings;
 import runnermod.util.RunnerStanceStrings;
@@ -25,7 +26,7 @@ import runnermod.util.RunnerStanceStrings;
 public class GlitchedStance extends AbstractStance {
 
     private static final String STANCE_ID = "Glitched";
-    private static final RunnerStanceStrings stanceString = LocalizedRunnerStanceStrings.getRunnerStanceStrings(STANCE_ID);
+    private RunnerStanceStrings stanceString = LocalizedRunnerStanceStrings.getRunnerStanceStrings(STANCE_ID);
     private static long sfxId = -1L;
 
     private AbstractStance previousStance;
@@ -33,13 +34,14 @@ public class GlitchedStance extends AbstractStance {
     {
         this.previousStance = previousStance;
         this.ID = "Glitched";
+        stanceString = LocalizedRunnerStanceStrings.getRunnerStanceStrings(RunnerMod.makeID(STANCE_ID));
         this.name = stanceString.NAME;
         this.description = stanceString.DESCRIPTION;
     }
 
     @Override
     public void onEndOfTurn() {
-        if (AbstractDungeon.actionManager.cardsPlayedThisTurn.size() < 3)
+        if (AbstractDungeon.actionManager.cardsPlayedThisTurn.size() <= 3)
         {
             AbstractDungeon.actionManager.addToBottom(new ChangeStanceAction(previousStance));
         }

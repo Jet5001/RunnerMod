@@ -27,18 +27,12 @@ public class SpareParts extends BaseRelic{
 
     @Override
     public void atBattleStart() {
-        switch (AbstractDungeon.miscRng.random(3)) {
+        switch (AbstractDungeon.miscRng.random(1)) {
             case 0:
                 addToBot(new ChangeRunnerStanceAction("Blades", 3));
                 break;
             case 1:
                 addToBot(new ChangeRunnerStanceAction("Wall",3));
-                break;
-            case 2:
-                addToBot(new ChangeRunnerStanceAction("Artifact", 3));
-                break;
-            case 3:
-                addToBot(new ChangeRunnerStanceAction("Overclock", 3));
                 break;
         }
         super.atBattleStart();

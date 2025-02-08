@@ -1,21 +1,19 @@
 package runnermod.relics;
 
-import com.evacipated.cardcrawl.mod.stslib.patches.BlockModifierPatches;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import runnermod.character.RunnerCharacter;
 
 import static runnermod.RunnerMod.makeID;
 
-public class ICEPick extends BaseRelic{
-    private static final String NAME = "ICEPick";
+public class IcePick extends BaseRelic{
+    private static final String NAME = "IcePick";
     public static final String ID = makeID(NAME);
     public static final RelicTier RARITY = RelicTier.SHOP;
     private static final LandingSound SOUND = LandingSound.CLINK;
     private static final int BLOCK_BYPASS = 2;
-    public ICEPick()
+    public IcePick()
     {
         super(ID,NAME, RunnerCharacter.Enums.CARD_COLOR,RARITY,SOUND);
     }

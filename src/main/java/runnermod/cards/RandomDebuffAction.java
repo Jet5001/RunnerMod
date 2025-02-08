@@ -44,9 +44,16 @@ public class RandomDebuffAction extends AbstractGameAction {
             switch (debuff)
             {
                 case "Shackled":
-                    addToBot((AbstractGameAction)new ApplyPowerAction(target, AbstractDungeon.player, new StrengthPower(target, -1), 1));
                     if (target != null && !target.hasPower("Artifact"))
+                    {
+                        addToBot(new ApplyPowerAction(target, AbstractDungeon.player, new StrengthPower(target, -1), 1));
                         addToBot(new ApplyPowerAction(target, AbstractDungeon.player, new GainStrengthPower(target, 1), 1));
+                    }
+                    else
+                    {
+                        return;
+                    }
+
                     break;
                 case "Frail":
                     addToBot(new ApplyPowerAction(target, owner, new FrailPower(target,1,false), 1));
