@@ -1,0 +1,9 @@
+{
+  "${modID}:EquipmentTutorial": {
+    "Lines": [
+      "Cards with the #yEquip keyword allow you to activate a variety of #yEquipment. NL Every time you play a card your equipment's #ydurability decreases and applies an interesting effect. NL NL The bubbles on the Equipment Gauge show the durability of the current #yEquipment.",
+      "Playing an #yEquipment with another already equipped combines them to form something much more powerful.",
+      "When an equipment has no durability left NL it is #rdestroyed and ceases to function. NL Cards with #bNeon do not consume durability."
+    ]
+  }
+}

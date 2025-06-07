@@ -30,21 +30,21 @@
     "NAME": "Hacked",
     "DESCRIPTIONS": [
       "Whenever a debuff is applied, Loses #b",
-      " HP.  At start of turn reduce Hacked by #b 1"
+      " HP.  At start of turn reduce Hacked by #b 1."
     ]
   },
   "${modID}:WallOfStaticPower": {
     "NAME": "Wall of Static",
     "DESCRIPTIONS": [
       "Whenever a debuff is applied to an enemy, gain #b ",
-      " block "
+      " Block."
     ]
   },
   "${modID}:DurablePower": {
     "NAME": "Durable",
     "DESCRIPTIONS": [
       "Whenever you equip an equipment it has #b",
-      " extra durability "
+      " extra durability."
     ]
   },
   "${modID}:PawnShopPower": {
@@ -58,49 +58,49 @@
     "NAME": "Bot Net",
     "DESCRIPTIONS": [
       "At the start of your turn apply #b",
-      " random debuffs to random enemies"
+      " random debuffs to random enemies."
     ]
   },
   "${modID}:OvertaxPower": {
     "NAME": "Overtax",
     "DESCRIPTIONS": [
       "At the start of your turn gain #b",
-      " extra [E]"
+      " extra [E]."
     ]
   },
   "${modID}:HardLightPower": {
     "NAME": "Hard Light Technology",
     "DESCRIPTIONS": [
       "Whenever you play a  Neon card deal #b",
-      " damage to a random enemy"
+      " damage to a random enemy."
     ]
   },
   "${modID}:ScrapArmourPower": {
     "NAME": "Scrap Armour",
     "DESCRIPTIONS": [
       "Whenever you gain durability gain #b",
-      " block"
+      " Block."
     ]
   },
   "${modID}:LaughingManPower": {
     "NAME": "Laughing Man",
     "DESCRIPTIONS": [
       "At the start of your turn apply #b",
-      " hack to ALL enemies"
+      " hack to ALL enemies."
     ]
   },
   "${modID}:AutopilotPower": {
     "NAME": "Autopilot",
     "DESCRIPTIONS": [
       "At the start of your turn play the top #b",
-      " cards of your deck for free"
+      " cards of your deck for free."
     ]
   },
   "${modID}:EvasiveManoeuvresPower": {
     "NAME": "Evasive Manoeuvres",
     "DESCRIPTIONS": [
       "Whenever you take damage this turn gain #b ",
-      " Block"
+      " Block."
     ]
   },
   "${modID}:ShortCircuitPower": {
@@ -108,56 +108,56 @@
     "DESCRIPTIONS": [
       "At the start of your turn exhaust #b",
       " cards in your hand and gain #b",
-      "energy"
+      "energy."
     ]
   },
   "${modID}:DepletedPower": {
     "NAME": "Depleted",
     "DESCRIPTIONS": [
       "At the start of your gain #b",
-      " less [E]"
+      " less [E]."
     ]
   },
   "${modID}:Overwhelm": {
     "NAME": "Overwhelmed",
     "DESCRIPTIONS": [
       "At the end of their turn takes #b",
-      " damage"
+      " damage."
     ]
   },
   "${modID}:VitalityPower": {
     "NAME": "Vitality",
     "DESCRIPTIONS": [
       "When gaining Block gain #b",
-      " more and remove all Vitality"
+      " more and remove all Vitality."
     ]
   },
   "${modID}:UpgradesPower": {
     "NAME": "Upgrades",
     "DESCRIPTIONS": [
       "At the start of your turn upgrade #b",
-      " random cards in your hand"
+      " random cards in your hand."
     ]
   },
   "${modID}:FlourishPower": {
     "NAME": "Flourish",
     "DESCRIPTIONS": [
       "Whenever the player gains block take #b",
-      " damage"
+      " damage."
     ]
   },
   "${modID}:ShockedPower": {
     "NAME": "Shocked",
     "DESCRIPTIONS": [
       "The next time damage is taken, take #b",
-      " more"
+      " more."
     ]
   },
   "${modID}:DetonatePower": {
     "NAME": "Detonate",
     "DESCRIPTIONS": [
       "When this unit dies, it deals #b",
-      " damage"
+      " damage."
     ]
   }
 }

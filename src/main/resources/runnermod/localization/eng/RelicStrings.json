@@ -32,7 +32,7 @@
     "NAME": "Balance Protocols",
     "FLAVOR": "Lets keep this simple",
     "DESCRIPTIONS": [
-      "The first time you would gain Vigor each turn gain an Equal amount of Vitality"
+      "The first time you would gain Vigor each turn gain an Equal amount of Block"
     ]
   },
   "${modID}:ImpactHammer": {

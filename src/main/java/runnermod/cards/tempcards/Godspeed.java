@@ -31,10 +31,14 @@ public class Godspeed extends BaseCard {
     {
         super(ID,info);
         setMagic(MAG,MAG_UPG);
-        upgradeBaseCost(0);
         setExhaust(true);
     }
 
+    @Override
+    public void upgrade() {
+        super.upgrade();
+        upgradeBaseCost(0);
+    }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {

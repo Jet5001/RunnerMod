@@ -50,7 +50,7 @@
   },
   "${modID}:EMP": {
     "NAME": "EMP",
-    "DESCRIPTION": "Gain !B! Block. NL Steal ALL Block from an enemy."
+    "DESCRIPTION": "Gain !B! Block. NL Steal ALL Block from ALL enemies."
   },
   "${modID}:AdaptiveShields": {
     "NAME": "Adaptive Shields",
@@ -162,7 +162,7 @@
   },
   "${modID}:ArtifactStanceSwitch": {
     "NAME": "Equip Firewall",
-    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Firewall. NL Gain !M! RunnerMod:Vitality. NL RunnerMod:Neon."
+    "DESCRIPTION": " RunnerMod:Equip  RunnerMod:Firewall. NL Add a *Bolt to your hand. NL RunnerMod:Neon."
   },
   "${modID}:OverclockStanceSwitch": {
     "NAME": "Equip Overclocker",
@@ -271,11 +271,11 @@
   },
   "${modID}:Digitise": {
     "NAME": "Digitise",
-    "DESCRIPTION": "Apply RunnerMod:Neon to !M! cards in your hand. NL Exhaust."
+    "DESCRIPTION": "Apply RunnerMod:Neon to !M! cards in your hand. NL Runnermod:Neon. NL Exhaust."
   },
   "${modID}:Infect": {
     "NAME": "Infect",
-    "DESCRIPTION": "Deal !D! damage. NL Apply !M! RunnerMod:Hacked."
+    "DESCRIPTION": "Deal !D! damage and Apply !M! RunnerMod:Hacked for each enemy in combat."
   },
   "${modID}:BladeStorm": {
     "NAME": "Bladestorm",
@@ -323,7 +323,7 @@
     "UPGRADE_DESCRIPTION": "Gain !B! block. NL Draw !M! cards. NL Ethereal."
   },
   "${modID}:LaughingMan": {
-    "NAME": "Laughing Man",
+    "NAME": "Memetic Form",
     "DESCRIPTION": "At the start of each turn apply !M! RunnerMod:Hacked to ALL enemies. NL Ethereal.",
     "UPGRADE_DESCRIPTION": "At the start of each turn apply !M! RunnerMod:Hacked to ALL enemies."
   },
@@ -338,17 +338,17 @@
   "${modID}:Spam": {
     "NAME": "Spam",
     "DESCRIPTION": "Deal !D! damage to all enemies. NL Draw !M! card and it costs 0 this turn.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage to all enemies. NL Draw !M! cards and they cost 0 this turn."
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to all enemies. NL Draw !M! card and they cost 0 this turn."
   },
   "${modID}:Decoy": {
     "NAME": "Decoy",
-    "DESCRIPTION": "RunnerMod:Neon. NL Does Nothing. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "RunnerMod:Neon. NL Does Nothing with Intent. NL Exhaust."
+    "DESCRIPTION": "RunnerMod:Neon. NL Does Nothing. NL Ethereal. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "RunnerMod:Neon. NL Does Nothing with Intent. NL Ethereal. NL Exhaust."
   },
   "${modID}:LostInTheCrowd": {
     "NAME": "Lost in the Crowd",
     "DESCRIPTION": "Fill your hand with *decoys. NL Ethereal.",
-    "UPGRADE_DESCRIPTION": "Fill your hand with upgraded *decoys. NL Ethereal. NL RunnerMod:Neon."
+    "UPGRADE_DESCRIPTION": "Fill your hand with upgraded *decoys. NL RunnerMod:Neon."
   },
   "${modID}:GhostInTheShell": {
     "NAME": "Ghost in the Shell",
@@ -391,7 +391,8 @@
   },
   "${modID}:FatalError": {
     "NAME": "- Fatal Error - ",
-    "DESCRIPTION": "- die -"
+    "DESCRIPTION": "- die -",
+    "UPGRADE_DESCRIPTION": "- die with intent -"
   },
   "${modID}:Drift": {
     "NAME": "Drift",
@@ -463,11 +464,11 @@
   },
   "${modID}:Recouperate": {
     "NAME": "Recuperate",
-    "DESCRIPTION": "Gain !B! Block. NL Gain !M! RunnerMod:Vitality."
+    "DESCRIPTION": "Gain !B! Block X times. NL Gain X [E] next turn."
   },
   "${modID}:DrainingRun": {
     "NAME": "Draining Run",
-    "DESCRIPTION": "Deal !D! Damage. NL Gain RunnerMod:Vitality equal to the health lost."
+    "DESCRIPTION": "Deal !D! Damage. NL Gain Block equal to the health lost."
   },
   "${modID}:Overcome": {
     "NAME": "Overcome",

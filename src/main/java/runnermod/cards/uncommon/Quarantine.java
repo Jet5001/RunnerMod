@@ -54,10 +54,12 @@ public class Quarantine extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         for (AbstractMonster mo : (AbstractDungeon.getCurrRoom()).monsters.monsters)
+        {
             addToBot(new ApplyPowerAction(mo, p, new StrengthPower(mo, -this.magicNumber), -this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
-        for (AbstractMonster mo : (AbstractDungeon.getCurrRoom()).monsters.monsters) {
             if (!mo.hasPower("Artifact"))
+            {
                 addToBot(new ApplyPowerAction(mo, p, new GainStrengthPower(mo, this.magicNumber), this.magicNumber, true, AbstractGameAction.AttackEffect.NONE));
+            }
         }
         addToTop(new ChangeRunnerStanceAction("Artifact",misc));
     }

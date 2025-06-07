@@ -59,7 +59,7 @@ public class MetalStance extends RunnerStance {
     public void onPlayCard(AbstractCard card) {
         AbstractCreature p = AbstractDungeon.player;
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player,3));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ThornsPower(p, 2), 1, true, AbstractGameAction.AttackEffect.NONE));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new ThornsPower(p, 1),2 , true, AbstractGameAction.AttackEffect.NONE));
         super.onPlayCard(card);
         updateDescription();
     }

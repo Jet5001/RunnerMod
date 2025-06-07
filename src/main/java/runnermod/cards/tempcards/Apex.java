@@ -29,7 +29,7 @@ public class Apex extends BaseCard {
 //    //Card Stats
 
     private static final int MAG = 30;
-    private static final int MAG_UPG =0;
+    private static final int MAG_UPG =5;
 //
 
     public Apex()

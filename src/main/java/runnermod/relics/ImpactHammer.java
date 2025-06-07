@@ -29,7 +29,7 @@ public class ImpactHammer extends BaseRelic{
 
     @Override
     public void atTurnStart() {
-        addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new VigorPower(AbstractDungeon.player, 2)));
+        addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new VigorPower(AbstractDungeon.player, 3)));
         super.atTurnStart();
     }
 

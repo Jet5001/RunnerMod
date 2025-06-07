@@ -10,9 +10,9 @@ import static runnermod.RunnerMod.makeID;
 public class IcePick extends BaseRelic{
     private static final String NAME = "IcePick";
     public static final String ID = makeID(NAME);
-    public static final RelicTier RARITY = RelicTier.SHOP;
+    public static final RelicTier RARITY = RelicTier.COMMON;
     private static final LandingSound SOUND = LandingSound.CLINK;
-    private static final int BLOCK_BYPASS = 2;
+    private static final int BLOCK_BYPASS = 3;
     public IcePick()
     {
         super(ID,NAME, RunnerCharacter.Enums.CARD_COLOR,RARITY,SOUND);

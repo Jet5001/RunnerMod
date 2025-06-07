@@ -31,8 +31,8 @@ public class DarkMirror extends AbstractMonster {
     private static float hb_y  = -30.0F;
     private static float offsetX = 0f;
     private static float offsetY = 0f;
-    private static int hb_w  = 447;
-    private static int hb_h  = 364;
+    private static int hb_w  = 100;
+    private static int hb_h  = 180;
     private static String imgUrl = imagePath("monsters/DarkMirrorSmol.png");
 
     private static final byte BufferDefence = 1;
@@ -84,7 +84,7 @@ public class DarkMirror extends AbstractMonster {
     private boolean stasised = false;
 
     public DarkMirror() {
-        super("DarkMirror", ID, maxHP, 0, 0, 200, 200, imgUrl,getX(GetMirrorID()),getY(GetMirrorID()));
+        super("DarkMirror", ID, maxHP, hb_x, hb_y, hb_w, hb_h, imgUrl,getX(GetMirrorID()),getY(GetMirrorID()));
         MirrorID = GetMirrorID();
         this.type = EnemyType.NORMAL;
     }

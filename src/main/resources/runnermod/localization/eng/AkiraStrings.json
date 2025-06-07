@@ -1,0 +1,10 @@
+{
+  "${modID}:AkiraBoss": {
+    "DIALOG": [
+      "3",
+      "2",
+      "1",
+      "Still broken are we?"
+    ]
+  }
+}

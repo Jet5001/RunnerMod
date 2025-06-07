@@ -4,7 +4,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.helpers.Hitbox;
 
 public class DisplayEquipment {
-    public Texture texture, inactiveTexture;
+    public Texture texture, inactiveTexture, glitchedTexture;
     public Hitbox hb;
     public String id;
     public String name;
@@ -12,10 +12,11 @@ public class DisplayEquipment {
     public int durability;
     public float x, y;
 
-    public DisplayEquipment(String id, Texture texture, Texture inactiveTexture, Hitbox hb, String name, String description) {
+    public DisplayEquipment(String id, Texture texture, Texture inactiveTexture,Texture glitchedTexture, Hitbox hb, String name, String description) {
         this.id = id;
         this.texture = texture;
         this.inactiveTexture = inactiveTexture;
+        this.glitchedTexture = glitchedTexture;
         this.hb = hb;
         this.name = name;
         this.description = description;

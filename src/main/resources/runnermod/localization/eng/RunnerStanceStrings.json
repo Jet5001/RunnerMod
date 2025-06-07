@@ -49,7 +49,7 @@
   },
   "${modID}:Glitched": {
     "NAME": "Glitched",
-    "DESCRIPTION": "You take double damage from attacks and your attacks deal half damage NL Play less than #b 3 or less cards in a turn to solve"
+    "DESCRIPTION": "You take double damage from attacks and your attacks deal half damage NL Play less than #b 3 or less cards in a turn to exit"
   },
   "${modID}:Akira": {
     "NAME": "Akira",

@@ -32,6 +32,7 @@ public class Decoy extends BaseCard {
         super(ID,info);
         tags.add(RunnerCharacter.Enums.NEON);
         this.exhaust = true;
+        this.isEthereal = true;
     }
 
 

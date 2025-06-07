@@ -2,6 +2,7 @@ package runnermod.cards.common;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -32,7 +33,7 @@ public class DrainingRunAction extends AbstractGameAction {
             if (target.currentHealth < previousHealth)
             {
                 //add to top to execute next
-                addToTop(new ApplyPowerAction(AbstractDungeon.player,AbstractDungeon.player, new VitalityPower(AbstractDungeon.player, previousHealth - target.currentHealth)));
+                addToTop(new GainBlockAction(AbstractDungeon.player, previousHealth - target.currentHealth));
             }
         }
         //mark as completed so it doesn't repeat every frame and can be removed from the buffer

@@ -1,8 +1,13 @@
 package runnermod.cards.common;
 
+import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.DamageHooks;
+import com.evacipated.cardcrawl.mod.stslib.patches.powerInterfaces.OnDrawPileShufflePowerPatch;
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.BetterOnApplyPowerPower;
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnDrawPileShufflePower;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import runnermod.cards.BaseCard;
 import runnermod.character.RunnerCharacter;
@@ -40,13 +45,28 @@ public class Escape extends BaseCard {
     }
 
     @Override
-    public void onPlayCard(AbstractCard c, AbstractMonster m) {
-        super.onPlayCard(c, m);
-        if (costForTurn > 0)
+    public void applyPowers()
+    {
+        int cardsPlayedThisTurn = (int) AbstractDungeon.actionManager.cardsPlayedThisTurn.stream().count();
+        if(cardsPlayedThisTurn >=5)
         {
-            this.costForTurn -=1;
+            costForTurn = 0;
+        }
+        else
+        {
+            costForTurn = this.cost - cardsPlayedThisTurn;
         }
     }
+
+
+//    @Override
+//    public void onPlayCard(AbstractCard c, AbstractMonster m) {
+//        super.onPlayCard(c, m);
+//        if (costForTurn > 0)
+//        {
+//            this.costForTurn -=1;
+//        }
+//    }
 
     //called when the card is played
     @Override

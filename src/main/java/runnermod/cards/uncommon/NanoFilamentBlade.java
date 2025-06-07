@@ -19,7 +19,7 @@ public class NanoFilamentBlade extends BaseCard {
             1
 
     );
-    private static final int DMG = 5;
+    private static final int DMG = 6;
     private static final int DMG_UPG = 5;
     public NanoFilamentBlade()
     {
@@ -29,7 +29,7 @@ public class NanoFilamentBlade extends BaseCard {
 
     @Override
     public void upgrade() {
-        upgradeDamage(4 + this.timesUpgraded);
+        upgradeDamage(DMG_UPG + this.timesUpgraded);
         this.timesUpgraded++;
         this.upgraded = true;
         this.name = cardStrings.NAME + "+" + this.timesUpgraded;

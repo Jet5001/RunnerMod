@@ -19,6 +19,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
@@ -33,10 +34,11 @@ import runnermod.cards.starter.*;
 import runnermod.relics.SpareParts;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static runnermod.RunnerMod.*;
 
-public class RunnerCharacter extends CustomPlayer implements OnCardUseSubscriber, OnPlayerTurnStartSubscriber, PostBattleSubscriber, PrePlayerUpdateSubscriber {
+public class RunnerCharacter extends CustomPlayer implements OnCardUseSubscriber, OnPlayerTurnStartSubscriber, PostBattleSubscriber, PrePlayerUpdateSubscriber{
     //Stats
     public static final int ENERGY_PER_TURN = 3;
     public static final int MAX_HP = 70;
@@ -80,6 +82,7 @@ public class RunnerCharacter extends CustomPlayer implements OnCardUseSubscriber
             }
         }
     }
+
 
     public static class Enums {
         //These are used to identify your character, as well as your character's card color.
@@ -163,6 +166,8 @@ public class RunnerCharacter extends CustomPlayer implements OnCardUseSubscriber
 
 
     }
+
+
 
     @Override
     public ArrayList<String> getStartingDeck() {
@@ -271,6 +276,15 @@ public class RunnerCharacter extends CustomPlayer implements OnCardUseSubscriber
     @Override
     public String getVampireText() {
         return TEXT[2]; //Generally, the only difference in this text is how the vampires refer to the player.
+    }
+
+
+    public List<CutscenePanel> getCutscenePanels() {
+        List<CutscenePanel> panels = new ArrayList<>();
+        panels.add(new CutscenePanel(imagePath("ending/Ending_1.png"),"ATTACK_DAGGER_2"));
+        panels.add(new CutscenePanel(imagePath("ending/Ending_2.png")));
+        panels.add(new CutscenePanel(imagePath("ending/Ending_3.png")));
+        return panels;
     }
 
     /*- You shouldn't need to edit any of the following methods. -*/

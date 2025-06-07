@@ -1,12 +1,9 @@
-package runnermod.cards.common;
+package runnermod.cards.uncommon;
 
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import runnermod.cards.BaseCard;
-import runnermod.cards.tempcards.Bolt;
+import runnermod.cards.common.DigitiseAction;
 import runnermod.character.RunnerCharacter;
 import runnermod.util.CardStats;
 
@@ -15,7 +12,7 @@ public class Digitise extends BaseCard {
     private static final CardStats info = new CardStats(
             RunnerCharacter.Enums.CARD_COLOR,
             CardType.SKILL,
-            CardRarity.COMMON,
+            CardRarity.UNCOMMON,
             CardTarget.NONE,
             0
     );
@@ -29,6 +26,7 @@ public class Digitise extends BaseCard {
         super(ID,info);
         this.setMagic(MAGIC, UPG_MAGIC);
         this.exhaust = true;
+        this.tags.add(RunnerCharacter.Enums.NEON);
     }
 
 

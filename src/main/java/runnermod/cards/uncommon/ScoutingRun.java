@@ -1,4 +1,4 @@
-package runnermod.cards.common;
+package runnermod.cards.uncommon;
 
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -12,7 +12,7 @@ public class ScoutingRun extends BaseCard {
     private static final CardStats info = new CardStats(
             RunnerCharacter.Enums.CARD_COLOR,
             CardType.SKILL,
-            CardRarity.COMMON,
+            CardRarity.UNCOMMON,
             CardTarget.NONE,
             1
     );

@@ -2,6 +2,7 @@ package runnermod.cards.common;
 
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.actions.utility.ScryAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -11,6 +12,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.stances.AbstractStance;
 import runnermod.cards.BaseCard;
+import runnermod.cards.tempcards.Bolt;
+import runnermod.cards.tempcards.Decoy;
 import runnermod.character.RunnerCharacter;
 import runnermod.powers.VitalityPower;
 import runnermod.stances.AKIRAStance;
@@ -43,6 +46,8 @@ public class ArtifactStanceSwitch extends BaseCard {
         this.setMagic(MAGIC, UPG_MAGIC);
         this.misc = MISC;
         this.tags.add(RunnerCharacter.Enums.NEON);
+        AbstractCard previewCard = new Bolt();
+        this.cardsToPreview = previewCard;
     }
 
     //called when the card is upgraded
@@ -64,7 +69,7 @@ public class ArtifactStanceSwitch extends BaseCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         //add gain gold action to the stack
         addToTop(new ChangeRunnerStanceAction("Artifact",misc));
-        addToTop(new ApplyPowerAction(p,p, new VitalityPower(p,magicNumber),1));
+        addToTop(new MakeTempCardInHandAction(new Bolt()));
     }
 
     @Override

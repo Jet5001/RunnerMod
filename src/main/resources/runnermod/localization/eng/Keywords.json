@@ -8,7 +8,7 @@
       "hack",
       "hacked"
     ],
-    "DESCRIPTION": "Whenever a debuff is applied, deal damage equal to the amount of Hacked"
+    "DESCRIPTION": "Whenever a debuff is applied, deal damage equal to the amount of Hacked."
   },
   {
     "ID": "Vitality",
@@ -16,7 +16,7 @@
     "NAMES": [
       "Vitality"
     ],
-    "DESCRIPTION": "Whenever you gain Block gain an additional amount equal to your amount of vitality"
+    "DESCRIPTION": "Whenever you gain Block gain an additional amount equal to your amount of vitality."
   },
   {
     "ID": "Equip",
@@ -32,7 +32,7 @@
     "NAMES": [
       "repair"
     ],
-    "DESCRIPTION": "Increase the durability of all current equipment"
+    "DESCRIPTION": "Increase the durability of all current equipment."
   },
   {
     "ID": "Neon",
@@ -40,7 +40,7 @@
     "NAMES": [
       "neon"
     ],
-    "DESCRIPTION": "This card does not reduce the durability of your equipment"
+    "DESCRIPTION": "This card does not reduce the durability of your equipment."
   },
   {
     "ID": "Overwhelm",
@@ -57,7 +57,7 @@
     "NAMES": [
       "blades"
     ],
-    "DESCRIPTION": "Each time you play a card deal damage equal to 3 times it's cost"
+    "DESCRIPTION": "Each time you play a card deal damage equal to 3 times it's cost."
   },
   {
     "ID": "Shields",
@@ -66,7 +66,7 @@
       "shields",
       "shield"
     ],
-    "DESCRIPTION": "Each time you play a card gain block equal to 3 times it's cost"
+    "DESCRIPTION": "Each time you play a card gain block equal to 3 times it's cost."
   },
   {
     "ID": "Firewall",
@@ -75,7 +75,7 @@
       "firewall",
       "firewallwalls"
     ],
-    "DESCRIPTION": "You cannot gain debuffs and cards don't exhaust on play"
+    "DESCRIPTION": "You cannot gain debuffs and cards don't exhaust on play."
   },
   {
     "ID": "Blaster",
@@ -83,7 +83,7 @@
     "NAMES": [
       "blaster"
     ],
-    "DESCRIPTION": "Whenever you play a card add a bolt to your hand"
+    "DESCRIPTION": "Whenever you play a card add a bolt to your hand."
   },
   {
     "ID": "Overclocker",
@@ -91,7 +91,7 @@
     "NAMES": [
       "overclocker"
     ],
-    "DESCRIPTION": "Each time you play a card, draw a card and discard a card"
+    "DESCRIPTION": "Each time you play a card, draw a card and discard a card."
   },
 
   {
@@ -101,7 +101,7 @@
       "Enter_Accel"
 
     ],
-    "DESCRIPTION": "Combines with current equipment to form Accel NL Each time you play a card, gain 1 Strength"
+    "DESCRIPTION": "Combines with current equipment to form Accel. NL Each time you play a card, gain 1 Strength until this equipment breaks."
   },
   {
     "PROPER_NAME": "Combo Metal",
@@ -109,7 +109,7 @@
       "Enter Metal",
       "Enter_Metal"
     ],
-    "DESCRIPTION": "Combines with current equipment to form Metal NL Each time you play a card, gain 3 block and 2 thorns"
+    "DESCRIPTION": "Combines with current equipment to form Metal. NL Each time you play a card, gain 3 block and 1 thorns."
   },
   {
     "PROPER_NAME": "Combo Tinker",
@@ -118,7 +118,7 @@
       "Enter_Tinker"
 
     ],
-    "DESCRIPTION": "Combines with current equipment to form Metal NL Each time you play a card, upgrade a card in your hand"
+    "DESCRIPTION": "Combines with current equipment to form Tinker. NL Each time you play a card, upgrade a card in your hand."
   },
   {
     "PROPER_NAME": "Combo Blaster",
@@ -127,7 +127,7 @@
       "Enter_Blaster"
 
     ],
-    "DESCRIPTION": "Combines with current equipment to form Metal NL Each time you play a card, add a bolt to your hand"
+    "DESCRIPTION": "Combines with current equipment to form Blaster. NL Each time you play a card, add a bolt to your hand."
   },
   {
     "PROPER_NAME": "Combo Berserker",
@@ -135,7 +135,7 @@
       "Enter Berserker",
       "Enter_Berserker"
     ],
-    "DESCRIPTION": "Combines with current equipment to form Berserker NL Each time you play a card, deal 1 damage for each card played in this stance"
+    "DESCRIPTION": "Combines with current equipment to form Berserker. NL Each time you play a card, deal 1 damage for each card played in this stance."
   },
   {
     "PROPER_NAME": "Combo Hack",
@@ -144,7 +144,7 @@
       "Enter_Hack"
 
     ],
-    "DESCRIPTION": "Combines with current equipment to form Hack NL Each time you play a card, Apply 1 hack to a random enemy"
+    "DESCRIPTION": "Combines with current equipment to form Hack. NL Each time you play a card, Apply 1 hack to a random enemy."
   },
 
   {

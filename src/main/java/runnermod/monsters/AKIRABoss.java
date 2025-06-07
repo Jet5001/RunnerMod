@@ -1,45 +1,44 @@
 package runnermod.monsters;
 
+import basemod.BaseMod;
+import basemod.interfaces.OnCardUseSubscriber;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.ShoutAction;
+import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.unique.RemoveDebuffsAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.ImageMaster;
-import com.megacrit.cardcrawl.localization.MonsterStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.vfx.combat.ShockWaveEffect;
 import runnermod.RunnerMod;
 import runnermod.cards.tempcards.Virus;
 import runnermod.stances.ChangeRunnerStanceAction;
+import runnermod.stances.GlitchedStance;
+import runnermod.util.AkiraStrings;
+import runnermod.util.LocalizedAkiraStrings;
 
+import java.awt.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static runnermod.RunnerMod.characterPath;
-import static runnermod.RunnerMod.imagePath;
+import static runnermod.RunnerMod.*;
 
-public class AKIRABoss extends AbstractMonster {
+public class AKIRABoss extends AbstractMonster implements OnCardUseSubscriber {
 
     public static final String ID = RunnerMod.makeID("AKIRABoss");
-    private static final MonsterStrings monsterStrings = CardCrawlGame.languagePack.getMonsterStrings(ID);
-    public static final String NAME = monsterStrings.NAME;
-    public static final String[] MOVES = monsterStrings.MOVES;
+    private static final AkiraStrings monsterStrings = LocalizedAkiraStrings.getAkiraStrings(makeID("AkiraBoss"));
     public static final String[] DIALOG = monsterStrings.DIALOG;
 
     private static int maxHP = 398;
-    private static float hb_x  = -10.0F;
-    private static float hb_y  = -30.0F;
-    private static float offsetX = 0f;
-    private static float offsetY = 0f;
-    private static int hb_w  = 447;
-    private static int hb_h  = 364;
-    private static String imgUrl = imagePath("monsters/CharDefault.png");
+
+    private static String imgUrl = imagePath("monsters/Akira_Boss.png");
 
     private static final byte ForceStance = 0;
     private static final byte BufferDefence = 1;
@@ -60,12 +59,21 @@ public class AKIRABoss extends AbstractMonster {
 
     int mirrorsSpawned = 0;
 
+
+    private static float hb_x  = -10.0F;
+    private static float hb_y  = -30.0F;
+    private static float offsetX = 0f;
+    private static float offsetY = 0f;
+    private static int hb_w  = 316;
+    private static int hb_h  = 450;
+
     public AKIRABoss() {
         super("Akira", ID, maxHP, hb_x, hb_y, hb_w, hb_h, imgUrl,offsetX,offsetY);
         this.damage.add(new DamageInfo(this, this.MultiAttackDamage, DamageInfo.DamageType.NORMAL));
         this.damage.add(new DamageInfo(this, this.ChunkDamage, DamageInfo.DamageType.NORMAL));
         this.damage.add(new DamageInfo(this, this.MultiAttackDamageWeaker, DamageInfo.DamageType.NORMAL));
         this.type = AbstractMonster.EnemyType.BOSS;
+        BaseMod.subscribe(this);
     }
 
     public void usePreBattleAction() {
@@ -116,11 +124,7 @@ public class AKIRABoss extends AbstractMonster {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this,this, new StrengthPower(this,2)));
                 if(usedHeal)
                 {
-                    List<DarkMirror> mirrors = (List<DarkMirror>) AbstractDungeon.getMonsters().monsters.stream().map(m -> m instanceof DarkMirror ? (DarkMirror)m:null).filter(m -> m!=null && !m.isDeadOrEscaped()).collect(Collectors.toList());
-                    if(mirrors.size() <=4)
-                    {
-                        AbstractDungeon.actionManager.addToBottom((AbstractGameAction)new SpawnMonsterAction(new DarkMirror(), true));
-                    }
+                    SpawnDarkMirror();
                 }
                 break;
             case 4:
@@ -139,14 +143,18 @@ public class AKIRABoss extends AbstractMonster {
                 {
                     AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this,this, new StrengthPower(this,strAmount)));
                 }
-                List<DarkMirror> mirrors = (List<DarkMirror>) AbstractDungeon.getMonsters().monsters.stream().map(m -> m instanceof DarkMirror ? (DarkMirror)m:null).filter(m -> m!=null && !m.isDeadOrEscaped()).collect(Collectors.toList());
-                if(mirrors.size() <=4)
-                {
-                    AbstractDungeon.actionManager.addToBottom((AbstractGameAction)new SpawnMonsterAction(new DarkMirror(), true));
-                }
+                SpawnDarkMirror();
         }
         AbstractDungeon.actionManager.addToBottom(new RollMoveAction(this));
         turnCount++;
+    }
+
+    private void SpawnDarkMirror() {
+        List<DarkMirror> mirrors = AbstractDungeon.getMonsters().monsters.stream().map(m -> m instanceof DarkMirror ? (DarkMirror)m:null).filter(m -> m!=null && !m.isDeadOrEscaped()).collect(Collectors.toList());
+        if(mirrors.size() <=4)
+        {
+            AbstractDungeon.actionManager.addToBottom(new SpawnMonsterAction(new DarkMirror(), true));
+        }
     }
 
 
@@ -199,4 +207,25 @@ public class AKIRABoss extends AbstractMonster {
         getMove(AbstractDungeon.aiRng.random(99));
     }
 
+    @Override
+    public void die() {
+        super.die();
+        BaseMod.unsubscribe(this);
+    }
+
+    @Override
+    public void receiveCardUsed(AbstractCard abstractCard) {
+        if(AbstractDungeon.player.stance instanceof GlitchedStance)
+        {
+            int cardsPlayedThisTurn = AbstractDungeon.actionManager.cardsPlayedThisTurn.size();
+            if(cardsPlayedThisTurn <=2)
+            {
+                AbstractDungeon.actionManager.addToBottom(new ShoutAction(this, DIALOG[cardsPlayedThisTurn]+"...", 1.7F, 1.7F));
+            }
+            if(cardsPlayedThisTurn ==3)
+            {
+                AbstractDungeon.actionManager.addToBottom(new ShoutAction(this, DIALOG[cardsPlayedThisTurn], 1.7F, 1.7F));
+            }
+        }
+    }
 }

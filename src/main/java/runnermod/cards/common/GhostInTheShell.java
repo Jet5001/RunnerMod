@@ -1,11 +1,10 @@
-package runnermod.cards.uncommon;
+package runnermod.cards.common;
 
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import runnermod.cards.BaseCard;
-import runnermod.cards.rare.LostInTheCrowdAction;
 import runnermod.cards.tempcards.Decoy;
 import runnermod.character.RunnerCharacter;
 import runnermod.util.CardStats;
@@ -15,7 +14,7 @@ public class GhostInTheShell extends BaseCard {
     private static final CardStats info = new CardStats(
             RunnerCharacter.Enums.CARD_COLOR,
             CardType.SKILL,
-            CardRarity.UNCOMMON,
+            CardRarity.COMMON,
             CardTarget.NONE,
             1
 
@@ -24,7 +23,7 @@ public class GhostInTheShell extends BaseCard {
     private static int MAG = 2;
     private static int MAG_UPG = 1;
 
-    private static int BLOCK = 5;
+    private static int BLOCK = 6;
     public GhostInTheShell() {
         super(ID, info);
         setMagic(MAG,MAG);

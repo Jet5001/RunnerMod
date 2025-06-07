@@ -1,8 +1,10 @@
 package runnermod.relics;
 
 import basemod.interfaces.PrePlayerUpdateSubscriber;
+import com.evacipated.cardcrawl.mod.stslib.relics.OnAfterUseCardRelic;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -12,7 +14,7 @@ import runnermod.character.RunnerCharacter;
 
 import static runnermod.RunnerMod.makeID;
 
-public class BackPocket extends BaseRelic implements PrePlayerUpdateSubscriber {
+public class BackPocket extends BaseRelic implements OnAfterUseCardRelic {
     private static final String NAME = "BackPocket";
     public static final String ID = makeID(NAME);
     public static final RelicTier RARITY = RelicTier.SHOP;
@@ -34,9 +36,14 @@ public class BackPocket extends BaseRelic implements PrePlayerUpdateSubscriber {
         super.atTurnStart();
     }
 
+    @Override
+    public void atBattleStart() {
+        super.atBattleStart();
+        usedThisTurn =true;
+    }
 
     @Override
-    public void receivePrePlayerUpdate() {
+    public void onAfterUseCard(AbstractCard abstractCard, UseCardAction useCardAction) {
         if(!usedThisTurn && EnergyPanel.getCurrentEnergy() == 0)
         {
             flash();

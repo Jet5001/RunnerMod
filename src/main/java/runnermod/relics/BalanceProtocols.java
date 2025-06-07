@@ -2,6 +2,7 @@ package runnermod.relics;
 
 import com.evacipated.cardcrawl.mod.stslib.relics.OnApplyPowerRelic;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.blue.Defend_Blue;
 import com.megacrit.cardcrawl.cards.red.Strike_Red;
@@ -42,7 +43,7 @@ public class BalanceProtocols extends BaseRelic implements OnApplyPowerRelic {
         if (abstractPower instanceof VigorPower)
         {
             usedThisTurn = true;
-            addToBot(new ApplyPowerAction(AbstractDungeon.player,AbstractDungeon.player,new VitalityPower(AbstractDungeon.player,abstractPower.amount)));
+            addToBot(new GainBlockAction(AbstractDungeon.player,abstractPower.amount));
         }
         return true;
     }

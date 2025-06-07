@@ -154,6 +154,8 @@ public class RunnerMod implements
         BaseMod.loadCustomStringsFile(UIStrings.class,
                 localizationPath(lang, "UIStrings.json"));
         LocalizedRunnerStanceStrings.loadRunnerStanceStringsFile(localizationPath(lang,"RunnerStanceStrings.json"));
+        LocalizedRunnerTutorialStrings.loadRunnerTutorialStringsFile(localizationPath(lang,"TutorialStrings.json"));
+        LocalizedAkiraStrings.loadAkiraStringsFile(localizationPath(lang,"AkiraStrings.json"));
     }
 
     @Override
@@ -290,13 +292,6 @@ public class RunnerMod implements
 
     @Override
     public void receivePrePlayerUpdate() {
-        for (AbstractRelic r : AbstractDungeon.player.relics) {
-            {
-                if (r instanceof BackPocket)
-                {
-                    ((BackPocket) r).receivePrePlayerUpdate();
-                }
-            }
-        }
+
     }
 }

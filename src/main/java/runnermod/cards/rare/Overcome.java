@@ -25,7 +25,7 @@ public class Overcome extends BaseCard {
     private static final int DAMAGE = 6;
     private static final int UPG_DAMAGE = 4;
     private static final int MAGIC = 2;
-    private static final int UPG_MAGIC = 0;
+    private static final int UPG_MAGIC = 1;
     public Overcome()
     {
         super(ID,info);
@@ -35,11 +35,6 @@ public class Overcome extends BaseCard {
         this.exhaust = true;
     }
 
-    @Override
-    public void upgrade() {
-        super.upgrade();
-        misc += 2;
-    }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
