@@ -54,7 +54,7 @@ public abstract class RunnerStance extends AbstractStance {
     }
 
     public void onPlayCard(AbstractCard card) {
-        if(card.hasTag(RunnerCharacter.Enums.NEON))
+        if(card.hasTag(RunnerCharacter.Enums.NEON) || card.name.equals("AKIRA"))
         {
             return;
         }
