@@ -16,8 +16,8 @@ import java.util.*;
 
 public class RandomDebuffAction extends AbstractGameAction {
 
-    List<String> EnemyDebuffs = new ArrayList<String>(Arrays.asList("Hack", "Shackled", "Mark", "Poison", "Vulnerable", "Weak", "Block Return", "Choked", "Constricted", "Corpse Explosion","Flourish"));
-    List<String> PlayerDebuffs = new ArrayList<String>(Arrays.asList("Frail","Shackled", "Mark", "Poison", "Vulnerable", "Weak", "Block Return", "Choked", "Constricted", "Corpse Explosion"));
+    List<String> EnemyDebuffs = new ArrayList<String>(Arrays.asList("Hack", "Mark", "Poison", "Vulnerable", "Weak", "Block Return", "Choked", "Constricted", "Corpse Explosion","Flourish"));
+    List<String> PlayerDebuffs = new ArrayList<String>(Arrays.asList("Frail", "Mark", "Poison", "Vulnerable", "Weak", "Block Return", "Choked", "Constricted", "Corpse Explosion"));
     Random rng = new Random();
     AbstractCreature owner;
     public RandomDebuffAction(AbstractCreature owner, AbstractCreature target)
